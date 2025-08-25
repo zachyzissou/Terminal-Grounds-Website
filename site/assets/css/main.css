@@ -623,6 +623,22 @@ body {
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     padding: 4rem 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dark overlay to ensure text is readable if a background image is present */
+.hero-story::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55));
+    pointer-events: none;
+}
+
+.hero-story .container {
+    position: relative;
+    z-index: 1;
 }
 
 .story-header h1 {
@@ -630,22 +646,24 @@ body {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 
 .story-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.65);
 }
 
 .timeline-marker {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    background: var(--bg-secondary);
+    background: rgba(0,0,0,0.6);
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 .timeline-marker .year {
@@ -701,6 +719,7 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.85);
 }
 
 .cascade-center {
