@@ -1,0 +1,5 @@
+# robots.txt for Bloom Website
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml
