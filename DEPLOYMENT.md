@@ -15,7 +15,7 @@ The container automatically:
 ### Quick Setup
 1. Add the template URL to your Unraid Community Applications:
    ```
-   https://raw.githubusercontent.com/zachgentner/Terminal-Grounds-Website/main/unraid-template.xml
+   https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml
    ```
 
 2. Install "Terminal-Grounds-Website" from your apps

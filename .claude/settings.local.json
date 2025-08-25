@@ -7,7 +7,8 @@
       "Bash(node:*)",
       "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

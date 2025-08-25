@@ -1,20 +1,34 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>BloomWebsite</Name>
-  <Repository>ghcr.io/zachyzissou/terminal-grounds-website:latest</Repository>
-  <Registry>https://github.com/zachyzissou/Terminal-Grounds-Website/pkgs/container/terminal-grounds-website</Registry>
+  <Name>Terminal-Grounds-Website</Name>
+  <Repository>terminal-grounds-website:latest</Repository>
+  <Registry>https://github.com/zachyzissou/Terminal-Grounds-Website</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://github.com/zachyzissou/Terminal-Grounds-Website/issues</Support>
   <Project>https://github.com/zachyzissou/Terminal-Grounds-Website</Project>
-  <Overview>Official website for Bloom tactical extraction FPS. Features development progress, concept art gallery showcasing 92% AI generation success rate, comprehensive lore and world-building, and detailed technical milestones.</Overview>
+  <Overview>
+    Terminal Grounds Website - Auto-updating static site with GitHub integration.
+    
+    This container automatically pulls the latest website changes from GitHub on startup,
+    runs the asset pipeline to sync game assets, and serves the site with nginx.
+    
+    Features:
+    • Automatic GitHub repository pulling on container restart
+    • Asset pipeline integration with Terminal-Grounds repository  
+    • WebGL atmospheric effects and interactive galleries
+    • Health check monitoring
+    • Production-ready nginx configuration
+    
+    To update the website: simply restart/recreate the container and it will pull the latest changes automatically.
+  </Overview>
   <Category>Tools:</Category>
   <WebUI>http://[IP]:[PORT:2161]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/site/assets/images/logo.png</Icon>
-  <ExtraParams/>
+  <ExtraParams>--health-cmd="wget -qO- http://127.0.0.1/health || exit 1" --health-interval=30s --health-timeout=5s --health-retries=3</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1756100428</DateInstalled>
@@ -22,7 +36,7 @@
   <DonateLink/>
   <DonateImg/>
   <MinVer>6.11.5</MinVer>
-  <Description>Official website for Bloom - a tactical extraction FPS set in a quarantined city-zone reshaped by alien Monolith phenomena. Perfect for showcasing game development progress and engaging with your community!</Description>
+  <Description>Terminal Grounds Website with automated GitHub deployment. Container pulls latest code changes on restart, syncs game assets automatically, and serves the enhanced website with WebGL effects and interactive galleries.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
