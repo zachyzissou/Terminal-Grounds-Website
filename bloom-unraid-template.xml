@@ -1,39 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-  <TemplateURL>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>HomeAutomation: Tools:</Category>
+<?xml version="1.0"?>
+<Container version="2">
   <Name>Bloom-Website</Name>
-  <Description>
-    Official website for Bloom - a tactical extraction FPS set in a quarantined city-zone reshaped by alien "Monolith" phenomena. Features development progress, concept art gallery, lore & world-building, and technical milestones. Built with modern responsive design and optimized for performance.
-    
-    Key Features:
-    - Responsive design for all devices
-    - Progress tracking with real development metrics  
-    - Concept art showcase of AI-generated assets
-    - Rich lore and world-building content
-    - Technical milestone documentation
-    - Nginx-based with security headers and caching
-    - Health check monitoring included
-    
-    Default port 2161 matches the game's timeline year (2161 post-Cascade).
-  </Description>
-  <Overview>
-    Static website showcasing Bloom tactical extraction FPS with development progress, concept art, lore, and technical achievements. Features breakthrough AI asset generation (92% success rate) and production-ready territorial control systems.
-  </Overview>
-  <Support>https://github.com/zachyzissou/Terminal-Grounds-Website/issues</Support>
-  <Registry>https://hub.docker.com/</Registry>
-  <GitHub>https://github.com/zachyzissou/Terminal-Grounds-Website</GitHub>
-  <Repository>terminal-grounds-website:latest</Repository>
-  <BindTime>true</BindTime>
+  <Repository>zachyzissou/terminal-grounds-website:latest</Repository>
+  <Registry>https://hub.docker.com/r/zachyzissou/terminal-grounds-website</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Environment>
-    <Variable>
-      <Name>TZ</Name>
-      <Value>America/New_York</Value>
-      <Mode/>
-    </Variable>
-  </Environment>
+  <Support>https://github.com/zachyzissou/Terminal-Grounds-Website/issues</Support>
+  <Project>https://github.com/zachyzissou/Terminal-Grounds-Website</Project>
+  <Overview>Official website for Bloom tactical extraction FPS. Features development progress, concept art gallery showcasing 92% AI generation success rate, comprehensive lore and world-building, and detailed technical milestones. Production-ready with Nginx optimization, security headers, and health monitoring.</Overview>
+  <Category>Tools: Productivity: Other:</Category>
+  <WebUI>http://[IP]:[PORT:2161]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/A75G/docker-templates/master/templates/icons/default.png</Icon>
+  <ExtraParams>--health-cmd="wget --no-verbose --tries=1 --spider --timeout=3 http://127.0.0.1/health || exit 1" --health-interval=30s --health-timeout=5s --health-start-period=30s --health-retries=3</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1724614800</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <DonateImg/>
+  <MinVer>6.11.5</MinVer>
+  <Description>Official website for Bloom - a tactical extraction FPS set in a quarantined city-zone reshaped by alien "Monolith" phenomena. 
+
+🎯 Features:
+• Homepage with accurate faction data and game branding
+• Story & Lore page with complete world-building (2161 post-Cascade)  
+• Progress tracking with real development metrics
+• Concept art gallery showcasing 92% AI generation breakthrough
+• Technical milestones with detailed engineering achievements
+• Custom 404 page with Terminal Grounds theming
+
+🚀 Technical:
+• Modern responsive design for all devices
+• Nginx-based with security headers and performance optimization
+• Built-in health check monitoring at /health endpoint
+• Port 2161 matches the game's timeline year (thematically appropriate)
+• Production-ready Docker setup with proper caching and compression
+
+Perfect for showcasing game development progress and engaging with your community!</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -45,43 +51,49 @@
     </Publish>
   </Networking>
   <Data>
-    <!-- Optional: Mount site directory for live editing -->
-    <!--
     <Volume>
-      <HostDir>/mnt/user/appdata/bloom-website/site</HostDir>
-      <ContainerDir>/usr/share/nginx/html</ContainerDir>
-      <Mode>ro</Mode>
+      <HostDir>/mnt/user/appdata/bloom-website</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
     </Volume>
-    -->
   </Data>
-  <WebUI>http://[IP]:[PORT:2161]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/site/assets/images/bloom-icon.png</Icon>
-  <ExtraParams>--restart=unless-stopped --health-cmd="wget -qO- http://127.0.0.1/health || exit 1" --health-interval=30s --health-timeout=3s --health-retries=3</ExtraParams>
-  <PostArgs/>
-  <CPUset/>
-  <DateInstalled/>
-  <DonateText/>
-  <DonateLink/>
-  <DonateImg/>
-  <MinVer/>
-  <Project>https://github.com/zachyzissou/Terminal-Grounds-Website</Project>
+  <Environment>
+    <Variable>
+      <Value>America/New_York</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="WebUI Port" Target="80" Default="2161" Mode="tcp" Description="Port for accessing the Bloom website. Default 2161 matches the game's timeline year (2161 post-Cascade era)." Type="Port" Display="always" Required="true" Mask="false">2161</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="Timezone for container logs and timestamps" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID for file permissions (99 = nobody)" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID for file permissions (100 = users)" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Config Storage" Target="/config" Default="/mnt/user/appdata/bloom-website" Mode="rw" Description="Container configuration and data storage location" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/bloom-website</Config>
   <Changes>
-    <![CDATA[
-    2025-08-25: Initial release
-    - Complete website with homepage, story, progress, concept art, and milestones pages
-    - Responsive design with cyberpunk-inspired aesthetics
-    - Real development metrics and achievements
-    - 92% AI asset generation success rate showcase
-    - Production-ready territorial control system documentation
-    - Nginx optimization with security headers and caching
-    - Health check monitoring included
-    - Uses thematic port 2161 (matching game timeline)
-    ]]>
+[center][font size=4]Bloom Website[/font][/center]
+
+[b]2025.08.25:[/b]
+• Initial release - Complete website deployment
+• Homepage with accurate Bloom branding and 7 real factions
+• Story & Lore page with comprehensive post-Cascade world-building
+• Progress page showcasing real development metrics (92% AI success, 0.04ms DB performance)
+• Concept Art gallery highlighting breakthrough AI asset generation
+• Technical Milestones page with detailed engineering achievements  
+• Custom 404 error page with Terminal Grounds theming
+• Production-ready Docker setup with Nginx optimization
+• Health monitoring, security headers, and performance caching
+• Responsive design working perfectly on all devices
+• Uses thematic port 2161 matching game timeline (2161 post-Cascade)
   </Changes>
-  <Branch>
-    <Tag>latest</Tag>
-    <TagDescription>Latest stable release</TagDescription>
-  </Branch>
-  <Config Name="Web UI Port" Target="80" Default="2161" Mode="tcp" Description="Web interface port (2161 matches Bloom's timeline year 2161)" Type="Port" Display="always" Required="true" Mask="false">2161</Config>
-  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="Timezone for log timestamps" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
-</Containers>
+</Container>
