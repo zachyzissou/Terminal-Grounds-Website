@@ -7,10 +7,12 @@ on:
       - 'README.md'
       - 'DEPLOYMENT_GUIDE.md'
       - 'DOCKER_BUILD.md'
+      - 'DEPLOYMENT.md'
   pull_request:
     branches: [ main ]
   release:
     types: [published]
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
