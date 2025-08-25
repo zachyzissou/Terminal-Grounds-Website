@@ -7,7 +7,8 @@ A standalone static website showcasing the Bloom tactical extraction game, set i
 - **Modern Design**: Cyberpunk-inspired aesthetic matching the game's visual identity
 - **Responsive**: Mobile-first design that works on all devices
 - **Fast Loading**: Optimized static assets with proper caching
-- **Docker Ready**: Complete containerization for easy deployment on Unraid/Docker
+- **Docker Ready**: Complete containerization for easy deployment on Unraid/Docker  
+- **Automated Deployment**: GitHub Actions CI/CD pipeline for Docker Hub publishing
 - **SEO Optimized**: Proper meta tags and semantic HTML structure
 
 ## Project Structure
@@ -54,17 +55,25 @@ docker-compose up -d
 # Access at http://localhost:8098
 ```
 
-### Unraid Deployment
+### Unraid Deployment (Automated)
 
-1. Copy this entire project to your Unraid server
-2. Set environment variables:
-   ```bash
-   HOST_PORT=8098
-   DOMAIN=bloom.yourserver.com
-   TZ=America/New_York
-   ```
-3. Run: `docker-compose up -d`
-4. Configure reverse proxy to point to port 8098
+**Using Community Applications Template:**
+1. **Add Template**: Use template URL: `https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml`
+2. **Install**: Search for "Bloom Website" in Community Applications
+3. **Configure**: 
+   - Port: 2161 (default, thematically matches game year 2161)
+   - Timezone: Set to your timezone
+   - Config Path: `/mnt/user/appdata/bloom-website`
+4. **Access**: Visit `http://YOUR_UNRAID_IP:2161`
+
+**Manual Docker Setup:**
+```bash
+docker run -d \
+  --name bloom-website \
+  -p 2161:80 \
+  -v /mnt/user/appdata/bloom-website:/config \
+  zachyzissou/terminal-grounds-website:latest
+```
 
 ## Content Updates
 
@@ -78,11 +87,30 @@ docker-compose up -d
 2. Edit `site/data/progress.json`
 3. Rebuild container (or use volume mount for live updates)
 
+## Automated Deployment
+
+This repository uses GitHub Actions to automatically build and deploy Docker images:
+
+### Triggers
+- **Push to main**: Automatically builds and pushes `latest` tag
+- **Pull requests**: Builds image for testing (doesn't push)
+- **Releases**: Creates versioned tags (e.g., `v1.0.0`, `1.0`, `1`)
+
+### Docker Hub
+Images are published to: `zachyzissou/terminal-grounds-website`
+- `latest`: Latest main branch build
+- Version tags: Released versions (e.g., `v1.0.0`)
+
+### Setup Requirements
+To enable automated deployment, configure these GitHub secrets:
+- `DOCKER_USERNAME`: Your Docker Hub username
+- `DOCKER_PASSWORD`: Your Docker Hub access token
+
 ## Environment Variables
 
-- `HOST_PORT`: Host port for the container (default: 8098)
-- `DOMAIN`: Domain name for reverse proxy
-- `TZ`: Timezone (default: UTC)
+- `HOST_PORT`: Host port for the container (default: 2161)
+- `DOMAIN`: Domain name for reverse proxy  
+- `TZ`: Timezone (default: America/New_York)
 
 ## Security Features
 

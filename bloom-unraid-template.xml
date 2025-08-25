@@ -10,14 +10,14 @@
   <Support>https://github.com/zachyzissou/Terminal-Grounds-Website/issues</Support>
   <Project>https://github.com/zachyzissou/Terminal-Grounds-Website</Project>
   <Overview>Official website for Bloom tactical extraction FPS. Features development progress, concept art gallery showcasing 92% AI generation success rate, comprehensive lore and world-building, and detailed technical milestones. Production-ready with Nginx optimization, security headers, and health monitoring.</Overview>
-  <Category>Tools: Productivity: Other:</Category>
-  <WebUI>http://[IP]:[PORT:2161]</WebUI>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:2161]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/A75G/docker-templates/master/templates/icons/default.png</Icon>
-  <ExtraParams>--health-cmd="wget --no-verbose --tries=1 --spider --timeout=3 http://127.0.0.1/health || exit 1" --health-interval=30s --health-timeout=5s --health-start-period=30s --health-retries=3</ExtraParams>
+  <Icon>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/site/assets/images/logo.png</Icon>
+  <ExtraParams>--health-cmd="wget --no-verbose --tries=1 --spider --timeout=3 http://127.0.0.1:80/health || exit 1" --health-interval=30s --health-timeout=5s --health-start-period=30s --health-retries=3</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1724614800</DateInstalled>
+  <DateInstalled>1756100428</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <DonateImg/>
