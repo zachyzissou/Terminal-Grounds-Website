@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  terminal-grounds-website:
+    container_name: terminal-grounds-website
+    build: .
+    image: terminal-grounds-website:latest
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-2161}:80"  # Default port 2161 (matching Bloom's timeline year)
+    environment:
+      - TZ=${TZ:-UTC}
+    # Uncomment for live editing without rebuilds (development)
+    # volumes:
+    #   - ./site:/usr/share/nginx/html:ro
+    labels:
+      # Traefik labels (adjust for your reverse proxy)
+      - "traefik.enable=true"
+      - "traefik.http.routers.tg-website.entrypoints=websecure"
+      - "traefik.http.routers.tg-website.rule=Host(`${DOMAIN:-terminal-grounds.local}`)"
+      - "traefik.http.routers.tg-website.tls.certresolver=letsencrypt"
+      - "traefik.http.services.tg-website.loadbalancer.server.port=80"
+      # Optional: Basic auth for development
+      # - "traefik.http.middlewares.tg-auth.basicauth.users=admin:$$2y$$10$$..."

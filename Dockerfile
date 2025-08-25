@@ -1,0 +1,21 @@
+# Terminal Grounds Website - Static Site with Nginx
+FROM nginx:1.27-alpine
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy website content
+COPY site/ /usr/share/nginx/html/
+
+# Create health check endpoint
+RUN echo '<!DOCTYPE html><html><head><title>Health Check</title></head><body>OK</body></html>' > /usr/share/nginx/html/health
+
+# Expose port 80
+EXPOSE 80
+
+# Health check for container orchestration
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+  CMD wget -qO- http://127.0.0.1/health || exit 1
+
+# Use nginx's default entrypoint
+CMD ["nginx", "-g", "daemon off;"]

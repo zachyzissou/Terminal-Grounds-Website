@@ -1,0 +1,36 @@
+# Development files
+.DS_Store
+Thumbs.db
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker build context
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.backup
+*.bak
+
+# Node modules (if added later)
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# OS generated files
+ehthumbs.db
+Desktop.ini
