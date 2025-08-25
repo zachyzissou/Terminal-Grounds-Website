@@ -52,7 +52,7 @@ npx serve site
 # Build and run
 docker-compose up -d
 
-# Access at http://localhost:8098
+# Access at http://localhost:2161
 ```
 
 ### Unraid Deployment (Automated)

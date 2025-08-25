@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Details - Bloom</title>
+    <meta name="description" content="Technical overview of the Bloom website and systems: stack, deployment, performance, and security.">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .tech-page { padding-top: 70px; }
+        .tech-section { padding: 3rem 0; border-bottom: 1px solid var(--border-color); }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+        .tech-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; }
+        .tech-card h3 { font-family: var(--font-heading); color: var(--primary-color); margin-bottom: .5rem; }
+        .kv { display: flex; justify-content: space-between; border-top: 1px dashed var(--border-color); padding-top: .5rem; margin-top: .5rem; color: var(--text-secondary); }
+        .endpoint { font-family: monospace; background: var(--bg-tertiary); padding: .25rem .5rem; border-radius: 6px; }
+        .code-inline { font-family: monospace; background: var(--bg-tertiary); padding: .1rem .35rem; border-radius: 4px; }
+        .mt-1 { margin-top: 1rem; }
+    </style>
+    </head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Bloom</h1>
+                <span class="tagline">A quarantined city reborn</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/story.html" class="nav-link">Story</a></li>
+                <li><a href="/progress.html" class="nav-link">Progress</a></li>
+                <li><a href="/concept-art.html" class="nav-link">Concept Art</a></li>
+                <li><a href="/milestones.html" class="nav-link">Milestones</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="tech-page">
+        <section class="tech-section">
+            <div class="container">
+                <h1 class="section-title">Technical Details</h1>
+                <p class="hero-description">This site is a static build served by Nginx in Docker. CI publishes images to GitHub Container Registry. Use the health endpoint for monitoring.</p>
+
+                <div class="tech-grid mt-1">
+                    <div class="tech-card">
+                        <h3>Stack</h3>
+                        <div class="kv"><span>Frontend</span><span>HTML5, CSS3, JS (ES6)</span></div>
+                        <div class="kv"><span>Server</span><span>Nginx (Alpine)</span></div>
+                        <div class="kv"><span>Container</span><span>Docker + Compose</span></div>
+                        <div class="kv"><span>Registry</span><span>GHCR</span></div>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Endpoints</h3>
+                        <p>Health: <span class="endpoint">GET /health</span> → <span class="code-inline">200 OK</span></p>
+                        <p>Assets cached 1y, HTML no-cache.</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Run Locally</h3>
+                        <p>Python: <span class="code-inline">cd site && python -m http.server 8000</span></p>
+                        <p>Docker: <span class="code-inline">docker compose up -d</span> → http://localhost:2161</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Security</h3>
+                        <p>Security headers, optional HSTS behind TLS, hidden files denied.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Bloom</h3>
+                    <p>Scavenge. Extract. Breathe before the next bloom.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Game</h4>
+                        <ul>
+                            <li><a href="/story.html">Story & Lore</a></li>
+                            <li><a href="/concept-art.html">Concept Art</a></li>
+                            <li><a href="/milestones.html">Milestones</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Development</h4>
+                        <ul>
+                            <li><a href="/progress.html">Progress Updates</a></li>
+                            <li><a href="/technical.html">Technical Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Bloom. All rights reserved.</p>
+                <p class="footer-tech">Powered by cutting-edge AI asset generation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
