@@ -162,3 +162,5 @@ This website is part of the Bloom game project. All rights reserved.
 ---
 
 **Bloom** - Tactical extraction redefined.
+
+<!-- Docker build test -->
