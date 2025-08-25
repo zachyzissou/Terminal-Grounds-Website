@@ -1,4 +1,6 @@
 # Terminal Grounds Website - Auto-updating Static Site with Nginx
+# This Dockerfile is for runtime auto-updating containers (local development/Unraid)
+# For GitHub Actions CI/CD, use Dockerfile.build instead
 FROM nginx:1.27-alpine
 
 # Install git and nodejs for automated updates and asset pipeline
