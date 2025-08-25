@@ -10,10 +10,15 @@ services:
       - "${HOST_PORT:-2161}:80"  # Default port 2161 (matching Bloom's timeline year)
     environment:
       - TZ=${TZ:-UTC}
-    # Uncomment for live editing without rebuilds (development)
-    # volumes:
-    #   - ./site:/usr/share/nginx/html:ro
+      - NGINX_WORKER_PROCESSES=auto
+      - NGINX_WORKER_CONNECTIONS=1024
+    volumes:
+      # Optional: Mount for persistent logs
+      - ./logs:/var/log/nginx
     labels:
+      # Auto-updating website with GitHub integration
+      - "com.docker.compose.project=terminal-grounds"
+      - "com.docker.compose.service=website-auto-update"
       # Traefik labels (adjust for your reverse proxy)
       - "traefik.enable=true"
       - "traefik.http.routers.tg-website.entrypoints=websecure"
@@ -22,3 +27,15 @@ services:
       - "traefik.http.services.tg-website.loadbalancer.server.port=80"
       # Optional: Basic auth for development
       # - "traefik.http.middlewares.tg-auth.basicauth.users=admin:$$2y$$10$$..."
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    networks:
+      - terminal-grounds-network
+
+networks:
+  terminal-grounds-network:
+    driver: bridge
