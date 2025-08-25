@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds/**)",
+      "Bash(node:*)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
