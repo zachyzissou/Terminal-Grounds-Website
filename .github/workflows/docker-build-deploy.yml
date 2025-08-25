@@ -62,6 +62,13 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
+    - name: Make package public
+      if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      run: |
+        gh api --method PATCH /user/packages/container/terminal-grounds-website --field visibility=public
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Update deployment status
       if: github.event_name != 'pull_request'
       run: |
