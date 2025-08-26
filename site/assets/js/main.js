@@ -63,17 +63,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Terminal typing animation
     const typingElements = document.querySelectorAll('.typing-text');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     typingElements.forEach(element => {
         const text = element.textContent;
         element.textContent = '';
         let i = 0;
 
         function typeWriter() {
+            if (reduceMotion) {
+                element.textContent = text;
+                return;
+            }
             if (i < text.length) {
                 element.textContent += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, 50);
-            } else {
+            } else if (!reduceMotion) {
                 // Wait 2 seconds then restart
                 setTimeout(() => {
                     element.textContent = '';
@@ -84,7 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Start typing animation after a delay
-        setTimeout(typeWriter, 1000);
+        if (reduceMotion) {
+            element.textContent = text;
+        } else {
+            setTimeout(typeWriter, 1000);
+        }
     });
 
     // Intersection Observer for fade-in animations
@@ -116,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const hero = document.querySelector('.hero');
         if (hero) {
             const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
+            if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
         }
     });
 
@@ -449,11 +460,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return lightbox;
     }
 
+    let lastFocusedElement = null;
     function openLightbox(assetItem) {
         if (!lightbox) {
             lightbox = createLightbox();
             setupLightboxEvents();
         }
+
+        // Save focus to restore on close
+        lastFocusedElement = document.activeElement;
 
         const img = assetItem.querySelector('.asset-image');
         const overlay = assetItem.querySelector('.asset-overlay');
@@ -486,8 +501,9 @@ document.addEventListener('DOMContentLoaded', function() {
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         
-        // Focus management for accessibility
-        lightbox.querySelector('.lightbox-close').focus();
+    // Focus management for accessibility
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    closeBtn.focus();
 
         // Analytics
         if (typeof gtag !== 'undefined') {
@@ -505,6 +521,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lightbox) {
             lightbox.style.display = 'none';
             document.body.style.overflow = '';
+            // Restore focus to the element that opened the lightbox
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
         }
     }
 
@@ -515,11 +535,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Overlay click to close
         document.getElementById('lightboxOverlay').addEventListener('click', closeLightbox);
         
-        // Keyboard navigation
+        // Keyboard navigation + focus trap
         document.addEventListener('keydown', function(e) {
             if (lightbox && lightbox.style.display === 'flex') {
                 if (e.key === 'Escape') {
                     closeLightbox();
+                    return;
+                }
+                if (e.key === 'Tab') {
+                    const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    const firstEl = focusable[0];
+                    const lastEl = focusable[focusable.length - 1];
+                    if (e.shiftKey && document.activeElement === firstEl) {
+                        e.preventDefault();
+                        lastEl.focus();
+                    } else if (!e.shiftKey && document.activeElement === lastEl) {
+                        e.preventDefault();
+                        firstEl.focus();
+                    }
                 }
             }
         });
@@ -720,7 +753,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Reset transition after animation
     const resetTransition = () => { slider.style.transition = 'all 0.2s ease'; };
-    setTimeout(resetTransition, 300);
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setTimeout(resetTransition, 300);
+    } else {
+        resetTransition();
+    }
     });
 
     // Keyboard accessibility
@@ -769,8 +806,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     const step1 = () => { slider.style.transition = 'all 2s ease'; updateSliderPosition(20); };
                     const step2 = () => { updateSliderPosition(80); };
                     const step3 = () => { updateSliderPosition(50); slider.style.transition = 'all 0.2s ease'; };
-                    setTimeout(step1, 500);
-                    setTimeout(() => { step2(); setTimeout(step3, 1500); }, 1500);
+                    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (reduced) {
+                        slider.style.transition = 'all 0.2s ease';
+                        updateSliderPosition(50);
+                    } else {
+                        setTimeout(step1, 500);
+                        setTimeout(() => { step2(); setTimeout(step3, 1500); }, 1500);
+                    }
                     
                     demoObserver.unobserve(entry.target);
                 }
