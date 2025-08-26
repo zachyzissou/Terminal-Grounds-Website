@@ -21,6 +21,25 @@ function isImage(file) {
   return /\.(png|jpe?g|webp|gif)$/i.test(file);
 }
 
+// Exclude experimental/test/low-quality variants by filename pattern
+const DISALLOW_PATTERNS = [
+  /SWEEP/i,
+  /ROLLBACK/i,
+  /BASE720/i,
+  /UPSCALE/i,
+  /BICUBIC/i,
+  /NEAREST/i,
+  /TEST/i,
+  /TG_Style/i,
+  /TG_VAR/i,
+  /TG_UPSCALE/i,
+  /DPM/i,
+  /CRISP_/i
+];
+function isDisallowed(name) {
+  return DISALLOW_PATTERNS.some((r) => r.test(name));
+}
+
 function titleCaseName(str) {
   return str
     .replace(/\.[^.]+$/, '')
@@ -95,6 +114,7 @@ function detectDescription(filename, category) {
       for (const entry of entries) {
         if (!entry.isFile()) continue;
         if (!isImage(entry.name)) continue;
+  if (isDisallowed(entry.name)) continue; // skip non-curated variants
 
         const filePath = path.join(catDir, entry.name);
         const stats = await fs.stat(filePath);

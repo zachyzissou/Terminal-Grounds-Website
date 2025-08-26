@@ -330,6 +330,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (html && html.trim().length > 0) {
                     assetGrid.insertAdjacentHTML('afterbegin', html);
                 }
+                // Curation: remove low-quality or non-curated items and fix alt
+                const disallowPatterns = [
+                    /SWEEP/i, /ROLLBACK/i, /BASE720/i, /UPSCALE/i, /BICUBIC/i,
+                    /NEAREST/i, /TEST/i, /TG_Style/i, /TG_VAR/i, /TG_UPSCALE/i,
+                    /DPM/i, /CRISP_/i
+                ];
+                const isDisallowed = (src) => disallowPatterns.some(r => r.test(src));
+                const minW = 1200, minH = 700;
+
+                assetGrid.querySelectorAll('.asset-item').forEach(item => {
+                    const img = item.querySelector('.asset-image');
+                    if (!img?.src || isDisallowed(img.src)) {
+                        item.remove();
+                        return;
+                    }
+                    // Ensure alt text aligns with title
+                    const title = item.querySelector('.asset-overlay h4')?.textContent?.trim();
+                    if (title && !img.alt?.trim()) {
+                        img.alt = title;
+                    }
+                    // Dimension check after load
+                    if (img.complete) {
+                        if ((img.naturalWidth && img.naturalWidth < minW) || (img.naturalHeight && img.naturalHeight < minH)) {
+                            item.remove();
+                        }
+                    } else {
+                        img.addEventListener('load', () => {
+                            if (img.naturalWidth < minW || img.naturalHeight < minH) {
+                                item.remove();
+                            }
+                        }, { once: true });
+                        img.addEventListener('error', () => item.remove(), { once: true });
+                    }
+                });
                 // Initialize default filter state
                 filterAssets('all');
 
@@ -372,6 +406,62 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(() => {})
         ;
     })();
+
+// Site-wide image curation to ensure only high-quality, on-message visuals render
+document.addEventListener('DOMContentLoaded', function() {
+    const disallowPatterns = [
+        /SWEEP/i, /ROLLBACK/i, /BASE720/i, /UPSCALE/i, /BICUBIC/i,
+        /NEAREST/i, /TEST/i, /TG_Style/i, /TG_VAR/i, /TG_UPSCALE/i,
+        /DPM/i, /CRISP_/i
+    ];
+    const isDisallowed = (src) => disallowPatterns.some(r => r.test(src));
+
+    function getThresholds(src) {
+        if (/\/assets\/images\/ui\//i.test(src)) return { w: 64, h: 64 }; // icons are small by design
+        if (/\/assets\/images\/factions\//i.test(src)) return { w: 256, h: 256 }; // emblems
+        // Showcase imagery
+        if (/\/assets\/images\/(environments|renders|vehicles|weapons)\//i.test(src)) return { w: 1200, h: 700 };
+        return { w: 400, h: 300 }; // general fallback
+    }
+
+    // Skip items already handled in the gallery (#assetGrid)
+    const imgs = Array.from(document.querySelectorAll('img'))
+        .filter(img => !img.closest('#assetGrid'));
+
+    imgs.forEach(img => {
+        const src = img.getAttribute('src') || img.src || '';
+        if (!src) return;
+        if (isDisallowed(src)) {
+            // Remove entire card/tile if possible; else remove the image
+            const container = img.closest('.asset-item, .feature-card, .faction-card, .region, .card, figure') || img;
+            container.remove();
+            return;
+        }
+
+        // Ensure non-empty alt; prefer nearby heading/caption
+        if (!img.alt?.trim()) {
+            const heading = img.closest('.feature-card, .region, .faction-card, section')?.querySelector('h2, h3, h4');
+            const caption = img.closest('figure')?.querySelector('figcaption');
+            const label = caption?.textContent?.trim() || heading?.textContent?.trim();
+            if (label) img.alt = label;
+        }
+
+        // Dimension checks appropriate to category
+        const { w: minW, h: minH } = getThresholds(src);
+        const removeIfTooSmall = () => {
+            if ((img.naturalWidth && img.naturalWidth < minW) || (img.naturalHeight && img.naturalHeight < minH)) {
+                const container = img.closest('.asset-item, .feature-card, .faction-card, .region, .card, figure') || img;
+                container.remove();
+            }
+        };
+        if (img.complete) {
+            removeIfTooSmall();
+        } else {
+            img.addEventListener('load', removeIfTooSmall, { once: true });
+            img.addEventListener('error', () => img.remove(), { once: true });
+        }
+    });
+});
 
 // Asset Lightbox System
 document.addEventListener('DOMContentLoaded', function() {

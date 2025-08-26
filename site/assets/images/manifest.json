@@ -10,56 +10,6 @@
       "size": 840259,
       "modified": "2025-08-18T22:03:48.519Z"
     },
-    "20250813_174451_SWEEP_euler_normal_s36_cfg4p6_00001_.png": {
-      "filename": "20250813_174451_SWEEP_euler_normal_s36_cfg4p6_00001_.png",
-      "size": 840272,
-      "modified": "2025-08-18T22:03:48.522Z"
-    },
-    "20250813_174743_SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png": {
-      "filename": "20250813_174743_SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png",
-      "size": 1136352,
-      "modified": "2025-08-18T22:03:48.526Z"
-    },
-    "20250813_175029_SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png": {
-      "filename": "20250813_175029_SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png",
-      "size": 1109969,
-      "modified": "2025-08-18T22:03:48.530Z"
-    },
-    "20250813_175720_SWEEP_heun_karras_s34_cfg4p6_00001_.png": {
-      "filename": "20250813_175720_SWEEP_heun_karras_s34_cfg4p6_00001_.png",
-      "size": 1101575,
-      "modified": "2025-08-18T22:03:48.533Z"
-    },
-    "20250813_181145_ROLLBACK_euler_normal_s30_cfg4p2_00001_.png": {
-      "filename": "20250813_181145_ROLLBACK_euler_normal_s30_cfg4p2_00001_.png",
-      "size": 854302,
-      "modified": "2025-08-18T22:03:48.536Z"
-    },
-    "20250813_181438_ROLLBACK_euler_normal_s28_cfg4p0_00001_.png": {
-      "filename": "20250813_181438_ROLLBACK_euler_normal_s28_cfg4p0_00001_.png",
-      "size": 912333,
-      "modified": "2025-08-18T22:03:48.540Z"
-    },
-    "20250813_181718_ROLLBACK_euler_normal_s26_cfg3p8_00001_.png": {
-      "filename": "20250813_181718_ROLLBACK_euler_normal_s26_cfg3p8_00001_.png",
-      "size": 910638,
-      "modified": "2025-08-18T22:03:48.543Z"
-    },
-    "20250813_185431_CRISP_DPM2M_KARRAS_00001_.png": {
-      "filename": "20250813_185431_CRISP_DPM2M_KARRAS_00001_.png",
-      "size": 321524,
-      "modified": "2025-08-18T22:03:48.545Z"
-    },
-    "20250813_214702_BASE720_euler_s28_cfg4p2_00001_.png": {
-      "filename": "20250813_214702_BASE720_euler_s28_cfg4p2_00001_.png",
-      "size": 726470,
-      "modified": "2025-08-18T22:03:48.548Z"
-    },
-    "20250813_214822_BASE720_euler_s30_cfg4p0_00001_.png": {
-      "filename": "20250813_214822_BASE720_euler_s30_cfg4p0_00001_.png",
-      "size": 854641,
-      "modified": "2025-08-18T22:03:48.551Z"
-    },
     "20250813_215717_LORE_CleanSciFi_1080p_00001_.png": {
       "filename": "20250813_215717_LORE_CleanSciFi_1080p_00001_.png",
       "size": 760282,
@@ -99,11 +49,6 @@
       "filename": "20250813_232327_REFINE_SHARP_00002_.png",
       "size": 2270940,
       "modified": "2025-08-18T22:03:48.593Z"
-    },
-    "20250813_232349_UPSCALE_4x-UltraSharp.pth_00002_.png": {
-      "filename": "20250813_232349_UPSCALE_4x-UltraSharp.pth_00002_.png",
-      "size": 39285238,
-      "modified": "2025-08-18T22:03:48.734Z"
     },
     "20250813_235505_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png": {
       "filename": "20250813_235505_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
@@ -164,21 +109,6 @@
       "filename": "20250814_014745_HQ_Metro_Maintenance_Corridor_Clean_SciFi_832x468_s18_cfg4.6_00001_.png",
       "size": 573748,
       "modified": "2025-08-18T22:03:48.787Z"
-    },
-    "BASE720_euler_s28_cfg4p2_00001_.png": {
-      "filename": "BASE720_euler_s28_cfg4p2_00001_.png",
-      "size": 726470,
-      "modified": "2025-08-18T22:03:48.790Z"
-    },
-    "BASE720_euler_s30_cfg4p0_00001_.png": {
-      "filename": "BASE720_euler_s30_cfg4p0_00001_.png",
-      "size": 854641,
-      "modified": "2025-08-18T22:03:48.792Z"
-    },
-    "CRISP_DPM2M_KARRAS_00001_.png": {
-      "filename": "CRISP_DPM2M_KARRAS_00001_.png",
-      "size": 321524,
-      "modified": "2025-08-18T22:03:48.794Z"
     },
     "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
       "filename": "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
@@ -410,45 +340,10 @@
       "size": 1072834,
       "modified": "2025-08-25T05:35:25.090Z"
     },
-    "ROLLBACK_euler_normal_s26_cfg3p8_00001_.png": {
-      "filename": "ROLLBACK_euler_normal_s26_cfg3p8_00001_.png",
-      "size": 910638,
-      "modified": "2025-08-18T22:03:49.023Z"
-    },
-    "ROLLBACK_euler_normal_s28_cfg4p0_00001_.png": {
-      "filename": "ROLLBACK_euler_normal_s28_cfg4p0_00001_.png",
-      "size": 912333,
-      "modified": "2025-08-18T22:03:49.026Z"
-    },
-    "ROLLBACK_euler_normal_s30_cfg4p2_00001_.png": {
-      "filename": "ROLLBACK_euler_normal_s30_cfg4p2_00001_.png",
-      "size": 854302,
-      "modified": "2025-08-18T22:03:49.028Z"
-    },
     "security-checkpoint-clean.png": {
       "filename": "security-checkpoint-clean.png",
       "size": 1600194,
       "modified": "2025-08-25T05:35:30.254Z"
-    },
-    "SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png": {
-      "filename": "SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png",
-      "size": 1136352,
-      "modified": "2025-08-18T22:03:49.031Z"
-    },
-    "SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png": {
-      "filename": "SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png",
-      "size": 1109969,
-      "modified": "2025-08-18T22:03:49.034Z"
-    },
-    "SWEEP_euler_normal_s36_cfg4p6_00001_.png": {
-      "filename": "SWEEP_euler_normal_s36_cfg4p6_00001_.png",
-      "size": 840272,
-      "modified": "2025-08-18T22:03:49.037Z"
-    },
-    "SWEEP_heun_karras_s34_cfg4p6_00001_.png": {
-      "filename": "SWEEP_heun_karras_s34_cfg4p6_00001_.png",
-      "size": 1101575,
-      "modified": "2025-08-18T22:03:49.040Z"
     },
     "tech-wastes-clean.png": {
       "filename": "tech-wastes-clean.png",
@@ -460,85 +355,10 @@
       "size": 1829424,
       "modified": "2025-08-25T05:33:09.589Z"
     },
-    "TG_BICUBIC_TEST_233905_00001_.png": {
-      "filename": "TG_BICUBIC_TEST_233905_00001_.png",
-      "size": 1280517,
-      "modified": "2025-08-18T22:03:49.045Z"
-    },
-    "TG_BILINEAR_TEST_233905_00001_.png": {
-      "filename": "TG_BILINEAR_TEST_233905_00001_.png",
-      "size": 1092909,
-      "modified": "2025-08-18T22:03:49.049Z"
-    },
-    "TG_NEAREST_EXACT_TEST_233905_00001_.png": {
-      "filename": "TG_NEAREST_EXACT_TEST_233905_00001_.png",
-      "size": 633547,
-      "modified": "2025-08-18T22:03:49.062Z"
-    },
-    "TG_Style_20250812_2015_00001_.png": {
-      "filename": "TG_Style_20250812_2015_00001_.png",
-      "size": 889554,
-      "modified": "2025-08-18T22:03:49.079Z"
-    },
-    "TG_Style_20250812_2204_00001_.png": {
-      "filename": "TG_Style_20250812_2204_00001_.png",
-      "size": 889554,
-      "modified": "2025-08-18T22:03:49.083Z"
-    },
-    "TG_Style_20250812_2207_00001_.png": {
-      "filename": "TG_Style_20250812_2207_00001_.png",
-      "size": 889554,
-      "modified": "2025-08-18T22:03:49.085Z"
-    },
-    "TG_Style_20250812_2207_00002_.png": {
-      "filename": "TG_Style_20250812_2207_00002_.png",
-      "size": 620958,
-      "modified": "2025-08-18T22:03:49.088Z"
-    },
-    "TG_Style_20250812_2207_00003_.png": {
-      "filename": "TG_Style_20250812_2207_00003_.png",
-      "size": 505638,
-      "modified": "2025-08-18T22:03:49.091Z"
-    },
-    "TG_Style_20250812_2207_00004_.png": {
-      "filename": "TG_Style_20250812_2207_00004_.png",
-      "size": 1008589,
-      "modified": "2025-08-18T22:03:49.093Z"
-    },
-    "TG_Style_20250812_2207_00005_.png": {
-      "filename": "TG_Style_20250812_2207_00005_.png",
-      "size": 871283,
-      "modified": "2025-08-18T22:03:49.096Z"
-    },
-    "TG_Style_20250812_2207_00006_.png": {
-      "filename": "TG_Style_20250812_2207_00006_.png",
-      "size": 735413,
-      "modified": "2025-08-18T22:03:49.099Z"
-    },
-    "TG_UPSCALE_NEAREST-EXACT_DIR_20250812_233307_00001_.png": {
-      "filename": "TG_UPSCALE_NEAREST-EXACT_DIR_20250812_233307_00001_.png",
-      "size": 763955,
-      "modified": "2025-08-18T22:03:49.111Z"
-    },
-    "TG_VAR_NEAREST_DIR_20250812_233514_00001_.png": {
-      "filename": "TG_VAR_NEAREST_DIR_20250812_233514_00001_.png",
-      "size": 649676,
-      "modified": "2025-08-18T22:03:49.114Z"
-    },
     "underground-bunker-gritty.png": {
       "filename": "underground-bunker-gritty.png",
       "size": 2232424,
       "modified": "2025-08-25T05:33:02.341Z"
-    },
-    "UPSCALE_4x-UltraSharp.pth_00002_.png": {
-      "filename": "UPSCALE_4x-UltraSharp.pth_00002_.png",
-      "size": 39285238,
-      "modified": "2025-08-18T22:03:49.207Z"
-    },
-    "UPSCALE_4x-UltraSharp.pth_00002_1920w.png": {
-      "filename": "UPSCALE_4x-UltraSharp.pth_00002_1920w.png",
-      "size": 1466081,
-      "modified": "2025-08-18T22:03:49.212Z"
     }
   },
   "weapons": {
@@ -751,6 +571,6 @@
       "modified": "2025-08-12T01:01:07.435Z"
     }
   },
-  "total": 148,
-  "lastUpdated": "2025-08-26T04:15:49.763Z"
+  "total": 112,
+  "lastUpdated": "2025-08-26T04:25:02.564Z"
 }
