@@ -10,9 +10,19 @@
       "Bash(git push:*)",
       "Bash(git commit:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:api.github.com)"
+      "WebFetch(domain:api.github.com)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations",
+      "C:\\Users\\Zachg\\Terminal-Grounds\\Tools\\ArtGen"
+    ]
   }
 }
