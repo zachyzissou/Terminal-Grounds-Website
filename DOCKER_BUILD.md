@@ -27,9 +27,6 @@ docker stop bloom-website-test && docker rm bloom-website-test
 # Login to GitHub Container Registry
 echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
 
-# Tag the image for GHCR
-docker tag zachyzissou/terminal-grounds-website:latest ghcr.io/zachyzissou/terminal-grounds-website:latest
-
 # Push the image
 docker push ghcr.io/zachyzissou/terminal-grounds-website:latest
 
