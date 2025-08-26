@@ -1,5 +1,26 @@
 # Docker Build and Push Instructions
 
+## Automated Build and Push (GitHub Actions)
+
+The repository includes a GitHub Actions workflow that automatically builds and pushes Docker images to Docker Hub when changes are pushed to the main branch.
+
+### Required Secrets
+
+To enable automated builds, add these secrets to your GitHub repository:
+
+1. Go to repository Settings → Secrets and variables → Actions
+2. Add the following repository secrets:
+   - `DOCKER_HUB_USERNAME`: Your Docker Hub username
+   - `DOCKER_HUB_PASSWORD`: Your Docker Hub access token or password
+
+### Workflow Triggers
+
+The workflow runs on:
+- Push to main branch (excludes documentation changes)
+- Pull requests to main branch (build only, no push)
+- Manual workflow dispatch
+- Release creation
+
 ## Building the Docker Image
 
 To build the Docker image for the Bloom website:
