@@ -9,10 +9,10 @@ To build the Docker image for the Bloom website:
 cd C:\Users\Zachg\Terminal-Grounds-Website
 
 # Build the Docker image
-docker build -t zachyzissou/terminal-grounds-website:latest .
+docker build -t ghcr.io/zachyzissou/terminal-grounds-website:latest .
 
 # Test locally (optional)
-docker run -d --name bloom-website-test -p 2161:80 zachyzissou/terminal-grounds-website:latest
+docker run -d --name bloom-website-test -p 2161:80 ghcr.io/zachyzissou/terminal-grounds-website:latest
 
 # Test the website at http://localhost:2161
 # Check health endpoint: http://localhost:2161/health
@@ -21,18 +21,20 @@ docker run -d --name bloom-website-test -p 2161:80 zachyzissou/terminal-grounds-
 docker stop bloom-website-test && docker rm bloom-website-test
 ```
 
-## Pushing to Docker Hub
+## Pushing to GitHub Container Registry
 
 ```bash
-# Login to Docker Hub
-docker login
+# Login to GitHub Container Registry
+echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
 
 # Push the image
-docker push zachyzissou/terminal-grounds-website:latest
+docker push ghcr.io/zachyzissou/terminal-grounds-website:latest
 
 # Verify the push
-docker pull zachyzissou/terminal-grounds-website:latest
+docker pull ghcr.io/zachyzissou/terminal-grounds-website:latest
 ```
+
+> **Note**: Replace `USERNAME` with your GitHub username and `$GITHUB_TOKEN` with a GitHub Personal Access Token that has `write:packages` permission.
 
 ## Using the Unraid Template
 

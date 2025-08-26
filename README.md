@@ -8,7 +8,7 @@ A standalone static website showcasing the Bloom tactical extraction game, set i
 - **Responsive**: Mobile-first design that works on all devices
 - **Fast Loading**: Optimized static assets with proper caching
 - **Docker Ready**: Complete containerization for easy deployment on Unraid/Docker  
-- **Automated Deployment**: GitHub Actions CI/CD pipeline for Docker Hub publishing
+- **Automated Deployment**: GitHub Actions CI/CD pipeline for GitHub Container Registry publishing
 - **SEO Optimized**: Proper meta tags and semantic HTML structure
 
 ## Project Structure
@@ -72,7 +72,7 @@ docker run -d \
   --name bloom-website \
   -p 2161:80 \
   -v /mnt/user/appdata/bloom-website:/config \
-  zachyzissou/terminal-grounds-website:latest
+  ghcr.io/zachyzissou/terminal-grounds-website:latest
 ```
 
 ## Content Updates
@@ -98,12 +98,15 @@ This repository uses GitHub Actions to automatically build and deploy Docker ima
 
 ### GitHub Container Registry
 Images are published to: `ghcr.io/zachyzissou/terminal-grounds-website`
-- `latest`: Latest main branch build  
-- Version tags: Released versions (e.g., `v1.0.0`)
+
+**Available Tags:**
+- `latest`: Latest stable build from main branch
+- `main`: Alias for latest
+- `v*.*.*`: Semantic version releases
 
 ### Setup Requirements
-No additional setup required! GitHub Actions automatically publishes to GitHub Container Registry using the built-in `GITHUB_TOKEN`.
-
+Requires a `GITHUB_TOKEN` (automatically provided by GitHub Actions) for publishing images to GitHub Container Registry (GHCR).
+No manual secret setup is required for basic publishing. For advanced permissions (e.g., publishing to other repositories), you may use a Personal Access Token (PAT) as a secret named `GHCR_PAT`.
 ## Environment Variables
 
 - `HOST_PORT`: Host port for the container (default: 2161)
