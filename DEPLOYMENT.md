@@ -37,7 +37,7 @@ For non-Unraid setups:
 
 ```bash
 # Clone repository
-git clone https://github.com/zachgentner/Terminal-Grounds-Website.git
+git clone https://github.com/zachyzissou/Terminal-Grounds-Website.git
 cd Terminal-Grounds-Website
 
 # Build and start
