@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const disallowPatterns = [
                     /SWEEP/i, /ROLLBACK/i, /BASE720/i, /UPSCALE/i, /BICUBIC/i,
                     /NEAREST/i, /TEST/i, /TG_Style/i, /TG_VAR/i, /TG_UPSCALE/i,
-                    /DPM/i, /CRISP_/i
+                    /DPM/i, /CRISP_/i, /\b(HQ_|PROD_|LORE_)|[A-Z]{2,}[_\d]/
                 ];
                 const isDisallowed = (src) => disallowPatterns.some(r => r.test(src));
                 const minW = 1200, minH = 700;
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const disallowPatterns = [
         /SWEEP/i, /ROLLBACK/i, /BASE720/i, /UPSCALE/i, /BICUBIC/i,
         /NEAREST/i, /TEST/i, /TG_Style/i, /TG_VAR/i, /TG_UPSCALE/i,
-        /DPM/i, /CRISP_/i
+        /DPM/i, /CRISP_/i, /\b(HQ_|PROD_|LORE_)|[A-Z]{2,}[_\d]/
     ];
     const isDisallowed = (src) => disallowPatterns.some(r => r.test(src));
 
@@ -427,6 +427,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Skip items already handled in the gallery (#assetGrid)
     const imgs = Array.from(document.querySelectorAll('img'))
         .filter(img => !img.closest('#assetGrid'));
+
+    // Track duplicates by semantic key (alt or normalized filename)
+    const seen = new Set();
 
     imgs.forEach(img => {
         const src = img.getAttribute('src') || img.src || '';
@@ -445,6 +448,27 @@ document.addEventListener('DOMContentLoaded', function() {
             const label = caption?.textContent?.trim() || heading?.textContent?.trim();
             if (label) img.alt = label;
         }
+
+        // Duplicate suppression by key
+        const fileName = src.split('/').pop() || '';
+        const baseKey = fileName
+            .replace(/\.[^.]+$/, '')
+            .replace(/\b(19|20)\d{2,}\b/g, '')
+            .replace(/\b\d{3,4}x\d{3,4}\b/gi, '')
+            .replace(/_?\d{5,}_?/g, '')
+            .replace(/_?0000\d_?/g, '')
+            .replace(/_?1920w_?/gi, '')
+            .replace(/_?Toned_?/gi, '')
+            .replace(/^(HQ_|LORE_|PROD_|REFINE_SHARP_)+/gi, '')
+            .replace(/[_\s]+/g, '-')
+            .toLowerCase();
+        const key = (img.alt?.trim().toLowerCase()) || baseKey;
+        if (key && seen.has(key)) {
+            const container = img.closest('.asset-item, .feature-card, .faction-card, .region, .card, figure') || img;
+            container.remove();
+            return;
+        }
+        if (key) seen.add(key);
 
         // Dimension checks appropriate to category
         const { w: minW, h: minH } = getThresholds(src);
