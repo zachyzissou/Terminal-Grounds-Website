@@ -1,15 +1,17 @@
+---
+# yamllint disable rule:line-length rule:truthy
 name: Build and Deploy Docker Image
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
       - 'README.md'
       - 'DEPLOYMENT_GUIDE.md'
       - 'DOCKER_BUILD.md'
       - 'DEPLOYMENT.md'
   pull_request:
-    branches: [ main ]
+    branches: [main]
   release:
     types: [published]
   workflow_dispatch:
@@ -24,6 +26,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
+      attestations: write
 
     steps:
       - name: Checkout repository
@@ -80,7 +83,7 @@ jobs:
         run: |
           echo "Attempting to make package public: $PACKAGE for owner: $OWNER"
           set +e
-          
+
           # Try user packages first
           echo "Trying user packages endpoint..."
           RESP=$(curl -sS -o /dev/null -w "%{http_code}" \
@@ -91,7 +94,7 @@ jobs:
             https://api.github.com/user/packages/container/$PACKAGE/visibility \
             -d '{"visibility":"public"}')
           echo "User packages response: $RESP"
-          
+
           # If user packages didn't work, try organization packages
           if [ "$RESP" != "200" ] && [ "$RESP" != "204" ]; then
             echo "Trying organization packages endpoint..."
@@ -103,7 +106,7 @@ jobs:
               https://api.github.com/orgs/$OWNER/packages/container/$PACKAGE/visibility \
               -d '{"visibility":"public"}')
             echo "Organization packages response: $RESP2"
-            
+
             if [ "$RESP2" != "200" ] && [ "$RESP2" != "204" ]; then
               echo "Warning: Could not make package public. Response codes: $RESP (user), $RESP2 (org)"
               echo "Package may already be public or this may be the first push."
