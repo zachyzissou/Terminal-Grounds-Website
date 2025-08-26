@@ -1,0 +1,11 @@
+---
+name: DISABLED - Unraid Self-Hosted Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Self-hosted Unraid deploy workflow is disabled. Use local build scripts instead."

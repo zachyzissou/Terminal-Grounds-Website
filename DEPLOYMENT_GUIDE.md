@@ -2,6 +2,13 @@
 
 ## For Unraid Deployment
 
+Quick local build (no registry):
+
+- Unraid/Linux: chmod +x scripts/build-local.sh && ./scripts/build-local.sh 2161
+- Windows PowerShell: pwsh ./scripts/build-local.ps1 -Port 2161
+
+The container also auto-updates content from this repo on a schedule. Control it with UPDATE_INTERVAL_SECONDS (default 600) in docker-compose.yml.
+
 ### 1. Upload Project to Unraid
 ```bash
 # Copy the entire Terminal-Grounds-Website folder to your Unraid server

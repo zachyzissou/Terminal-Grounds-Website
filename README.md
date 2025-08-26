@@ -55,7 +55,22 @@ docker-compose up -d
 # Access at http://localhost:2161
 ```
 
-### Unraid Deployment (Automated)
+### Unraid Deployment (Local Build: no registry, no runner)
+
+Use the helper scripts to rebuild and restart locally (mirrors toonamiaftermath-downlink pattern):
+
+- On Unraid/Linux:
+  - Make executable once: chmod +x scripts/build-local.sh
+  - Run: ./scripts/build-local.sh 2161
+
+- On Windows (PowerShell):
+  - Run: pwsh ./scripts/build-local.ps1 -Port 2161
+
+Both scripts will:
+
+- docker compose up -d --build
+- Wait for /health to pass
+- Print recent logs if health fails
 
 **Using Community Applications Template:**
 1. **Add Template**: Use template URL: `https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml`
@@ -67,6 +82,7 @@ docker-compose up -d
 4. **Access**: Visit `http://YOUR_UNRAID_IP:2161`
 
 **Manual Docker Setup:**
+
 ```bash
 docker run -d \
   --name bloom-website \

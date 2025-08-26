@@ -9,9 +9,10 @@ services:
     ports:
       - "${HOST_PORT:-2161}:80"  # Default port 2161 (matching Bloom's timeline year)
     environment:
-      - TZ=${TZ:-UTC}
-      - NGINX_WORKER_PROCESSES=auto
-      - NGINX_WORKER_CONNECTIONS=1024
+      TZ: ${TZ:-UTC}
+      NGINX_WORKER_PROCESSES: "auto"
+      NGINX_WORKER_CONNECTIONS: "1024"
+      UPDATE_INTERVAL_SECONDS: "600"
     volumes:
       # Optional: Mount for persistent logs
       - ./logs:/var/log/nginx

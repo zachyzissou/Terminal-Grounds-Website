@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Terminal Grounds Website Auto-Update Entrypoint
-# Pulls latest changes from GitHub and runs asset pipeline on container startup
+# Periodically pulls latest changes from GitHub and runs asset pipeline.
+# No Docker Hub / no runner required.
 
 set -e
 
@@ -10,78 +11,91 @@ echo "🚀 Terminal Grounds Website - Starting auto-update process..."
 # Configuration
 REPO_URL="https://github.com/zachyzissou/Terminal-Grounds-Website.git"
 MAIN_REPO_URL="https://github.com/zachyzissou/Terminal-Grounds.git"
-WORK_DIR="/tmp/terminal-grounds-update"
+SRC_ROOT="/var/cache/site-src"
+WEBSITE_CLONE="$SRC_ROOT/website"
+MAIN_CLONE="$SRC_ROOT/Terminal-Grounds"
 WEBSITE_DIR="/usr/share/nginx/html"
+STATE_FILE="$SRC_ROOT/last_deployed_commit"
+UPDATE_INTERVAL_SECONDS="${UPDATE_INTERVAL_SECONDS:-600}" # default 10 minutes
 
-# Function to log with timestamp
+# Log helper
 log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
-# Function to clean up temporary directories
-cleanup() {
-    log "🧹 Cleaning up temporary directories..."
-    rm -rf "$WORK_DIR" || true
+# Safe git for containerized environments
+git config --global --add safe.directory "$WEBSITE_CLONE" 2>/dev/null || true
+git config --global --add safe.directory "$MAIN_CLONE" 2>/dev/null || true
+
+ensure_clones() {
+    mkdir -p "$SRC_ROOT"
+    if [ -d "$WEBSITE_CLONE/.git" ]; then
+        (cd "$WEBSITE_CLONE" && git fetch --depth=1 origin main && git reset --hard origin/main) || log "⚠️ Failed to update website repo"
+    else
+        log "📦 Cloning website repo..."
+        rm -rf "$WEBSITE_CLONE" || true
+        git clone --depth=1 -b main "$REPO_URL" "$WEBSITE_CLONE" || log "⚠️ Failed to clone website repo"
+    fi
+
+    if [ -d "$MAIN_CLONE/.git" ]; then
+        (cd "$MAIN_CLONE" && git fetch --depth=1 origin main && git reset --hard origin/main) || log "⚠️ Failed to update Terminal-Grounds repo"
+    else
+        log "📦 Cloning Terminal-Grounds repo for assets..."
+        rm -rf "$MAIN_CLONE" || true
+        git clone --depth=1 -b main "$MAIN_REPO_URL" "$MAIN_CLONE" || log "⚠️ Failed to clone Terminal-Grounds repo (asset pipeline may be skipped)"
+    fi
 }
 
-# Set up cleanup trap
-trap cleanup EXIT
+run_asset_pipeline() {
+    if [ -f "$WEBSITE_CLONE/scripts/asset-pipeline.js" ] && [ -d "$MAIN_CLONE" ]; then
+        log "🎨 Running asset pipeline..."
+        (cd "$WEBSITE_CLONE" && node scripts/asset-pipeline.js) || log "⚠️ Asset pipeline failed, using existing assets"
+    else
+        log "ℹ️ Asset pipeline not available, using existing assets"
+    fi
+}
 
-# Create temporary work directory
-log "📁 Creating temporary work directory..."
-rm -rf "$WORK_DIR"
-mkdir -p "$WORK_DIR"
-cd "$WORK_DIR"
+deploy_site() {
+    mkdir -p "$WEBSITE_DIR"
+    rm -rf "$WEBSITE_DIR"/*
+    cp -r "$WEBSITE_CLONE/site"/* "$WEBSITE_DIR/" || true
+    # Ensure health check endpoint exists
+    echo '<!DOCTYPE html><html><head><title>Health Check</title></head><body>OK</body></html>' > "$WEBSITE_DIR/health"
+    # Permissions (best-effort)
+    chown -R nginx:nginx "$WEBSITE_DIR" 2>/dev/null || true
+    chmod -R 755 "$WEBSITE_DIR" 2>/dev/null || true
+}
 
-# Clone the website repository
-log "📦 Cloning Terminal Grounds Website repository..."
-git clone "$REPO_URL" website
-cd website
+current_commit() {
+    [ -d "$WEBSITE_CLONE/.git" ] && (cd "$WEBSITE_CLONE" && git rev-parse --short HEAD) || echo "unknown"
+}
 
-# Get the latest commit hash
-COMMIT_HASH=$(git rev-parse --short HEAD)
-log "✅ Latest commit: $COMMIT_HASH"
+update_once() {
+    ensure_clones
+    NEW_COMMIT=$(current_commit)
+    OLD_COMMIT=""
+    [ -f "$STATE_FILE" ] && OLD_COMMIT=$(cat "$STATE_FILE" 2>/dev/null || echo "")
+    if [ "$NEW_COMMIT" != "$OLD_COMMIT" ] && [ "$NEW_COMMIT" != "unknown" ]; then
+        log "🔄 New commit detected: $OLD_COMMIT -> $NEW_COMMIT"
+        run_asset_pipeline
+        deploy_site
+        echo "$NEW_COMMIT" > "$STATE_FILE"
+        log "✅ Deployed commit $NEW_COMMIT"
+    else
+        log "⏭️ No changes (commit $NEW_COMMIT). Skipping deploy."
+    fi
+}
 
-# Check if Terminal-Grounds repository exists for asset pipeline
-if [ -d "../Terminal-Grounds" ]; then
-    log "🔄 Terminal-Grounds repository already exists, pulling updates..."
-    cd ../Terminal-Grounds
-    git pull origin main || log "⚠️ Failed to pull Terminal-Grounds updates, continuing with existing version..."
-    cd ../website
-else
-    log "📦 Cloning Terminal-Grounds repository for assets..."
-    cd ..
-    git clone "$MAIN_REPO_URL" Terminal-Grounds || {
-        log "⚠️ Failed to clone Terminal-Grounds repository, skipping asset pipeline..."
-    }
-    cd website
-fi
+# Initial update before starting nginx
+update_once
 
-# Run asset pipeline if script exists and Terminal-Grounds repo is available
-if [ -f "scripts/asset-pipeline.js" ] && [ -d "../Terminal-Grounds" ]; then
-    log "🎨 Running asset pipeline..."
-    node scripts/asset-pipeline.js || {
-        log "⚠️ Asset pipeline failed, continuing with existing assets..."
-    }
-else
-    log "ℹ️ Asset pipeline not available, using existing assets..."
-fi
+# Start a background loop for periodic updates
+(
+  while true; do
+    sleep "$UPDATE_INTERVAL_SECONDS"
+    update_once || log "⚠️ Periodic update failed"
+  done
+) &
 
-# Copy website files to nginx directory
-log "📋 Updating website files..."
-rm -rf "$WEBSITE_DIR"/*
-cp -r site/* "$WEBSITE_DIR/"
-
-# Ensure health check endpoint exists
-echo '<!DOCTYPE html><html><head><title>Health Check</title></head><body>OK</body></html>' > "$WEBSITE_DIR/health"
-
-# Set proper permissions
-chown -R nginx:nginx "$WEBSITE_DIR"
-chmod -R 755 "$WEBSITE_DIR"
-
-log "✅ Website updated successfully!"
-log "🌐 Commit: $COMMIT_HASH"
 log "🚀 Starting nginx..."
-
-# Execute the main command (nginx)
 exec "$@"
