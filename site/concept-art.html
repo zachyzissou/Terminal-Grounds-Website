@@ -70,7 +70,7 @@
             </div>
         </section>
 
-        <section class="pipeline-showcase">
+    <section class="pipeline-showcase">
             <div class="container">
                 <h2 class="section-title">Asset Generation Pipeline</h2>
                 <div class="pipeline-explanation">
@@ -162,7 +162,7 @@
             </div>
         </section>
 
-        <section class="art-styles">
+    <section class="art-styles">
             <div class="container">
                 <h2 class="section-title">Visual Styles</h2>
                 
@@ -235,7 +235,7 @@
             </div>
         </section>
 
-        <section class="generation-breakthrough">
+    <section class="generation-breakthrough">
             <div class="container">
                 <h2 class="section-title">The Breakthrough: 10% to 92%</h2>
                 
@@ -299,47 +299,160 @@
             </div>
         </section>
 
-    <section class="gallery-preview" id="gallery">
+        <section class="gallery-preview" id="gallery">
             <div class="container">
-        <h2 class="section-title">Asset Gallery</h2>
-        <p class="gallery-note">All imagery below is pulled directly from this project repository.</p>
-                
-                <div class="gallery-grid">
-            <!-- Environments -->
-                    <div class="gallery-item"><img src="/assets/images/environments/metro-corridor-clean.png" alt="Metro Corridor - Clean SciFi" class="gallery-image" loading="lazy"><div class="gallery-overlay"><h4>Metro Corridor</h4><p>Underground maintenance - Clean SciFi</p><span class="quality-badge">Excellent</span></div></div>
-                    <div class="gallery-item"><img src="/assets/images/environments/iez-facility-clean.png" alt="IEZ Facility - Clean SciFi" class="gallery-image" loading="lazy"><div class="gallery-overlay"><h4>IEZ Facility</h4><p>Inner quarantine facility - Clean SciFi</p><span class="quality-badge">Excellent</span></div></div>
-                    <div class="gallery-item"><img src="/assets/images/environments/iez-facility-gritty.png" alt="IEZ Facility - Gritty Realism" class="gallery-image" loading="lazy"><div class="gallery-overlay"><h4>IEZ Facility</h4><p>Inner quarantine facility - Gritty Realism</p><span class="quality-badge">Excellent</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/environments/tech-wastes-clean.png" alt="Tech Wastes - Clean SciFi" class="gallery-image"><div class="gallery-overlay"><h4>Tech Wastes</h4><p>Industrial wasteland - Clean SciFi</p><span class="quality-badge">Excellent</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/environments/tech-wastes-gritty.png" alt="Tech Wastes - Gritty Realism" class="gallery-image"><div class="gallery-overlay"><h4>Tech Wastes</h4><p>Industrial wasteland - Gritty Realism</p><span class="quality-badge">Excellent</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/environments/research-lab-clean.png" alt="Research Laboratory - Clean SciFi" class="gallery-image"><div class="gallery-overlay"><h4>Research Lab</h4><p>Pre-Cascade scientific facility</p><span class="quality-badge">Masterpiece</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/environments/security-checkpoint-clean.png" alt="Security Checkpoint - Clean SciFi" class="gallery-image"><div class="gallery-overlay"><h4>Security Checkpoint</h4><p>Territorial control installation</p><span class="quality-badge">Excellent</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/environments/underground-bunker-gritty.png" alt="Underground Bunker - Gritty Realism" class="gallery-image"><div class="gallery-overlay"><h4>Underground Bunker</h4><p>Subterranean access - Gritty Realism</p><span class="quality-badge">Excellent</span></div></div>
+                <h2 class="section-title">Asset Gallery</h2>
+                <p class="gallery-note">This gallery auto-populates when the asset pipeline runs. If not available, a curated sample is shown below.</p>
 
-            <!-- Renders -->
-            <div class="gallery-item"><img src="/assets/images/renders/hero-main.png" alt="Render - Main Hero" class="gallery-image"><div class="gallery-overlay"><h4>Render</h4><p>Main hero composite</p><span class="quality-badge">Showcase</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/renders/hero-iez.png" alt="Render - IEZ Hero" class="gallery-image"><div class="gallery-overlay"><h4>Render</h4><p>IEZ perimeter composite</p><span class="quality-badge">Showcase</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/renders/hero-wastes.png" alt="Render - Wastes Hero" class="gallery-image"><div class="gallery-overlay"><h4>Render</h4><p>Tech wastes composite</p><span class="quality-badge">Showcase</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/renders/iez-day.png" alt="Render - IEZ Daylight" class="gallery-image"><div class="gallery-overlay"><h4>Render</h4><p>IEZ in daylight</p><span class="quality-badge">Showcase</span></div></div>
+                <!-- Asset stats populated from manifest.json -->
+                <div id="assetStats" class="metrics-grid mt-1">
+                    <div class="metric-card">
+                        <div class="metric-icon">📦</div>
+                        <h3>Total Assets</h3>
+                        <div class="metric-value" id="assetTotal">0</div>
+                        <div class="metric-comparison"><span class="target">Last Updated:</span> <span id="assetUpdated">—</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🏙️</div>
+                        <h3>Environments</h3>
+                        <div class="metric-value" id="assetsEnvironments">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🛡️</div>
+                        <h3>Factions</h3>
+                        <div class="metric-value" id="assetsFactions">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🎞️</div>
+                        <h3>Renders</h3>
+                        <div class="metric-value" id="assetsRenders">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🚗</div>
+                        <h3>Vehicles</h3>
+                        <div class="metric-value" id="assetsVehicles">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🔫</div>
+                        <h3>Weapons</h3>
+                        <div class="metric-value" id="assetsWeapons">0</div>
+                    </div>
+                </div>
 
-            <!-- Vehicles -->
-            <div class="gallery-item"><img src="/assets/images/vehicles/battle-walker.png" alt="Vehicle - Battle Walker" class="gallery-image"><div class="gallery-overlay"><h4>Battle Walker</h4><p>Heavy bipedal combat platform</p><span class="quality-badge">Concept</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/vehicles/recon-helo.png" alt="Vehicle - Recon Helo" class="gallery-image"><div class="gallery-overlay"><h4>Recon Helo</h4><p>Light reconnaissance helicopter</p><span class="quality-badge">Concept</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/vehicles/stalker-apc.png" alt="Vehicle - Stalker APC" class="gallery-image"><div class="gallery-overlay"><h4>Stalker APC</h4><p>Armored personnel carrier</p><span class="quality-badge">Concept</span></div></div>
+                <!-- Filters -->
+                <div class="filters" role="tablist" aria-label="Asset category filters">
+                    <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All</button>
+                    <button class="filter-btn" data-category="environments" role="tab">Environments</button>
+                    <button class="filter-btn" data-category="factions" role="tab">Factions</button>
+                    <button class="filter-btn" data-category="vehicles" role="tab">Vehicles</button>
+                    <button class="filter-btn" data-category="weapons" role="tab">Weapons</button>
+                    <button class="filter-btn" data-category="renders" role="tab">Renders</button>
+                    <button class="filter-btn" data-category="ui" role="tab">UI</button>
+                </div>
 
-            <!-- Weapons -->
-            <div class="gallery-item"><img src="/assets/images/weapons/ion-pike-h2.png" alt="Weapon - Ion Pike H2" class="gallery-image"><div class="gallery-overlay"><h4>Ion Pike H2</h4><p>Field-class energy pike</p><span class="quality-badge">Concept</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/weapons/mk2-service-ar.png" alt="Weapon - MK2 Service AR" class="gallery-image"><div class="gallery-overlay"><h4>MK2 Service AR</h4><p>Service rifle with modular rail</p><span class="quality-badge">Concept</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/weapons/plasma-rail-h1.png" alt="Weapon - Plasma Rail H1" class="gallery-image"><div class="gallery-overlay"><h4>Plasma Rail H1</h4><p>Splice-class directed energy</p><span class="quality-badge">Concept</span></div></div>
-
-            <!-- Faction Emblems -->
-            <div class="gallery-item"><img src="/assets/images/factions/directorate-emblem.png" alt="Faction Emblem - Directorate" class="gallery-image"><div class="gallery-overlay"><h4>Sky Bastion Directorate</h4><p>Tactical blues insignia</p><span class="quality-badge">Identity</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/factions/iron-scavengers-emblem.png" alt="Faction Emblem - Iron Scavengers" class="gallery-image"><div class="gallery-overlay"><h4>Iron Scavengers</h4><p>Asymmetrical trophy claw</p><span class="quality-badge">Identity</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/factions/free77-emblem.png" alt="Faction Emblem - The Seventy-Seven" class="gallery-image"><div class="gallery-overlay"><h4>The Seventy-Seven</h4><p>Professional red insignia</p><span class="quality-badge">Identity</span></div></div>
-            <div class="gallery-item"><img src="/assets/images/factions/nomad-clans-emblem.png" alt="Faction Emblem - Nomad Clans" class="gallery-image"><div class="gallery-overlay"><h4>Nomad Clans</h4><p>Convoy tribe icon</p><span class="quality-badge">Identity</span></div></div>
+                <!-- Dynamic asset grid (filled from snippets if present) -->
+                <div id="assetGrid" class="asset-grid" aria-live="polite">
+                    <!-- Curated fallback items -->
+                    <div class="asset-item" data-category="environments" data-style="clean">
+                        <img src="/assets/images/environments/metro-corridor-clean.png" alt="Metro Corridor - Clean SciFi" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Metro Corridor</h4>
+                            <p>Underground maintenance - Clean SciFi</p>
+                            <span class="quality-badge">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="environments" data-style="clean">
+                        <img src="/assets/images/environments/iez-facility-clean.png" alt="IEZ Facility - Clean SciFi" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>IEZ Facility</h4>
+                            <p>Inner quarantine facility - Clean SciFi</p>
+                            <span class="quality-badge">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="environments" data-style="gritty">
+                        <img src="/assets/images/environments/iez-facility-gritty.png" alt="IEZ Facility - Gritty Realism" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>IEZ Facility</h4>
+                            <p>Inner quarantine facility - Gritty Realism</p>
+                            <span class="quality-badge">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="environments" data-style="clean">
+                        <img src="/assets/images/environments/research-lab-clean.png" alt="Research Laboratory - Clean SciFi" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Research Lab</h4>
+                            <p>Pre-Cascade scientific facility</p>
+                            <span class="quality-badge">Masterpiece</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="environments" data-style="clean">
+                        <img src="/assets/images/environments/security-checkpoint-clean.png" alt="Security Checkpoint - Clean SciFi" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Security Checkpoint</h4>
+                            <p>Territorial control installation</p>
+                            <span class="quality-badge">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="environments" data-style="gritty">
+                        <img src="/assets/images/environments/underground-bunker-gritty.png" alt="Underground Bunker - Gritty Realism" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Underground Bunker</h4>
+                            <p>Subterranean access - Gritty Realism</p>
+                            <span class="quality-badge">Excellent</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="renders" data-style="hero">
+                        <img src="/assets/images/renders/hero-main.png" alt="Render - Main Hero" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Render</h4>
+                            <p>Main hero composite</p>
+                            <span class="quality-badge">Showcase</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="renders" data-style="hero">
+                        <img src="/assets/images/renders/hero-iez.png" alt="Render - IEZ Hero" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Render</h4>
+                            <p>IEZ perimeter composite</p>
+                            <span class="quality-badge">Showcase</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="vehicles" data-style="concept">
+                        <img src="/assets/images/vehicles/battle-walker.png" alt="Vehicle - Battle Walker" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Battle Walker</h4>
+                            <p>Heavy bipedal combat platform</p>
+                            <span class="quality-badge">Concept</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="vehicles" data-style="concept">
+                        <img src="/assets/images/vehicles/stalker-apc.png" alt="Vehicle - Stalker APC" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Stalker APC</h4>
+                            <p>Armored personnel carrier</p>
+                            <span class="quality-badge">Concept</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="weapons" data-style="concept">
+                        <img src="/assets/images/weapons/ion-pike-h2.png" alt="Weapon - Ion Pike H2" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Ion Pike H2</h4>
+                            <p>Field-class energy pike</p>
+                            <span class="quality-badge">Concept</span>
+                        </div>
+                    </div>
+                    <div class="asset-item" data-category="factions" data-style="emblem">
+                        <img src="/assets/images/factions/iron-scavengers-emblem.png" alt="Faction Emblem - Iron Scavengers" class="asset-image" loading="lazy">
+                        <div class="asset-overlay">
+                            <h4>Iron Scavengers</h4>
+                            <p>Asymmetrical trophy claw</p>
+                            <span class="quality-badge">Identity</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="gallery-note-footer">
-            <p><strong>Source:</strong> All images are stored under <code>/site/assets/images/</code> in this repository.</p>
+                    <p><strong>Source:</strong> All images are stored under <code>/site/assets/images/</code> in this repository. If <code>scripts/asset-pipeline.js</code> is run, this gallery will auto-include all eligible assets.</p>
                 </div>
             </div>
         </section>

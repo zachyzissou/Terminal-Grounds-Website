@@ -251,77 +251,98 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Asset Showcase Filtering System
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const assetItems = document.querySelectorAll('.asset-item');
-    const assetGrid = document.getElementById('assetGrid');
+    // Dynamic Gallery Loader + Filter (event delegation) + Lightbox bootstrap
+    (function initGallery() {
+        const assetGrid = document.getElementById('assetGrid');
+        if (!assetGrid) return; // No gallery on this page
 
-    if (filterButtons.length === 0 || assetItems.length === 0) return;
+        const filters = document.querySelector('.filters');
 
-    function filterAssets(category) {
-        assetItems.forEach(item => {
-            const itemCategory = item.getAttribute('data-category');
-            const shouldShow = category === 'all' || itemCategory === category;
-            
-            if (shouldShow) {
-                item.classList.remove('hidden');
-                item.classList.add('visible');
-                item.style.display = 'block';
-            } else {
-                item.classList.add('hidden');
-                item.classList.remove('visible');
-                setTimeout(() => {
-                    if (item.classList.contains('hidden')) {
-                        item.style.display = 'none';
+        // Helper: apply filter to current items
+        function filterAssets(category) {
+            const items = assetGrid.querySelectorAll('.asset-item');
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const shouldShow = category === 'all' || itemCategory === category;
+                if (shouldShow) {
+                    item.classList.remove('hidden');
+                    item.classList.add('visible');
+                    item.style.display = 'block';
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('visible');
+                    setTimeout(() => {
+                        if (item.classList.contains('hidden')) item.style.display = 'none';
+                    }, 200);
+                }
+            });
+        }
+
+        // Filters via event delegation
+        if (filters) {
+            filters.addEventListener('click', (e) => {
+                const btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+                const category = btn.getAttribute('data-category') || 'all';
+                filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterAssets(category);
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'filter_assets', { event_category: 'Gallery', event_label: category });
+                }
+            });
+        }
+
+        // Try to fetch generated snippet; fallback gracefully if missing/empty
+        fetch('/assets/snippets/gallery-items.html', { cache: 'no-store' })
+            .then(resp => resp.ok ? resp.text() : '')
+            .then(html => {
+                if (html && html.trim().length > 0) {
+                    assetGrid.insertAdjacentHTML('afterbegin', html);
+                }
+                // Initialize default filter state
+                filterAssets('all');
+
+                // Attach click handler for lightbox open on dynamically added items
+                assetGrid.addEventListener('click', (e) => {
+                    const item = e.target.closest('.asset-item');
+                    if (!item) return;
+                    // Lightbox expects .asset-image and .asset-overlay content
+                    if (typeof window.__openAssetLightbox === 'function') {
+                        window.__openAssetLightbox(item);
+                    } else {
+                        // Fallback: open image in new tab
+                        const img = item.querySelector('.asset-image');
+                        if (img && img.src) window.open(img.src, '_blank');
                     }
-                }, 300);
-            }
-        });
-
-        // Update grid layout after filtering
-        setTimeout(() => {
-            if (assetGrid) {
-                assetGrid.style.animation = 'none';
-                assetGrid.offsetHeight; // Trigger reflow
-                assetGrid.style.animation = null;
-            }
-        }, 100);
-    }
-
-    function updateActiveButton(activeButton) {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        activeButton.classList.add('active');
-    }
-
-    // Add click handlers for filter buttons
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            updateActiveButton(this);
-            filterAssets(category);
-            
-            // Analytics tracking
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'filter_assets', {
-                    event_category: 'Gallery',
-                    event_label: category
                 });
-            }
-        });
+            })
+            .catch(() => {
+                // Snippet not available; just ensure default filter is applied
+                filterAssets('all');
+            });
 
-        // Keyboard accessibility
-        button.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.click();
-            }
-        });
-    });
-
-    // Initialize with 'all' category
-    filterAssets('all');
-});
+        // Populate asset stats from manifest.json if present
+        fetch('/assets/images/manifest.json', { cache: 'no-store' })
+            .then(r => (r.ok ? r.json() : null))
+            .then(manifest => {
+                if (!manifest) return;
+                const setText = (id, val) => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = String(val);
+                };
+                setText('assetTotal', manifest.total ?? 0);
+                setText('assetUpdated', manifest.lastUpdated ? new Date(manifest.lastUpdated).toLocaleString() : '—');
+                setText('assetsEnvironments', Object.keys(manifest.environments || {}).length);
+                setText('assetsFactions', Object.keys(manifest.factions || {}).length);
+                setText('assetsRenders', Object.keys(manifest.renders || {}).length);
+                setText('assetsVehicles', Object.keys(manifest.vehicles || {}).length);
+                setText('assetsWeapons', Object.keys(manifest.weapons || {}).length);
+            })
+            .catch(() => {})
+        ;
+    })();
 
 // Asset Lightbox System
 document.addEventListener('DOMContentLoaded', function() {
@@ -455,6 +476,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+        // Expose lightbox open function for dynamic galleries
+        window.__openAssetLightbox = openLightbox;
+
     function closeLightbox() {
         if (lightbox) {
             lightbox.style.display = 'none';
@@ -497,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             } else {
                 // Fallback to clipboard
-                navigator.clipboard.writeText(url).then(() => {
+                    navigator.clipboard.writeText(url).then(() => {
                     // Show temporary feedback
                     const btn = document.getElementById('shareBtn');
                     const originalText = btn.innerHTML;

@@ -47,7 +47,23 @@ python -m http.server 8000
 npx serve site
 ```
 
+### Populate the Gallery from Local Assets
+
+If you want the Concept Art gallery to auto-populate from all images already in `site/assets/images/**`, run the local scanner:
+
+```bash
+node scripts/local-asset-scan.js
+```
+
+This generates:
+
+- `site/assets/images/manifest.json`
+- `site/assets/snippets/gallery-items.html` (auto-included on the Concept Art page)
+
+Note: This does not require the sibling Terminal-Grounds repository. For cross-repo syncing, see `scripts/asset-pipeline.js`.
+
 ### Docker Deployment (Production)
+
 ```bash
 # Build and run
 docker-compose up -d
@@ -72,14 +88,19 @@ Both scripts will:
 - Wait for /health to pass
 - Print recent logs if health fails
 
+Optional: Run `node scripts/local-asset-scan.js` before building to include all current images in the Concept Art gallery automatically.
+
 **Using Community Applications Template:**
+
 1. **Add Template**: Use template URL: `https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml`
 2. **Install**: Search for "Bloom Website" in Community Applications
-3. **Configure**: 
-   - Port: 2161 (default, thematically matches game year 2161)
-   - Timezone: Set to your timezone
-   - Config Path: `/mnt/user/appdata/bloom-website`
-4. **Access**: Visit `http://YOUR_UNRAID_IP:2161`
+3. **Configure**:
+
+- Port: 2161 (default, thematically matches game year 2161)
+- Timezone: Set to your timezone
+- Config Path: `/mnt/user/appdata/bloom-website`
+
+4) **Access**: Visit `http://YOUR_UNRAID_IP:2161`
 
 **Manual Docker Setup:**
 
@@ -94,11 +115,13 @@ docker run -d \
 ## Content Updates
 
 ### Adding New Artwork
+
 1. Place images in `site/artwork/`
 2. Update `site/data/artwork.json` with metadata
 3. Rebuild container: `docker-compose up -d --build`
 
 ### Updating Progress
+
 1. Edit `site/data/milestones.json`
 2. Edit `site/data/progress.json`
 3. Rebuild container (or use volume mount for live updates)
@@ -108,21 +131,26 @@ docker run -d \
 This repository uses GitHub Actions to automatically build and deploy Docker images:
 
 ### Triggers
+
 - **Push to main**: Automatically builds and pushes `latest` tag
 - **Pull requests**: Builds image for testing (doesn't push)
 - **Releases**: Creates versioned tags (e.g., `v1.0.0`, `1.0`, `1`)
 
 ### GitHub Container Registry
+
 Images are published to: `ghcr.io/zachyzissou/terminal-grounds-website`
 
 **Available Tags:**
+
 - `latest`: Latest stable build from main branch
 - `main`: Alias for latest
 - `v*.*.*`: Semantic version releases
 
 ### Setup Requirements
+
 Requires a `GITHUB_TOKEN` (automatically provided by GitHub Actions) for publishing images to GitHub Container Registry (GHCR).
 No manual secret setup is required for basic publishing. For advanced permissions (e.g., publishing to other repositories), you may use a Personal Access Token (PAT) as a secret named `GHCR_PAT`.
+
 ## Environment Variables
 
 - `HOST_PORT`: Host port for the container (default: 2161)
@@ -146,13 +174,15 @@ No manual secret setup is required for basic publishing. For advanced permission
 ## Reverse Proxy Configuration
 
 ### Nginx Proxy Manager
-```
+
+```text
 Proxy Host: bloom.example.com
 Forward Hostname/IP: container_ip
 Forward Port: 80
 ```
 
 ### Traefik (labels included in docker-compose.yml)
+
 ```yaml
 labels:
   - "traefik.enable=true"

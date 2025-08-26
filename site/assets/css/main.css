@@ -1503,6 +1503,10 @@ body {
 .faction-detailed.directorate { border-left-color: var(--directorate); }
 .faction-detailed.iron-scavengers { border-left-color: var(--iron-scavengers); }
 .faction-detailed.free77 { border-left-color: var(--free77); }
+.faction-detailed.corporate-hegemony { border-left-color: var(--corporate-hegemony); }
+.faction-detailed.nomad-clans { border-left-color: var(--nomad-clans); }
+.faction-detailed.archive-keepers { border-left-color: var(--archive-keepers); }
+.faction-detailed.civic-wardens { border-left-color: var(--civic-wardens); }
 
 .faction-info h3 {
     font-family: var(--font-heading);
