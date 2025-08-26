@@ -5,6 +5,7 @@ A standalone static website showcasing the Bloom tactical extraction game, set i
 ## Features
 
 - **Modern Design**: Cyberpunk-inspired aesthetic matching the game's visual identity
+- **AAA Asset Gallery**: 112 premium Terminal Grounds assets showcasing PERFECT_PARAMS methodology
 - **Responsive**: Mobile-first design that works on all devices
 - **Fast Loading**: Optimized static assets with proper caching
 - **Docker Ready**: Complete containerization for easy deployment on Unraid/Docker  
@@ -61,6 +62,37 @@ This generates:
 - `site/assets/snippets/gallery-items.html` (auto-included on the Concept Art page)
 
 Note: This does not require the sibling Terminal-Grounds repository. For cross-repo syncing, see `scripts/asset-pipeline.js`.
+
+## Premium Asset Content
+
+### Current Asset Library (112 Assets)
+**Last Updated**: August 26, 2025
+
+#### Asset Categories
+- **Environmental Renders** (40+ assets): HQ metro corridors, IEZ facilities, post-cascade atmospherics
+- **Enhanced Faction Emblems** (10+ assets): Premium DIR emblem variations with tactical authenticity
+- **Production Concept Art** (15+ assets): PROD series with web-optimized variants
+- **Refined Quality Assets** (25+ assets): REFINE_SHARP series with professional toning
+- **Technical Demonstrations** (22+ assets): PERFECT_PARAMS showcase, workflow examples
+
+#### Quality Standards
+All assets generated using **PERFECT_PARAMS methodology**:
+- Scheduler: `heun/normal`
+- CFG Scale: `3.2` 
+- Steps: `25`
+- Quality Tier: 4-tier system with 85+ pass threshold
+
+#### Asset Integration Process
+```bash
+# Sync premium assets from Terminal-Grounds repository
+node scripts/asset-pipeline.js
+
+# Generate gallery integration
+node scripts/local-asset-scan.js
+
+# Build with latest assets
+docker-compose up -d --build
+```
 
 ### Docker Deployment (Production)
 
