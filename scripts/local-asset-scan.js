@@ -107,10 +107,74 @@ function detectDescription(filename, category) {
 
   let galleryHTML = '';
 
+  // Optional allowlist support: scripts/gallery-allowlist.json
+  let allowlist = null;
+  const allowlistPath = path.join(ROOT, 'scripts', 'gallery-allowlist.json');
+  try {
+    const content = await fs.readFile(allowlistPath, 'utf8');
+    allowlist = JSON.parse(content);
+    console.log('✓ Loaded gallery allowlist');
+  } catch (_) {
+    // no allowlist, proceed with heuristics
+  }
+
+  // Utility: normalize a filename to detect variant duplicates
+  function normalizeKey(name) {
+    const base = name
+      .replace(/\.[^.]+$/, '') // drop extension
+      .replace(/\b(19|20)\d{2,}\b/g, '') // drop long year/timestamps
+      .replace(/\b\d{3,4}x\d{3,4}\b/gi, '') // drop resolution tokens
+      .replace(/_?\d{5,}_?/g, '') // drop long numeric run ids
+      .replace(/_?0000\d_?/g, '') // drop trailing sequence markers
+      .replace(/_?1920w_?/gi, '')
+      .replace(/_?Toned_?/gi, '')
+      .replace(/^(HQ_|LORE_|PROD_|REFINE_SHARP_)+/gi, '') // drop pipeline prefixes
+      .replace(/[_\s]+/g, '-')
+      .toLowerCase();
+    return base;
+  }
+
+  // Preference scoring: favor semantic, curated names and showcase descriptors
+  function scoreName(name) {
+    const lower = name.toLowerCase();
+    let score = 0;
+    if (/-/.test(name)) score += 3; // semantic hyphenated names
+    if (lower.includes('hero')) score += 3;
+    if (lower.includes('premium')) score += 2;
+    if (lower.includes('clean') || lower.includes('gritty')) score += 2;
+    if (/\b2560x1440\b/i.test(name) || /1920w/i.test(name)) score += 1;
+    if (lower.includes('toned')) score -= 1;
+    if ((name.match(/\d/g) || []).length > 6) score -= 2;
+    if (name.length > 60) score -= 2;
+    return score;
+  }
+
+  // Should this image be emitted to the gallery HTML? (manifest remains curated by disallow rules)
+  function includeInGallery(category, name) {
+    // Never include UI icons or palette swatches in the gallery
+    if (category === 'ui') return false;
+    if (/palette/i.test(name)) return false;
+
+    if (allowlist && Array.isArray(allowlist[category]) && allowlist[category].length) {
+      return allowlist[category].includes(name);
+    }
+
+    // Heuristic: prefer semantic hyphenated files and avoid heavy pipeline-coded names
+    const semantic = /[a-z]+-[a-z0-9-]+\.(png|jpe?g|webp)$/i.test(name);
+    const pipeliney = /[A-Z]{2,}[_\d]/.test(name) || /(cfg|s\d|_\d{5,})/i.test(name);
+    if (semantic && !pipeliney) return true;
+
+    // Fallback: allow a small curated set of descriptors
+    const allowedHints = ['metro', 'corridor', 'facility', 'bunker', 'tech-wastes', 'research', 'security', 'hero', 'stalker', 'walker', 'apc', 'plasma', 'ion'];
+    return allowedHints.some(h => name.toLowerCase().includes(h));
+  }
+
   for (const category of CATEGORIES) {
     const catDir = path.join(IMAGES_DIR, category);
     try {
       const entries = await fs.readdir(catDir, { withFileTypes: true });
+      // Deduplicate by normalized key within category
+      const chosen = new Map(); // key -> { name, score }
       for (const entry of entries) {
         if (!entry.isFile()) continue;
         if (!isImage(entry.name)) continue;
@@ -119,6 +183,7 @@ function detectDescription(filename, category) {
         const filePath = path.join(catDir, entry.name);
         const stats = await fs.stat(filePath);
 
+        // Always record in manifest (curated by disallow only)
         manifest[category][entry.name] = {
           filename: entry.name,
           size: stats.size,
@@ -126,11 +191,23 @@ function detectDescription(filename, category) {
         };
         manifest.total++;
 
-        const displayName = titleCaseName(entry.name);
-        const style = detectStyle(entry.name);
-        const desc = detectDescription(entry.name, category);
+        // Gallery candidate collection
+        if (!includeInGallery(category, entry.name)) continue;
+        const key = `${category}:${normalizeKey(entry.name)}`;
+        const score = scoreName(entry.name);
+        const prev = chosen.get(key);
+        if (!prev || score > prev.score) {
+          chosen.set(key, { name: entry.name, score });
+        }
+      }
+
+      // Emit chosen items to gallery
+      for (const { name } of chosen.values()) {
+        const displayName = titleCaseName(name);
+        const style = detectStyle(name);
+        const desc = detectDescription(name, category);
         const rarity = 'common';
-        galleryHTML += `\n<div class="asset-item" data-category="${category}" data-style="${style}">\n  <img src="/assets/images/${category}/${entry.name}" alt="${displayName}" class="asset-image" loading="lazy">\n  <div class="asset-overlay">\n    <h4>${displayName}</h4>\n    <p>${desc}</p>\n    <span class="rarity-tag ${rarity}">${rarity.charAt(0).toUpperCase() + rarity.slice(1)}</span>\n  </div>\n</div>`;
+        galleryHTML += `\n<div class="asset-item" data-category="${category}" data-style="${style}">\n  <img src="/assets/images/${category}/${name}" alt="${displayName}" class="asset-image" loading="lazy">\n  <div class="asset-overlay">\n    <h4>${displayName}</h4>\n    <p>${desc}</p>\n    <span class="rarity-tag ${rarity}">${rarity.charAt(0).toUpperCase() + rarity.slice(1)}</span>\n  </div>\n</div>`;
       }
     } catch (e) {
       // Category folder may not exist; log once and continue

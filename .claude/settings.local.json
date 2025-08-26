@@ -19,13 +19,21 @@
       "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
       "Bash(git pull:*)",
       "WebFetch(domain:zachyzissou.github.io)",
-      "WebFetch(domain:bloom.slurpgg.net)"
+      "WebFetch(domain:bloom.slurpgg.net)",
+      "Bash(find:*)",
+      "Read(/C:\\c\\Users\\Zachg/**)",
+      "Read(/C:\\c\\Users\\Zachg/**)",
+      "Read(/C:\\c\\Users\\Zachg/**)",
+      "Read(/C:\\c\\Users\\Zachg/**)"
     ],
     "deny": [],
     "ask": [],
     "additionalDirectories": [
       "C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations",
-      "C:\\Users\\Zachg\\Terminal-Grounds\\Tools\\ArtGen"
+      "C:\\Users\\Zachg\\Terminal-Grounds\\Tools\\ArtGen",
+      "C:\\Users\\Zachg\\Terminal-Grounds",
+      "C:\\c\\Users\\Zachg\\Terminal-Grounds\\Style_Staging",
+      "C:\\c\\Users\\Zachg\\Terminal-Grounds-Website\\site"
     ]
   }
 }
