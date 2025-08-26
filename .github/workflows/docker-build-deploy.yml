@@ -16,8 +16,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: zachyzissou/terminal-grounds-website
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
