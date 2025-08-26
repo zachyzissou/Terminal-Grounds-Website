@@ -8,7 +8,7 @@ A standalone static website showcasing the Bloom tactical extraction game, set i
 - **Responsive**: Mobile-first design that works on all devices
 - **Fast Loading**: Optimized static assets with proper caching
 - **Docker Ready**: Complete containerization for easy deployment on Unraid/Docker  
-- **Automated Deployment**: GitHub Actions CI/CD pipeline for Docker Hub publishing
+- **Automated Deployment**: GitHub Actions CI/CD pipeline for GitHub Container Registry publishing
 - **SEO Optimized**: Proper meta tags and semantic HTML structure
 
 ## Project Structure
@@ -72,7 +72,7 @@ docker run -d \
   --name bloom-website \
   -p 2161:80 \
   -v /mnt/user/appdata/bloom-website:/config \
-  zachyzissou/terminal-grounds-website:latest
+  ghcr.io/zachyzissou/terminal-grounds-website:latest
 ```
 
 ## Content Updates
@@ -96,8 +96,13 @@ This repository uses GitHub Actions to automatically build and deploy Docker ima
 - **Pull requests**: Builds image for testing (doesn't push)
 - **Releases**: Creates versioned tags (e.g., `v1.0.0`, `1.0`, `1`)
 
-### Docker Hub Registry
-Images are published to: `zachyzissou/terminal-grounds-website`
+### GitHub Container Registry
+Images are published to: `ghcr.io/zachyzissou/terminal-grounds-website`
+
+**Available Tags:**
+- `latest`: Latest stable build from main branch
+- `main`: Alias for latest
+- `v*.*.*`: Semantic version releases
 - `latest`: Latest main branch build  
 - Version tags: Released versions (e.g., `v1.0.0`)
 
