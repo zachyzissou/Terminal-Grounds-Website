@@ -9,7 +9,7 @@ To build the Docker image for the Bloom website:
 cd C:\Users\Zachg\Terminal-Grounds-Website
 
 # Build the Docker image
-docker build -f Dockerfile.build -t ghcr.io/zachyzissou/terminal-grounds-website:latest .
+docker build -t ghcr.io/zachyzissou/terminal-grounds-website:latest .
 
 # Test locally (optional)
 docker run -d --name bloom-website-test -p 2161:80 ghcr.io/zachyzissou/terminal-grounds-website:latest
