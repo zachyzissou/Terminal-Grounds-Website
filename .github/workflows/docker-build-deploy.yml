@@ -3,6 +3,13 @@
 name: Build and Deploy Docker Image
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - 'DEPLOYMENT_GUIDE.md'
+      - 'DOCKER_BUILD.md'
+      - 'DEPLOYMENT.md'
   release:
     types: [published]
   workflow_dispatch:
