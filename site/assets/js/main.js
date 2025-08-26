@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isDisallowed = (src) => disallowPatterns.some(r => r.test(src));
                 const minW = 1200, minH = 700;
 
-                assetGrid.querySelectorAll('.asset-item').forEach(item => {
+                assetGrid.querySelectorAll('.asset-item').forEach(async item => {
                     const img = item.querySelector('.asset-image');
                     if (!img?.src || isDisallowed(img.src)) {
                         item.remove();
@@ -351,16 +351,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         img.alt = title;
                     }
                     // Dimension check after load
-                    if (img.complete) {
+                    const afterLoad = async () => {
                         if ((img.naturalWidth && img.naturalWidth < minW) || (img.naturalHeight && img.naturalHeight < minH)) {
                             item.remove();
+                            return;
                         }
+                        // Vision-based quality gate
+                        const category = item.getAttribute('data-category') || '';
+                        const q = await evaluateImageQuality(img, category);
+                        if (!q.ok) item.remove();
+                    };
+                    if (img.complete) {
+                        afterLoad();
                     } else {
-                        img.addEventListener('load', () => {
-                            if (img.naturalWidth < minW || img.naturalHeight < minH) {
-                                item.remove();
-                            }
-                        }, { once: true });
+                        img.addEventListener('load', afterLoad, { once: true });
                         img.addEventListener('error', () => item.remove(), { once: true });
                     }
                 });
@@ -406,6 +410,110 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(() => {})
         ;
     })();
+
+// Vision-based quality assessment (canvas) — sharpness, contrast, colorfulness
+async function evaluateImageQuality(img, category) {
+    try {
+        const w = img.naturalWidth || img.width;
+        const h = img.naturalHeight || img.height;
+        if (!w || !h) return { ok: false, reason: 'no-dimensions' };
+
+        const targetW = 128; // downscale for performance
+        const scale = Math.min(1, targetW / w);
+        const dw = Math.max(16, Math.round(w * scale));
+        const dh = Math.max(16, Math.round(h * scale));
+
+        const canvas = document.createElement('canvas');
+        canvas.width = dw;
+        canvas.height = dh;
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        if (!ctx) return { ok: true }; // can't evaluate, don't block
+        ctx.drawImage(img, 0, 0, dw, dh);
+        const { data } = ctx.getImageData(0, 0, dw, dh);
+
+        // Compute luminance, Sobel edges, and color components
+        const lum = new Float32Array(dw * dh);
+        const rg = new Float32Array(dw * dh);
+        const yb = new Float32Array(dw * dh);
+        let i = 0;
+        for (let y = 0; y < dh; y++) {
+            for (let x = 0; x < dw; x++) {
+                const idx = (y * dw + x) * 4;
+                const r = data[idx];
+                const g = data[idx + 1];
+                const b = data[idx + 2];
+                const L = 0.2126 * r + 0.7152 * g + 0.0722 * b; // Rec. 709
+                lum[i] = L;
+                rg[i] = r - g;
+                yb[i] = 0.5 * (r + g) - b;
+                i++;
+            }
+        }
+
+        // RMS contrast (std dev of luminance)
+        const mean = lum.reduce((a, v) => a + v, 0) / lum.length;
+        let sumSq = 0;
+        for (const v of lum) {
+            const d = v - mean;
+            sumSq += d * d;
+        }
+        const contrast = Math.sqrt(sumSq / lum.length);
+
+        // Colorfulness (Hasler–Süsstrunk proxy)
+        const std = arr => {
+            const m = arr.reduce((a, v) => a + v, 0) / arr.length;
+            let s = 0; for (const val of arr) { const d = val - m; s += d * d; }
+            return Math.sqrt(s / arr.length);
+        };
+        const stdRG = std(rg);
+        const stdYB = std(yb);
+        const colorfulness = Math.sqrt(stdRG * stdRG + stdYB * stdYB);
+
+        // Sobel edge magnitude variance as sharpness proxy
+        const sobel = (arr) => {
+            const out = new Float32Array(arr.length);
+            const sx = [-1, 0, 1, -2, 0, 2, -1, 0, 1];
+            const sy = [-1, -2, -1, 0, 0, 0, 1, 2, 1];
+            for (let y = 1; y < dh - 1; y++) {
+                for (let x = 1; x < dw - 1; x++) {
+                    let gx = 0, gy = 0;
+                    let p = 0;
+                    for (let ky = -1; ky <= 1; ky++) {
+                        for (let kx = -1; kx <= 1; kx++) {
+                            const v = arr[(y + ky) * dw + (x + kx)];
+                            gx += v * sx[p];
+                            gy += v * sy[p];
+                            p++;
+                        }
+                    }
+                    out[y * dw + x] = Math.hypot(gx, gy);
+                }
+            }
+            return out;
+        };
+        const edges = sobel(lum);
+        const emean = edges.reduce((a, v) => a + v, 0) / edges.length;
+    let esum = 0; for (const ev of edges) { const d = ev - emean; esum += d * d; }
+        const sharpness = Math.sqrt(esum / edges.length);
+
+        // Category thresholds (tunable)
+        const cat = (category || '').toLowerCase();
+        const req = {
+            environments: { contrast: 18, sharp: 9, color: 15 },
+            renders:      { contrast: 18, sharp: 9, color: 12 },
+            vehicles:     { contrast: 16, sharp: 8, color: 10 },
+            weapons:      { contrast: 16, sharp: 8, color: 10 },
+            factions:     { contrast: 8,  sharp: 4, color: 4  }, // emblems
+            ui:           { contrast: 5,  sharp: 3, color: 2  }
+        }[cat] || { contrast: 14, sharp: 7, color: 8 };
+
+        const ok = (contrast >= req.contrast) && (sharpness >= req.sharp) && (colorfulness >= req.color);
+        return { ok, contrast: Math.round(contrast), sharpness: Math.round(sharpness), colorfulness: Math.round(colorfulness) };
+    } catch (err) {
+        console.warn('quality-eval failed', err);
+        return { ok: true, reason: 'eval-error' }; // fail open to avoid hiding legit images on errors
+    }
+}
 
 // Site-wide image curation to ensure only high-quality, on-message visuals render
 document.addEventListener('DOMContentLoaded', function() {
@@ -472,16 +580,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Dimension checks appropriate to category
         const { w: minW, h: minH } = getThresholds(src);
-        const removeIfTooSmall = () => {
+        const containerSel = '.asset-item, .feature-card, .faction-card, .region, .card, figure';
+        const prune = async () => {
+            const container = img.closest(containerSel) || img;
             if ((img.naturalWidth && img.naturalWidth < minW) || (img.naturalHeight && img.naturalHeight < minH)) {
-                const container = img.closest('.asset-item, .feature-card, .faction-card, .region, .card, figure') || img;
                 container.remove();
+                return;
             }
+            const category = src.match(/\/assets\/images\/(\w+)\//i)?.[1] || '';
+            const q = await evaluateImageQuality(img, category);
+            if (!q.ok) container.remove();
         };
         if (img.complete) {
-            removeIfTooSmall();
+            prune();
         } else {
-            img.addEventListener('load', removeIfTooSmall, { once: true });
+            img.addEventListener('load', prune, { once: true });
             img.addEventListener('error', () => img.remove(), { once: true });
         }
     });
