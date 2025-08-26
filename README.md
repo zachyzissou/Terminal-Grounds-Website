@@ -103,8 +103,6 @@ Images are published to: `ghcr.io/zachyzissou/terminal-grounds-website`
 - `latest`: Latest stable build from main branch
 - `main`: Alias for latest
 - `v*.*.*`: Semantic version releases
-- `latest`: Latest main branch build  
-- Version tags: Released versions (e.g., `v1.0.0`)
 
 ### Setup Requirements
 Requires a `GITHUB_TOKEN` (automatically provided by GitHub Actions) for publishing images to GitHub Container Registry (GHCR).
