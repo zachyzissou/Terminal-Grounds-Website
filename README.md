@@ -107,10 +107,8 @@ Images are published to: `ghcr.io/zachyzissou/terminal-grounds-website`
 - Version tags: Released versions (e.g., `v1.0.0`)
 
 ### Setup Requirements
-Requires Docker Hub credentials configured as GitHub repository secrets:
-- `DOCKER_HUB_USERNAME`: Your Docker Hub username
-- `DOCKER_HUB_PASSWORD`: Your Docker Hub access token or password
-
+Requires a `GITHUB_TOKEN` (automatically provided by GitHub Actions) for publishing images to GitHub Container Registry (GHCR).
+No manual secret setup is required for basic publishing. For advanced permissions (e.g., publishing to other repositories), you may use a Personal Access Token (PAT) as a secret named `GHCR_PAT`.
 ## Environment Variables
 
 - `HOST_PORT`: Host port for the container (default: 2161)
