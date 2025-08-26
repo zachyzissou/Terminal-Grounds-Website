@@ -96,13 +96,15 @@ This repository uses GitHub Actions to automatically build and deploy Docker ima
 - **Pull requests**: Builds image for testing (doesn't push)
 - **Releases**: Creates versioned tags (e.g., `v1.0.0`, `1.0`, `1`)
 
-### GitHub Container Registry
-Images are published to: `ghcr.io/zachyzissou/terminal-grounds-website`
+### Docker Hub Registry
+Images are published to: `zachyzissou/terminal-grounds-website`
 - `latest`: Latest main branch build  
 - Version tags: Released versions (e.g., `v1.0.0`)
 
 ### Setup Requirements
-No additional setup required! GitHub Actions automatically publishes to GitHub Container Registry using the built-in `GITHUB_TOKEN`.
+Requires Docker Hub credentials configured as GitHub repository secrets:
+- `DOCKER_HUB_USERNAME`: Your Docker Hub username
+- `DOCKER_HUB_PASSWORD`: Your Docker Hub access token or password
 
 ## Environment Variables
 
