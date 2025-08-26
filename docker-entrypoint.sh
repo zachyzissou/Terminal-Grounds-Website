@@ -8,8 +8,8 @@ set -e
 echo "🚀 Terminal Grounds Website - Starting auto-update process..."
 
 # Configuration
-REPO_URL="https://github.com/zachgentner/Terminal-Grounds-Website.git"
-MAIN_REPO_URL="https://github.com/zachgentner/Terminal-Grounds.git"
+REPO_URL="https://github.com/zachyzissou/Terminal-Grounds-Website.git"
+MAIN_REPO_URL="https://github.com/zachyzissou/Terminal-Grounds.git"
 WORK_DIR="/tmp/terminal-grounds-update"
 WEBSITE_DIR="/usr/share/nginx/html"
 
