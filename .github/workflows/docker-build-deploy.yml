@@ -26,96 +26,96 @@ jobs:
       id-token: write
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-    - name: Log in to Container Registry
-      if: github.event_name != 'pull_request'
-      uses: docker/login-action@v3
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Log in to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        tags: |
-          type=ref,event=branch
-          type=ref,event=pr
-          type=semver,pattern={{version}}
-          type=semver,pattern={{major}}.{{minor}}
-          type=raw,value=latest,enable={{is_default_branch}}
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable={{is_default_branch}}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        file: ./Dockerfile.build
-        platforms: linux/amd64
-        push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile.build
+          platforms: linux/amd64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
-    - name: Debug image information
-      if: github.event_name != 'pull_request'
-      run: |
-        echo "Built images with tags: ${{ steps.meta.outputs.tags }}"
-        echo "Registry: ${{ env.REGISTRY }}"
-        echo "Image name: ${{ env.IMAGE_NAME }}"
+      - name: Debug image information
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "Built images with tags: ${{ steps.meta.outputs.tags }}"
+          echo "Registry: ${{ env.REGISTRY }}"
+          echo "Image name: ${{ env.IMAGE_NAME }}"
 
-    - name: Make GHCR package public
-      if: github.event_name != 'pull_request'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PACKAGE: terminal-grounds-website
-        OWNER: ${{ github.repository_owner }}
-      run: |
-        echo "Attempting to make package public: $PACKAGE for owner: $OWNER"
-        set +e
-        
-        # Try user packages first
-        echo "Trying user packages endpoint..."
-        RESP=$(curl -sS -o /dev/null -w "%{http_code}" \
-          -X PUT \
-          -H "Authorization: Bearer $GITHUB_TOKEN" \
-          -H "Accept: application/vnd.github+json" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          https://api.github.com/user/packages/container/$PACKAGE/visibility \
-          -d '{"visibility":"public"}')
-        echo "User packages response: $RESP"
-        
-        # If user packages didn't work, try organization packages
-        if [ "$RESP" != "200" ] && [ "$RESP" != "204" ]; then
-          echo "Trying organization packages endpoint..."
-          RESP2=$(curl -sS -o /dev/null -w "%{http_code}" \
+      - name: Make GHCR package public
+        if: github.event_name != 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGE: terminal-grounds-website
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          echo "Attempting to make package public: $PACKAGE for owner: $OWNER"
+          set +e
+          
+          # Try user packages first
+          echo "Trying user packages endpoint..."
+          RESP=$(curl -sS -o /dev/null -w "%{http_code}" \
             -X PUT \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/orgs/$OWNER/packages/container/$PACKAGE/visibility \
+            https://api.github.com/user/packages/container/$PACKAGE/visibility \
             -d '{"visibility":"public"}')
-          echo "Organization packages response: $RESP2"
+          echo "User packages response: $RESP"
           
-          if [ "$RESP2" != "200" ] && [ "$RESP2" != "204" ]; then
-            echo "Warning: Could not make package public. Response codes: $RESP (user), $RESP2 (org)"
-            echo "Package may already be public or this may be the first push."
+          # If user packages didn't work, try organization packages
+          if [ "$RESP" != "200" ] && [ "$RESP" != "204" ]; then
+            echo "Trying organization packages endpoint..."
+            RESP2=$(curl -sS -o /dev/null -w "%{http_code}" \
+              -X PUT \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              https://api.github.com/orgs/$OWNER/packages/container/$PACKAGE/visibility \
+              -d '{"visibility":"public"}')
+            echo "Organization packages response: $RESP2"
+            
+            if [ "$RESP2" != "200" ] && [ "$RESP2" != "204" ]; then
+              echo "Warning: Could not make package public. Response codes: $RESP (user), $RESP2 (org)"
+              echo "Package may already be public or this may be the first push."
+            else
+              echo "Successfully made package public via organization endpoint"
+            fi
           else
-            echo "Successfully made package public via organization endpoint"
+            echo "Successfully made package public via user endpoint"
           fi
-        else
-          echo "Successfully made package public via user endpoint"
-        fi
 
-    - name: Update deployment status
-      if: github.event_name != 'pull_request'
-      run: |
-        echo "::notice::Docker image pushed successfully to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
-        echo "::notice::Unraid users can now pull the latest image using the template"
+      - name: Update deployment status
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "::notice::Docker image pushed successfully to ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
+          echo "::notice::Unraid users can now pull the latest image using the template"
