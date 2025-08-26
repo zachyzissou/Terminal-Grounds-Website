@@ -204,6 +204,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Utility functions
+// Set element text after a delay (avoids deep inline nesting)
+function setTextAfterDelay(element, text, delayMs) {
+    if (!element) return;
+    setTimeout(() => {
+        element.textContent = text;
+    }, delayMs);
+}
+
+// Temporarily replace a button's innerHTML, then revert after delay
+function setTemporaryButtonLabel(btn, newHtml, delayMs) {
+    if (!btn) return;
+    const original = btn.innerHTML;
+    btn.innerHTML = newHtml;
+    setTimeout(() => {
+        btn.innerHTML = original;
+    }, delayMs);
+}
+
 function formatDate(date) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(date).toLocaleDateString('en-US', options);
@@ -305,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterAssets('all');
 
                 // Attach click handler for lightbox open on dynamically added items
-                assetGrid.addEventListener('click', (e) => {
+        assetGrid.addEventListener('click', (e) => {
                     const item = e.target.closest('.asset-item');
                     if (!item) return;
                     // Lightbox expects .asset-image and .asset-overlay content
@@ -314,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         // Fallback: open image in new tab
                         const img = item.querySelector('.asset-image');
-                        if (img && img.src) window.open(img.src, '_blank');
+                        if (img?.src) window.open(img.src, '_blank');
                     }
                 });
             })
@@ -439,26 +457,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const img = assetItem.querySelector('.asset-image');
         const overlay = assetItem.querySelector('.asset-overlay');
-        const title = overlay.querySelector('h4').textContent;
-        const description = overlay.querySelector('p').textContent;
-        const category = assetItem.getAttribute('data-category');
-        const style = assetItem.getAttribute('data-style');
+        const title = overlay?.querySelector('h4')?.textContent || img?.alt || 'Asset';
+        const description = overlay?.querySelector('p')?.textContent || '';
+        const category = assetItem.getAttribute('data-category') || 'unknown';
+        const style = assetItem.getAttribute('data-style') || 'default';
 
         // Update lightbox content
-        document.getElementById('lightboxImage').src = img.src;
-        document.getElementById('lightboxImage').alt = img.alt;
+        if (img) {
+            document.getElementById('lightboxImage').src = img.src;
+            document.getElementById('lightboxImage').alt = img.alt || title;
+        }
         document.getElementById('lightboxTitle').textContent = title;
         document.getElementById('lightboxDescription').textContent = description;
-        document.getElementById('lightboxCategory').textContent = category.charAt(0).toUpperCase() + category.slice(1);
-        document.getElementById('lightboxStyle').textContent = style.charAt(0).toUpperCase() + style.slice(1);
+        document.getElementById('lightboxCategory').textContent = (category.charAt(0).toUpperCase() + category.slice(1));
+        document.getElementById('lightboxStyle').textContent = (style.charAt(0).toUpperCase() + style.slice(1));
 
         // Update badges
         const badges = assetItem.querySelectorAll('.quality-badge, .style-tag, .rarity-tag, .vehicle-class, .faction-tag');
         const badgesContainer = document.getElementById('lightboxBadges');
-        badgesContainer.innerHTML = '';
-        badges.forEach(badge => {
-            badgesContainer.appendChild(badge.cloneNode(true));
-        });
+        if (badgesContainer) {
+            badgesContainer.innerHTML = '';
+            badges.forEach(badge => {
+                badgesContainer.appendChild(badge.cloneNode(true));
+            });
+        }
 
         // Show lightbox
         lightbox.style.display = 'flex';
@@ -505,12 +527,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Download button
         document.getElementById('downloadBtn').addEventListener('click', function() {
             const img = document.getElementById('lightboxImage');
-            window.open(img.src, '_blank');
+            if (img?.src) window.open(img.src, '_blank');
         });
 
         // Share button
         document.getElementById('shareBtn').addEventListener('click', function() {
-            const title = document.getElementById('lightboxTitle').textContent;
+            const title = document.getElementById('lightboxTitle')?.textContent || 'Terminal Grounds';
             const url = window.location.href;
             
             if (navigator.share) {
@@ -519,17 +541,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     text: `Check out this asset from Terminal Grounds: ${title}`,
                     url: url
                 });
-            } else {
-                // Fallback to clipboard
-                    navigator.clipboard.writeText(url).then(() => {
-                    // Show temporary feedback
-                    const btn = document.getElementById('shareBtn');
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<span>Copied!</span>';
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                    }, 2000);
-                });
+            } else if (navigator.clipboard?.writeText) {
+                // Fallback to clipboard when available
+                navigator.clipboard.writeText(url)
+                    .then(() => {
+                        const btn = document.getElementById('shareBtn');
+                        setTemporaryButtonLabel(btn, '<span>Copied!</span>', 2000);
+                    })
+                    .catch(() => { /* noop */ });
             }
         });
     }
@@ -564,16 +583,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Add loading animation
                 const container = img.closest('.asset-item');
-                container.classList.add('loading');
+                if (container) container.classList.add('loading');
                 
                 img.addEventListener('load', () => {
-                    container.classList.remove('loading');
-                    container.classList.add('loaded');
+                    if (container) {
+                        container.classList.remove('loading');
+                        container.classList.add('loaded');
+                    }
                 }, { once: true });
                 
                 img.addEventListener('error', () => {
-                    container.classList.remove('loading');
-                    container.classList.add('error');
+                    if (container) {
+                        container.classList.remove('loading');
+                        container.classList.add('error');
+                    }
                 }, { once: true });
                 
                 observer.unobserve(img);
@@ -602,9 +625,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             animateCounter(stat, number, 2000);
                             // Keep the suffix (like +, %)
                             const suffix = text.replace(/\d/g, '');
-                            setTimeout(() => {
-                                stat.textContent = number + suffix;
-                            }, 2000);
+                            setTextAfterDelay(stat, `${number}${suffix}`, 2000);
                         }
                     });
                     statsObserver.unobserve(entry.target);
@@ -624,7 +645,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!slider || !grittyImage) return;
 
     let isDragging = false;
-    let startX = 0;
     let currentPosition = 50; // Start at 50%
 
     function updateSliderPosition(percentage) {
@@ -651,13 +671,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getPositionFromEvent(e) {
         const rect = slider.parentElement.getBoundingClientRect();
-        const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+        const clientX = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
         return ((clientX - rect.left) / rect.width) * 100;
     }
 
     function handleStart(e) {
         isDragging = true;
-        startX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
         slider.style.transition = 'none';
         document.body.style.userSelect = 'none';
         
@@ -700,9 +719,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSliderPosition(percentage);
         
         // Reset transition after animation
-        setTimeout(() => {
-            slider.style.transition = 'all 0.2s ease';
-        }, 300);
+    const resetTransition = () => { slider.style.transition = 'all 0.2s ease'; };
+    setTimeout(resetTransition, 300);
     });
 
     // Keyboard accessibility
@@ -714,16 +732,16 @@ document.addEventListener('DOMContentLoaded', function() {
     slider.setAttribute('aria-label', 'Style comparison slider');
 
     slider.addEventListener('keydown', function(e) {
-        let newPosition = currentPosition;
+        let newPosition;
         
         switch(e.key) {
             case 'ArrowLeft':
             case 'ArrowDown':
-                newPosition = Math.max(5, currentPosition - 5);
+        newPosition = Math.max(5, currentPosition - 5);
                 break;
             case 'ArrowRight':
             case 'ArrowUp':
-                newPosition = Math.min(95, currentPosition + 5);
+        newPosition = Math.min(95, currentPosition + 5);
                 break;
             case 'Home':
                 newPosition = 5;
@@ -737,8 +755,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         e.preventDefault();
         slider.style.transition = 'all 0.2s ease';
-        updateSliderPosition(newPosition);
-        slider.setAttribute('aria-valuenow', Math.round(newPosition).toString());
+    updateSliderPosition(newPosition);
+    slider.setAttribute('aria-valuenow', Math.round(newPosition).toString());
     });
 
     // Auto-demonstration on first view
@@ -748,19 +766,11 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // Auto-animate once when first viewed
-                    setTimeout(() => {
-                        slider.style.transition = 'all 2s ease';
-                        updateSliderPosition(20);
-                        
-                        setTimeout(() => {
-                            updateSliderPosition(80);
-                            
-                            setTimeout(() => {
-                                updateSliderPosition(50);
-                                slider.style.transition = 'all 0.2s ease';
-                            }, 1500);
-                        }, 1500);
-                    }, 500);
+                    const step1 = () => { slider.style.transition = 'all 2s ease'; updateSliderPosition(20); };
+                    const step2 = () => { updateSliderPosition(80); };
+                    const step3 = () => { updateSliderPosition(50); slider.style.transition = 'all 0.2s ease'; };
+                    setTimeout(step1, 500);
+                    setTimeout(() => { step2(); setTimeout(step3, 1500); }, 1500);
                     
                     demoObserver.unobserve(entry.target);
                 }

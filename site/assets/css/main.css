@@ -495,7 +495,8 @@ body {
     padding: 5px;
     background: linear-gradient(45deg, var(--iron-scavengers), transparent, var(--iron-scavengers));
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     animation: emblem-rotate 6s linear infinite;
 }
 
@@ -520,7 +521,7 @@ body {
     font-size: 0.85rem;
 }
 
-.feature-icon {
+.features .feature-icon {
     font-size: 1rem;
 }
 
@@ -981,7 +982,7 @@ body {
     border-radius: 8px;
 }
 
-.stat-number {
+.achievement-stats .stat-number {
     display: block;
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -989,7 +990,7 @@ body {
     color: var(--primary-color);
 }
 
-.stat-label {
+.achievement-stats .stat-label {
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
@@ -1044,12 +1045,12 @@ body {
 }
 
 /* Enhanced Faction Cards */
-.faction-card.enhanced {
+.story-page .faction-card.enhanced {
     position: relative;
     overflow: hidden;
 }
 
-.faction-enhancement-badge {
+.story-page .faction-enhancement-badge {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -1062,7 +1063,7 @@ body {
     z-index: 2;
 }
 
-.enhancement-indicator {
+.story-page .enhancement-indicator {
     color: var(--primary-color);
     filter: drop-shadow(0 0 5px currentColor);
     animation: pulse 2s infinite;
@@ -1564,7 +1565,7 @@ body {
     to { width: 100%; }
 }
 
-.typing-text {
+.hero .typing-text {
     overflow: hidden;
     white-space: nowrap;
     animation: typing 2s steps(30, end) infinite alternate;
@@ -1837,7 +1838,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.metric-comparison {
+.story-page .metric-comparison {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -1943,14 +1944,14 @@ body {
     border-left: 4px solid var(--accent-blue);
 }
 
-.milestone-header {
+.milestone-card .milestone-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.milestone-header h3 {
+.milestone-card .milestone-header h3 {
     font-family: var(--font-heading);
     color: var(--text-primary);
     margin: 0;
@@ -1974,7 +1975,7 @@ body {
     flex-wrap: wrap;
 }
 
-.target {
+.story-page .target {
     background: var(--bg-primary);
     color: var(--text-secondary);
     padding: 0.25rem 0.75rem;
@@ -2371,7 +2372,7 @@ body {
     gap: 2rem;
 }
 
-.metric-comparison {
+.breakthrough-metrics .metric-comparison {
     text-align: center;
 }
 
@@ -2442,7 +2443,7 @@ body {
     color: var(--accent-blue);
 }
 
-.quality-label {
+.quality-stat .quality-label {
     color: var(--text-secondary);
     font-size: 0.9rem;
 }
@@ -2782,7 +2783,7 @@ body {
     margin-right: auto;
 }
 
-.breakthrough-story {
+.production-pipeline .breakthrough-story {
     display: grid;
     grid-template-columns: 1fr 400px;
     gap: 4rem;
@@ -2790,11 +2791,11 @@ body {
     margin-bottom: 5rem;
 }
 
-.breakthrough-timeline {
+.production-pipeline .breakthrough-timeline {
     position: relative;
 }
 
-.breakthrough-timeline::before {
+.production-pipeline .breakthrough-timeline::before {
     content: '';
     position: absolute;
     left: 20px;
@@ -2804,13 +2805,13 @@ body {
     background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color), var(--accent-blue));
 }
 
-.timeline-item {
+.production-pipeline .timeline-item {
     position: relative;
     margin-bottom: 3rem;
     padding-left: 4rem;
 }
 
-.timeline-marker {
+.production-pipeline .timeline-marker {
     position: absolute;
     left: 8px;
     top: 0.5rem;
@@ -2822,17 +2823,17 @@ body {
     z-index: 1;
 }
 
-.timeline-marker.breakthrough {
+.production-pipeline .timeline-marker.breakthrough {
     border-color: var(--secondary-color);
     box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
 }
 
-.timeline-marker.optimization {
+.production-pipeline .timeline-marker.optimization {
     border-color: var(--iron-scavengers);
     box-shadow: 0 0 20px rgba(255, 170, 0, 0.6);
 }
 
-.timeline-marker.success {
+.production-pipeline .timeline-marker.success {
     border-color: var(--primary-color);
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
     background: var(--primary-color);
@@ -2851,7 +2852,7 @@ body {
     line-height: 1.6;
 }
 
-.timeline-date {
+.production-pipeline .timeline-date {
     font-family: var(--font-heading);
     font-size: 0.9rem;
     color: var(--primary-color);
@@ -2879,7 +2880,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.bar-label {
+.before-after .bar-label, .metric-bar .bar-label {
     font-family: var(--font-heading);
     color: var(--text-primary);
     margin-bottom: 0.5rem;
@@ -2992,7 +2993,7 @@ body {
     margin: 0 auto;
 }
 
-.pillar-card {
+.framework-pillars .pillar-card {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 12px;
@@ -3002,13 +3003,13 @@ body {
     text-align: left;
 }
 
-.pillar-card:hover {
+.framework-pillars .pillar-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary-color);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.pillar-number {
+.framework-pillars .pillar-number {
     position: absolute;
     top: -15px;
     left: 2rem;
@@ -3026,14 +3027,14 @@ body {
     box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
 }
 
-.pillar-card h4 {
+.framework-pillars .pillar-card h4 {
     font-family: var(--font-heading);
     color: var(--text-primary);
     margin: 1rem 0 1rem 0;
     font-size: 1.3rem;
 }
 
-.pillar-card p {
+.framework-pillars .pillar-card p {
     color: var(--text-secondary);
     line-height: 1.6;
 }
@@ -3304,7 +3305,7 @@ body {
     }
 }
 
-.stat-item {
+.production-pipeline .stat-item {
     text-align: center;
     position: relative;
 }
@@ -3319,7 +3320,7 @@ body {
     text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
 }
 
-.stat-label {
+.production-pipeline .stat-label {
     font-size: 0.9rem;
     color: var(--text-muted);
     text-transform: uppercase;
@@ -3449,18 +3450,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.quality-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--primary-color);
-    color: var(--bg-primary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
 
 .gallery-note-footer {
     text-align: center;
@@ -3591,13 +3580,12 @@ body {
     border-left: 4px solid var(--civic-wardens);
 }
 
-.milestone-header {
+.milestone-detail .milestone-header {
     background: var(--bg-secondary);
     padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .milestone-date {
@@ -3607,7 +3595,7 @@ body {
     font-weight: 600;
 }
 
-.milestone-header h3 {
+.milestone-detail .milestone-header h3 {
     font-family: var(--font-heading);
     color: var(--text-primary);
     margin: 0;
@@ -3681,7 +3669,7 @@ body {
     gap: 1rem;
 }
 
-.bar-label {
+.bar-chart .bar-label {
     min-width: 80px;
     font-size: 0.9rem;
     color: var(--text-secondary);
