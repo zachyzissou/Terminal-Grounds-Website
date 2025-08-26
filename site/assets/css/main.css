@@ -62,6 +62,7 @@ body {
     top: 0;
     width: 100%;
     background: rgba(10, 10, 10, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
@@ -312,6 +313,65 @@ body {
     margin-bottom: 3rem;
     color: var(--text-primary);
 }
+
+/* Lore Primer */
+.lore-primer { padding: var(--section-padding); background: var(--bg-secondary); }
+.primer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.primer-card { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem; }
+.primer-card h3 { font-family: var(--font-heading); color: var(--primary-color); margin-bottom: .5rem; }
+.primer-card p { color: var(--text-secondary); }
+
+/* How Bloom Works */
+.how-bloom-works { padding: var(--section-padding); }
+.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.how-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; }
+.how-item h3 { font-family: var(--font-heading); margin-bottom: .25rem; color: var(--text-primary); }
+.how-item p { color: var(--text-secondary); }
+.cta-row { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+/* Width utilities (for progress/quality bars) */
+.w-10 { width: 10%; }
+.w-92 { width: 92%; }
+.w-95 { width: 95%; }
+.w-98 { width: 98%; }
+.w-100 { width: 100%; }
+.w-0-08 { width: 0.08%; }
+
+/* Factions list (moved from inline styles) */
+.factions-page { padding-top: 70px; }
+.factions-list { padding: 3rem 0; }
+.f-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.f-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; display: flex; gap: .75rem; align-items: center; }
+.f-item img { width: 48px; height: 48px; object-fit: contain; border-radius: 50%; background: rgba(255,255,255,.05); padding: 6px; }
+.f-item h3 { margin: 0; font-family: var(--font-heading); }
+.f-item p { margin: 0; color: var(--text-secondary); font-size: .95rem; }
+
+/* Regions styles (moved from inline) */
+/* Regions styles live below in the dedicated block */
+
+/* 404 and Error pages */
+.error-page { padding-top: 70px; min-height: 100vh; display: flex; align-items: center; }
+.error-content { padding: 4rem 0; }
+.error-content .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1000px; }
+.error-visual { display: flex; justify-content: center; }
+.error-terminal { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.5); width: 100%; max-width: 400px; }
+.error-message { text-align: left; }
+.error-code { font-family: var(--font-heading); font-size: 6rem; font-weight: 900; color: var(--secondary-color); margin: 0 0 1rem 0; line-height: 1; }
+.error-title { font-family: var(--font-heading); font-size: 2.5rem; color: var(--text-primary); margin: 0 0 1rem 0; }
+.error-description { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem; }
+.error-actions { display: flex; gap: 1rem; margin-bottom: 3rem; }
+.error-suggestions h3 { font-family: var(--font-heading); color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem; }
+.suggestion-list { list-style: none; padding: 0; margin-bottom: 2rem; }
+.suggestion-list li { margin-bottom: .75rem; }
+.suggestion-list a { color: var(--text-secondary); text-decoration: none; font-size: .95rem; transition: color .3s ease; }
+.suggestion-list a:hover { color: var(--primary-color); }
+.error-status { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+.status-item { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid var(--border-color); font-size: .9rem; }
+
+/* Error helpers and spacing */
+.err-wrapper { padding-top: 70px; }
+.err-center { text-align: center; max-width: 720px; margin: 0 auto; }
+.mt-1 { margin-top: 1rem; }
 
 /* Features Section */
 .features {
@@ -3155,6 +3215,7 @@ body {
     color: var(--bg-primary);
     font-weight: bold;
     font-size: 1.2rem;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -3998,6 +4059,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 

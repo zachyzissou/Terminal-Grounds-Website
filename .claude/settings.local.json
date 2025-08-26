@@ -16,7 +16,10 @@
       "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
       "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
       "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
-      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)"
+      "Read(/C:\\Users\\Zachg\\Terminal-Grounds\\Style_Staging\\_Recent_Generations/**)",
+      "Bash(git pull:*)",
+      "WebFetch(domain:zachyzissou.github.io)",
+      "WebFetch(domain:bloom.slurpgg.net)"
     ],
     "deny": [],
     "ask": [],
