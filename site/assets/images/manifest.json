@@ -1,576 +1,185 @@
 {
-  "environments": {
-    "20250813_173715_PROD_CONCEPT_ART_235432_.png": {
-      "filename": "20250813_173715_PROD_CONCEPT_ART_235432_.png",
-      "size": 1747656,
-      "modified": "2025-08-18T22:03:48.516Z"
-    },
-    "20250813_174128_PROD_CONCEPT_ART_235433_.png": {
-      "filename": "20250813_174128_PROD_CONCEPT_ART_235433_.png",
-      "size": 840259,
-      "modified": "2025-08-18T22:03:48.519Z"
-    },
-    "20250813_215717_LORE_CleanSciFi_1080p_00001_.png": {
-      "filename": "20250813_215717_LORE_CleanSciFi_1080p_00001_.png",
-      "size": 760282,
-      "modified": "2025-08-18T22:03:48.554Z"
-    },
-    "20250813_220607_LORE_Metro_CleanSciFi_1080p_00001_.png": {
-      "filename": "20250813_220607_LORE_Metro_CleanSciFi_1080p_00001_.png",
-      "size": 1106812,
-      "modified": "2025-08-18T22:03:48.558Z"
-    },
-    "20250813_222449_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
-      "filename": "20250813_222449_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
-      "size": 1845267,
-      "modified": "2025-08-18T22:03:48.564Z"
-    },
-    "20250813_223151_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00002_.png": {
-      "filename": "20250813_223151_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00002_.png",
-      "size": 1505042,
-      "modified": "2025-08-18T22:03:48.569Z"
-    },
-    "20250813_223906_HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
-      "filename": "20250813_223906_HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
-      "size": 1269756,
-      "modified": "2025-08-18T22:03:48.574Z"
-    },
-    "20250813_225243_REFINE_SHARP_00001_.png": {
-      "filename": "20250813_225243_REFINE_SHARP_00001_.png",
-      "size": 2076419,
-      "modified": "2025-08-18T22:03:48.579Z"
-    },
-    "20250813_232041_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00003_.png": {
-      "filename": "20250813_232041_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00003_.png",
-      "size": 2009240,
-      "modified": "2025-08-18T22:03:48.585Z"
-    },
-    "20250813_232327_REFINE_SHARP_00002_.png": {
-      "filename": "20250813_232327_REFINE_SHARP_00002_.png",
-      "size": 2270940,
-      "modified": "2025-08-18T22:03:48.593Z"
-    },
-    "20250813_235505_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png": {
-      "filename": "20250813_235505_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
-      "size": 1265606,
-      "modified": "2025-08-18T22:03:48.739Z"
-    },
-    "20250814_011332_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_.png": {
-      "filename": "20250814_011332_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_.png",
-      "size": 1418557,
-      "modified": "2025-08-18T22:03:48.744Z"
-    },
-    "20250814_011810_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png": {
-      "filename": "20250814_011810_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png",
-      "size": 1265606,
-      "modified": "2025-08-18T22:03:48.747Z"
-    },
-    "20250814_012044_REFINE_SHARP_00003_.png": {
-      "filename": "20250814_012044_REFINE_SHARP_00003_.png",
-      "size": 1415758,
-      "modified": "2025-08-18T22:03:48.753Z"
-    },
-    "20250814_012236_REFINE_SHARP_00004_.png": {
-      "filename": "20250814_012236_REFINE_SHARP_00004_.png",
-      "size": 1394267,
-      "modified": "2025-08-18T22:03:48.759Z"
-    },
-    "20250814_012537_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00002_.png": {
-      "filename": "20250814_012537_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00002_.png",
-      "size": 1418557,
-      "modified": "2025-08-18T22:03:48.762Z"
-    },
-    "20250814_012708_REFINE_SHARP_00005_.png": {
-      "filename": "20250814_012708_REFINE_SHARP_00005_.png",
-      "size": 1623965,
-      "modified": "2025-08-18T22:03:48.769Z"
-    },
-    "20250814_013007_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00003_.png": {
-      "filename": "20250814_013007_HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00003_.png",
-      "size": 1350407,
-      "modified": "2025-08-18T22:03:48.773Z"
-    },
-    "20250814_013139_REFINE_SHARP_00006_.png": {
-      "filename": "20250814_013139_REFINE_SHARP_00006_.png",
-      "size": 1514441,
-      "modified": "2025-08-18T22:03:48.779Z"
-    },
-    "20250814_014038_HQ_Metro_Maintenance_Corridor_Clean_SciFi_768x432_s8_cfg4.0_00001_.png": {
-      "filename": "20250814_014038_HQ_Metro_Maintenance_Corridor_Clean_SciFi_768x432_s8_cfg4.0_00001_.png",
-      "size": 399725,
-      "modified": "2025-08-18T22:03:48.782Z"
-    },
-    "20250814_014204_REFINE_SHARP_00007_.png": {
-      "filename": "20250814_014204_REFINE_SHARP_00007_.png",
-      "size": 439805,
-      "modified": "2025-08-18T22:03:48.784Z"
-    },
-    "20250814_014745_HQ_Metro_Maintenance_Corridor_Clean_SciFi_832x468_s18_cfg4.6_00001_.png": {
-      "filename": "20250814_014745_HQ_Metro_Maintenance_Corridor_Clean_SciFi_832x468_s18_cfg4.6_00001_.png",
-      "size": 573748,
-      "modified": "2025-08-18T22:03:48.787Z"
-    },
-    "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
-      "filename": "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
-      "size": 1269756,
-      "modified": "2025-08-26T03:01:37.431Z"
-    },
-    "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png": {
-      "filename": "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png",
-      "size": 770797,
-      "modified": "2025-08-18T22:03:48.801Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
-      "size": 1265606,
-      "modified": "2025-08-18T22:03:48.803Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png",
-      "size": 1149727,
-      "modified": "2025-08-18T22:03:48.809Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png",
-      "size": 1265606,
-      "modified": "2025-08-18T22:03:48.812Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_Toned.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_Toned.png",
-      "size": 1149727,
-      "modified": "2025-08-18T22:03:48.815Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_.png",
-      "size": 1418557,
-      "modified": "2025-08-18T22:03:48.819Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_Toned.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_Toned.png",
-      "size": 1386234,
-      "modified": "2025-08-18T22:03:48.824Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00002_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00002_.png",
-      "size": 1418557,
-      "modified": "2025-08-18T22:03:48.827Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00003_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00003_.png",
-      "size": 1350407,
-      "modified": "2025-08-18T22:03:48.832Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
-      "size": 1845267,
-      "modified": "2025-08-18T22:03:48.837Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png",
-      "size": 1190248,
-      "modified": "2025-08-18T22:03:48.842Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00002_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00002_.png",
-      "size": 1505042,
-      "modified": "2025-08-18T22:03:48.846Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00002_1920w.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00002_1920w.png",
-      "size": 951284,
-      "modified": "2025-08-18T22:03:48.849Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00003_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00003_.png",
-      "size": 2009240,
-      "modified": "2025-08-18T22:03:48.854Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_768x432_s8_cfg4.0_00001_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_768x432_s8_cfg4.0_00001_.png",
-      "size": 399725,
-      "modified": "2025-08-18T22:03:48.856Z"
-    },
-    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_832x468_s18_cfg4.6_00001_.png": {
-      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_832x468_s18_cfg4.6_00001_.png",
-      "size": 573748,
-      "modified": "2025-08-18T22:03:48.859Z"
-    },
-    "iez-facility-clean.png": {
-      "filename": "iez-facility-clean.png",
-      "size": 962346,
-      "modified": "2025-08-25T05:32:56.692Z"
-    },
-    "iez-facility-gritty.png": {
-      "filename": "iez-facility-gritty.png",
-      "size": 1003354,
-      "modified": "2025-08-25T05:32:56.709Z"
-    },
-    "LORE_CleanSciFi_1080p_00001_.png": {
-      "filename": "LORE_CleanSciFi_1080p_00001_.png",
-      "size": 760282,
-      "modified": "2025-08-18T22:03:48.862Z"
-    },
-    "LORE_Metro_CleanSciFi_1080p_00001_.png": {
-      "filename": "LORE_Metro_CleanSciFi_1080p_00001_.png",
-      "size": 1106812,
-      "modified": "2025-08-18T22:03:48.865Z"
-    },
-    "metro-corridor-clean.png": {
-      "filename": "metro-corridor-clean.png",
-      "size": 1971176,
-      "modified": "2025-08-25T05:33:02.321Z"
-    },
-    "metro-corridor-premium.png": {
-      "filename": "metro-corridor-premium.png",
-      "size": 1292402,
-      "modified": "2025-08-26T03:01:37.867Z"
-    },
-    "metro-maintenance-hq.png": {
-      "filename": "metro-maintenance-hq.png",
-      "size": 1845267,
-      "modified": "2025-08-26T03:01:48.222Z"
-    },
-    "PROD_CONCEPT_ART_235429_00001_.png": {
-      "filename": "PROD_CONCEPT_ART_235429_00001_.png",
-      "size": 1967396,
-      "modified": "2025-08-18T22:03:48.870Z"
-    },
-    "PROD_CONCEPT_ART_235432_.png": {
-      "filename": "PROD_CONCEPT_ART_235432_.png",
-      "size": 1747656,
-      "modified": "2025-08-18T22:03:48.874Z"
-    },
-    "PROD_CONCEPT_ART_235432_1920w.png": {
-      "filename": "PROD_CONCEPT_ART_235432_1920w.png",
-      "size": 1113185,
-      "modified": "2025-08-18T22:03:48.879Z"
-    },
-    "PROD_CONCEPT_ART_235433_.png": {
-      "filename": "PROD_CONCEPT_ART_235433_.png",
-      "size": 840259,
-      "modified": "2025-08-18T22:03:48.882Z"
-    },
-    "PROD_LOGOS_INSIGNIAS_235429_00001_.png": {
-      "filename": "PROD_LOGOS_INSIGNIAS_235429_00001_.png",
-      "size": 2045479,
-      "modified": "2025-08-18T22:03:48.888Z"
-    },
-    "PROD_TEXTURES_235429_00001_.png": {
-      "filename": "PROD_TEXTURES_235429_00001_.png",
-      "size": 30374436,
-      "modified": "2025-08-18T22:03:48.956Z"
-    },
-    "REFINE_SHARP_00001_.png": {
-      "filename": "REFINE_SHARP_00001_.png",
-      "size": 2076419,
-      "modified": "2025-08-18T22:03:48.962Z"
-    },
-    "REFINE_SHARP_00002_.png": {
-      "filename": "REFINE_SHARP_00002_.png",
-      "size": 2270940,
-      "modified": "2025-08-18T22:03:48.966Z"
-    },
-    "REFINE_SHARP_00003_.png": {
-      "filename": "REFINE_SHARP_00003_.png",
-      "size": 1415758,
-      "modified": "2025-08-18T22:03:48.969Z"
-    },
-    "REFINE_SHARP_00003_1920w.png": {
-      "filename": "REFINE_SHARP_00003_1920w.png",
-      "size": 1379817,
-      "modified": "2025-08-18T22:03:48.974Z"
-    },
-    "REFINE_SHARP_00003_1920w_Toned.png": {
-      "filename": "REFINE_SHARP_00003_1920w_Toned.png",
-      "size": 1292402,
-      "modified": "2025-08-18T22:03:48.978Z"
-    },
-    "REFINE_SHARP_00004_.png": {
-      "filename": "REFINE_SHARP_00004_.png",
-      "size": 1394267,
-      "modified": "2025-08-18T22:03:48.983Z"
-    },
-    "REFINE_SHARP_00004_1920w.png": {
-      "filename": "REFINE_SHARP_00004_1920w.png",
-      "size": 1359603,
-      "modified": "2025-08-18T22:03:48.987Z"
-    },
-    "REFINE_SHARP_00004_1920w_Toned.png": {
-      "filename": "REFINE_SHARP_00004_1920w_Toned.png",
-      "size": 1314123,
-      "modified": "2025-08-18T22:03:48.993Z"
-    },
-    "REFINE_SHARP_00005_.png": {
-      "filename": "REFINE_SHARP_00005_.png",
-      "size": 1623965,
-      "modified": "2025-08-18T22:03:48.996Z"
-    },
-    "REFINE_SHARP_00005_1920w.png": {
-      "filename": "REFINE_SHARP_00005_1920w.png",
-      "size": 1438756,
-      "modified": "2025-08-18T22:03:49.002Z"
-    },
-    "REFINE_SHARP_00005_1920w_Toned.png": {
-      "filename": "REFINE_SHARP_00005_1920w_Toned.png",
-      "size": 1179132,
-      "modified": "2025-08-18T22:03:49.006Z"
-    },
-    "REFINE_SHARP_00006_.png": {
-      "filename": "REFINE_SHARP_00006_.png",
-      "size": 1514441,
-      "modified": "2025-08-18T22:03:49.010Z"
-    },
-    "REFINE_SHARP_00006_1920w.png": {
-      "filename": "REFINE_SHARP_00006_1920w.png",
-      "size": 1323828,
-      "modified": "2025-08-18T22:03:49.014Z"
-    },
-    "REFINE_SHARP_00006_1920w_Toned.png": {
-      "filename": "REFINE_SHARP_00006_1920w_Toned.png",
-      "size": 1157914,
-      "modified": "2025-08-18T22:03:49.017Z"
-    },
-    "REFINE_SHARP_00007_.png": {
-      "filename": "REFINE_SHARP_00007_.png",
-      "size": 439805,
-      "modified": "2025-08-18T22:03:49.020Z"
-    },
-    "research-lab-clean.png": {
-      "filename": "research-lab-clean.png",
-      "size": 1072834,
-      "modified": "2025-08-25T05:35:25.090Z"
-    },
-    "security-checkpoint-clean.png": {
-      "filename": "security-checkpoint-clean.png",
-      "size": 1600194,
-      "modified": "2025-08-25T05:35:30.254Z"
-    },
-    "tech-wastes-clean.png": {
-      "filename": "tech-wastes-clean.png",
-      "size": 1702244,
-      "modified": "2025-08-25T05:33:09.569Z"
-    },
-    "tech-wastes-gritty.png": {
-      "filename": "tech-wastes-gritty.png",
-      "size": 1829424,
-      "modified": "2025-08-25T05:33:09.589Z"
-    },
-    "underground-bunker-gritty.png": {
-      "filename": "underground-bunker-gritty.png",
-      "size": 2232424,
-      "modified": "2025-08-25T05:33:02.341Z"
-    }
-  },
-  "weapons": {
-    "ion-pike-h2.png": {
-      "filename": "ion-pike-h2.png",
-      "size": 4171,
-      "modified": "2025-08-25T05:33:20.231Z"
-    },
-    "mk2-service-ar.png": {
-      "filename": "mk2-service-ar.png",
-      "size": 4501,
-      "modified": "2025-08-25T05:33:20.195Z"
-    },
-    "plasma-rail-h1.png": {
-      "filename": "plasma-rail-h1.png",
-      "size": 4189,
-      "modified": "2025-08-25T05:33:20.212Z"
-    }
-  },
-  "vehicles": {
-    "battle-walker.png": {
-      "filename": "battle-walker.png",
-      "size": 4115,
-      "modified": "2025-08-25T05:33:28.270Z"
-    },
-    "recon-helo.png": {
-      "filename": "recon-helo.png",
-      "size": 3579,
-      "modified": "2025-08-25T05:33:28.289Z"
-    },
-    "stalker-apc.png": {
-      "filename": "stalker-apc.png",
-      "size": 3964,
-      "modified": "2025-08-25T05:33:28.252Z"
-    }
-  },
-  "factions": {
-    "CivicWardens_palette.png": {
-      "filename": "CivicWardens_palette.png",
-      "size": 3165,
-      "modified": "2025-08-12T01:01:07.437Z"
-    },
-    "CorporateCombine_palette.png": {
-      "filename": "CorporateCombine_palette.png",
-      "size": 4021,
-      "modified": "2025-08-12T01:01:07.438Z"
-    },
-    "directorate-emblem-enhanced.png": {
-      "filename": "directorate-emblem-enhanced.png",
-      "size": 361283,
-      "modified": "2025-08-26T03:01:38.278Z"
-    },
-    "directorate-emblem-ultimate.png": {
-      "filename": "directorate-emblem-ultimate.png",
-      "size": 2698961,
-      "modified": "2025-08-26T03:01:38.685Z"
-    },
-    "directorate-emblem.png": {
-      "filename": "directorate-emblem.png",
-      "size": 1233510,
-      "modified": "2025-08-25T05:32:44.339Z"
-    },
-    "Directorate_palette.png": {
-      "filename": "Directorate_palette.png",
-      "size": 3721,
-      "modified": "2025-08-12T01:01:07.438Z"
-    },
-    "free77-emblem.png": {
-      "filename": "free77-emblem.png",
-      "size": 1738924,
-      "modified": "2025-08-25T05:32:44.358Z"
-    },
-    "Free77_palette.png": {
-      "filename": "Free77_palette.png",
-      "size": 4361,
-      "modified": "2025-08-12T01:01:07.440Z"
-    },
-    "Gritty_Realism_faction_emblem_42.png": {
-      "filename": "Gritty_Realism_faction_emblem_42.png",
-      "size": 889554,
-      "modified": "2025-08-18T22:03:48.501Z"
-    },
-    "iron-scavengers-emblem.png": {
-      "filename": "iron-scavengers-emblem.png",
-      "size": 417723,
-      "modified": "2025-08-25T05:32:36.912Z"
-    },
-    "nomad-clans-emblem.png": {
-      "filename": "nomad-clans-emblem.png",
-      "size": 2092833,
-      "modified": "2025-08-25T05:32:44.378Z"
-    },
-    "NomadClans_palette.png": {
-      "filename": "NomadClans_palette.png",
-      "size": 4168,
-      "modified": "2025-08-12T01:01:07.440Z"
-    },
-    "TG_Enhanced_DIR_Emblem_20250812_231441_00001_.png": {
-      "filename": "TG_Enhanced_DIR_Emblem_20250812_231441_00001_.png",
-      "size": 361283,
-      "modified": "2025-08-18T22:03:49.051Z"
-    },
-    "TG_HQ_DIR_Emblem_20250812_231722_00001_.png": {
-      "filename": "TG_HQ_DIR_Emblem_20250812_231722_00001_.png",
-      "size": 944566,
-      "modified": "2025-08-18T22:03:49.055Z"
-    },
-    "TG_LORE_DIR_Directorate_Emblem_20250812_232558_00001_.png": {
-      "filename": "TG_LORE_DIR_Directorate_Emblem_20250812_232558_00001_.png",
-      "size": 1259160,
-      "modified": "2025-08-18T22:03:49.059Z"
-    },
-    "TG_OPTIMAL_DIR_Emblem_20250812_232255_00001_.png": {
-      "filename": "TG_OPTIMAL_DIR_Emblem_20250812_232255_00001_.png",
-      "size": 887965,
-      "modified": "2025-08-18T22:03:49.066Z"
-    },
-    "TG_OPTIMAL_DIR_Emblem_20250812_233842_00001_.png": {
-      "filename": "TG_OPTIMAL_DIR_Emblem_20250812_233842_00001_.png",
-      "size": 887965,
-      "modified": "2025-08-18T22:03:49.069Z"
-    },
-    "TG_SHARP_DIR_Emblem_20250812_233122_00001_.png": {
-      "filename": "TG_SHARP_DIR_Emblem_20250812_233122_00001_.png",
-      "size": 1740994,
-      "modified": "2025-08-18T22:03:49.075Z"
-    },
-    "TG_ULTIMATE_DIR_Emblem_20250812_232028_00001_.png": {
-      "filename": "TG_ULTIMATE_DIR_Emblem_20250812_232028_00001_.png",
-      "size": 2698961,
-      "modified": "2025-08-18T22:03:49.107Z"
-    }
-  },
-  "renders": {
-    "hero-atmospheric-depth.png": {
-      "filename": "hero-atmospheric-depth.png",
-      "size": 1179132,
-      "modified": "2025-08-26T03:01:47.825Z"
-    },
-    "hero-iez.png": {
-      "filename": "hero-iez.png",
-      "size": 84263,
-      "modified": "2025-08-25T05:32:25.621Z"
-    },
-    "hero-main.png": {
-      "filename": "hero-main.png",
-      "size": 31838,
-      "modified": "2025-08-25T05:32:20.629Z"
-    },
-    "hero-premium-corridor.png": {
-      "filename": "hero-premium-corridor.png",
-      "size": 1314123,
-      "modified": "2025-08-26T03:01:47.411Z"
-    },
-    "hero-wastes.png": {
-      "filename": "hero-wastes.png",
-      "size": 86272,
-      "modified": "2025-08-25T05:32:25.641Z"
-    },
-    "iez-day.png": {
-      "filename": "iez-day.png",
-      "size": 26130,
-      "modified": "2025-08-25T05:32:25.658Z"
-    }
-  },
-  "ui": {
-    "damage_ballistic_128.png": {
-      "filename": "damage_ballistic_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.426Z"
-    },
-    "damage_ion_128.png": {
-      "filename": "damage_ion_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.428Z"
-    },
-    "extract_128.png": {
-      "filename": "extract_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.429Z"
-    },
-    "map_ping_128.png": {
-      "filename": "map_ping_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.430Z"
-    },
-    "PROD_UI_ELEMENTS_235429_00001_.png": {
-      "filename": "PROD_UI_ELEMENTS_235429_00001_.png",
-      "size": 118047,
-      "modified": "2025-08-18T22:03:48.958Z"
-    },
-    "rarity_common_128.png": {
-      "filename": "rarity_common_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.431Z"
-    },
-    "rarity_legendary_128.png": {
-      "filename": "rarity_legendary_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.433Z"
-    },
-    "status_charge_128.png": {
-      "filename": "status_charge_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.434Z"
-    },
-    "status_heat_128.png": {
-      "filename": "status_heat_128.png",
-      "size": 396,
-      "modified": "2025-08-12T01:01:07.435Z"
-    }
-  },
-  "total": 112,
-  "lastUpdated": "2025-08-26T04:53:45.393Z"
+  "source": "/Users/zacharygonser/Downloads/output",
+  "total": 530,
+  "lastUpdated": "2025-08-27T04:02:28Z",
+  "aaa": [
+    "/assets/images/factions/TG_Emblem_Var_CivicWardens_00002_.png",
+    "/assets/images/factions/TG_FIXED_Emblem_IronScavengers_00001_.png",
+    "/assets/images/vehicles/TG_Vehicle_Corporate_APC_00001_.png",
+    "/assets/images/characters/TG_Character_CivicWardens_Guardian_00001_.png",
+    "/assets/images/vehicles/TG_Vehicle_ArchiveKeepers_Recon_00001_.png",
+    "/assets/images/ui/TG_UI_NomadClans_HUD_00001_.png",
+    "/assets/images/TG_Style_20250812_2204_00001_.png",
+    "/assets/images/TG_Style_20250812_2207_00001_.png",
+    "/assets/images/TG_Style_20250812_2015_00001_.png",
+    "/assets/images/environments/TG_Style_20250812_2204_00001_.png",
+    "/assets/images/environments/TG_Style_20250812_2207_00001_.png",
+    "/assets/images/environments/TG_Style_20250812_2015_00001_.png",
+    "/assets/images/factions/Gritty_Realism_faction_emblem_42.png",
+    "/assets/images/factions/TG_Emblem_Var_CivicWardens_00001_.png",
+    "/assets/images/characters/TG_Character_NomadClans_Outrider_00001_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_CivicWardens_00001_.png",
+    "/assets/images/factions/TG_Emblem_Var_CivicWardens_00003_.png",
+    "/assets/images/vehicles/TG_Vehicle_NomadClans_Convoy_00001_.png",
+    "/assets/images/characters/TG_Character_IronScavengers_Raider_00001_.png",
+    "/assets/images/factions/TG_FIXED_Emblem_DirectorateCommand_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00002_.png",
+    "/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00003_.png",
+    "/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00004_.png",
+    "/assets/images/environments/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00002_.png",
+    "/assets/images/environments/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00003_.png",
+    "/assets/images/environments/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00004_.png",
+    "/assets/images/others/CTO_TEST_CompoundName_VulturesUnion_00001_.png",
+    "/assets/images/factions/TG_Emblem_Var_IronScavengers_00003_.png",
+    "/assets/images/environments/TG_Architecture_Directorate_Bunker_00001_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_CivicWardens_00003_.png",
+    "/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Gritty_Realism_Perspective_Atmospheric_00001_.png",
+    "/assets/images/environments/TG_PERFECT_Tech_Wastes_Exterior_Gritty_Realism_Perspective_Atmospheric_00001_.png",
+    "/assets/images/environments/tech-wastes-gritty.png",
+    "/assets/images/factions/TG_Emblem_Var_Directorate_00001_.png",
+    "/assets/images/characters/TG_Character_Corporate_Enforcer_00001_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_IronScavengers_00003_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_IronScavengers_00002_.png",
+    "/assets/images/others/TG_Architecture_CivicWardens_Checkpoint_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00001_.png",
+    "/assets/images/environments/tech-wastes-clean.png",
+    "/assets/images/environments/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00001_.png",
+    "/assets/images/vehicles/TG_Vehicle_Free77_MRAP_00001_.png",
+    "/assets/images/vehicles/TG_Vehicle_IronScavengers_Technical_00001_.png",
+    "/assets/images/others/TG_Architecture_IronScavengers_Territory_00001_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_CivicWardens_00002_.png",
+    "/assets/images/TG_Style_20250812_2207_00004_.png",
+    "/assets/images/environments/TG_Style_20250812_2207_00004_.png",
+    "/assets/images/weapons/TG_Weapon_ArchiveKeepers_PDW_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_00002_.png",
+    "/assets/images/environments/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_00001_.png",
+    "/assets/images/environments/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_00002_.png",
+    "/assets/images/factions/TG_Emblem_Var_Directorate_00003_.png",
+    "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Gritty_Realism_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Gritty_Realism_00002_.png",
+    "/assets/images/environments/TG_PERFECT_Metro_Maintenance_Corridor_Gritty_Realism_00001_.png",
+    "/assets/images/environments/TG_PERFECT_Metro_Maintenance_Corridor_Gritty_Realism_00002_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_Directorate_00002_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_Directorate_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Gritty_Realism_Wide_Ambient_00001_.png",
+    "/assets/images/environments/TG_PERFECT_Metro_Maintenance_Corridor_Gritty_Realism_Wide_Ambient_00001_.png",
+    "/assets/images/vehicles/TG_Vehicle_CivicWardens_Riot_00001_.png",
+    "/assets/images/others/TG_Improved_Visibility_00001_.png",
+    "/assets/images/characters/TG_Character_Directorate_Trooper_00001_.png",
+    "/assets/images/factions/TG_Enhanced_Emblem_IronScavengers_00001_.png",
+    "/assets/images/environments/TG_ENV_Corporate_Lobby_GrittyRealism_v01.png",
+    "/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Gritty_Realism_00001_.png",
+    "/assets/images/environments/TG_PERFECT_Tech_Wastes_Exterior_Gritty_Realism_00001_.png",
+    "/assets/images/ui/TG_UI_Free77_HUD_00001_.png",
+    "/assets/images/renders/TG_PERFECT_Security_Checkpoint_Gritty_Realism_00001_.png",
+    "/assets/images/environments/TG_PERFECT_Security_Checkpoint_Gritty_Realism_00001_.png",
+    "/assets/images/factions/directorate-emblem.png",
+    "/assets/images/factions/TG_Emblem_Directorate_00001_.png",
+    "/assets/images/factions/TG_Emblem_NomadClans_00001_.png",
+    "/assets/images/factions/nomad-clans-emblem.png",
+    "/assets/images/TG_UPSCALE_NEAREST-EXACT_DIR_20250812_233307_00001_.png",
+    "/assets/images/environments/TG_UPSCALE_NEAREST-EXACT_DIR_20250812_233307_00001_.png",
+    "/assets/images/factions/TG_Emblem_Var_NomadClans_00002_.png",
+    "/assets/images/TG_VAR_NEAREST_DIR_20250812_233514_00001_.png",
+    "/assets/images/environments/TG_VAR_NEAREST_DIR_20250812_233514_00001_.png",
+    "/assets/images/TG_BILINEAR_TEST_233905_00001_.png",
+    "/assets/images/environments/TG_BILINEAR_TEST_233905_00001_.png",
+    "/assets/images/TG_BICUBIC_TEST_233905_00001_.png",
+    "/assets/images/environments/TG_BICUBIC_TEST_233905_00001_.png",
+    "/assets/images/factions/Directorate_palette.png",
+    "/assets/images/TG_NEAREST_EXACT_TEST_233905_00001_.png",
+    "/assets/images/environments/TG_NEAREST_EXACT_TEST_233905_00001_.png",
+    "/assets/images/others/TG_Clean_NoText_00001_.png",
+    "/assets/images/ui/TG_UI_ArchiveKeepers_HUD_00001_.png",
+    "/assets/images/environments/TG_Metro_TRUE_HD_00001_.png",
+    "/assets/images/TG_LORE_DIR_Directorate_Emblem_20250812_232558_00001_.png",
+    "/assets/images/factions/TG_LORE_DIR_Directorate_Emblem_20250812_232558_00001_.png",
+    "/assets/images/PROD_LOGOS_INSIGNIAS_235429_00001_.png",
+    "/assets/images/environments/PROD_LOGOS_INSIGNIAS_235429_00001_.png",
+    "/assets/images/environments/TG_Metro_Environment_Test_00001_.png",
+    "/assets/images/renders/hero-iez.png",
+    "/assets/images/renders/hero-wastes.png",
+    "/assets/images/REFINE_SHARP_00003__1920w_Toned.png",
+    "/assets/images/environments/metro-corridor-premium.png",
+    "/assets/images/environments/REFINE_SHARP_00003_1920w_Toned.png",
+    "/assets/images/REFINE_SHARP_00004__1920w_Toned.png",
+    "/assets/images/renders/hero-premium-corridor.png",
+    "/assets/images/environments/REFINE_SHARP_00004_1920w_Toned.png",
+    "/assets/images/20250813_181145_ROLLBACK_euler_normal_s30_cfg4p2_00001_.png",
+    "/assets/images/ROLLBACK_euler_normal_s30_cfg4p2_00001_.png",
+    "/assets/images/environments/20250813_181145_ROLLBACK_euler_normal_s30_cfg4p2_00001_.png",
+    "/assets/images/environments/ROLLBACK_euler_normal_s30_cfg4p2_00001_.png",
+    "/assets/images/20250813_181438_ROLLBACK_euler_normal_s28_cfg4p0_00001_.png",
+    "/assets/images/ROLLBACK_euler_normal_s28_cfg4p0_00001_.png",
+    "/assets/images/environments/20250813_181438_ROLLBACK_euler_normal_s28_cfg4p0_00001_.png",
+    "/assets/images/environments/ROLLBACK_euler_normal_s28_cfg4p0_00001_.png",
+    "/assets/images/ROLLBACK_euler_normal_s26_cfg3p8_00001_.png",
+    "/assets/images/20250813_181718_ROLLBACK_euler_normal_s26_cfg3p8_00001_.png",
+    "/assets/images/environments/ROLLBACK_euler_normal_s26_cfg3p8_00001_.png",
+    "/assets/images/environments/20250813_181718_ROLLBACK_euler_normal_s26_cfg3p8_00001_.png",
+    "/assets/images/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001__Toned.png",
+    "/assets/images/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002__Toned.png",
+    "/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_Toned.png",
+    "/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png",
+    "/assets/images/REFINE_SHARP_00003__1920w.png",
+    "/assets/images/environments/REFINE_SHARP_00003_1920w.png",
+    "/assets/images/REFINE_SHARP_00004__1920w.png",
+    "/assets/images/environments/REFINE_SHARP_00004_1920w.png",
+    "/assets/images/20250814_012044_REFINE_SHARP_00003_.png",
+    "/assets/images/REFINE_SHARP_00003_.png",
+    "/assets/images/environments/20250814_012044_REFINE_SHARP_00003_.png",
+    "/assets/images/environments/REFINE_SHARP_00003_.png",
+    "/assets/images/20250814_012236_REFINE_SHARP_00004_.png",
+    "/assets/images/REFINE_SHARP_00004_.png",
+    "/assets/images/environments/20250814_012236_REFINE_SHARP_00004_.png",
+    "/assets/images/environments/REFINE_SHARP_00004_.png",
+    "/assets/images/PROD_CONCEPT_ART_235433_.png",
+    "/assets/images/20250813_174128_PROD_CONCEPT_ART_235433_.png",
+    "/assets/images/20250813_174451_SWEEP_euler_normal_s36_cfg4p6_00001_.png",
+    "/assets/images/SWEEP_euler_normal_s36_cfg4p6_00001_.png",
+    "/assets/images/environments/PROD_CONCEPT_ART_235433_.png",
+    "/assets/images/environments/20250813_174128_PROD_CONCEPT_ART_235433_.png",
+    "/assets/images/environments/20250813_174451_SWEEP_euler_normal_s36_cfg4p6_00001_.png",
+    "/assets/images/environments/SWEEP_euler_normal_s36_cfg4p6_00001_.png",
+    "/assets/images/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png",
+    "/assets/images/20250813_235505_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
+    "/assets/images/20250814_011810_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png",
+    "/assets/images/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
+    "/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png",
+    "/assets/images/environments/20250813_235505_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
+    "/assets/images/environments/20250814_011810_HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00002_.png",
+    "/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_.png",
+    "/assets/images/renders/hero-main.png",
+    "/assets/images/ui/TG_UI_Corporate_HUD_00001_.png",
+    "/assets/images/TG_SHARP_DIR_Emblem_20250812_233122_00001_.png",
+    "/assets/images/factions/TG_SHARP_DIR_Emblem_20250812_233122_00001_.png",
+    "/assets/images/20250813_175029_SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png",
+    "/assets/images/SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png",
+    "/assets/images/environments/20250813_175029_SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png",
+    "/assets/images/environments/SWEEP_dpmpp_2m_sde_karras_s26_cfg5p0_00001_.png",
+    "/assets/images/SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png",
+    "/assets/images/20250813_174743_SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png",
+    "/assets/images/environments/SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png",
+    "/assets/images/environments/20250813_174743_SWEEP_dpmpp_2m_karras_s28_cfg4p8_00001_.png",
+    "/assets/images/renders/iez-day.png",
+    "/assets/images/TG_HQ_DIR_Emblem_20250812_231722_00001_.png",
+    "/assets/images/factions/TG_HQ_DIR_Emblem_20250812_231722_00001_.png",
+    "/assets/images/ui/TG_UI_IronScavengers_HUD_00001_.png",
+    "/assets/images/PROD_CONCEPT_ART_235429_00001_.png",
+    "/assets/images/environments/PROD_CONCEPT_ART_235429_00001_.png",
+    "/assets/images/UPSCALE_4x-UltraSharp.pth_00002__1920w.png",
+    "/assets/images/environments/UPSCALE_4x-UltraSharp.pth_00002_1920w.png",
+    "/assets/images/UPSCALE_4x-UltraSharp.pth_00002_.png",
+    "/assets/images/20250813_232349_UPSCALE_4x-UltraSharp.pth_00002_.png",
+    "/assets/images/environments/UPSCALE_4x-UltraSharp.pth_00002_.png",
+    "/assets/images/environments/20250813_232349_UPSCALE_4x-UltraSharp.pth_00002_.png",
+    "/assets/images/20250813_232327_REFINE_SHARP_00002_.png",
+    "/assets/images/REFINE_SHARP_00002_.png",
+    "/assets/images/environments/20250813_232327_REFINE_SHARP_00002_.png",
+    "/assets/images/environments/REFINE_SHARP_00002_.png",
+    "/assets/images/environments/TG_Metro_AAA_Final_Base_00001_.png",
+    "/assets/images/environments/TG_Metro_AAA_Multistage_Base_00001_.png"
+  ],
+  "aaaCount": 177
 }
