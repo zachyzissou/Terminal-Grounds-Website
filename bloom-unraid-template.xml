@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Terminal-Grounds-Website</Name>
+  <Repository>ghcr.io/zachyzissou/terminal-grounds-website:latest</Repository>
+  <Registry>https://github.com/zachyzissou/Terminal-Grounds-Website/pkgs/container/terminal-grounds-website</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/zachyzissou/Terminal-Grounds-Website/issues</Support>
+  <Project>https://github.com/zachyzissou/Terminal-Grounds-Website</Project>
+  <Overview>
+    Terminal Grounds Website - Auto-updating static site with GitHub integration.
+    
+    This container automatically pulls the latest website changes from GitHub on startup,
+    runs the asset pipeline to sync game assets, and serves the site with nginx.
+    
+    Features:
+    • Automatic GitHub repository pulling on container restart
+    • Asset pipeline integration with Terminal-Grounds repository  
+    • WebGL atmospheric effects and interactive galleries
+    • Health check monitoring
+    • Production-ready nginx configuration
+    
+    To update the website: simply restart/recreate the container and it will pull the latest changes automatically.
+  </Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:2161]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/bloom-unraid-template.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/zachyzissou/Terminal-Grounds-Website/main/site/assets/images/logo.png</Icon>
+  <ExtraParams>--health-cmd="wget -qO- http://127.0.0.1/health || exit 1" --health-interval=30s --health-timeout=5s --health-retries=3</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1756100428</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <DonateImg/>
+  <MinVer>6.11.5</MinVer>
+  <Description>Terminal Grounds Website with automated GitHub deployment. Container pulls latest code changes on restart, syncs game assets automatically, and serves the enhanced website with WebGL effects and interactive galleries.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>2161</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/bloom-website</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>America/New_York</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="WebUI Port" Target="80" Default="2161" Mode="tcp" Description="Port for accessing the Bloom website" Type="Port" Display="always" Required="true" Mask="false">2161</Config>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="Timezone for container logs" Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID for file permissions" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID for file permissions" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Config Storage" Target="/config" Default="/mnt/user/appdata/bloom-website" Mode="rw" Description="Container data storage location" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/bloom-website</Config>
+</Container>

@@ -1,0 +1,81 @@
+---
+# yamllint disable rule:line-length rule:truthy
+name: Build and Deploy Docker Image
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - 'DEPLOYMENT_GUIDE.md'
+      - 'DOCKER_BUILD.md'
+      - 'DEPLOYMENT.md'
+  release:
+    types: [published]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/terminal-grounds-website
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile.build
+          platforms: linux/amd64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: false
+          sbom: false
+
+      - name: Debug image information
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "Built images with tags: ${{ steps.meta.outputs.tags }}"
+          echo "Registry: ${{ env.REGISTRY }}"
+          echo "Image owner: ${{ github.repository_owner }}"
+
+      - name: Update deployment status
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "::notice::Docker image pushed successfully to ${{ env.REGISTRY }}/${{ github.repository_owner }}/terminal-grounds-website:latest"
+          echo "::notice::Unraid users can now pull the latest image using the template"
+

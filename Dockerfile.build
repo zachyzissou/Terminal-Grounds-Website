@@ -1,0 +1,18 @@
+# Terminal Grounds Website - Simple Build for GitHub Actions
+FROM nginx:alpine
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy website content
+COPY site/ /usr/share/nginx/html/
+
+# Expose port 80
+EXPOSE 80
+
+# Simple health check without wget dependency
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+  CMD test -f /usr/share/nginx/html/index.html || exit 1
+
+# Use nginx's default entrypoint
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,202 @@
+    <script src="/assets/js/main.js"></script>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Bloom</h3>
+                    <p>Scavenge. Extract. Breathe before the next bloom.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="/">Home Base</a></li>
+                            <li><a href="/story.html">Lore Database</a></li>
+                            <li><a href="/progress.html">System Status</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Emergency</h4>
+                        <ul>
+                            <li><a href="/concept-art.html">Asset Gallery</a></li>
+                            <li><a href="/milestones.html">Technical Status</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Bloom. All rights reserved.</p>
+                <p class="footer-tech">Signal disrupted by Monolith interference</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+
+    <style>
+        .error-page {
+            padding-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-content {
+            padding: 4rem 0;
+        }
+
+        .error-content .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+        }
+
+        .error-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .error-terminal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .error-message {
+            text-align: left;
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--secondary-color);
+            margin: 0 0 1rem 0;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin: 0 0 1rem 0;
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .error-suggestions h3 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .suggestion-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .suggestion-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .suggestion-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .suggestion-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .error-status {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .status-label {
+            color: var(--text-muted);
+        }
+
+        .status-value {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .terminal-line.error {
+            color: var(--secondary-color);
+        }
+
+        .terminal-line.warning {
+            color: var(--iron-scavengers);
+        }
+
+        .status-error {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .error-content .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .error-actions .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,12 @@
+---
+name: DISABLED - Docker Hub Build/Push
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disabled
+        run: echo "Docker Hub publishing is disabled (no Docker Hub configured)."
