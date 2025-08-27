@@ -50,6 +50,9 @@ run_asset_pipeline() {
     if [ -f "$WEBSITE_CLONE/scripts/asset-pipeline.js" ] && [ -d "$MAIN_CLONE" ]; then
         log "🎨 Running asset pipeline..."
         (cd "$WEBSITE_CLONE" && node scripts/asset-pipeline.js) || log "⚠️ Asset pipeline failed, using existing assets"
+    elif [ -f "$WEBSITE_CLONE/scripts/local-asset-scan.js" ]; then
+        log "🎨 Running local asset scan..."
+        (cd "$WEBSITE_CLONE" && node scripts/local-asset-scan.js) || log "⚠️ Local asset scan failed, using existing assets"
     else
         log "ℹ️ Asset pipeline not available, using existing assets"
     fi

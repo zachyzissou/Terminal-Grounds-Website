@@ -1,0 +1,93 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = "Bloom is a tactical extraction FPS set in a quarantined city-zone reshaped by alien 'Monolith' phenomena. Scavenge. Extract. Breathe before the next bloom.", ogImage = "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_Wide_Ambient_00003_.png" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} - Bloom</title>
+    <meta name="description" content={description}>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Bloom</h1>
+                <span class="tagline">A quarantined city reborn</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
+                <li><a href="/story" class={`nav-link ${currentPath === '/story' || currentPath === '/story/' ? 'active' : ''}`}>Story</a></li>
+                <li><a href="/factions" class={`nav-link ${currentPath === '/factions' || currentPath === '/factions/' ? 'active' : ''}`}>Factions</a></li>
+                <li><a href="/regions" class={`nav-link ${currentPath === '/regions' || currentPath === '/regions/' ? 'active' : ''}`}>Regions</a></li>
+                <li><a href="/progress" class={`nav-link ${currentPath === '/progress' || currentPath === '/progress/' ? 'active' : ''}`}>Progress</a></li>
+                <li><a href="/concept-art" class={`nav-link ${currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'active' : ''}`}>Concept Art</a></li>
+                <li><a href="/milestones" class={`nav-link ${currentPath === '/milestones' || currentPath === '/milestones/' ? 'active' : ''}`}>Milestones</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+        <slot />
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Bloom</h3>
+                    <p>Scavenge. Extract. Breathe before the next bloom.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Game</h4>
+                        <ul>
+                            <li><a href="/story">Story & Lore</a></li>
+                            <li><a href="/concept-art">Concept Art</a></li>
+                            <li><a href="/milestones">Milestones</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Development</h4>
+                        <ul>
+                            <li><a href="/progress">Progress Updates</a></li>
+                            <li><a href="/technical">Technical Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Bloom. All rights reserved.</p>
+                <p class="footer-tech">Powered by cutting-edge AI asset generation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script is:inline src="/assets/js/main.js"></script>
+    <script is:inline src="/assets/js/webgl-effects.js"></script>
+</body>
+</html>

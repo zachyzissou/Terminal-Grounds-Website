@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+    title="Milestones - Bloom" 
+    description="Development milestones and roadmap for Bloom - tracking our progress from concept to finished game."
+    ogImage="/assets/images/renders/hero-main.png">
+    
+    <main class="milestones-page">
+        <section class="hero-milestones">
+            <div class="container">
+                <div class="milestones-header">
+                    <h1>Development Milestones</h1>
+                    <p class="milestones-subtitle">Tracking our journey from vision to reality</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="milestones-timeline">
+            <div class="container">
+                <h2 class="section-title">Major Milestones</h2>
+                
+                <div class="timeline">
+                    <div class="milestone completed">
+                        <div class="milestone-date">Q3 2025</div>
+                        <div class="milestone-content">
+                            <h3>Foundation Systems</h3>
+                            <div class="milestone-status complete">Complete</div>
+                            <p>Core infrastructure and asset pipeline establishment</p>
+                            <ul>
+                                <li>Asset generation pipeline with 92% success rate</li>
+                                <li>Territorial control system with real-time WebSocket infrastructure</li>
+                                <li>Database performance optimization (0.04ms queries)</li>
+                                <li>Chief Art Director framework with 5 core pillars</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="milestone in-progress">
+                        <div class="milestone-date">Q4 2025</div>
+                        <div class="milestone-content">
+                            <h3>Core Gameplay Loop</h3>
+                            <div class="milestone-status progress">In Progress</div>
+                            <p>Essential gameplay systems and mechanics</p>
+                            <ul>
+                                <li>Extraction timer and contested zone mechanics</li>
+                                <li>Faction reputation system with diplomatic consequences</li>
+                                <li>Field/Splice/Monolith artifact hierarchy</li>
+                                <li>Basic inventory and equipment systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="milestone upcoming">
+                        <div class="milestone-date">Q1 2026</div>
+                        <div class="milestone-content">
+                            <h3>World Systems</h3>
+                            <div class="milestone-status upcoming">Planned</div>
+                            <p>Environmental storytelling and world reactivity</p>
+                            <ul>
+                                <li>Dynamic faction territory control</li>
+                                <li>Environmental hazards and Cascade effects</li>
+                                <li>Convoy and patrol AI systems</li>
+                                <li>Weather and power state systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="milestone upcoming">
+                        <div class="milestone-date">Q2 2026</div>
+                        <div class="milestone-content">
+                            <h3>Combat & Artifacts</h3>
+                            <div class="milestone-status upcoming">Planned</div>
+                            <p>Tactical combat and Harvester technology</p>
+                            <ul>
+                                <li>Tactical extraction combat system</li>
+                                <li>Artifact effects and side effects system</li>
+                                <li>Faction-specific weapons and equipment</li>
+                                <li>Monolith-class reality manipulation mechanics</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="milestone upcoming">
+                        <div class="milestone-date">Q3 2026</div>
+                        <div class="milestone-content">
+                            <h3>Multiplayer Foundation</h3>
+                            <div class="milestone-status upcoming">Planned</div>
+                            <p>Multiplayer infrastructure and social systems</p>
+                            <ul>
+                                <li>Server architecture for contested extractions</li>
+                                <li>Player faction allegiance system</li>
+                                <li>Cooperative and competitive extraction modes</li>
+                                <li>Reputation and trading systems</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="milestone upcoming">
+                        <div class="milestone-date">Q4 2026</div>
+                        <div class="milestone-content">
+                            <h3>Polish & Launch Preparation</h3>
+                            <div class="milestone-status upcoming">Planned</div>
+                            <p>Final optimization and launch readiness</p>
+                            <ul>
+                                <li>Performance optimization and bug fixes</li>
+                                <li>UI/UX polish and accessibility features</li>
+                                <li>Balancing and playtesting refinements</li>
+                                <li>Launch trailer and marketing materials</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="milestone future">
+                        <div class="milestone-date">Q1 2027</div>
+                        <div class="milestone-content">
+                            <h3>Early Access Launch</h3>
+                            <div class="milestone-status future">Target</div>
+                            <p>Public release and community feedback</p>
+                            <ul>
+                                <li>Steam Early Access launch</li>
+                                <li>Community feedback integration</li>
+                                <li>Post-launch content updates</li>
+                                <li>Expansion planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="current-focus">
+            <div class="container">
+                <h2 class="section-title">Current Focus Areas</h2>
+                
+                <div class="focus-grid">
+                    <div class="focus-card priority">
+                        <h3>Extraction Mechanics</h3>
+                        <div class="focus-status">High Priority</div>
+                        <p>Developing the core extraction loop with contested zones, timer mechanics, and faction interference systems.</p>
+                    </div>
+                    
+                    <div class="focus-card priority">
+                        <h3>Faction Diplomacy</h3>
+                        <div class="focus-status">High Priority</div>
+                        <p>Implementing the reputation system where player actions affect faction relationships and available opportunities.</p>
+                    </div>
+                    
+                    <div class="focus-card active">
+                        <h3>Artifact Systems</h3>
+                        <div class="focus-status">Active Development</div>
+                        <p>Creating the Field/Splice/Monolith hierarchy with escalating power and unpredictability.</p>
+                    </div>
+                    
+                    <div class="focus-card research">
+                        <h3>Multiplayer Architecture</h3>
+                        <div class="focus-status">Research Phase</div>
+                        <p>Exploring server architecture options for seamless contested extraction gameplay.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="success-metrics">
+            <div class="container">
+                <h2 class="section-title">Success Metrics</h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item achieved">
+                        <div class="metric-value">92%</div>
+                        <div class="metric-label">Asset Generation Success</div>
+                        <div class="metric-status">Achieved</div>
+                    </div>
+                    
+                    <div class="metric-item achieved">
+                        <div class="metric-value">&lt;0.1ms</div>
+                        <div class="metric-label">Database Performance</div>
+                        <div class="metric-status">Achieved</div>
+                    </div>
+                    
+                    <div class="metric-item target">
+                        <div class="metric-value">100+</div>
+                        <div class="metric-label">Concurrent Players</div>
+                        <div class="metric-status">Target</div>
+                    </div>
+                    
+                    <div class="metric-item target">
+                        <div class="metric-value">95%</div>
+                        <div class="metric-label">Performance Target</div>
+                        <div class="metric-status">Target</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
