@@ -61,7 +61,22 @@ run_asset_pipeline() {
 deploy_site() {
     mkdir -p "$WEBSITE_DIR"
     rm -rf "$WEBSITE_DIR"/*
-    cp -r "$WEBSITE_CLONE/site"/* "$WEBSITE_DIR/" || true
+    
+    # Check if we have Astro setup (package.json with astro dependency)
+    if [ -f "$WEBSITE_CLONE/package.json" ] && grep -q '"astro"' "$WEBSITE_CLONE/package.json"; then
+        log "🏗️ Building Astro site..."
+        (cd "$WEBSITE_CLONE" && npm install && npm run build) || {
+            log "⚠️ Astro build failed, falling back to static site"
+            [ -d "$WEBSITE_CLONE/site" ] && cp -r "$WEBSITE_CLONE/site"/* "$WEBSITE_DIR/" || true
+        }
+        # Copy built Astro site
+        [ -d "$WEBSITE_CLONE/dist" ] && cp -r "$WEBSITE_CLONE/dist"/* "$WEBSITE_DIR/" || true
+    else
+        # Fallback to static site
+        log "📄 Using static site (no Astro detected)"
+        [ -d "$WEBSITE_CLONE/site" ] && cp -r "$WEBSITE_CLONE/site"/* "$WEBSITE_DIR/" || true
+    fi
+    
     # Ensure health check endpoint exists
     echo '<!DOCTYPE html><html><head><title>Health Check</title></head><body>OK</body></html>' > "$WEBSITE_DIR/health"
     # Permissions (best-effort)
