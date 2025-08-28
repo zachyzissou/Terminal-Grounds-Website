@@ -1,0 +1,229 @@
+{
+  "environments": {
+    "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
+      "filename": "HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
+      "size": 1269756,
+      "modified": "2025-08-27T06:00:17.309Z"
+    },
+    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png": {
+      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png",
+      "size": 1149727,
+      "modified": "2025-08-27T06:00:17.606Z"
+    },
+    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_Toned.png": {
+      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_Toned.png",
+      "size": 1386234,
+      "modified": "2025-08-27T06:00:18.110Z"
+    },
+    "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png": {
+      "filename": "HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png",
+      "size": 1845267,
+      "modified": "2025-08-27T06:00:18.011Z"
+    },
+    "LORE_CleanSciFi_1080p_00001_.png": {
+      "filename": "LORE_CleanSciFi_1080p_00001_.png",
+      "size": 760282,
+      "modified": "2025-08-27T06:00:17.104Z"
+    },
+    "LORE_Metro_CleanSciFi_1080p_00001_.png": {
+      "filename": "LORE_Metro_CleanSciFi_1080p_00001_.png",
+      "size": 1106812,
+      "modified": "2025-08-27T06:00:18.093Z"
+    },
+    "PROD_CONCEPT_ART_235432_.png": {
+      "filename": "PROD_CONCEPT_ART_235432_.png",
+      "size": 1747656,
+      "modified": "2025-08-27T06:00:17.466Z"
+    },
+    "REFINE_SHARP_00003_1920w.png": {
+      "filename": "REFINE_SHARP_00003_1920w.png",
+      "size": 1379817,
+      "modified": "2025-08-27T06:00:17.702Z"
+    },
+    "TG_PERFECT_Corporate_Lobby_Interior_Clean_SciFi_Wide_Ambient_00001_.png": {
+      "filename": "TG_PERFECT_Corporate_Lobby_Interior_Clean_SciFi_Wide_Ambient_00001_.png",
+      "size": 2580559,
+      "modified": "2025-08-27T06:00:17.231Z"
+    },
+    "iez-facility-clean.png": {
+      "filename": "iez-facility-clean.png",
+      "size": 962346,
+      "modified": "2025-08-27T06:00:17.424Z"
+    },
+    "metro-corridor-premium.png": {
+      "filename": "metro-corridor-premium.png",
+      "size": 1292402,
+      "modified": "2025-08-27T06:00:17.171Z"
+    },
+    "research-lab-clean.png": {
+      "filename": "research-lab-clean.png",
+      "size": 1072834,
+      "modified": "2025-08-27T06:00:17.997Z"
+    },
+    "security-checkpoint-clean.png": {
+      "filename": "security-checkpoint-clean.png",
+      "size": 1600194,
+      "modified": "2025-08-27T06:00:17.820Z"
+    },
+    "tech-wastes-gritty.png": {
+      "filename": "tech-wastes-gritty.png",
+      "size": 1829424,
+      "modified": "2025-08-27T06:00:17.545Z"
+    },
+    "underground-bunker-gritty.png": {
+      "filename": "underground-bunker-gritty.png",
+      "size": 2232424,
+      "modified": "2025-08-27T06:00:17.539Z"
+    }
+  },
+  "weapons": {},
+  "vehicles": {},
+  "factions": {
+    "CivicWardens_palette.png": {
+      "filename": "CivicWardens_palette.png",
+      "size": 3165,
+      "modified": "2025-08-27T06:00:18.347Z"
+    },
+    "Free77_palette.png": {
+      "filename": "Free77_palette.png",
+      "size": 4361,
+      "modified": "2025-08-27T06:00:18.309Z"
+    },
+    "NomadClans_palette.png": {
+      "filename": "NomadClans_palette.png",
+      "size": 4168,
+      "modified": "2025-08-27T06:00:18.253Z"
+    },
+    "TG_Emblem_Var_ArchiveKeepers_00001_.png": {
+      "filename": "TG_Emblem_Var_ArchiveKeepers_00001_.png",
+      "size": 763268,
+      "modified": "2025-08-27T06:00:18.252Z"
+    },
+    "TG_Emblem_Var_CivicWardens_00001_.png": {
+      "filename": "TG_Emblem_Var_CivicWardens_00001_.png",
+      "size": 1172912,
+      "modified": "2025-08-27T06:00:18.256Z"
+    },
+    "TG_Emblem_Var_CorporateHegemony_00001_.png": {
+      "filename": "TG_Emblem_Var_CorporateHegemony_00001_.png",
+      "size": 756448,
+      "modified": "2025-08-27T06:00:18.262Z"
+    },
+    "TG_Enhanced_DIR_Emblem_20250812_231441_00001_.png": {
+      "filename": "TG_Enhanced_DIR_Emblem_20250812_231441_00001_.png",
+      "size": 361283,
+      "modified": "2025-08-27T06:00:18.442Z"
+    },
+    "TG_Enhanced_Emblem_Directorate_00002_.png": {
+      "filename": "TG_Enhanced_Emblem_Directorate_00002_.png",
+      "size": 845169,
+      "modified": "2025-08-27T06:00:18.357Z"
+    },
+    "TG_Enhanced_Emblem_Free77_00002_.png": {
+      "filename": "TG_Enhanced_Emblem_Free77_00002_.png",
+      "size": 813941,
+      "modified": "2025-08-27T06:00:18.372Z"
+    },
+    "TG_Enhanced_Emblem_IronScavengers_00002_.png": {
+      "filename": "TG_Enhanced_Emblem_IronScavengers_00002_.png",
+      "size": 613322,
+      "modified": "2025-08-27T06:00:18.353Z"
+    },
+    "TG_Enhanced_Emblem_NomadClans_00002_.png": {
+      "filename": "TG_Enhanced_Emblem_NomadClans_00002_.png",
+      "size": 971605,
+      "modified": "2025-08-27T06:00:18.385Z"
+    },
+    "TG_FIXED_Emblem_IronScavengers_00001_.png": {
+      "filename": "TG_FIXED_Emblem_IronScavengers_00001_.png",
+      "size": 705075,
+      "modified": "2025-08-27T06:00:18.200Z"
+    },
+    "TG_ULTIMATE_DIR_Emblem_20250812_232028_00001_.png": {
+      "filename": "TG_ULTIMATE_DIR_Emblem_20250812_232028_00001_.png",
+      "size": 2698961,
+      "modified": "2025-08-27T06:00:18.278Z"
+    },
+    "directorate-emblem-enhanced.png": {
+      "filename": "directorate-emblem-enhanced.png",
+      "size": 361283,
+      "modified": "2025-08-27T06:00:18.487Z"
+    },
+    "directorate-emblem-ultimate.png": {
+      "filename": "directorate-emblem-ultimate.png",
+      "size": 2698961,
+      "modified": "2025-08-27T06:00:18.191Z"
+    },
+    "free77-emblem.png": {
+      "filename": "free77-emblem.png",
+      "size": 1738924,
+      "modified": "2025-08-27T06:00:18.313Z"
+    },
+    "iron-scavengers-emblem.png": {
+      "filename": "iron-scavengers-emblem.png",
+      "size": 417723,
+      "modified": "2025-08-27T06:00:18.186Z"
+    },
+    "nomad-clans-emblem.png": {
+      "filename": "nomad-clans-emblem.png",
+      "size": 2092833,
+      "modified": "2025-08-27T06:00:18.480Z"
+    }
+  },
+  "renders": {
+    "TG_PERFECT_IEZ_Facility_Interior_Clean_SciFi_Detail_Dramatic_00002_.png": {
+      "filename": "TG_PERFECT_IEZ_Facility_Interior_Clean_SciFi_Detail_Dramatic_00002_.png",
+      "size": 2017981,
+      "modified": "2025-08-27T06:00:18.801Z"
+    },
+    "TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_Wide_Ambient_00003_.png": {
+      "filename": "TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_Wide_Ambient_00003_.png",
+      "size": 2009291,
+      "modified": "2025-08-27T06:00:18.918Z"
+    },
+    "TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00001_.png": {
+      "filename": "TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00001_.png",
+      "size": 1702244,
+      "modified": "2025-08-27T06:00:19.038Z"
+    },
+    "hero-iez.png": {
+      "filename": "hero-iez.png",
+      "size": 84263,
+      "modified": "2025-08-27T06:00:18.872Z"
+    },
+    "hero-main.png": {
+      "filename": "hero-main.png",
+      "size": 31838,
+      "modified": "2025-08-27T06:00:19.057Z"
+    },
+    "hero-wastes.png": {
+      "filename": "hero-wastes.png",
+      "size": 86272,
+      "modified": "2025-08-27T06:00:18.770Z"
+    }
+  },
+  "ui": {
+    "PROD_UI_ELEMENTS_235429_00001_.png": {
+      "filename": "PROD_UI_ELEMENTS_235429_00001_.png",
+      "size": 118047,
+      "modified": "2025-08-27T06:00:19.136Z"
+    },
+    "damage_ballistic_128.png": {
+      "filename": "damage_ballistic_128.png",
+      "size": 396,
+      "modified": "2025-08-27T06:00:19.086Z"
+    },
+    "damage_ion_128.png": {
+      "filename": "damage_ion_128.png",
+      "size": 396,
+      "modified": "2025-08-27T06:00:19.101Z"
+    },
+    "extract_128.png": {
+      "filename": "extract_128.png",
+      "size": 396,
+      "modified": "2025-08-27T06:00:19.123Z"
+    }
+  },
+  "total": {},
+  "lastUpdated": {}
+}

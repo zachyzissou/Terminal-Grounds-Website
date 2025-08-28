@@ -34,3 +34,25 @@ build/
 # OS generated files
 ehthumbs.db
 Desktop.ini
+
+# Large files (>50MB)
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
+# Specific patterns that indicate large/unwanted files
+*UPSCALE*
+*PROD_TEXTURES*
+*ULTRA*
+*HIGH_RES*
+*RAW*
+*4x*
+*8x*
+
+# Large texture/model files
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.model

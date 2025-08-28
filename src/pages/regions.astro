@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+    title="Regions - Bloom" 
+    description="Explore the dangerous territories of the Terminal Grounds and their unique challenges."
+    ogImage="/assets/images/renders/hero-wastes.png">
+    
+    <main class="regions-page">
+        <section class="hero-regions">
+            <div class="container">
+                <div class="regions-header">
+                    <h1>Regions of the Terminal Grounds</h1>
+                    <p class="regions-subtitle">Navigate the contested territories of post-Cascade Bloom</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="regions-overview">
+            <div class="container">
+                <h2 class="section-title">Key Territories</h2>
+                
+                <div class="regions-grid">
+                    <div class="region-card iez">
+                        <div class="region-header">
+                            <h3>The Dead Sky (IEZ)</h3>
+                            <span class="danger-level high">Extreme Risk</span>
+                        </div>
+                        <div class="region-image">
+                            <img src="/assets/images/environments/iez-facility-clean.png" alt="IEZ Facility" loading="lazy">
+                        </div>
+                        <div class="region-content">
+                            <p>The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
+                            <div class="region-details">
+                                <span class="detail-tag">Monolith Phenomena</span>
+                                <span class="detail-tag">Reality Distortion</span>
+                                <span class="detail-tag">Harvester Wrecks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-card metro">
+                        <div class="region-header">
+                            <h3>Metro System</h3>
+                            <span class="danger-level variable">Variable Control</span>
+                        </div>
+                        <div class="region-image">
+                            <img src="/assets/images/environments/metro-corridor-premium.png" alt="Metro Corridor" loading="lazy">
+                        </div>
+                        <div class="region-content">
+                            <p>Underground transit networks that still function. Faction control shifts daily. The safest routes for extraction—if you know who controls them.</p>
+                            <div class="region-details">
+                                <span class="detail-tag">Transit Network</span>
+                                <span class="detail-tag">Dynamic Control</span>
+                                <span class="detail-tag">Safe Passage</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-card machine-grave">
+                        <div class="region-header">
+                            <h3>Machine Grave</h3>
+                            <span class="danger-level contested">Contested</span>
+                        </div>
+                        <div class="region-image">
+                            <img src="/assets/images/environments/research-lab-clean.png" alt="Machine Grave" loading="lazy">
+                        </div>
+                        <div class="region-content">
+                            <p>Semi-autonomous factories that still produce. Controlled jointly by Corporate Hegemony and Archive Keepers, these industrial complexes are vital to post-Cascade survival.</p>
+                            <div class="region-details">
+                                <span class="detail-tag">Industrial</span>
+                                <span class="detail-tag">Factory Control</span>
+                                <span class="detail-tag">Production</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-card tech-wastes">
+                        <div class="region-header">
+                            <h3>Tech Wastes</h3>
+                            <span class="danger-level scavenger">Scavenger Territory</span>
+                        </div>
+                        <div class="region-image">
+                            <img src="/assets/images/environments/tech-wastes-gritty.png" alt="Tech Wastes" loading="lazy">
+                        </div>
+                        <div class="region-content">
+                            <p>Post-industrial wasteland where technology goes to die—and be reborn. Iron Scavengers rule here, salvaging Harvester technology for those who can pay.</p>
+                            <div class="region-details">
+                                <span class="detail-tag">Salvage Zone</span>
+                                <span class="detail-tag">Artifact Trade</span>
+                                <span class="detail-tag">Iron Scavenger Control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-card underground">
+                        <div class="region-header">
+                            <h3>Sump Gardens</h3>
+                            <span class="danger-level safe">Civilian Safe Zone</span>
+                        </div>
+                        <div class="region-image">
+                            <img src="/assets/images/environments/underground-bunker-gritty.png" alt="Underground Bunker" loading="lazy">
+                        </div>
+                        <div class="region-content">
+                            <p>Underground civilian settlements protected by the Civic Wardens. The closest thing to safety in the Terminal Grounds.</p>
+                            <div class="region-details">
+                                <span class="detail-tag">Civilian Protection</span>
+                                <span class="detail-tag">Civic Warden Control</span>
+                                <span class="detail-tag">Safe Haven</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="region-card security">
+                        <div class="region-header">
+                            <h3>Security Checkpoints</h3>
+                            <span class="danger-level directorate">Directorate Control</span>
+                        </div>
+                        <div class="region-image">
+                            <img src="/assets/images/environments/security-checkpoint-clean.png" alt="Security Checkpoint" loading="lazy">
+                        </div>
+                        <div class="region-content">
+                            <p>Military installation checkpoints controlled by the Sky Bastion Directorate. Order through discipline.</p>
+                            <div class="region-details">
+                                <span class="detail-tag">Military Control</span>
+                                <span class="detail-tag">Order</span>
+                                <span class="detail-tag">Directorate Territory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="region-mechanics">
+            <div class="container">
+                <h2 class="section-title">Regional Mechanics</h2>
+                
+                <div class="mechanics-grid">
+                    <div class="mechanic-card">
+                        <h3>Dynamic Control</h3>
+                        <p>Faction control of regions shifts based on territorial warfare outcomes. Yesterday's safe passage may be today's battleground.</p>
+                    </div>
+                    <div class="mechanic-card">
+                        <h3>Extraction Routes</h3>
+                        <p>Each region offers different extraction opportunities and challenges. Risk scales with potential rewards.</p>
+                    </div>
+                    <div class="mechanic-card">
+                        <h3>Environmental Hazards</h3>
+                        <p>Cascade effects create unique hazards in each region, from reality distortions to automated defenses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</BaseLayout>

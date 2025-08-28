@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+    title="Story & Lore - Bloom" 
+    description="Discover the rich lore and world-building of Bloom - from the IEZ Cascade to the seven factions fighting for survival in 2161."
+    ogImage="/assets/images/renders/hero-iez.png">
+    
+    <main class="story-page">
+        <section class="hero-story">
+            <div class="container">
+                <div class="story-header">
+                    <h1>The World of Bloom</h1>
+                    <p class="story-subtitle">Six months after the IEZ Cascade, survival depends on more than just skill</p>
+                    <div class="timeline-marker">
+                        <span class="year">2161</span>
+                        <span class="event">Post-Cascade Era</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-overview">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2>The Cascade Event</h2>
+                        <p>In 2161, the world changed forever. The <strong>IEZ Cascade</strong> created a 200-kilometer radius interdiction zone—a quarantined city-zone now known as <strong>Bloom</strong>. What was once civilization became a contested wasteland, reshaped by alien technology and the remnants of the mysterious <strong>Harvesters</strong>.</p>
+                        
+                        <p>The Harvesters, absent alien extractors, left behind wreckage that defies understanding: <strong>Skimmer-class</strong> survey arrays, weaponized <strong>Harrower-class</strong> systems, and reality-bending <strong>Monolith-class</strong> field manipulators. These artifacts don't just power technology—they reshape the very nature of reality within Bloom.</p>
+                    </div>
+                    <div class="story-visual">
+                        <div class="cascade-diagram">
+                            <div class="cascade-center">IEZ Core</div>
+                            <div class="cascade-ring ring-1">Inner Quarantine</div>
+                            <div class="cascade-ring ring-2">Contested Zone</div>
+                            <div class="cascade-ring ring-3">200km Perimeter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="regions-section">
+            <div class="container">
+                <h2 class="section-title">Key Regions</h2>
+                <div class="regions-grid">
+                    <div class="region-card">
+                        <div class="region-header">
+                            <h3>The Dead Sky (IEZ)</h3>
+                            <span class="danger-level high">High Risk</span>
+                        </div>
+                        <p>The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
+                        <div class="region-details">
+                            <span class="detail-tag">Monolith Phenomena</span>
+                            <span class="detail-tag">Reality Distortion</span>
+                        </div>
+                    </div>
+
+                    <div class="region-card">
+                        <div class="region-header">
+                            <h3>Machine Grave</h3>
+                            <span class="danger-level medium">Contested</span>
+                        </div>
+                        <p>Semi-autonomous factories that still produce. Controlled jointly by Corporate Hegemony and Archive Keepers, these industrial complexes are vital to post-Cascade survival.</p>
+                        <div class="region-details">
+                            <span class="detail-tag">Industrial</span>
+                            <span class="detail-tag">Factory Control</span>
+                        </div>
+                    </div>
+
+                    <div class="region-card">
+                        <div class="region-header">
+                            <h3>Metro System</h3>
+                            <span class="danger-level low">Variable</span>
+                        </div>
+                        <p>Underground transit networks that still function. Faction control shifts daily. The safest routes for extraction—if you know who controls them.</p>
+                        <div class="region-details">
+                            <span class="detail-tag">Transit Network</span>
+                            <span class="detail-tag">Dynamic Control</span>
+                        </div>
+                    </div>
+
+                    <div class="region-card">
+                        <div class="region-header">
+                            <h3>Tech Wastes</h3>
+                            <span class="danger-level medium">Scavenger Territory</span>
+                        </div>
+                        <p>Post-industrial wasteland where technology goes to die—and be reborn. Iron Scavengers rule here, salvaging Harvester technology for those who can pay.</p>
+                        <div class="region-details">
+                            <span class="detail-tag">Salvage Zone</span>
+                            <span class="detail-tag">Artifact Trade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="artifacts-section">
+            <div class="container">
+                <h2 class="section-title">Harvester Artifacts</h2>
+                <p class="section-intro">The absent Harvesters left behind technology that defies human understanding. Each class represents different levels of power—and danger.</p>
+                
+                <div class="artifacts-hierarchy">
+                    <div class="artifact-tier field">
+                        <h3>Field-Class</h3>
+                        <div class="artifact-icon">◇</div>
+                        <p>Basic Harvester technology. Powers weapons, shields, and basic equipment. Relatively stable, widely traded.</p>
+                        <div class="artifact-examples">
+                            <span>Energy Cells</span>
+                            <span>Shield Modules</span>
+                            <span>Power Cores</span>
+                        </div>
+                    </div>
+                    
+                    <div class="artifact-tier splice">
+                        <h3>Splice-Class</h3>
+                        <div class="artifact-icon">◈</div>
+                        <p>Intermediate technology that interfaces with human systems. Unpredictable side effects. High reward, high risk.</p>
+                        <div class="artifact-examples">
+                            <span>Neural Interfaces</span>
+                            <span>Reality Anchors</span>
+                            <span>Temporal Buffers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="artifact-tier monolith">
+                        <h3>Monolith-Class</h3>
+                        <div class="artifact-icon">◆</div>
+                        <p>Reality-altering technology. Changes the fundamental rules of an area. Priceless, extremely dangerous.</p>
+                        <div class="artifact-examples">
+                            <span>Cascade Cores</span>
+                            <span>Reality Engines</span>
+                            <span>Field Manipulators</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="factions-overview">
+            <div class="container">
+                <h2 class="section-title">The Seven Factions</h2>
+                <p class="section-intro">In the power vacuum left by the Cascade, seven major factions emerged. Each represents different philosophies of survival, control, and humanity's future.</p>
+                
+                <div class="faction-philosophy-grid">
+                    <div class="philosophy-card order">
+                        <h3>ORDER</h3>
+                        <div class="philosophy-factions">
+                            <div class="mini-faction">
+                                <h4>Sky Bastion Directorate</h4>
+                                <p>Military discipline preserves civilization</p>
+                            </div>
+                            <div class="mini-faction">
+                                <h4>Civic Wardens</h4>
+                                <p>Community defense protects the innocent</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="philosophy-card survival">
+                        <h3>SURVIVAL</h3>
+                        <div class="philosophy-factions">
+                            <div class="mini-faction">
+                                <h4>Iron Scavengers</h4>
+                                <p>Adaptation through salvage and modification</p>
+                            </div>
+                            <div class="mini-faction">
+                                <h4>Nomad Clans</h4>
+                                <p>Freedom through perpetual movement</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="philosophy-card knowledge">
+                        <h3>KNOWLEDGE</h3>
+                        <div class="philosophy-factions">
+                            <div class="mini-faction">
+                                <h4>Archive Keepers</h4>
+                                <p>Preservation of history and alien secrets</p>
+                            </div>
+                            <div class="mini-faction">
+                                <h4>Corporate Hegemony</h4>
+                                <p>Technological supremacy ensures progress</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="philosophy-card pragmatism">
+                        <h3>PRAGMATISM</h3>
+                        <div class="philosophy-factions">
+                            <div class="mini-faction">
+                                <h4>The Seventy-Seven</h4>
+                                <p>Professional neutrality, competence as currency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <div class="container">
+                <h2 class="section-title">Timeline of Events</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2161 - Day Zero</div>
+                        <div class="timeline-content">
+                            <h4>The IEZ Cascade</h4>
+                            <p>Reality fractures across a 200km zone. Harvesters vanish. Physics breaks. The quarantine begins.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2161 - Week One</div>
+                        <div class="timeline-content">
+                            <h4>First Extractions</h4>
+                            <p>Survivors discover Harvester artifacts. Field-class technology becomes the new currency of survival.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2161 - Month One</div>
+                        <div class="timeline-content">
+                            <h4>Faction Emergence</h4>
+                            <p>Seven primary factions crystallize from the chaos. Territories are claimed. The first wars begin.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">2161 - Month Three</div>
+                        <div class="timeline-content">
+                            <h4>The Arbitration Accords</h4>
+                            <p>Factions establish rules for extraction and conflict. The reputation economy emerges.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item current">
+                        <div class="timeline-date">2161 - Month Six (NOW)</div>
+                        <div class="timeline-content">
+                            <h4>The New Normal</h4>
+                            <p>Bloom has become a functioning ecosystem of conflict and cooperation. You are part of this world.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-grid">
+                    <div class="cta-card">
+                        <h3>Learn About Factions</h3>
+                        <p>Dive deeper into the seven major factions, their philosophies, and territories.</p>
+                        <a href="/factions" class="btn btn-primary">Explore Factions</a>
+                    </div>
+                    <div class="cta-card">
+                        <h3>Discover Regions</h3>
+                        <p>Explore the dangerous territories of Bloom and their unique challenges.</p>
+                        <a href="/regions" class="btn btn-secondary">View Regions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</BaseLayout>

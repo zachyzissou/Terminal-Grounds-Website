@@ -65,8 +65,8 @@ Note: This does not require the sibling Terminal-Grounds repository. For cross-r
 
 ## Premium Asset Content
 
-### Current Asset Library (112 Assets)
-**Last Updated**: August 26, 2025
+### Current Asset Library (112+ Premium Assets)
+**Last Updated**: August 28, 2025
 
 #### Asset Categories
 - **Environmental Renders** (40+ assets): HQ metro corridors, IEZ facilities, post-cascade atmospherics
@@ -76,18 +76,24 @@ Note: This does not require the sibling Terminal-Grounds repository. For cross-r
 - **Technical Demonstrations** (22+ assets): PERFECT_PARAMS showcase, workflow examples
 
 #### Quality Standards
-All assets generated using **PERFECT_PARAMS methodology**:
+All assets meet **strict AAA quality criteria** using **PERFECT_PARAMS methodology**:
+- Contrast: ≥80 (enhanced from ≥20)
+- Sharpness: ≥2000 (enhanced from ≥100)
+- Resolution: ≥1MP minimum
 - Scheduler: `heun/normal`
-- CFG Scale: `3.2` 
+- CFG Scale: `3.2`
 - Steps: `25`
-- Quality Tier: 4-tier system with 85+ pass threshold
+- Quality Tier: 4-tier system with strict pass threshold
 
 #### Asset Integration Process
 ```bash
 # Sync premium assets from Terminal-Grounds repository
 node scripts/asset-pipeline.js
 
-# Generate gallery integration
+# Import and filter high-quality assets from output folder
+./scripts/import-output.sh
+
+# Generate gallery integration with strict quality filtering
 node scripts/local-asset-scan.js
 
 # Build with latest assets

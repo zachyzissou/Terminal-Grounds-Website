@@ -27,7 +27,11 @@
       "Read(/C:\\c\\Users\\Zachg/**)",
       "Read(/C:\\c\\Users\\Zachg/**)",
       "Read(/C:\\c\\Users\\Zachg/**)",
-      "Read(/C:\\c\\Users\\Zachg/**)"
+      "Read(/C:\\c\\Users\\Zachg/**)",
+      "Read(/C:\\c\\Users\\Zachg/**)",
+      "Bash(git fetch:*)",
+      "Bash(grep:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": [],
