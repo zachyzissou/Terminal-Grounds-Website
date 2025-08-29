@@ -1,16 +1,620 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FactionShowcase from '../components/FactionShowcase.astro';
 ---
 
 <BaseLayout 
-    title="Factions - Bloom | Seven Faction Warfare System" 
-    description="Explore the seven major factions of Bloom: Sky Bastion Directorate, Iron Scavengers, Archive Keepers, Corporate Hegemony, Civic Wardens, Free77, and Nomad Clans fighting for control."
-    keywords="Bloom factions, faction warfare, Sky Bastion Directorate, Iron Scavengers, Archive Keepers, Corporate Hegemony, faction diplomacy, Terminal Grounds factions"
-    ogImage="/assets/images/factions/TG_Enhanced_Emblem_IronScavengers_00002_.png"
-    type="website">
-    
-    <main class="factions-page">
-        <FactionShowcase title="Seven Factions of the Terminal Grounds" />
-    </main>
+  title="Seven Factions - Territorial Warfare in the IEZ | Bloom"
+  description="Discover the seven military factions competing for control of the Interdiction Exclusion Zone. Each brings unique philosophies, tactics, and territorial strategies to post-Cascade survival."
+  canonical="/factions"
+>
+  <!-- ==================== FACTIONS OVERVIEW HERO ==================== -->
+  <section class="factions-hero section-cascade">
+    <div class="container max-w-6xl mx-auto px-6 py-20">
+      <div class="hero-content text-center">
+        <div class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-bloom-interface/20 border border-bloom-accent/30 rounded-sm mb-8">
+          <span class="bloom-mono text-sm text-bloom-accent">FACTION INTEL</span>
+          <div class="w-2 h-2 bg-bloom-accent rounded-full animate-pulse"></div>
+        </div>
+        
+        <h1 class="bloom-display text-5xl text-bloom-text-primary mb-6">
+          Seven Factions
+          <span class="block text-2xl text-cascade font-normal">Territorial Warfare in the IEZ</span>
+        </h1>
+        
+        <p class="bloom-body text-xl text-bloom-text-secondary max-w-3xl mx-auto mb-12">
+          Six months after the Cascade, seven distinct military organizations have emerged to compete for territorial control 
+          of the 200-kilometer Interdiction Exclusion Zone. Each faction brings unique philosophies, tactical advantages, 
+          and survival strategies to the post-Cascade wasteland.
+        </p>
+        
+        <!-- Faction Overview Stats -->
+        <div class="faction-overview-stats grid md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+          <div class="stat-card bloom-card text-center">
+            <div class="stat-number bloom-display text-3xl text-cascade mb-2">7</div>
+            <div class="stat-label bloom-interface text-bloom-text-secondary">Active Factions</div>
+          </div>
+          <div class="stat-card bloom-card text-center">
+            <div class="stat-number bloom-display text-3xl text-cascade mb-2">200km</div>
+            <div class="stat-label bloom-interface text-bloom-text-secondary">Contested Territory</div>
+          </div>
+          <div class="stat-card bloom-card text-center">
+            <div class="stat-number bloom-display text-3xl text-cascade mb-2">24/7</div>
+            <div class="stat-label bloom-interface text-bloom-text-secondary">Territorial Shifts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FACTION SELECTION INTERFACE ==================== -->
+  <section class="faction-selection bg-shadow py-16">
+    <div class="container max-w-7xl mx-auto px-6">
+      <div class="faction-selector-header text-center mb-12">
+        <h2 class="bloom-heading text-2xl text-bloom-text-primary mb-4">Choose Your Allegiance</h2>
+        <p class="bloom-body text-bloom-text-secondary">Click any faction to explore their territorial strategy, equipment, and philosophy</p>
+      </div>
+      
+      <!-- Interactive Faction Grid -->
+      <div class="faction-grid grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+        <!-- Sky Bastion Directorate -->
+        <article class="faction-card faction-dir bloom-card cursor-pointer" data-faction="directorate">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/directorate-emblem-enhanced.png" alt="Directorate emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">Sky Bastion Directorate</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"Order through superior firepower"</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Discipline</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Tech Level</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Aggression</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 55%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- The Seventy-Seven -->
+        <article class="faction-card faction-f77 bloom-card cursor-pointer" data-faction="seventy-seven">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/free77-emblem.png" alt="Seventy-Seven emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">The Seventy-Seven</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"Nothing personal. Just business."</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Efficiency</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Adaptability</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Contract Rate</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Civic Wardens -->
+        <article class="faction-card faction-cwd bloom-card cursor-pointer" data-faction="civic-wardens">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/TG_Emblem_Var_CivicWardens_00001_.png" alt="Civic Wardens emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">Civic Wardens</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"We stand guard so others may live"</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Defense</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Community</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Resilience</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Nomad Clans -->
+        <article class="faction-card faction-nom bloom-card cursor-pointer" data-faction="nomad-clans">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/nomad-clans-emblem.png" alt="Nomad Clans emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">Nomad Clans</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"Our home has wheels and guns"</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Mobility</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Aggression</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Independence</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Iron Scavengers -->
+        <article class="faction-card faction-isc bloom-card cursor-pointer" data-faction="iron-scavengers">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/iron-scavengers-emblem.png" alt="Iron Scavengers emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">Iron Scavengers</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"The dead don't need their toys"</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Salvage Skill</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Improvisation</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Opportunism</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Corporate Hegemony -->
+        <article class="faction-card faction-chg bloom-card cursor-pointer" data-faction="corporate-hegemony">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/TG_Emblem_Var_CorporateHegemony_00001_.png" alt="Corporate Hegemony emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">Corporate Hegemony</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"Progress is profit, and profit is survival"</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Resources</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Tech Level</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Influence</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Archive Keepers -->
+        <article class="faction-card faction-arc bloom-card cursor-pointer" data-faction="archive-keepers">
+          <div class="faction-header mb-4">
+            <div class="faction-emblem w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border-2 border-faction-primary">
+              <img src="/assets/images/factions/TG_Emblem_Var_ArchiveKeepers_00001_.png" alt="Archive Keepers emblem" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="faction-name bloom-heading text-lg text-center text-faction-primary">Archive Keepers</h3>
+            <p class="faction-motto bloom-mono text-xs text-center text-faction-primary italic mt-1">"What we lock, survives"</p>
+          </div>
+          <div class="faction-quick-stats">
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Information</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center mb-2">
+              <span class="bloom-interface text-sm">Tech Level</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="stat-row flex justify-between items-center">
+              <span class="bloom-interface text-sm">Stealth</span>
+              <div class="stat-bar-mini flex-1 ml-3 h-2 bg-bloom-interface/20 rounded-full overflow-hidden">
+                <div class="stat-fill-mini h-full bg-faction-primary" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DETAILED FACTION PROFILES ==================== -->
+  <section class="faction-details bg-void py-16">
+    <div class="container max-w-6xl mx-auto px-6">
+      
+      <!-- Sky Bastion Directorate -->
+      <article id="directorate" class="faction-detail-card faction-dir mb-16 opacity-0 transform translate-y-8">
+        <div class="detail-layout grid lg:grid-cols-2 gap-12 items-center">
+          <div class="faction-detail-content">
+            <div class="faction-header-detail mb-8">
+              <div class="faction-emblem-large w-24 h-24 mx-auto lg:mx-0 mb-6 rounded-full overflow-hidden border-4 border-faction-primary shadow-lg">
+                <img src="/assets/images/factions/directorate-emblem-enhanced.png" alt="Directorate emblem" class="w-full h-full object-cover" />
+              </div>
+              <h2 class="bloom-display text-3xl text-faction-primary mb-2">Sky Bastion Directorate</h2>
+              <p class="faction-motto-detail bloom-mono text-lg text-faction-primary italic mb-4">"Order through superior firepower"</p>
+              <div class="faction-designation bloom-interface text-sm text-bloom-text-secondary">
+                <span>Classification: </span><span class="text-faction-primary">Institutional Authority</span>
+              </div>
+            </div>
+            
+            <div class="faction-philosophy mb-8">
+              <h3 class="bloom-heading text-xl text-bloom-text-primary mb-4">Philosophy & Strategy</h3>
+              <p class="bloom-body text-bloom-text-secondary mb-4">
+                The Sky Bastion Directorate maintains that order can only emerge from superior firepower and institutional discipline. 
+                In their view, the post-Cascade chaos demands systematic expansion through technological supremacy and aerial dominance.
+              </p>
+              <p class="bloom-body text-bloom-text-secondary">
+                Their territorial strategy focuses on establishing fortified positions with overlapping fields of fire, 
+                utilizing their advanced equipment and strict chain of command to project force across contested zones.
+              </p>
+            </div>
+            
+            <div class="faction-stats-detailed grid grid-cols-2 gap-6 mb-8">
+              <div class="stat-detailed">
+                <div class="stat-header flex justify-between items-center mb-2">
+                  <span class="bloom-interface text-sm">Discipline</span>
+                  <span class="bloom-mono text-faction-primary text-sm">85%</span>
+                </div>
+                <div class="stat-bar-large h-3 bg-bloom-interface/20 rounded-full overflow-hidden">
+                  <div class="stat-fill-large h-full bg-faction-primary transition-all duration-1000 ease-out" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="stat-detailed">
+                <div class="stat-header flex justify-between items-center mb-2">
+                  <span class="bloom-interface text-sm">Tech Level</span>
+                  <span class="bloom-mono text-faction-primary text-sm">80%</span>
+                </div>
+                <div class="stat-bar-large h-3 bg-bloom-interface/20 rounded-full overflow-hidden">
+                  <div class="stat-fill-large h-full bg-faction-primary transition-all duration-1000 ease-out" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="stat-detailed">
+                <div class="stat-header flex justify-between items-center mb-2">
+                  <span class="bloom-interface text-sm">Aggression</span>
+                  <span class="bloom-mono text-faction-primary text-sm">55%</span>
+                </div>
+                <div class="stat-bar-large h-3 bg-bloom-interface/20 rounded-full overflow-hidden">
+                  <div class="stat-fill-large h-full bg-faction-primary transition-all duration-1000 ease-out" style="width: 55%"></div>
+                </div>
+              </div>
+              <div class="stat-detailed">
+                <div class="stat-header flex justify-between items-center mb-2">
+                  <span class="bloom-interface text-sm">Air Supremacy</span>
+                  <span class="bloom-mono text-faction-primary text-sm">95%</span>
+                </div>
+                <div class="stat-bar-large h-3 bg-bloom-interface/20 rounded-full overflow-hidden">
+                  <div class="stat-fill-large h-full bg-faction-primary transition-all duration-1000 ease-out" style="width: 95%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="faction-environmental-mark">
+              <h4 class="bloom-interface text-sm text-bloom-text-primary mb-2">Territorial Marking</h4>
+              <p class="bloom-body text-sm text-bloom-text-secondary">
+                Concrete bunkers with five distinct layers of different-era concrete, indicating systematic expansion and fortification protocols.
+              </p>
+            </div>
+          </div>
+          
+          <div class="faction-visual-content">
+            <div class="faction-image-stack">
+              <div class="faction-environment-image mb-4 rounded-lg overflow-hidden shadow-lg border-2 border-faction-primary/30">
+                <img src="/assets/images/environments/metro-corridor-premium.png" alt="Directorate-controlled territory" class="w-full h-auto" />
+              </div>
+              <div class="faction-color-palette flex gap-2 mb-4">
+                <div class="color-swatch w-8 h-8 rounded-full border-2 border-white/20" style="background-color: #161A1D;" title="Deep Command Black"></div>
+                <div class="color-swatch w-8 h-8 rounded-full border-2 border-white/20" style="background-color: #2E4053;" title="Steel Authority Blue"></div>
+                <div class="color-swatch w-8 h-8 rounded-full border-2 border-white/20" style="background-color: #9FB2C9;" title="Strategic Light Blue"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- More faction details would continue... for now showing the structure -->
+      <div class="faction-teaser bloom-card text-center py-12">
+        <h3 class="bloom-heading text-2xl text-bloom-text-primary mb-4">Six More Factions Await</h3>
+        <p class="bloom-body text-bloom-text-secondary mb-6">
+          Each faction brings unique territorial strategies, equipment philosophies, and survival approaches to the IEZ.
+        </p>
+        <div class="faction-preview-grid grid grid-cols-2 md:grid-cols-3 gap-4 max-w-md mx-auto">
+          <div class="preview-emblem faction-f77 p-3 rounded border border-faction-primary/30">
+            <img src="/assets/images/factions/free77-emblem.png" alt="F77" class="w-full h-auto" />
+          </div>
+          <div class="preview-emblem faction-cwd p-3 rounded border border-faction-primary/30">
+            <img src="/assets/images/factions/TG_Emblem_Var_CivicWardens_00001_.png" alt="CWD" class="w-full h-auto" />
+          </div>
+          <div class="preview-emblem faction-nom p-3 rounded border border-faction-primary/30">
+            <img src="/assets/images/factions/nomad-clans-emblem.png" alt="NOM" class="w-full h-auto" />
+          </div>
+          <div class="preview-emblem faction-isc p-3 rounded border border-faction-primary/30">
+            <img src="/assets/images/factions/iron-scavengers-emblem.png" alt="ISC" class="w-full h-auto" />
+          </div>
+          <div class="preview-emblem faction-chg p-3 rounded border border-faction-primary/30">
+            <img src="/assets/images/factions/TG_Emblem_Var_CorporateHegemony_00001_.png" alt="CHG" class="w-full h-auto" />
+          </div>
+          <div class="preview-emblem faction-arc p-3 rounded border border-faction-primary/30">
+            <img src="/assets/images/factions/TG_Emblem_Var_ArchiveKeepers_00001_.png" alt="ARC" class="w-full h-auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TERRITORIAL CONTROL CTA ==================== -->
+  <section class="territorial-cta section-cascade py-16">
+    <div class="container max-w-4xl mx-auto px-6 text-center">
+      <h2 class="bloom-display text-3xl text-bloom-text-primary mb-6">Choose Your Side</h2>
+      <p class="bloom-body text-xl text-bloom-text-secondary mb-8">
+        Faction allegiance determines your spawn locations, available equipment, and territorial objectives. 
+        Your choices reshape the IEZ in real-time.
+      </p>
+      
+      <div class="cta-actions flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="/" class="btn-cascade">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Enter the IEZ
+        </a>
+        <a href="/regions" class="btn-faction text-cascade">
+          View Territories
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+/* ==================== FACTION-SPECIFIC STYLING ==================== */
+.faction-card {
+  position: relative;
+  transition: all var(--anim-normal) var(--anim-tactical);
+  border-left: 4px solid var(--faction-primary);
+}
+
+.faction-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  border-left-width: 6px;
+}
+
+.faction-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, var(--faction-primary));
+  opacity: 0.05;
+  pointer-events: none;
+  transition: opacity var(--anim-normal);
+}
+
+.faction-card:hover::before {
+  opacity: 0.1;
+}
+
+/* Faction detail cards - initially hidden */
+.faction-detail-card {
+  border-left: 6px solid var(--faction-primary);
+  background: linear-gradient(135deg, var(--bloom-shadow), var(--bloom-steel));
+  padding: var(--space-3xl);
+  border-radius: 4px;
+  transition: all 0.8s var(--anim-cascade);
+}
+
+.faction-detail-card.active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Color palette swatches */
+.color-swatch {
+  transition: transform var(--anim-fast);
+}
+
+.color-swatch:hover {
+  transform: scale(1.2);
+}
+
+/* Stats animations */
+.stat-fill-large {
+  width: 0 !important;
+}
+
+.faction-detail-card.active .stat-fill-large {
+  width: var(--stat-width) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .faction-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .faction-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .faction-overview-stats {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+// ==================== FACTION INTERACTION SYSTEM ====================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const factionCards = document.querySelectorAll('.faction-card[data-faction]');
+  const factionDetails = document.querySelectorAll('.faction-detail-card');
+  
+  // Initialize intersection observer for revealing details
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        
+        // Animate stat bars
+        const statFills = entry.target.querySelectorAll('.stat-fill-large');
+        statFills.forEach((fill, index) => {
+          setTimeout(() => {
+            fill.style.width = fill.getAttribute('style').match(/width:\s*(\d+%)/)[1];
+          }, index * 200);
+        });
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all faction detail cards
+  factionDetails.forEach(card => observer.observe(card));
+  
+  // Faction card click interactions
+  factionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const factionId = card.dataset.faction;
+      const targetDetail = document.getElementById(factionId);
+      
+      if (targetDetail) {
+        // Smooth scroll to detail
+        targetDetail.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+        
+        // Add temporary highlight
+        targetDetail.style.borderColor = 'var(--bloom-accent)';
+        setTimeout(() => {
+          targetDetail.style.borderColor = 'var(--faction-primary)';
+        }, 2000);
+      }
+    });
+    
+    // Hover effects
+    card.addEventListener('mouseenter', () => {
+      const faction = card.dataset.faction;
+      card.style.setProperty('--glow-intensity', '0.6');
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--glow-intensity', '0.2');
+    });
+  });
+  
+  // Track faction interactions for analytics
+  factionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const factionName = card.querySelector('.faction-name').textContent;
+      console.log(`Faction selected: ${factionName}`);
+      // Analytics tracking would go here
+    });
+  });
+});
+
+// Parallax effect for faction emblems (performance-aware)
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  window.addEventListener('scroll', throttle(() => {
+    const scrolled = window.pageYOffset;
+    const emblems = document.querySelectorAll('.faction-emblem img');
+    
+    emblems.forEach((emblem, index) => {
+      const rate = (index % 2 === 0) ? 0.05 : -0.05;
+      emblem.style.transform = `translateY(${scrolled * rate}px) rotate(${scrolled * rate * 0.1}deg)`;
+    });
+  }, 16)); // ~60fps
+}
+
+// Throttle helper for performance
+function throttle(func, delay) {
+  let timeoutId;
+  let lastExecTime = 0;
+  return function(...args) {
+    const currentTime = Date.now();
+    if (currentTime - lastExecTime > delay) {
+      func.apply(this, args);
+      lastExecTime = currentTime;
+    } else {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        func.apply(this, args);
+        lastExecTime = Date.now();
+      }, delay - (currentTime - lastExecTime));
+    }
+  };
+}
+</script>

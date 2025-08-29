@@ -24,7 +24,8 @@ const siteUrl = "https://bloom.slurpgg.net";
 const fullUrl = siteUrl + currentPath;
 const fullOgImageUrl = ogImage.startsWith('http') ? ogImage : siteUrl + ogImage;
 
-// Import global styles with Tailwind
+// Import Bloom identity system and global styles
+import '../styles/bloom-identity.css';
 import '../styles/global.css';
 ---
 
@@ -94,7 +95,7 @@ import '../styles/global.css';
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -134,22 +135,21 @@ import '../styles/global.css';
     }
     </script>
 </head>
-<body class="bg-bg-primary text-text-primary font-body scrollbar-custom">
+<body class="bg-void text-bloom-text-primary bloom-body">
     <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-primary text-bg-primary rounded" href="#main">Skip to main content</a>
-    <nav class="navbar fixed top-0 w-full bg-bg-primary/95 backdrop-blur-xl border-b border-border z-50" role="navigation" aria-label="Main navigation">
+    <nav class="bloom-nav fixed top-0 w-full bg-shadow/95 backdrop-blur-xl border-b border-bloom-interface z-50" role="navigation" aria-label="Main navigation">
         <div class="nav-container max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="nav-brand">
-                <h1 class="font-display font-black text-xl text-primary">Bloom</h1>
-                <span class="tagline text-xs text-text-muted uppercase tracking-wider" aria-label="Game tagline">A quarantined city reborn</span>
+                <h1 class="bloom-display text-xl text-cascade">Bloom</h1>
+                <span class="tagline bloom-mono text-xs text-bloom-text-muted uppercase tracking-wider" aria-label="Game tagline">Tactical Extraction 2161</span>
             </div>
             <ul class="nav-menu hidden md:flex gap-8" role="menubar">
-                <li role="none"><a href="/" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/' ? 'page' : undefined}>Home</a></li>
-                <li role="none"><a href="/story" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/story' || currentPath === '/story/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/story' || currentPath === '/story/' ? 'page' : undefined}>Story</a></li>
-                <li role="none"><a href="/factions" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/factions' || currentPath === '/factions/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/factions' || currentPath === '/factions/' ? 'page' : undefined}>Factions</a></li>
-                <li role="none"><a href="/regions" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/regions' || currentPath === '/regions/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/regions' || currentPath === '/regions/' ? 'page' : undefined}>Regions</a></li>
-                <li role="none"><a href="/progress" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/progress' || currentPath === '/progress/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/progress' || currentPath === '/progress/' ? 'page' : undefined}>Progress</a></li>
-                <li role="none"><a href="/concept-art" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'page' : undefined}>Concept Art</a></li>
-                <li role="none"><a href="/milestones" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/milestones' || currentPath === '/milestones/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/milestones' || currentPath === '/milestones/' ? 'page' : undefined}>Milestones</a></li>
+                <li role="none"><a href="/" class={`nav-link bloom-interface text-bloom-text-secondary hover:text-cascade transition-colors duration-300 ${currentPath === '/' ? 'text-cascade font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/' ? 'page' : undefined}>IEZ Entry</a></li>
+                <li role="none"><a href="/story" class={`nav-link bloom-interface text-bloom-text-secondary hover:text-cascade transition-colors duration-300 ${currentPath === '/story' || currentPath === '/story/' ? 'text-cascade font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/story' || currentPath === '/story/' ? 'page' : undefined}>The Cascade</a></li>
+                <li role="none"><a href="/factions" class={`nav-link bloom-interface text-bloom-text-secondary hover:text-cascade transition-colors duration-300 ${currentPath === '/factions' || currentPath === '/factions/' ? 'text-cascade font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/factions' || currentPath === '/factions/' ? 'page' : undefined}>Factions</a></li>
+                <li role="none"><a href="/regions" class={`nav-link bloom-interface text-bloom-text-secondary hover:text-cascade transition-colors duration-300 ${currentPath === '/regions' || currentPath === '/regions/' ? 'text-cascade font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/regions' || currentPath === '/regions/' ? 'page' : undefined}>Territories</a></li>
+                <li role="none"><a href="/concept-art" class={`nav-link bloom-interface text-bloom-text-secondary hover:text-cascade transition-colors duration-300 ${currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'text-cascade font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'page' : undefined}>Intel</a></li>
+                <li role="none"><a href="/progress" class={`nav-link bloom-interface text-bloom-text-secondary hover:text-cascade transition-colors duration-300 ${currentPath === '/progress' || currentPath === '/progress/' ? 'text-cascade font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/progress' || currentPath === '/progress/' ? 'page' : undefined}>Status</a></li>
             </ul>
             <button class="hamburger md:hidden flex flex-col gap-1 p-2" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                 <span class="w-6 h-0.5 bg-text-primary transition-all duration-300" aria-hidden="true"></span>
@@ -163,34 +163,44 @@ import '../styles/global.css';
         <slot />
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+    <footer class="bloom-footer bg-shadow border-t border-bloom-interface">
+        <div class="container max-w-6xl mx-auto px-6 py-12">
+            <div class="footer-content grid md:grid-cols-4 gap-8">
                 <div class="footer-brand">
-                    <h3>Bloom</h3>
-                    <p>Scavenge. Extract. Breathe before the next bloom.</p>
+                    <h3 class="bloom-display text-lg text-cascade mb-4">Bloom</h3>
+                    <p class="bloom-body text-bloom-text-secondary mb-4">Extract, or it never happened.</p>
+                    <div class="status-badge inline-flex items-center gap-2 px-3 py-1 bg-bloom-interface/20 border border-bloom-accent/30 rounded">
+                        <div class="w-2 h-2 bg-bloom-accent rounded-full animate-pulse"></div>
+                        <span class="bloom-mono text-xs text-bloom-accent">IEZ STATUS: ACTIVE</span>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Game</h4>
-                        <ul>
-                            <li><a href="/story">Story & Lore</a></li>
-                            <li><a href="/concept-art">Concept Art</a></li>
-                            <li><a href="/milestones">Milestones</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Development</h4>
-                        <ul>
-                            <li><a href="/progress">Progress Updates</a></li>
-                            <li><a href="/technical">Technical Details</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-section">
+                    <h4 class="bloom-interface text-bloom-text-primary mb-4">The IEZ</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/story" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">The Cascade</a></li>
+                        <li><a href="/factions" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Seven Factions</a></li>
+                        <li><a href="/regions" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Territories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="bloom-interface text-bloom-text-primary mb-4">Intel</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/concept-art" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Visual Archive</a></li>
+                        <li><a href="/progress" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Operation Status</a></li>
+                        <li><a href="/milestones" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Mission Objectives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="bloom-interface text-bloom-text-primary mb-4">Extraction</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://store.steampowered.com/app/[STEAM_ID]" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Steam Wishlist</a></li>
+                        <li><a href="#newsletter" class="bloom-body text-bloom-text-secondary hover:text-cascade transition-colors">Intel Network</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Bloom. All rights reserved.</p>
-                <p class="footer-tech">Powered by cutting-edge AI asset generation</p>
+            <div class="footer-bottom border-t border-bloom-interface/30 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="bloom-mono text-bloom-text-muted text-sm">&copy; <span id="current-year"></span> Terminal Grounds. All assets classified.</p>
+                <p class="bloom-mono text-bloom-text-muted text-sm">AAA-Quality AI Asset Generation</p>
             </div>
         </div>
     </footer>

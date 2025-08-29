@@ -1,649 +1,667 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
-import FactionShowcase from '../components/FactionShowcase.astro';
 ---
 
 <BaseLayout 
-    title="Bloom - Tactical Extraction FPS | Terminal Grounds" 
-    description="Bloom is a tactical extraction FPS set in a quarantined city reshaped by alien phenomena. Navigate faction warfare, extract artifacts, and survive the Cascade. Coming Q1 2027."
-    keywords="tactical extraction FPS, Terminal Grounds, Bloom game, faction warfare, alien artifacts, quarantined city, FPS extraction game, indie game development"
-    ogImage="/assets/images/renders/hero-main.png"
-    type="website">
-    <HeroSection />
-    <section class="lore-primer">
-        <div class="container">
-            <h2 class="section-title">Lore Primer: What Is Bloom?</h2>
-            <div class="primer-grid">
-                <div class="primer-card">
-                    <h3>The Cascade</h3>
-                    <p>An event that fractured reality across a 200km Interdiction Exclusion Zone (IEZ). Physics bends. Signals ghost. Time drifts. The city was quarantined and then carved into territory.</p>
-                </div>
-                <div class="primer-card">
-                    <h3>Harvesters</h3>
-                    <p>Absent alien extractors whose wrecks—Skimmer arrays, Harrower systems, and Monolith field manipulators—still run without masters. Their artifacts change the rules of every fight.</p>
-                </div>
-                <div class="primer-card">
-                    <h3>Seven Factions</h3>
-                    <p>Order vs. survival vs. knowledge. From the Sky Bastion Directorate to the Iron Scavengers and Archive Keepers, alliances shift with every convoy, raid, and arbitration.</p>
-                </div>
-                <div class="primer-card">
-                    <h3>Extraction</h3>
-                    <p>Operations are timed, contested, and political. Hazards escalate. Reputation matters. Get in, get the artifact, get out—before the next bloom.</p>
-                </div>
-            </div>
+  title="Bloom - Tactical Extraction 2161"
+  description="Enter the Interdiction Exclusion Zone. Seven factions. Territorial warfare. Real-time control. Extract, or it never happened."
+  canonical="/"
+>
+  <!-- ==================== IMMERSIVE HERO SECTION ==================== -->
+  <section class="hero-cascade">
+    <div class="hero-container">
+      <!-- Animated Background Elements -->
+      <div class="cascade-field">
+        <div class="cascade-grid"></div>
+        <div class="cascade-pulse"></div>
+      </div>
+      
+      <!-- Primary Hero Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="bloom-mono">IEZ STATUS: ACTIVE</span>
+          <div class="status-indicator"></div>
         </div>
-    </section>
-
-    <section class="how-bloom-works">
-        <div class="container">
-            <h2 class="section-title">How Bloom Works</h2>
-            <div class="how-grid">
-                <div class="how-item">
-                    <h3>1) Plan</h3>
-                    <p>Pick a region (IEZ core, Machine Grave, Metro networks). Scout power states, alarms, convoy routes, and faction presence.</p>
-                </div>
-                <div class="how-item">
-                    <h3>2) Breach</h3>
-                    <p>Navigate distortions, power cycles, and patrol logic. Field-class artifacts help; Splice-class can backfire; Monolith-class changes everything.</p>
-                </div>
-                <div class="how-item">
-                    <h3>3) Extract</h3>
-                    <p>Evac windows are limited and contested. Aid, arbitrate, or ambush factions to control the route. Miss the window—you stay.</p>
-                </div>
-                <div class="how-item">
-                    <h3>4) Escalate</h3>
-                    <p>Bring your winnings back into the loop: tech upgrades, faction reputation, and intel unlock the next tier of risk and reward.</p>
-                </div>
-            </div>
-            <div class="cta-row">
-                <a href="/story" class="btn btn-primary">Dive Into the Story</a>
-                <a href="/factions" class="btn btn-secondary">Meet the Factions</a>
-            </div>
+        
+        <h1 class="hero-title bloom-display">
+          <span class="title-line-1">TACTICAL EXTRACTION</span>
+          <span class="title-line-2 text-cascade">2161</span>
+          <span class="title-subtitle">Seven factions. One quarantine zone.</span>
+        </h1>
+        
+        <p class="hero-description bloom-body">
+          Six months after the Cascade, the Interdiction Exclusion Zone remains under lockdown. 
+          Seven factions compete for territorial control of the 200km dead-sky zone. 
+          <strong class="text-cascade">Choose your allegiance. Master alien tech. Extract, or it never happened.</strong>
+        </p>
+        
+        <!-- Primary CTA Section -->
+        <div class="hero-cta-group">
+          <a href="#factions" class="btn-cascade" id="enter-bloom-cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Enter the IEZ
+          </a>
+          
+          <a href="#story" class="btn-faction text-cascade">
+            Learn the Lore
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
         </div>
-    </section>
-
-    <section class="world-overview">
-        <div class="container">
-            <h2 class="section-title">Post-Cascade Environmental Storytelling</h2>
-            <div class="world-narrative">
-                <div class="narrative-text">
-                    <h3>Six Months After The Cascade</h3>
-                    <p>The Terminal Grounds bear the scars of desperate conflict. Every corridor, every facility, every underground passage tells the story of a world forever changed by alien phenomena and the faction wars that followed.</p>
-                    <div class="environmental-features">
-                        <div class="env-feature">
-                            <span class="env-icon">🏭</span>
-                            <div class="env-content">
-                                <h4>IEZ Facilities</h4>
-                                <p>Industrial Exclusion Zone installations showcase the transition from sterile corporate environments to lived-in, fought-over territories.</p>
-                            </div>
-                        </div>
-                        <div class="env-feature">
-                            <span class="env-icon">🚇</span>
-                            <div class="env-content">
-                                <h4>Metro Maintenance Networks</h4>
-                                <p>Underground corridors reveal faction territorial marking systems and the environmental scarring of constant warfare.</p>
-                            </div>
-                        </div>
-                        <div class="env-feature">
-                            <span class="env-icon">⚡</span>
-                            <div class="env-content">
-                                <h4>Volumetric Atmospheric Depth</h4>
-                                <p>Professional-grade lighting captures the oppressive atmosphere of a world where extraction tension permeates every shadow.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="world-gallery">
-                    <div class="gallery-showcase">
-                        <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png" alt="Premium Metro Corridor" class="showcase-image primary" loading="lazy">
-                        <img src="/assets/images/environments/HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png" alt="HQ Metro Maintenance" class="showcase-image secondary" loading="lazy">
-                        <img src="/assets/images/environments/REFINE_SHARP_00003_1920w.png" alt="Atmospheric Depth" class="showcase-image tertiary" loading="lazy">
-                    </div>
-                    <div class="quality-comparison">
-                        <div class="comparison-item">
-                            <span class="quality-label">Environmental Detail</span>
-                            <div class="quality-bar">
-                                <div class="quality-fill w-95"></div>
-                            </div>
-                        </div>
-                        <div class="comparison-item">
-                            <span class="quality-label">Atmospheric Depth</span>
-                            <div class="quality-bar">
-                                <div class="quality-fill w-98"></div>
-                            </div>
-                        </div>
-                        <div class="comparison-item">
-                            <span class="quality-label">Faction Storytelling</span>
-                            <div class="quality-bar">
-                                <div class="quality-fill w-92"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <!-- Status Ticker -->
+        <div class="status-ticker">
+          <div class="ticker-content bloom-mono">
+            <span>TERRITORIAL STATUS: CONTESTED</span>
+            <span>•</span>
+            <span>EXTRACTION WINDOWS: ACTIVE</span>
+            <span>•</span>
+            <span>HARVESTERS: DORMANT</span>
+          </div>
         </div>
-    </section>
+      </div>
+      
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <img 
+          src="/assets/images/renders/hero-main.png" 
+          alt="Bloom tactical operatives in post-Cascade environment"
+          class="hero-image"
+          loading="eager"
+        />
+        <div class="visual-overlay"></div>
+      </div>
+    </div>
+  </section>
 
-    <section class="why-different">
-        <div class="container">
-            <h2 class="section-title">Why Bloom Is Different</h2>
-            <div class="primer-grid">
-                <div class="primer-card">
-                    <h3>Contested Extraction</h3>
-                    <p>Evac windows are limited and political. Aid, arbitrate, or ambush to control routes while hazards escalate.</p>
-                </div>
-                <div class="primer-card">
-                    <h3>Alien Artifacts</h3>
-                    <p>Field, Splice, and Monolith-class artifacts rewrite combat rules—if you survive their side effects.</p>
-                </div>
-                <div class="primer-card">
-                    <h3>Faction Diplomacy</h3>
-                    <p>Seven factions with shifting alliances. Reputation opens doors—or paints a target on your back.</p>
-                </div>
+  <!-- ==================== FACTION TERRITORIES SECTION ==================== -->
+  <section class="territories-section section-cascade" id="factions">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="bloom-display">Choose Your Faction</h2>
+        <p class="bloom-body">
+          Seven distinct military organizations compete for control of the IEZ. 
+          Each faction brings unique tactical advantages, territorial strategies, and philosophical approaches to post-Cascade survival.
+        </p>
+      </div>
+      
+      <!-- Interactive Faction Grid -->
+      <div class="faction-grid">
+        <!-- Sky Bastion Directorate -->
+        <article class="faction-card faction-dir" data-faction="dir">
+          <div class="faction-emblem">
+            <img src="/assets/images/factions/directorate-emblem-enhanced.png" alt="Directorate emblem" />
+          </div>
+          <div class="faction-info">
+            <h3 class="faction-name bloom-heading">Sky Bastion Directorate</h3>
+            <p class="faction-motto bloom-mono">"Order through superior firepower"</p>
+            <p class="faction-description bloom-body">
+              Institutional authority maintaining discipline through technological supremacy and aerial dominance.
+            </p>
+            <div class="faction-stats">
+              <div class="stat">
+                <span class="stat-label">Discipline</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 85%"></div></div>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Tech Level</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div>
+              </div>
             </div>
+            <a href="/factions#directorate" class="btn-faction">Learn More</a>
+          </div>
+        </article>
+
+        <!-- The Seventy-Seven -->
+        <article class="faction-card faction-f77" data-faction="f77">
+          <div class="faction-emblem">
+            <img src="/assets/images/factions/free77-emblem.png" alt="Seventy-Seven emblem" />
+          </div>
+          <div class="faction-info">
+            <h3 class="faction-name bloom-heading">The Seventy-Seven</h3>
+            <p class="faction-motto bloom-mono">"Nothing personal. Just business."</p>
+            <p class="faction-description bloom-body">
+              Professional contractors where everything has a price and every mission has completion parameters.
+            </p>
+            <div class="faction-stats">
+              <div class="stat">
+                <span class="stat-label">Efficiency</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Adaptability</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 75%"></div></div>
+              </div>
+            </div>
+            <a href="/factions#seventy-seven" class="btn-faction">Learn More</a>
+          </div>
+        </article>
+
+        <!-- Civic Wardens -->
+        <article class="faction-card faction-cwd" data-faction="cwd">
+          <div class="faction-emblem">
+            <img src="/assets/images/factions/TG_Emblem_Var_CivicWardens_00001_.png" alt="Civic Wardens emblem" />
+          </div>
+          <div class="faction-info">
+            <h3 class="faction-name bloom-heading">Civic Wardens</h3>
+            <p class="faction-motto bloom-mono">"We stand guard so others may live"</p>
+            <p class="faction-description bloom-body">
+              Community defense specialists providing mutual aid through civilian protection networks.
+            </p>
+            <div class="faction-stats">
+              <div class="stat">
+                <span class="stat-label">Defense</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 90%"></div></div>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Community</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 85%"></div></div>
+              </div>
+            </div>
+            <a href="/factions#civic-wardens" class="btn-faction">Learn More</a>
+          </div>
+        </article>
+
+        <!-- More factions would continue... -->
+        <div class="faction-preview-more">
+          <div class="more-factions-card bloom-card">
+            <h4 class="bloom-heading">4 More Factions</h4>
+            <p class="bloom-body">Nomad Clans, Iron Scavengers, Corporate Hegemony, and Archive Keepers each bring unique territorial strategies.</p>
+            <a href="/factions" class="btn-cascade">Explore All Factions</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="technical-excellence">
-        <div class="container">
-            <h2 class="section-title">Core Gameplay & Identity</h2>
-            <div class="excellence-grid">
-                <div class="achievement-card primary">
-                    <div class="achievement-header">
-                        <span class="achievement-icon">🎯</span>
-                        <h3>Core Gameplay Loop</h3>
-                    </div>
-                    <p>Every run is a high-tension extraction: plan the route, breach contested territory, adapt to alien distortions, and get out before the next bloom.</p>
-                    <div class="achievement-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">Plan • Breach • Extract</span>
-                            <span class="stat-label">The Loop</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">Contested</span>
-                            <span class="stat-label">Extractions</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">Reputation</span>
-                            <span class="stat-label">Faction Impact</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-header">
-                        <span class="achievement-icon">🧭</span>
-                        <h3>World Systems</h3>
-                    </div>
-                    <p>Dynamic conditions shape every decision: power states, alarms, convoy traffic, and Harvester interference redefine routes and risk.</p>
-                    <div class="pipeline-features">
-                        <div class="pipeline-item">✓ Timed extraction windows</div>
-                        <div class="pipeline-item">✓ Dynamic hazards & distortions</div>
-                        <div class="pipeline-item">✓ Reputation & diplomacy</div>
-                        <div class="pipeline-item">✓ Territory & convoy logic</div>
-                    </div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-header">
-                        <span class="achievement-icon">🎨</span>
-                        <h3>Enhanced Faction Identity</h3>
-                    </div>
-                    <div class="faction-showcase">
-                        <img src="/assets/images/factions/directorate-emblem-enhanced.png" alt="Enhanced Directorate Emblem" class="enhanced-faction-emblem">
-                        <div class="enhancement-details">
-                            <p>Clear visual language for seven factions—military order, scavenger adaptation, knowledge stewardship, civic defense, and more.</p>
-                            <div class="enhancement-badge">Chief Art Director Framework</div>
-                        </div>
-                    </div>
-                </div>
+  <!-- ==================== CASCADE STORY SECTION ==================== -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="story-layout">
+        <div class="story-content">
+          <div class="story-timeline">
+            <div class="timeline-marker active">
+              <span class="bloom-mono">2161-06</span>
             </div>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Game Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⏰</div>
-                    <h3>Dynamic Extractions</h3>
-                    <p>Navigate timed events, shifting hazards, and contested evac windows. Every extraction is a race against time and enemies.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔮</div>
-                    <h3>Alien Artifacts</h3>
-                    <p>Discover Field, Splice, and Monolith-class artifacts with varying power and unpredictability from Harvester wrecks.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏛️</div>
-                    <h3>Faction Economy</h3>
-                    <p>Navigate complex relationships with 7 primary factions through aid, arbitration, or ambush in a reputation-based system.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Living World</h3>
-                    <p>Experience replayable POIs with dynamic conditions: weather, power states, alarms, and convoy traffic that affect every mission.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Interactive Faction Showcase -->
-    <FactionShowcase />
-    
-    <!-- Legacy Faction Preview for Reference -->
-    <section class="factions-preview hidden">
-        <div class="container">
-            <h2 class="section-title">Major Factions</h2>
-            <div class="factions-grid">
-                <div class="faction-card directorate enhanced">
-                    <div class="faction-enhancement-badge">AAA Enhanced</div>
-                    <img src="/assets/images/factions/directorate-emblem-ultimate.png" alt="Ultimate Directorate Emblem" class="faction-emblem enhanced-emblem">
-                    <h3>Sky Bastion Directorate <span class="enhancement-indicator">⚡</span></h3>
-                    <p>Military order through discipline, legitimacy by command continuity. Professional tactical precision with weathered battlefield authenticity.</p>
-                    <div class="faction-features">
-                        <div class="feature-item">
-                            <span class="feature-icon">🎖️</span>
-                            <span class="feature-text">Enhanced Military Precision</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🔢</span>
-                            <span class="feature-text">Tactical Numbering System</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">⚔️</span>
-                            <span class="feature-text">Battle-Weathered Authenticity</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="faction-card iron-scavengers enhanced">
-                    <div class="faction-enhancement-badge">Enhanced</div>
-                    <img src="/assets/images/factions/iron-scavengers-emblem.png" alt="Iron Scavengers Enhanced Emblem" class="faction-emblem enhanced-emblem">
-                    <h3>Iron Scavengers <span class="enhancement-indicator">⚡</span></h3>
-                    <p>Elite salvage specialists operating from Crimson Freeport. Masters of repurposing Harvester technology.</p>
-                    <div class="faction-features">
-                        <div class="feature-item">
-                            <span class="feature-icon">🔧</span>
-                            <span class="feature-text">Asymmetrical Trophy Claw Design</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">⚙️</span>
-                            <span class="feature-text">Chief Art Director Framework</span>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">🎨</span>
-                            <span class="feature-text">92% Generation Success Rate</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="faction-card free77">
-                    <img src="/assets/images/factions/free77-emblem.png" alt="Free77 Emblem" class="faction-emblem">
-                    <h3>The Seventy-Seven</h3>
-                    <p>Contract pragmatism where competence is currency. Professional mercenaries who get results.</p>
-                </div>
-                <div class="faction-card corporate-hegemony">
-                    <h3>Corporate Hegemony</h3>
-                    <p>Progress through technological supremacy. Industrial giants controlling the Machine Grave factories.</p>
-                    <div class="faction-color"></div>
-                </div>
-                <div class="faction-card nomad-clans">
-                    <img src="/assets/images/factions/nomad-clans-emblem.png" alt="Nomad Clans Emblem" class="faction-emblem">
-                    <h3>Nomad Clans</h3>
-                    <p>Freedom through mobility, convoy-based civilization. Masters of the wasteland routes.</p>
-                </div>
-                <div class="faction-card archive-keepers">
-                    <h3>Archive Keepers</h3>
-                    <p>Knowledge preservation from the Deep Vault. Guardians of pre-Cascade history and alien secrets.</p>
-                    <div class="faction-color"></div>
-                </div>
-                <div class="faction-card civic-wardens">
-                    <h3>Civic Wardens</h3>
-                    <p>Mutual aid through civilian defense. Community protectors of the underground Sump Gardens.</p>
-                    <div class="faction-color"></div>
-                </div>
-            </div>
-            <div class="factions-cta">
-                <a href="/story" class="btn btn-secondary">Learn More About the World</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="production-pipeline">
-        <div class="container">
-            <h2 class="section-title">Extraction Loop & Progression</h2>
-            <p class="pipeline-subtitle">Centered on tense extractions, shifting conditions, and faction-driven choices</p>
-
-            <div class="pipeline-framework">
-                <h3>Chief Art Director Framework</h3>
-                <div class="framework-pillars">
-                    <div class="pillar-card">
-                        <div class="pillar-number">1</div>
-                        <h4>Environmental Storytelling</h4>
-                        <p>Every environment tells a story of the post-Cascade world through visual details and atmospheric consistency</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-number">2</div>
-                        <h4>Faction Visual Hierarchy</h4>
-                        <p>Clear visual language differentiates the seven primary factions through color, form, and symbolic elements</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-number">3</div>
-                        <h4>Grounded Military Sci-Fi</h4>
-                        <p>Believable technology and weaponry that feels functional rather than fantastical</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-number">4</div>
-                        <h4>Atmospheric Consistency</h4>
-                        <p>Clean and Gritty style variations maintain cohesive aesthetic across all asset categories</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-number">5</div>
-                        <h4>Technical Excellence</h4>
-                        <p>Optimal generation parameters ensure consistent quality and rapid iteration capability</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="latest-updates">
-        <div class="container">
-            <h2 class="section-title">Latest Updates</h2>
-            <div class="updates-timeline">
-                <div class="update-item">
-                    <div class="update-date">Aug 25, 2025</div>
-                    <div class="update-content">
-                        <h4>Phase 1 Complete: Territorial System Operational</h4>
-                        <p>Real-time WebSocket server supporting 100+ concurrent players with sub-500ms territorial updates. Database performance exceeds requirements by 99.9%.</p>
-                    </div>
-                </div>
-                <div class="update-item">
-                    <div class="update-date">Aug 25, 2025</div>
-                    <div class="update-content">
-                        <h4>Chief Art Director Visual Identity Implementation</h4>
-                        <p>Complete faction enhancement system with 5 core art pillars. Enhanced Iron Scavengers emblem with asymmetrical trophy claw design.</p>
-                    </div>
-                </div>
-                <div class="update-item">
-                    <div class="update-date">Aug 24, 2025</div>
-                    <div class="update-content">
-                        <h4>Asset Generation Breakthrough</h4>
-                        <p>Solved critical 1/10 success rate issue. Achieved 92% success rate with optimal sampler parameters through systematic testing.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="updates-cta">
-                <a href="/progress" class="btn btn-primary">View Full Progress</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="asset-showcase">
-        <div class="container">
-            <h2 class="section-title">Visual Showcase</h2>
-            <p class="showcase-subtitle">Grounded military sci-fi • Clean vs. Gritty styles • Faction identity across the world</p>
+            <div class="timeline-line"></div>
+          </div>
+          
+          <div class="story-narrative">
+            <h2 class="bloom-display">The Cascade</h2>
+            <p class="story-lead bloom-body">
+              Six months ago, a <strong class="text-cascade">Monolith-class excavation</strong> triggered a six-week EMP cascade 
+              over a 200-kilometer radius. The Interdiction Exclusion Zone was born.
+            </p>
             
-            <div class="category-filters">
-                <button class="filter-btn active" data-category="all">All Assets</button>
-                <button class="filter-btn" data-category="environments">Environments</button>
-                <button class="filter-btn" data-category="weapons">Weapons</button>
-                <button class="filter-btn" data-category="vehicles">Vehicles</button>
-                <button class="filter-btn" data-category="factions">Factions</button>
-                <button class="filter-btn" data-category="renders">Hero Renders</button>
+            <div class="story-details">
+              <div class="story-fact">
+                <h4 class="bloom-interface">Dead Sky Zone</h4>
+                <p class="bloom-body">No aircraft. No satellites. No escape.</p>
+              </div>
+              <div class="story-fact">
+                <h4 class="bloom-interface">Quarantine Protocol</h4>
+                <p class="bloom-body">Nothing enters. Nothing leaves. Until now.</p>
+              </div>
+              <div class="story-fact">
+                <h4 class="bloom-interface">Territorial Wars</h4>
+                <p class="bloom-body">Seven factions compete for control and survival.</p>
+              </div>
             </div>
-
-            <div class="asset-grid" id="assetGrid">
-                <!-- Hero Renders -->
-                <div class="asset-item featured" data-category="renders" data-style="hero">
-                    <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png" alt="Terminal Grounds - Main Hero Render" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Main Hero Render</h4>
-                        <p>Primary visual identity</p>
-                        <span class="quality-badge">AAA Quality</span>
-                    </div>
-                </div>
-                
-                <div class="asset-item featured" data-category="renders" data-style="hero">
-                    <img src="/assets/images/renders/TG_PERFECT_IEZ_Facility_Interior_Clean_SciFi_Detail_Dramatic_00002_.png" alt="IEZ Facility Hero Render" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>IEZ Facility</h4>
-                        <p>Industrial Exclusion Zone</p>
-                        <span class="quality-badge">AAA Quality</span>
-                    </div>
-                </div>
-
-                <div class="asset-item featured" data-category="renders" data-style="hero">
-                    <img src="/assets/images/environments/REFINE_SHARP_00003_1920w.png" alt="Tech Wastes Hero Render" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Tech Wastes</h4>
-                        <p>Post-cascade wasteland</p>
-                        <span class="quality-badge">AAA Quality</span>
-                    </div>
-                </div>
-
-                <!-- Environment Showcases -->
-                <div class="asset-item" data-category="environments" data-style="clean">
-                    <img src="/assets/images/environments/HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png" alt="IEZ Facility - Clean Style" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>IEZ Facility Interior</h4>
-                        <p>High-tech industrial complex with pristine surfaces</p>
-                        <span class="style-tag clean">Clean</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="environments" data-style="gritty">
-                    <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png" alt="Metro Corridor - Toned Style" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Metro Maintenance Corridor</h4>
-                        <p>Underground transit system with atmospheric weathering</p>
-                        <span class="style-tag gritty">Gritty</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="environments" data-style="clean">
-                    <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png" alt="Metro Corridor - Clean Style" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Metro Corridor (Clean)</h4>
-                        <p>Sterile underground infrastructure</p>
-                        <span class="style-tag clean">Clean</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="environments" data-style="gritty">
-                    <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2048x1152_s22_cfg4.2_00001_Toned.png" alt="Metro Corridor - Battle-Worn" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Metro Corridor (Battle-Worn)</h4>
-                        <p>War-torn underground passages</p>
-                        <span class="style-tag gritty">Gritty</span>
-                    </div>
-                </div>
-
-                <div class="asset-item featured" data-category="environments" data-style="clean">
-                    <img src="/assets/images/environments/LORE_CleanSciFi_1080p_00001_.png" alt="Lore Environment - Clean Sci-Fi" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Terminal Grounds Lore Environment</h4>
-                        <p>Canonical location from game world</p>
-                        <span class="quality-badge">AAA Quality</span>
-                    </div>
-                </div>
-
-                <div class="asset-item featured" data-category="environments" data-style="clean">
-                    <img src="/assets/images/environments/LORE_Metro_CleanSciFi_1080p_00001_.png" alt="Lore Metro System" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Metro Transit Network</h4>
-                        <p>Primary transportation system connecting all zones</p>
-                        <span class="quality-badge">AAA Quality</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="environments" data-style="clean">
-                    <img src="/assets/images/environments/PROD_CONCEPT_ART_235432_.png" alt="Production Concept Art" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Production Concept Art</h4>
-                        <p>Early development visual exploration</p>
-                        <span class="style-tag clean">Concept</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="environments" data-style="clean">
-                    <img src="/assets/images/environments/REFINE_SHARP_00003_1920w.png" alt="Refined Environment Asset" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Refined Sharp Detail</h4>
-                        <p>High-fidelity environment with enhanced clarity</p>
-                        <span class="style-tag clean">Enhanced</span>
-                    </div>
-                </div>
-
-                <!-- Faction Emblems -->
-                <div class="asset-item featured" data-category="factions" data-style="emblem">
-                    <img src="/assets/images/factions/TG_ULTIMATE_DIR_Emblem_20250812_232028_00001_.png" alt="Sky Bastion Directorate Ultimate" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Sky Bastion Directorate</h4>
-                        <p>Ultimate quality military order emblem</p>
-                        <span class="faction-tag directorate">Directorate</span>
-                    </div>
-                </div>
-
-                <div class="asset-item featured" data-category="factions" data-style="emblem">
-                    <img src="/assets/images/factions/TG_Enhanced_DIR_Emblem_20250812_231441_00001_.png" alt="Enhanced Directorate Emblem" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Enhanced Directorate Design</h4>
-                        <p>Advanced emblem generation breakthrough</p>
-                        <span class="faction-tag iron-scavengers">Enhanced</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="factions" data-style="emblem">
-                    <img src="/assets/images/factions/Free77_palette.png" alt="Free77 Color Palette" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Free77 Color Identity</h4>
-                        <p>Professional mercenary visual palette</p>
-                        <span class="faction-tag free77">Free77</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="factions" data-style="emblem">
-                    <img src="/assets/images/factions/NomadClans_palette.png" alt="Nomad Clans Palette" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Nomad Clans Identity</h4>
-                        <p>Convoy-based civilization colors</p>
-                        <span class="faction-tag nomad-clans">Nomad</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="factions" data-style="emblem">
-                    <img src="/assets/images/factions/CivicWardens_palette.png" alt="Civic Wardens Palette" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Civic Wardens Identity</h4>
-                        <p>Community protection visual language</p>
-                        <span class="faction-tag civic-wardens">Wardens</span>
-                    </div>
-                </div>
-
-                <!-- UI Elements -->
-                <div class="asset-item" data-category="ui" data-style="interface">
-                    <img src="/assets/images/ui/damage_ballistic_128.png" alt="Ballistic Damage Icon" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Ballistic Damage Icon</h4>
-                        <p>Combat interface element for projectile weapons</p>
-                        <span class="ui-tag ballistic">UI</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="ui" data-style="interface">
-                    <img src="/assets/images/ui/damage_ion_128.png" alt="Ion Damage Icon" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Ion Damage Icon</h4>
-                        <p>Energy weapon damage indicator</p>
-                        <span class="ui-tag energy">UI</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="ui" data-style="interface">
-                    <img src="/assets/images/ui/extract_128.png" alt="Extraction Icon" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>Extraction Zone Marker</h4>
-                        <p>Critical gameplay objective indicator</p>
-                        <span class="ui-tag objective">UI</span>
-                    </div>
-                </div>
-
-                <div class="asset-item" data-category="ui" data-style="interface">
-                    <img src="/assets/images/ui/PROD_UI_ELEMENTS_235429_00001_.png" alt="Production UI Elements" class="asset-image" loading="lazy">
-                    <div class="asset-overlay">
-                        <h4>UI Element Collection</h4>
-                        <p>Comprehensive interface asset set</p>
-                        <span class="ui-tag production">UI</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="showcase-stats">
-                <div class="stat-item">
-                    <span class="stat-value">109+</span>
-                    <span class="stat-label">Production Assets</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">92%</span>
-                    <span class="stat-label">Generation Success</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">5</span>
-                    <span class="stat-label">Art Direction Pillars</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">2</span>
-                    <span class="stat-label">Visual Styles</span>
-                </div>
-            </div>
-
-            <div class="style-comparison-showcase">
-                <h3>Visual Style System</h3>
-                <p class="comparison-subtitle">Dual aesthetic approach: Clean sci-fi precision vs. Gritty realism weathering</p>
-                
-                <div class="comparison-container">
-                    <div class="comparison-slider-wrapper">
-                        <div class="comparison-images">
-                            <div class="comparison-image clean-style">
-                                <img src="/assets/images/environments/HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png" alt="IEZ Facility - Clean Style">
-                                <div class="style-label">Clean Aesthetic</div>
-                                <div class="style-description">Pristine technology • Sharp edges • Clinical lighting</div>
-                            </div>
-                            <div class="comparison-image gritty-style">
-                                <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_1920x1080_s30_cfg4.0_00001_Toned.png" alt="Metro Corridor - Gritty Style">
-                                <div class="style-label">Gritty Aesthetic</div>
-                                <div class="style-description">Battle-worn • Weathered surfaces • Atmospheric debris</div>
-                            </div>
-                        </div>
-                        <div class="comparison-slider" id="styleSlider">
-                            <div class="slider-handle">
-                                <div class="handle-icon">⟷</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="style-characteristics">
-                        <div class="characteristic-card clean">
-                            <h4>Clean Sci-Fi</h4>
-                            <div class="characteristic-features">
-                                <span class="feature-badge">Precision Engineering</span>
-                                <span class="feature-badge">Sterile Environments</span>
-                                <span class="feature-badge">Corporate Aesthetics</span>
-                                <span class="feature-badge">Functional Design</span>
-                            </div>
-                        </div>
-                        <div class="characteristic-card gritty">
-                            <h4>Gritty Realism</h4>
-                            <div class="characteristic-features">
-                                <span class="feature-badge">Battle Damage</span>
-                                <span class="feature-badge">Survival Modifications</span>
-                                <span class="feature-badge">Post-Apocalyptic Wear</span>
-                                <span class="feature-badge">Lived-In Details</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+            <a href="/story" class="btn-cascade">Explore the Lore</a>
+          </div>
         </div>
-    </section>
+        
+        <div class="story-visual">
+          <img 
+            src="/assets/images/environments/LORE_CleanSciFi_1080p_00001_.png" 
+            alt="Post-Cascade environment showing the Interdiction Exclusion Zone"
+            class="story-image"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TECHNOLOGY TIERS SECTION ==================== -->
+  <section class="tech-section section-cascade" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="bloom-display">Master Alien Technology</h2>
+        <p class="bloom-body">
+          Three distinct technology tiers define tactical advantage in the IEZ. 
+          From reliable Field Grade to reality-bending Monolith artifacts.
+        </p>
+      </div>
+      
+      <div class="tech-tiers">
+        <div class="tech-tier bloom-card">
+          <div class="tier-marker tier-field">T1</div>
+          <h3 class="bloom-heading">Field Grade</h3>
+          <p class="bloom-body">
+            Conventional military equipment. Reliable, proven, accessible to all factions.
+          </p>
+          <div class="tech-examples">
+            <span class="tech-tag">MK2 Service AR</span>
+            <span class="tech-tag">Kestrel SMG</span>
+            <span class="tech-tag">Watchman DMR</span>
+          </div>
+        </div>
+        
+        <div class="tech-tier bloom-card tier-highlight">
+          <div class="tier-marker tier-splice">T2</div>
+          <h3 class="bloom-heading">Splice Grade</h3>
+          <p class="bloom-body">
+            Hybrid alien-human technology. Powerful but unstable, requiring specialized handling.
+          </p>
+          <div class="tech-examples">
+            <span class="tech-tag">Plasma Rail H1</span>
+            <span class="tech-tag">Ion Scatter H1</span>
+            <span class="tech-tag">Heat Systems</span>
+          </div>
+        </div>
+        
+        <div class="tech-tier bloom-card">
+          <div class="tier-marker tier-monolith">T3</div>
+          <h3 class="bloom-heading">Monolith Grade</h3>
+          <p class="bloom-body">
+            Pure alien artifacts. Devastating potential with extreme risk and rarity.
+          </p>
+          <div class="tech-examples">
+            <span class="tech-tag">Disruptor Lance A1</span>
+            <span class="tech-tag">Graviton Projector</span>
+            <span class="tech-tag">Reality Distortion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WISHLIST CTA SECTION ==================== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="bloom-display">Join the Extraction</h2>
+        <p class="bloom-body">
+          Be among the first to enter the IEZ when Bloom launches. 
+          Wishlist now for exclusive faction intel and early access opportunities.
+        </p>
+        
+        <div class="cta-actions">
+          <a href="https://store.steampowered.com/app/[STEAM_ID]" class="btn-cascade cta-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 22h20L12 2zM12 6l6 12H6l6-12z"/>
+            </svg>
+            Wishlist on Steam
+          </a>
+          
+          <a href="#newsletter" class="btn-faction text-cascade">
+            Join Intel Network
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Social Proof -->
+        <div class="social-proof">
+          <p class="bloom-mono">Join [WISHLIST_COUNT] operators already tracking Bloom</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+/* ==================== HERO SECTION STYLES ==================== */
+.hero-cascade {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(180deg, var(--bloom-void) 0%, var(--bloom-shadow) 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cascade-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.cascade-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: cascade-drift 20s linear infinite;
+}
+
+.cascade-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  margin: -400px 0 0 -400px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+  animation: cascade-pulse 4s ease-in-out infinite;
+}
+
+@keyframes cascade-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-60px, -60px); }
+}
+
+@keyframes cascade-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.hero-content {
+  z-index: 3;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid var(--bloom-accent);
+  border-radius: 2px;
+  margin-bottom: var(--space-lg);
+  font-size: 0.875rem;
+  color: var(--bloom-accent);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--bloom-accent);
+  border-radius: 50%;
+  animation: status-blink 2s ease-in-out infinite;
+}
+
+@keyframes status-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-lg);
+  color: var(--bloom-text-primary);
+}
+
+.title-line-1 {
+  display: block;
+  line-height: 0.9;
+}
+
+.title-line-2 {
+  display: block;
+  font-size: 1.2em;
+  line-height: 0.8;
+  margin: var(--space-sm) 0;
+}
+
+.title-subtitle {
+  display: block;
+  font-size: 0.4em;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--bloom-text-secondary);
+  line-height: 1.4;
+  margin-top: var(--space-md);
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.status-ticker {
+  background: rgba(22, 26, 29, 0.8);
+  border: 1px solid var(--bloom-interface);
+  padding: var(--space-md);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ticker-content {
+  display: flex;
+  gap: var(--space-lg);
+  animation: ticker-scroll 30s linear infinite;
+  color: var(--bloom-accent);
+  font-size: 0.875rem;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: var(--shadow-depth);
+}
+
+/* ==================== FACTION SECTION STYLES ==================== */
+.territories-section {
+  padding: var(--space-3xl) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-lg);
+  color: var(--bloom-text-primary);
+}
+
+.faction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+.faction-card {
+  padding: var(--space-xl);
+  transition: all var(--anim-normal) var(--anim-tactical);
+  cursor: pointer;
+}
+
+.faction-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.faction-emblem {
+  width: 60px;
+  height: 60px;
+  margin-bottom: var(--space-lg);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--faction-primary);
+  box-shadow: 0 0 20px rgba(var(--faction-primary), 0.3);
+}
+
+.faction-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faction-name {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.faction-motto {
+  color: var(--faction-primary);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+
+.faction-description {
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.faction-stats {
+  margin-bottom: var(--space-lg);
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+  font-family: var(--font-interface);
+  font-size: 0.875rem;
+  color: var(--bloom-text-secondary);
+  flex: 1;
+}
+
+.stat-bar {
+  flex: 2;
+  height: 4px;
+  background: var(--bloom-interface);
+  margin-left: var(--space-md);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  background: var(--faction-primary);
+  transition: width var(--anim-slow) var(--anim-tactical);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-xl);
+  }
+  
+  .hero-content {
+    order: 2;
+  }
+  
+  .hero-visual {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-cascade {
+    min-height: 90vh;
+  }
+  
+  .hero-container {
+    padding: 0 var(--space-md);
+  }
+  
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .faction-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+// ==================== INTERACTIVE ENHANCEMENTS ====================
+
+// Faction card interactions
+document.addEventListener('DOMContentLoaded', () => {
+  const factionCards = document.querySelectorAll('.faction-card');
+  
+  factionCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const faction = card.dataset.faction;
+      card.style.setProperty('--glow-intensity', '0.6');
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--glow-intensity', '0.2');
+    });
+  });
+  
+  // Track CTA interactions
+  const enterBloomCTA = document.getElementById('enter-bloom-cta');
+  if (enterBloomCTA) {
+    enterBloomCTA.addEventListener('click', () => {
+      // Analytics tracking would go here
+      console.log('User entered the IEZ');
+    });
+  }
+});
+
+// Parallax effects for hero section
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const cascadeGrid = document.querySelector('.cascade-grid');
+    if (cascadeGrid) {
+      cascadeGrid.style.transform = `translate(${scrolled * 0.1}px, ${scrolled * 0.1}px)`;
+    }
+  });
+}
+</script>
