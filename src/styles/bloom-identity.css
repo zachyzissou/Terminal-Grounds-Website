@@ -1,6 +1,7 @@
 /* ==================================================
    BLOOM - AAA Visual Identity System
    Terminal Grounds: Tactical Extraction 2161
+   Based on Terminal Grounds Canonical Lore Bible
    ================================================== */
 
 /* ==================== ROOT VARIABLES ==================== */
@@ -17,7 +18,9 @@
   --bloom-text-secondary: #b8b8b8; /* Secondary info */
   --bloom-text-muted: #808080;     /* Supporting text */
 
-  /* === FACTION IDENTITIES === */
+  /* === CANONICAL FACTION IDENTITIES === */
+  /* Based on Terminal Grounds Lore Bible 2025 */
+  
   /* Sky Bastion Directorate - Order through Firepower */
   --faction-dir-primary: #2e4053;
   --faction-dir-secondary: #9fb2c9;
@@ -28,30 +31,35 @@
   --faction-f77-secondary: #991b1b;
   --faction-f77-accent: #525252;
   
-  /* Civic Wardens - Community Defense */
-  --faction-cwd-primary: #059669;
-  --faction-cwd-secondary: #047857;
-  --faction-cwd-accent: #6b7280;
+  /* Truce Wardens - Metro Guardians (formerly Civic Wardens) */
+  --faction-trw-primary: #059669;
+  --faction-trw-secondary: #047857;
+  --faction-trw-accent: #6b7280;
   
-  /* Nomad Clans - Mobile Sovereignty */
-  --faction-nom-primary: #d97706;
-  --faction-nom-secondary: #92400e;
-  --faction-nom-accent: #78716c;
+  /* Roadborn Clans - Mobile Sovereignty (formerly Nomad Clans) */
+  --faction-rbc-primary: #d97706;
+  --faction-rbc-secondary: #92400e;
+  --faction-rbc-accent: #78716c;
   
-  /* Iron Scavengers - Salvage Economy */
-  --faction-isc-primary: #7c2d12;
-  --faction-isc-secondary: #451a03;
-  --faction-isc-accent: #57534e;
+  /* Iron Vultures - Salvage Specialists (formerly Iron Scavengers) */
+  --faction-irv-primary: #7c2d12;
+  --faction-irv-secondary: #451a03;
+  --faction-irv-accent: #57534e;
   
-  /* Corporate Hegemony - Brand Warfare */
-  --faction-chg-primary: #7c3aed;
-  --faction-chg-secondary: #5b21b6;
-  --faction-chg-accent: #4b5563;
+  /* Trivector Combine - Corporate Warfare (formerly Corporate Hegemony) */
+  --faction-tvc-primary: #7c3aed;
+  --faction-tvc-secondary: #5b21b6;
+  --faction-tvc-accent: #4b5563;
   
-  /* Archive Keepers - Information Warfare */
-  --faction-arc-primary: #0f766e;
-  --faction-arc-secondary: #134e4a;
-  --faction-arc-accent: #6b7280;
+  /* Obsidian Archive - Information Warfare (formerly Archive Keepers) */
+  --faction-oba-primary: #0f766e;
+  --faction-oba-secondary: #134e4a;
+  --faction-oba-accent: #6b7280;
+
+  /* === TECHNOLOGY TIER COLORS === */
+  --tier-field: #4ade80;      /* Field Grade - Reliable Green */
+  --tier-splice: #f59e0b;     /* Splice Grade - Hybrid Amber */
+  --tier-monolith: #8b5cf6;   /* Monolith Grade - Alien Purple */
 
   /* === TYPOGRAPHY SYSTEM === */
   --font-display: 'Orbitron', 'Rajdhani', sans-serif;
@@ -177,6 +185,7 @@
   border: 1px solid var(--bloom-interface);
   border-radius: 4px;
   padding: var(--space-xl);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: all var(--anim-normal) var(--anim-cascade);
 }
@@ -249,7 +258,7 @@
   background: var(--bloom-steel);
 }
 
-/* === FACTION MODIFIERS === */
+/* === CANONICAL FACTION MODIFIERS === */
 .faction-dir {
   --faction-primary: var(--faction-dir-primary);
   --faction-secondary: var(--faction-dir-secondary);
@@ -262,34 +271,113 @@
   --faction-accent: var(--faction-f77-accent);
 }
 
-.faction-cwd {
-  --faction-primary: var(--faction-cwd-primary);
-  --faction-secondary: var(--faction-cwd-secondary);
-  --faction-accent: var(--faction-cwd-accent);
+.faction-trw {
+  --faction-primary: var(--faction-trw-primary);
+  --faction-secondary: var(--faction-trw-secondary);
+  --faction-accent: var(--faction-trw-accent);
 }
 
-.faction-nom {
-  --faction-primary: var(--faction-nom-primary);
-  --faction-secondary: var(--faction-nom-secondary);
-  --faction-accent: var(--faction-nom-accent);
+.faction-rbc {
+  --faction-primary: var(--faction-rbc-primary);
+  --faction-secondary: var(--faction-rbc-secondary);
+  --faction-accent: var(--faction-rbc-accent);
 }
 
-.faction-isc {
-  --faction-primary: var(--faction-isc-primary);
-  --faction-secondary: var(--faction-isc-secondary);
-  --faction-accent: var(--faction-isc-accent);
+.faction-irv {
+  --faction-primary: var(--faction-irv-primary);
+  --faction-secondary: var(--faction-irv-secondary);
+  --faction-accent: var(--faction-irv-accent);
 }
 
-.faction-chg {
-  --faction-primary: var(--faction-chg-primary);
-  --faction-secondary: var(--faction-chg-secondary);
-  --faction-accent: var(--faction-chg-accent);
+.faction-tvc {
+  --faction-primary: var(--faction-tvc-primary);
+  --faction-secondary: var(--faction-tvc-secondary);
+  --faction-accent: var(--faction-tvc-accent);
 }
 
-.faction-arc {
-  --faction-primary: var(--faction-arc-primary);
-  --faction-secondary: var(--faction-arc-secondary);
-  --faction-accent: var(--faction-arc-accent);
+.faction-oba {
+  --faction-primary: var(--faction-oba-primary);
+  --faction-secondary: var(--faction-oba-secondary);
+  --faction-accent: var(--faction-oba-accent);
+}
+
+/* ==================== LEGACY SUPPORT ==================== */
+/* Maintaining backward compatibility during transition */
+.faction-cwd { /* Legacy: Civic Wardens → Truce Wardens */
+  --faction-primary: var(--faction-trw-primary);
+  --faction-secondary: var(--faction-trw-secondary);
+  --faction-accent: var(--faction-trw-accent);
+}
+
+.faction-nom { /* Legacy: Nomad Clans → Roadborn Clans */
+  --faction-primary: var(--faction-rbc-primary);
+  --faction-secondary: var(--faction-rbc-secondary);
+  --faction-accent: var(--faction-rbc-accent);
+}
+
+.faction-isc { /* Legacy: Iron Scavengers → Iron Vultures */
+  --faction-primary: var(--faction-irv-primary);
+  --faction-secondary: var(--faction-irv-secondary);
+  --faction-accent: var(--faction-irv-accent);
+}
+
+.faction-chg { /* Legacy: Corporate Hegemony → Trivector Combine */
+  --faction-primary: var(--faction-tvc-primary);
+  --faction-secondary: var(--faction-tvc-secondary);
+  --faction-accent: var(--faction-tvc-accent);
+}
+
+.faction-arc { /* Legacy: Archive Keepers → Obsidian Archive */
+  --faction-primary: var(--faction-oba-primary);
+  --faction-secondary: var(--faction-oba-secondary);
+  --faction-accent: var(--faction-oba-accent);
+}
+
+/* ==================== TECHNOLOGY TIER STYLING ==================== */
+.tier-field {
+  color: var(--tier-field);
+  border-color: var(--tier-field);
+}
+
+.tier-splice {
+  color: var(--tier-splice);
+  border-color: var(--tier-splice);
+}
+
+.tier-monolith {
+  color: var(--tier-monolith);
+  border-color: var(--tier-monolith);
+}
+
+.tech-tier-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tech-tier-field {
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid var(--tier-field);
+  color: var(--tier-field);
+}
+
+.tech-tier-splice {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--tier-splice);
+  color: var(--tier-splice);
+}
+
+.tech-tier-monolith {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid var(--tier-monolith);
+  color: var(--tier-monolith);
 }
 
 /* ==================== RESPONSIVE BREAKPOINTS ==================== */
@@ -329,3 +417,33 @@
     --bloom-accent: #00ffff;
   }
 }
+
+/* ==================== SEASON 1 ELEMENTS ==================== */
+/* New visual elements for Season 1 content */
+.quietus-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid var(--bloom-warning);
+  border-radius: 2px;
+  color: var(--bloom-warning);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.coherence-band {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.coherence-c0 { background: #dc2626; color: white; } /* Critical */
+.coherence-c1 { background: #ea580c; color: white; } /* Degraded */
+.coherence-c2 { background: #ca8a04; color: white; } /* Stable */
+.coherence-c3 { background: #16a34a; color: white; } /* Perfect */

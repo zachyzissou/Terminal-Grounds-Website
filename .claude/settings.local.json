@@ -40,7 +40,10 @@
       "WebFetch(domain:localhost)",
       "Bash(curl:*)",
       "Bash(npm install:*)",
-      "Bash(npx playwright install:*)"
+      "Bash(npx playwright install:*)",
+      "Bash(npx playwright screenshot:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(tasklist)"
     ],
     "deny": [],
     "ask": [],

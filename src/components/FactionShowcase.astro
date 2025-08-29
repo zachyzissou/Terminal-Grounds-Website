@@ -83,105 +83,113 @@ const factions = [
 ];
 ---
 
-<section class="faction-showcase relative overflow-hidden py-24 bg-gradient-to-b from-bg-primary to-bg-secondary">
-    <div class="container mx-auto px-6">
-        <h2 class="text-5xl font-display font-black text-center mb-4 text-primary">
-            {title}
-        </h2>
-        <p class="text-center text-text-secondary mb-12 max-w-2xl mx-auto">
-            Seven primary factions vie for control of the Terminal Grounds. Navigate complex relationships through aid, arbitration, or ambush.
-        </p>
+<section class="section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="bloom-display" style="color: var(--bloom-text-primary);">
+                {title}
+            </h2>
+            <p class="bloom-body">
+                Seven primary factions vie for control of the Terminal Grounds. Navigate complex relationships through aid, arbitration, or ambush.
+            </p>
+        </div>
         
         <!-- Faction Grid -->
-        <div class="faction-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <div class="grid grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4 gap-6 mb-12">
             {factions.map((faction) => (
                 <div 
-                    class="faction-card glass-morphism p-6 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-glow"
+                    class="faction-card card animate-slide-up"
                     data-faction-id={faction.id}
-                    style={`--faction-color: ${faction.color}`}
+                    style={`--faction-color: ${faction.color}; cursor: pointer;`}
                 >
-                    <div class="faction-header mb-4">
-                        {faction.emblem ? (
-                            <img 
-                                src={faction.emblem} 
-                                alt={`${faction.name} Emblem`}
-                                class="w-20 h-20 mx-auto mb-3 object-contain"
-                                loading="lazy"
-                            />
-                        ) : (
-                            <div 
-                                class="w-20 h-20 mx-auto mb-3 rounded-full"
-                                style={`background: linear-gradient(135deg, ${faction.color}44, ${faction.color}88)`}
-                            />
-                        )}
-                        <h3 class="text-xl font-display font-bold text-primary text-center">
+                    <div class="card-header text-center">
+                        <div class="faction-emblem">
+                            {faction.emblem ? (
+                                <img 
+                                    src={faction.emblem} 
+                                    alt={`${faction.name} Emblem`}
+                                    class="faction-emblem-img"
+                                    loading="lazy"
+                                />
+                            ) : (
+                                <div 
+                                    class="faction-emblem-placeholder"
+                                    style={`background: linear-gradient(135deg, ${faction.color}44, ${faction.color}88); width: 64px; height: 64px; border-radius: 50%; margin: 0 auto;`}
+                                />
+                            )}
+                        </div>
+                        <h3 class="card-title" style={`color: ${faction.color};`}>
                             {faction.name}
                         </h3>
                         {faction.motto && (
-                            <p class="text-xs text-text-muted text-center italic mt-1">
+                            <p class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.75rem; font-style: italic; margin-top: var(--space-1);">
                                 "{faction.motto}"
                             </p>
                         )}
                     </div>
-                    <div class="faction-details space-y-2 text-sm">
-                        <p class="text-text-secondary">{faction.description}</p>
-                        <div class="flex justify-between items-center pt-2 border-t border-border/30">
-                            <span class="text-text-muted">Strength:</span>
-                            <span class="text-accent-cyan font-semibold">{faction.strength}</span>
+                    <div class="card-description">
+                        <p>{faction.description}</p>
+                    </div>
+                    <div class="faction-stats">
+                        <div class="stat">
+                            <span class="stat-label">Strength</span>
+                            <span class="bloom-interface" style="color: var(--bloom-accent); font-weight: 600;">{faction.strength}</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-text-muted">Territory:</span>
-                            <span class="text-secondary font-semibold">{faction.territory}</span>
+                        <div class="stat">
+                            <span class="stat-label">Territory</span>
+                            <span class="bloom-interface" style="color: var(--bloom-text-primary); font-weight: 600;">{faction.territory}</span>
                         </div>
                     </div>
-                    <div class="faction-hover-indicator mt-4 h-1 bg-gradient-to-r opacity-0 transition-opacity duration-300"
-                         style={`background: linear-gradient(90deg, transparent, ${faction.color}, transparent)`}
-                    />
+                    <div class="faction-color-indicator" style={`position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, ${faction.color}, transparent); opacity: 0; transition: opacity var(--anim-normal);`} />
                 </div>
             ))}
         </div>
         
         <!-- Relationship Matrix -->
-        <div class="relationship-matrix glass-morphism p-8 max-w-6xl mx-auto">
-            <h3 class="text-2xl font-display font-bold text-primary mb-6 text-center">
-                Faction Relations Matrix
-            </h3>
-            <p class="text-text-secondary text-center mb-6">
-                Hover over a faction to see their diplomatic relationships
-            </p>
-            <div id="relationshipCanvas" class="relative h-96 rounded-lg overflow-hidden">
+        <div class="card" style="max-width: 72rem; margin: 0 auto; margin-top: var(--space-16);">
+            <div class="card-header text-center">
+                <h3 class="card-title bloom-display" style="font-size: 1.5rem;">
+                    Faction Relations Matrix
+                </h3>
+                <p class="card-description">
+                    Hover over a faction to see their diplomatic relationships
+                </p>
+            </div>
+            <div id="relationshipCanvas" class="relative" style="height: 24rem; border-radius: 8px; overflow: hidden; background: var(--bloom-shadow);">
                 <!-- Canvas for relationship visualization will be inserted here -->
             </div>
-            <div class="legend flex justify-center gap-8 mt-6">
+            <div class="flex justify-center gap-8" style="margin-top: var(--space-6);">
                 <div class="flex items-center gap-2">
-                    <div class="w-4 h-4 bg-green-500 rounded"></div>
-                    <span class="text-text-muted text-sm">Allied</span>
+                    <div style="width: 1rem; height: 1rem; background: var(--bloom-success); border-radius: 4px;"></div>
+                    <span class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.875rem;">Allied</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <div class="w-4 h-4 bg-gray-500 rounded"></div>
-                    <span class="text-text-muted text-sm">Neutral</span>
+                    <div style="width: 1rem; height: 1rem; background: var(--bloom-interface); border-radius: 4px;"></div>
+                    <span class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.875rem;">Neutral</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <div class="w-4 h-4 bg-red-500 rounded"></div>
-                    <span class="text-text-muted text-sm">Hostile</span>
+                    <div style="width: 1rem; height: 1rem; background: var(--bloom-warning); border-radius: 4px;"></div>
+                    <span class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.875rem;">Hostile</span>
                 </div>
             </div>
         </div>
         
         <!-- Faction Comparison Tool -->
-        <div class="comparison-tool mt-12">
-            <h3 class="text-2xl font-display font-bold text-primary mb-6 text-center">
-                Compare Factions
-            </h3>
+        <div class="card" style="margin-top: var(--space-12);">
+            <div class="card-header text-center">
+                <h3 class="card-title bloom-display" style="font-size: 1.5rem;">
+                    Compare Factions
+                </h3>
+            </div>
             <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <select id="faction1Select" class="glass-morphism px-4 py-2 rounded-lg bg-bg-secondary text-primary border border-border/30">
+                <select id="faction1Select" class="bloom-interface" style="padding: var(--space-3) var(--space-4); background: var(--bloom-shadow); color: var(--bloom-text-primary); border: 1px solid var(--bloom-interface); border-radius: 4px;">
                     <option value="">Select First Faction</option>
                     {factions.map(f => (
                         <option value={f.id}>{f.name}</option>
                     ))}
                 </select>
-                <span class="text-text-muted self-center">VS</span>
-                <select id="faction2Select" class="glass-morphism px-4 py-2 rounded-lg bg-bg-secondary text-primary border border-border/30">
+                <span class="bloom-mono" style="color: var(--bloom-text-muted); align-self: center;">VS</span>
+                <select id="faction2Select" class="bloom-interface" style="padding: var(--space-3) var(--space-4); background: var(--bloom-shadow); color: var(--bloom-text-primary); border: 1px solid var(--bloom-interface); border-radius: 4px;">
                     <option value="">Select Second Faction</option>
                     {factions.map(f => (
                         <option value={f.id}>{f.name}</option>
@@ -189,9 +197,9 @@ const factions = [
                 </select>
             </div>
             <div id="comparisonResult" class="hidden">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div id="faction1Info" class="glass-morphism p-6 border-2 border-transparent transition-all duration-300"></div>
-                    <div id="faction2Info" class="glass-morphism p-6 border-2 border-transparent transition-all duration-300"></div>
+                <div class="grid grid-cols-1 grid-cols-2 gap-6" style="max-width: 64rem; margin: 0 auto;">
+                    <div id="faction1Info" class="card" style="border: 2px solid transparent; transition: all var(--anim-normal);"></div>
+                    <div id="faction2Info" class="card" style="border: 2px solid transparent; transition: all var(--anim-normal);"></div>
                 </div>
             </div>
         </div>
@@ -206,7 +214,7 @@ const factions = [
         
         factionCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
-                const indicator = this.querySelector('.faction-hover-indicator');
+                const indicator = this.querySelector('.faction-color-indicator');
                 if (indicator) {
                     indicator.style.opacity = '1';
                 }
@@ -217,7 +225,7 @@ const factions = [
             });
             
             card.addEventListener('mouseleave', function() {
-                const indicator = this.querySelector('.faction-hover-indicator');
+                const indicator = this.querySelector('.faction-color-indicator');
                 if (indicator) {
                     indicator.style.opacity = '0';
                 }
@@ -253,36 +261,36 @@ const factions = [
             faction2Info.style.borderColor = f2.color + '88';
             
             faction1Info.innerHTML = `
-                <h4 class="text-xl font-display font-bold mb-4" style="color: ${f1.color}">${f1.name}</h4>
-                <div class="space-y-3">
+                <h4 class="card-title bloom-display" style="color: ${f1.color}; margin-bottom: var(--space-4);">${f1.name}</h4>
+                <div class="flex flex-col gap-3">
                     <div class="flex justify-between">
-                        <span class="text-text-muted">Strength:</span>
-                        <span class="text-primary font-semibold">${f1.strength}</span>
+                        <span class="bloom-mono" style="color: var(--bloom-text-muted);">Strength:</span>
+                        <span class="bloom-interface" style="color: var(--bloom-text-primary); font-weight: 600;">${f1.strength}</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-text-muted">Territory:</span>
-                        <span class="text-secondary">${f1.territory}</span>
+                        <span class="bloom-mono" style="color: var(--bloom-text-muted);">Territory:</span>
+                        <span class="bloom-interface" style="color: var(--bloom-text-secondary);">${f1.territory}</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-text-muted">Relation to ${f2.name}:</span>
+                        <span class="bloom-mono" style="color: var(--bloom-text-muted);">Relation to ${f2.name}:</span>
                         <span class="${getRelationClass(f1.relations[f2.id])}">${getRelationText(f1.relations[f2.id])}</span>
                     </div>
                 </div>
             `;
             
             faction2Info.innerHTML = `
-                <h4 class="text-xl font-display font-bold mb-4" style="color: ${f2.color}">${f2.name}</h4>
-                <div class="space-y-3">
+                <h4 class="card-title bloom-display" style="color: ${f2.color}; margin-bottom: var(--space-4);">${f2.name}</h4>
+                <div class="flex flex-col gap-3">
                     <div class="flex justify-between">
-                        <span class="text-text-muted">Strength:</span>
-                        <span class="text-primary font-semibold">${f2.strength}</span>
+                        <span class="bloom-mono" style="color: var(--bloom-text-muted);">Strength:</span>
+                        <span class="bloom-interface" style="color: var(--bloom-text-primary); font-weight: 600;">${f2.strength}</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-text-muted">Territory:</span>
-                        <span class="text-secondary">${f2.territory}</span>
+                        <span class="bloom-mono" style="color: var(--bloom-text-muted);">Territory:</span>
+                        <span class="bloom-interface" style="color: var(--bloom-text-secondary);">${f2.territory}</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-text-muted">Relation to ${f1.name}:</span>
+                        <span class="bloom-mono" style="color: var(--bloom-text-muted);">Relation to ${f1.name}:</span>
                         <span class="${getRelationClass(f2.relations[f1.id])}">${getRelationText(f2.relations[f1.id])}</span>
                     </div>
                 </div>
@@ -293,9 +301,9 @@ const factions = [
         faction2Select.addEventListener('change', updateComparison);
         
         function getRelationClass(value) {
-            if (value > 0) return 'text-green-400 font-bold';
-            if (value < 0) return 'text-red-400 font-bold';
-            return 'text-gray-400';
+            if (value > 0) return 'bloom-interface' style='color: var(--bloom-success); font-weight: 600;';
+            if (value < 0) return 'bloom-interface' style='color: var(--bloom-warning); font-weight: 600;';
+            return 'bloom-interface' style='color: var(--bloom-text-muted);';
         }
         
         function getRelationText(value) {
@@ -529,23 +537,72 @@ const factions = [
 
 <style>
     .faction-card:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        transform: translateY(-6px);
+        box-shadow: 
+            0 12px 40px rgba(0, 0, 0, 0.4),
+            0 0 0 1px rgba(0, 217, 255, 0.2);
     }
     
-    .faction-card:hover .faction-hover-indicator {
-        animation: pulse 2s infinite;
+    .faction-card:hover .faction-color-indicator {
+        opacity: 1 !important;
+        animation: faction-pulse 2s infinite;
     }
     
-    @keyframes pulse {
-        0%, 100% { opacity: 0.3; }
+    .faction-card .faction-emblem:hover img,
+    .faction-card .faction-emblem:hover .faction-emblem-img {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    @keyframes faction-pulse {
+        0%, 100% { opacity: 0.6; }
         50% { opacity: 1; }
     }
     
-    .glass-morphism {
-        background: rgba(15, 15, 25, 0.8);
-        -webkit-backdrop-filter: blur(12px);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Canvas styling */
+    #relationshipCanvas {
+        border: 1px solid var(--bloom-interface);
+        background: radial-gradient(circle at center, var(--bloom-shadow), var(--bloom-void));
+    }
+    
+    /* Select styling */
+    select option {
+        background: var(--bloom-shadow);
+        color: var(--bloom-text-primary);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+        .faction-card {
+            margin-bottom: var(--space-4);
+        }
+        
+        #relationshipCanvas {
+            height: 16rem;
+        }
+        
+        .grid-cols-2,
+        .grid-cols-3,
+        .grid-cols-4 {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .grid-cols-3,
+        .grid-cols-4 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .grid-cols-4 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (min-width: 1280px) {
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 </style>

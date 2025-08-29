@@ -1,6 +1,6 @@
 /* Terminal Grounds Advanced Visual Effects */
 
-/* Cyberpunk Glass Morphism with Enhanced Depth */
+/* Optimized Cyberpunk Glass Morphism */
 .glass-morphism-advanced {
   background: linear-gradient(
     135deg,
@@ -8,22 +8,16 @@
     rgba(25, 25, 40, 0.85) 50%,
     rgba(15, 15, 25, 0.95) 100%
   );
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid;
-  border-image: linear-gradient(
-    135deg,
-    rgba(0, 255, 136, 0.3) 0%,
-    rgba(0, 119, 255, 0.2) 50%,
-    rgba(170, 85, 255, 0.3) 100%
-  ) 1;
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(0, 255, 136, 0.2);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 .glass-morphism-advanced::before {
@@ -46,54 +40,50 @@
   left: 100%;
 }
 
-/* Enhanced Holographic Text Effect */
+/* Optimized Holographic Text Effect */
 .holographic-text {
   background: linear-gradient(
     45deg,
     #00ff88 0%,
-    #0077ff 25%,
-    #aa55ff 50%,
-    #ff6b35 75%,
+    #0077ff 50%,
     #00ff88 100%
   );
-  background-size: 400% 400%;
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: holographic-shift 3s ease-in-out infinite;
+  animation: holographic-shift 4s ease-in-out infinite;
   position: relative;
+  transform: translateZ(0);
+  will-change: background-position;
 }
 
 @keyframes holographic-shift {
   0%, 100% {
     background-position: 0% 50%;
-    filter: hue-rotate(0deg) saturate(1.2);
   }
-  33% {
+  50% {
     background-position: 100% 50%;
-    filter: hue-rotate(60deg) saturate(1.5);
-  }
-  66% {
-    background-position: 50% 100%;
-    filter: hue-rotate(-60deg) saturate(1.8);
   }
 }
 
-/* Quantum Particle Grid Background */
+/* Optimized Quantum Particle Grid Background */
 .quantum-grid {
   position: relative;
   background: 
-    radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(0, 119, 255, 0.1) 0%, transparent 50%),
-    linear-gradient(0deg, transparent 24%, rgba(0, 255, 136, 0.05) 25%, rgba(0, 255, 136, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 119, 255, 0.05) 75%, rgba(0, 119, 255, 0.05) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(0, 255, 136, 0.05) 25%, rgba(0, 255, 136, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 119, 255, 0.05) 75%, rgba(0, 119, 255, 0.05) 76%, transparent 77%, transparent);
-  background-size: 100px 100px, 150px 150px, 75px 75px, 75px 75px;
-  animation: quantum-drift 20s linear infinite;
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(0, 119, 255, 0.05) 0%, transparent 40%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 255, 136, 0.02) 50%, rgba(0, 255, 136, 0.02) 51%, transparent 52%),
+    linear-gradient(90deg, transparent 49%, rgba(0, 119, 255, 0.02) 50%, rgba(0, 119, 255, 0.02) 51%, transparent 52%);
+  background-size: 80px 80px, 120px 120px, 60px 60px, 60px 60px;
+  animation: quantum-drift 30s linear infinite;
+  transform: translateZ(0);
+  will-change: background-position;
 }
 
 @keyframes quantum-drift {
   0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-  100% { background-position: 100px 100px, -150px -150px, -75px 75px, 75px -75px; }
+  100% { background-position: 80px 80px, -120px -120px, -60px 60px, 60px -60px; }
 }
 
 /* Advanced Bloom Effect */
@@ -157,16 +147,17 @@
   100% { transform: translateY(4px); }
 }
 
-/* Enhanced Interactive Cards */
+/* Optimized Interactive Cards */
 .interactive-card {
   position: relative;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
 }
 
 .interactive-card:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  transform: translateY(-6px) translateZ(0);
 }
 
 .interactive-card::before {
@@ -292,8 +283,36 @@
 .gpu-optimized {
   transform: translateZ(0);
   backface-visibility: hidden;
-  perspective: 1000px;
   will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+/* Performance-aware effects */
+@media (max-width: 768px) {
+  .gpu-optimized {
+    will-change: auto;
+  }
+  
+  .holographic-text {
+    animation-duration: 8s;
+  }
+  
+  .quantum-grid {
+    animation-duration: 60s;
+  }
+}
+
+/* Battery-aware optimizations */
+@media (prefers-reduced-motion: reduce) or (max-width: 768px) {
+  .glass-morphism-advanced {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+  
+  .bloom-container::before,
+  .bloom-container::after {
+    display: none;
+  }
 }
 
 /* Content Loading States */

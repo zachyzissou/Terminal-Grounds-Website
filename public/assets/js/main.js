@@ -1,6 +1,29 @@
 // Bloom Website JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced Image Loading Handler
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    // Handle lazy image loading states
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.onload = () => img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Handle all image errors globally
+    document.addEventListener('error', function(e) {
+        if (e.target.tagName === 'IMG') {
+            console.warn('Image failed to load:', e.target.src);
+        }
+    }, true);
+
     // Set current year in footer
     const currentYear = new Date().getFullYear();
     const yearElement = document.getElementById('current-year');
@@ -173,31 +196,59 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentPath = window.location.pathname;
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === currentPath || 
-                (currentPath === '/' && link.getAttribute('href') === '/')) {
+            const linkPath = link.getAttribute('href');
+            
+            // Handle exact matches and root path
+            if (linkPath === currentPath || 
+                (currentPath === '/' && linkPath === '/') ||
+                (currentPath.endsWith('/') && linkPath === currentPath.slice(0, -1)) ||
+                (linkPath.endsWith('/') && currentPath === linkPath.slice(0, -1))) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
             }
         });
     }
 
     updateActiveNavLink();
 
-    // Add hover effects to faction cards
+    // Add hover effects to faction cards with improved accessibility
     document.querySelectorAll('.faction-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const factionColor = this.querySelector('.faction-color');
-            if (factionColor) {
-                factionColor.style.width = '100%';
-                factionColor.style.opacity = '0.1';
-                factionColor.style.transition = 'all 0.3s ease';
-            }
-        });
+        // Make faction cards focusable
+        if (!card.hasAttribute('tabindex')) {
+            card.setAttribute('tabindex', '0');
+        }
+        
+        // Add ARIA role if not present
+        if (!card.hasAttribute('role')) {
+            card.setAttribute('role', 'button');
+        }
 
-        card.addEventListener('mouseleave', function() {
-            const factionColor = this.querySelector('.faction-color');
+        function handleFactionCardHover(isHovering) {
+            const factionColor = card.querySelector('.faction-color');
             if (factionColor) {
-                factionColor.style.width = '4px';
-                factionColor.style.opacity = '1';
+                if (isHovering) {
+                    factionColor.style.width = '100%';
+                    factionColor.style.opacity = '0.1';
+                    factionColor.style.transition = 'all 0.3s ease';
+                } else {
+                    factionColor.style.width = '4px';
+                    factionColor.style.opacity = '1';
+                }
+            }
+        }
+
+        card.addEventListener('mouseenter', () => handleFactionCardHover(true));
+        card.addEventListener('mouseleave', () => handleFactionCardHover(false));
+        card.addEventListener('focus', () => handleFactionCardHover(true));
+        card.addEventListener('blur', () => handleFactionCardHover(false));
+        
+        // Keyboard navigation support
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
             }
         });
     });

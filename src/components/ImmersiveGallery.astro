@@ -130,10 +130,21 @@ const styles = [...new Set(items.map(item => item.style))];
                         <img 
                             src={item.src}
                             alt={item.alt}
-                            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
-                            loading="lazy"
+                            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-110 gallery-image"
+                            loading={index < 3 ? "eager" : "lazy"}
                             decoding="async"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; console.warn('Failed to load image:', this.src);"
+                            onload="this.nextElementSibling.style.display='none';"
                         />
+                        
+                        <!-- Image Error Fallback -->
+                        <div class="image-fallback hidden w-full h-48 bg-bg-secondary border-2 border-dashed border-border flex items-center justify-center rounded-lg">
+                            <div class="text-center text-text-muted">
+                                <div class="text-4xl mb-2">📷</div>
+                                <div class="text-sm">Image unavailable</div>
+                                <div class="text-xs opacity-75">{item.title}</div>
+                            </div>
+                        </div>
                         
                         <!-- Quality Badge -->
                         {item.quality && item.quality !== 'standard' && (
@@ -296,16 +307,22 @@ const styles = [...new Set(items.map(item => item.style))];
 
         function addEventListeners() {
             // Filter tabs
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    setActiveTab(tab);
-                    filterGallery();
+            if (filterTabs.length > 0) {
+                filterTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        setActiveTab(tab);
+                        filterGallery();
+                    });
                 });
-            });
+            }
 
             // Dropdowns
-            styleSelect.addEventListener('change', filterGallery);
-            qualitySelect.addEventListener('change', filterGallery);
+            if (styleSelect) {
+                styleSelect.addEventListener('change', filterGallery);
+            }
+            if (qualitySelect) {
+                qualitySelect.addEventListener('change', filterGallery);
+            }
 
             // Gallery items
             galleryItems.forEach((item, index) => {
@@ -316,17 +333,23 @@ const styles = [...new Set(items.map(item => item.style))];
 
                 // Hover effects
                 item.addEventListener('mouseenter', () => {
-                    hoverOverlay.style.opacity = '1';
+                    if (hoverOverlay) {
+                        hoverOverlay.style.opacity = '1';
+                    }
                 });
 
                 item.addEventListener('mouseleave', () => {
-                    hoverOverlay.style.opacity = '0';
+                    if (hoverOverlay) {
+                        hoverOverlay.style.opacity = '0';
+                    }
                 });
 
                 // Click to open modal
-                img.addEventListener('click', () => {
-                    openModal(index);
-                });
+                if (img) {
+                    img.addEventListener('click', () => {
+                        openModal(index);
+                    });
+                }
 
                 // Metadata toggle
                 if (metadataToggle && metadata) {
@@ -339,13 +362,19 @@ const styles = [...new Set(items.map(item => item.style))];
             });
 
             // Modal controls
-            closeModal.addEventListener('click', closeModalHandler);
-            prevBtn.addEventListener('click', () => navigateModal(-1));
-            nextBtn.addEventListener('click', () => navigateModal(1));
+            if (closeModal) {
+                closeModal.addEventListener('click', closeModalHandler);
+            }
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => navigateModal(-1));
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => navigateModal(1));
+            }
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
-                if (modal.style.pointerEvents !== 'none') {
+                if (modal && modal.style.pointerEvents !== 'none') {
                     switch(e.key) {
                         case 'Escape':
                             closeModalHandler();
@@ -361,22 +390,29 @@ const styles = [...new Set(items.map(item => item.style))];
             });
 
             // Click outside modal to close
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModalHandler();
-                }
-            });
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModalHandler();
+                    }
+                });
+            }
         }
 
         function setActiveTab(activeTab) {
-            filterTabs.forEach(tab => tab.classList.remove('active'));
-            activeTab.classList.add('active');
+            if (filterTabs.length > 0) {
+                filterTabs.forEach(tab => tab.classList.remove('active'));
+            }
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
         }
 
         function filterGallery() {
-            const activeCategory = document.querySelector('.filter-tab.active').dataset.filter;
-            const selectedStyle = styleSelect.value;
-            const selectedQuality = qualitySelect.value;
+            const activeTab = document.querySelector('.filter-tab.active');
+            const activeCategory = activeTab ? activeTab.dataset.filter : 'all';
+            const selectedStyle = styleSelect ? styleSelect.value : 'all';
+            const selectedQuality = qualitySelect ? qualitySelect.value : 'all';
 
             filteredItems = items.filter(item => {
                 const categoryMatch = activeCategory === 'all' || item.category === activeCategory;
@@ -406,32 +442,46 @@ const styles = [...new Set(items.map(item => item.style))];
         }
 
         function openModal(index) {
+            if (!modal || !items[index]) return;
+            
             currentImageIndex = index;
             const item = items[index];
             
-            modalImage.src = item.src;
-            modalImage.alt = item.alt;
-            modalTitle.textContent = item.title;
-            modalCategory.textContent = `${item.category.toUpperCase()} • ${item.style.toUpperCase()}`;
+            if (modalImage) {
+                modalImage.src = item.src;
+                modalImage.alt = item.alt;
+            }
+            if (modalTitle) {
+                modalTitle.textContent = item.title;
+            }
+            if (modalCategory) {
+                modalCategory.textContent = `${item.category.toUpperCase()} • ${item.style.toUpperCase()}`;
+            }
             
-            if (item.metadata) {
-                modalMetadata.innerHTML = `
-                    ${item.metadata.resolution ? `Resolution: ${item.metadata.resolution}` : ''}
-                    ${item.metadata.technique ? ` • Technique: ${item.metadata.technique}` : ''}
-                `;
-            } else {
-                modalMetadata.textContent = '';
+            if (modalMetadata) {
+                if (item.metadata) {
+                    modalMetadata.innerHTML = `
+                        ${item.metadata.resolution ? `Resolution: ${item.metadata.resolution}` : ''}
+                        ${item.metadata.technique ? ` • Technique: ${item.metadata.technique}` : ''}
+                    `;
+                } else {
+                    modalMetadata.textContent = '';
+                }
             }
 
-            modal.style.pointerEvents = 'auto';
-            modal.style.opacity = '1';
-            document.body.style.overflow = 'hidden';
+            if (modal) {
+                modal.style.pointerEvents = 'auto';
+                modal.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModalHandler() {
-            modal.style.opacity = '0';
-            modal.style.pointerEvents = 'none';
-            document.body.style.overflow = '';
+            if (modal) {
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none';
+                document.body.style.overflow = '';
+            }
         }
 
         function navigateModal(direction) {

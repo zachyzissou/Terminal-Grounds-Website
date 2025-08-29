@@ -2,115 +2,116 @@
 // Enhanced Hero Section with WebGL Effects
 ---
 
-<section class="hero min-h-screen relative overflow-hidden bg-bg-primary">
+<section class="hero">
     <!-- Background Image with Overlay -->
-    <div class="absolute inset-0">
-        <img 
-            src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png"
-            alt="Terminal Grounds Metro Corridor"
-            class="w-full h-full object-cover"
-            loading="eager"
-        />
-        <div class="absolute inset-0 hero-gradient"></div>
-        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-    </div>
+    <img 
+        src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png"
+        alt="Terminal Grounds Metro Corridor - High-tech underground maintenance facility in pristine condition"
+        class="hero-bg-image"
+        loading="eager"
+        decoding="async"
+        onerror="this.src='/assets/images/environments/metro-corridor-premium.png'; console.warn('Hero image fallback activated');"
+    />
+    <div class="hero-gradient"></div>
+    <div class="bg-grid-pattern"></div>
     
     <!-- Hero Content -->
-    <div class="relative z-10 container mx-auto px-6 h-screen flex items-center">
-        <div class="max-w-4xl">
+    <div class="hero-container">
+        <div class="hero-content">
             <!-- Terminal Window -->
-            <div class="terminal-window mb-8 animate-fade-up">
+            <div class="terminal-window mb-8 animate-slide-up">
                 <div class="terminal-header">
                     <div class="flex gap-2">
-                        <div class="terminal-dot bg-red-500"></div>
-                        <div class="terminal-dot bg-yellow-500"></div>
-                        <div class="terminal-dot bg-green-500"></div>
+                        <div class="terminal-dot" style="background: #ff5f56;"></div>
+                        <div class="terminal-dot" style="background: #ffbd2e;"></div>
+                        <div class="terminal-dot" style="background: #27ca3f;"></div>
                     </div>
-                    <span class="text-text-muted text-xs">tactical_extraction_protocol.exe</span>
+                    <span class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.75rem;">tactical_extraction_protocol.exe</span>
                 </div>
-                <div class="p-4">
-                    <div class="terminal-line flex items-center gap-2 mb-1">
-                        <span class="text-primary">$</span>
-                        <span class="text-text-secondary">initializing cascade zone scan...</span>
-                    </div>
-                    <div class="terminal-line flex items-center gap-2 mb-1">
-                        <span class="text-green-500">[OK]</span>
-                        <span class="text-text-secondary">7 factions detected</span>
-                    </div>
-                    <div class="terminal-line flex items-center gap-2 mb-1">
-                        <span class="text-yellow-500">[WARN]</span>
-                        <span class="text-text-secondary">extraction windows contested</span>
+                <div style="padding: var(--space-4);">
+                    <div class="terminal-line flex items-center gap-2">
+                        <span style="color: var(--bloom-accent);">$</span>
+                        <span style="color: var(--bloom-text-secondary);">initializing cascade zone scan...</span>
                     </div>
                     <div class="terminal-line flex items-center gap-2">
-                        <span class="text-primary">$</span>
-                        <span class="text-text-secondary">ready for deployment</span>
+                        <span style="color: var(--bloom-success);">[OK]</span>
+                        <span style="color: var(--bloom-text-secondary);">7 factions detected</span>
+                    </div>
+                    <div class="terminal-line flex items-center gap-2">
+                        <span style="color: var(--bloom-warning);">[WARN]</span>
+                        <span style="color: var(--bloom-text-secondary);">extraction windows contested</span>
+                    </div>
+                    <div class="terminal-line flex items-center gap-2">
+                        <span style="color: var(--bloom-accent);">$</span>
+                        <span style="color: var(--bloom-text-secondary);">ready for deployment</span>
                         <span class="animate-pulse">▊</span>
                     </div>
                 </div>
             </div>
             
             <!-- Main Hero Content -->
-            <div class="space-y-8">
+            <div class="flex flex-col gap-6">
                 <!-- Title -->
-                <h1 class="text-6xl md:text-8xl font-display font-black leading-tight">
-                    <span class="holographic-text block animate-fade-up">BLOOM</span>
-                    <span class="text-2xl md:text-3xl text-text-secondary font-body font-normal block mt-2 animate-fade-up" style="animation-delay: 0.2s;">
+                <h1 class="hero-title">
+                    <span class="holographic-text animate-fade-up">BLOOM</span>
+                    <span class="title-subtitle animate-fade-up" style="animation-delay: 0.2s;">
                         Tactical Extraction FPS
                     </span>
                 </h1>
                 
                 <!-- Tagline -->
-                <p class="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed animate-fade-up" style="animation-delay: 0.4s;">
+                <p class="hero-description animate-fade-up" style="animation-delay: 0.4s;">
                     A quarantined city-zone reshaped by alien phenomena. Navigate contested territories, harvest alien artifacts, and extract before the next bloom.
                 </p>
                 
                 <!-- Key Features -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 animate-fade-up" style="animation-delay: 0.6s;">
-                    <div class="glass-morphism-advanced interactive-card p-4 transition-all duration-300 hover:shadow-glow">
-                        <div class="text-accent-cyan text-2xl mb-2">⏰</div>
-                        <h3 class="text-primary font-display font-bold mb-1">Timed Extractions</h3>
-                        <p class="text-text-muted text-sm">Limited evac windows create high-stakes gameplay</p>
+                    <div class="glass-morphism-advanced interactive-card">
+                        <div style="color: var(--bloom-accent); font-size: 2rem; margin-bottom: var(--space-2);">⏰</div>
+                        <h3 class="bloom-heading" style="color: var(--bloom-text-primary); margin-bottom: var(--space-1); font-size: 1rem;">Timed Extractions</h3>
+                        <p class="bloom-body" style="color: var(--bloom-text-muted); font-size: 0.875rem; margin: 0;">Limited evac windows create high-stakes gameplay</p>
                     </div>
-                    <div class="glass-morphism-advanced interactive-card p-4 transition-all duration-300 hover:shadow-glow">
-                        <div class="text-accent-purple text-2xl mb-2">🔮</div>
-                        <h3 class="text-primary font-display font-bold mb-1">Alien Artifacts</h3>
-                        <p class="text-text-muted text-sm">Field, Splice, and Monolith-class alien technology</p>
+                    <div class="glass-morphism-advanced interactive-card">
+                        <div style="color: #8b5cf6; font-size: 2rem; margin-bottom: var(--space-2);">🔮</div>
+                        <h3 class="bloom-heading" style="color: var(--bloom-text-primary); margin-bottom: var(--space-1); font-size: 1rem;">Alien Artifacts</h3>
+                        <p class="bloom-body" style="color: var(--bloom-text-muted); font-size: 0.875rem; margin: 0;">Field, Splice, and Monolith-class alien technology</p>
                     </div>
-                    <div class="glass-morphism-advanced interactive-card p-4 transition-all duration-300 hover:shadow-glow">
-                        <div class="text-secondary text-2xl mb-2">🏛️</div>
-                        <h3 class="text-primary font-display font-bold mb-1">Seven Factions</h3>
-                        <p class="text-text-muted text-sm">Complex diplomacy shapes every encounter</p>
+                    <div class="glass-morphism-advanced interactive-card">
+                        <div style="color: var(--bloom-success); font-size: 2rem; margin-bottom: var(--space-2);">🏛️</div>
+                        <h3 class="bloom-heading" style="color: var(--bloom-text-primary); margin-bottom: var(--space-1); font-size: 1rem;">Seven Factions</h3>
+                        <p class="bloom-body" style="color: var(--bloom-text-muted); font-size: 0.875rem; margin: 0;">Complex diplomacy shapes every encounter</p>
                     </div>
                 </div>
                 
                 <!-- Call to Action -->
-                <div class="flex flex-col sm:flex-row gap-4 animate-fade-up" style="animation-delay: 0.8s;">
-                    <button class="cyber-button group">
-                        <span class="relative z-10">Explore the Zones</span>
-                        <div class="absolute inset-0 bg-gradient-to-r from-accent-blue to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                    <button class="px-6 py-3 bg-transparent border-2 border-primary/30 text-primary font-display font-bold transition-all duration-300 hover:border-primary hover:shadow-glow hover:bg-primary/10">
-                        View Gallery
-                    </button>
+                <div class="hero-actions animate-fade-up" style="animation-delay: 0.8s;">
+                    <a href="/regions" class="btn btn-primary btn-large">
+                        <span>Explore the Zones</span>
+                    </a>
+                    <a href="/concept-art" class="btn btn-secondary btn-large">
+                        <span>View Gallery</span>
+                    </a>
                 </div>
                 
                 <!-- Statistics -->
-                <div class="flex flex-wrap gap-8 pt-8 border-t border-border/30 animate-fade-up" style="animation-delay: 1.0s;">
-                    <div class="text-center">
-                        <div class="text-3xl font-display font-black text-primary">112+</div>
-                        <div class="text-text-muted text-sm uppercase tracking-wider">Assets</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-display font-black text-secondary">7</div>
-                        <div class="text-text-muted text-sm uppercase tracking-wider">Factions</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-display font-black text-accent-purple">92%</div>
-                        <div class="text-text-muted text-sm uppercase tracking-wider">Quality</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-display font-black text-accent-cyan">∞</div>
-                        <div class="text-text-muted text-sm uppercase tracking-wider">Replayability</div>
+                <div class="status-ticker animate-fade-up" style="animation-delay: 1.0s;">
+                    <div class="ticker-content">
+                        <div class="text-center">
+                            <div class="bloom-display" style="color: var(--bloom-accent); font-size: 2rem; font-weight: 900;">112+</div>
+                            <div class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.75rem;">Assets</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bloom-display" style="color: var(--bloom-success); font-size: 2rem; font-weight: 900;">7</div>
+                            <div class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.75rem;">Factions</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bloom-display" style="color: #8b5cf6; font-size: 2rem; font-weight: 900;">92%</div>
+                            <div class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.75rem;">Quality</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bloom-display" style="color: var(--bloom-accent); font-size: 2rem; font-weight: 900;">∞</div>
+                            <div class="bloom-mono" style="color: var(--bloom-text-muted); font-size: 0.75rem;">Replayability</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,11 +119,11 @@
     </div>
     
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <div class="w-6 h-10 border-2 border-primary/50 rounded-full p-1">
-            <div class="w-1 h-3 bg-primary rounded-full animate-pulse"></div>
+    <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 10;" class="animate-bounce">
+        <div style="width: 1.5rem; height: 2.5rem; border: 2px solid rgba(0, 217, 255, 0.5); border-radius: 1.25rem; padding: 0.25rem;">
+            <div style="width: 0.25rem; height: 0.75rem; background: var(--bloom-accent); border-radius: 0.125rem;" class="animate-pulse"></div>
         </div>
-        <div class="text-center mt-2 text-text-muted text-xs uppercase tracking-wider">Scroll</div>
+        <div class="text-center bloom-mono" style="margin-top: 0.5rem; color: var(--bloom-text-muted); font-size: 0.75rem;">Scroll</div>
     </div>
 </section>
 
@@ -157,14 +158,26 @@
         animation: blink 1s infinite;
     }
     
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 3rem;
+    /* Component-specific responsive adjustments */
+    @media (max-width: 767px) {
+        .glass-morphism-advanced.interactive-card {
+            padding: var(--space-3);
+            margin-bottom: var(--space-3);
         }
         
-        .terminal-window {
-            font-size: 0.75rem;
+        .ticker-content {
+            gap: var(--space-2);
+            font-size: 0.625rem;
+        }
+        
+        .ticker-content .bloom-display {
+            font-size: 1.5rem !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .glass-morphism-advanced.interactive-card {
+            text-align: center;
         }
     }
     

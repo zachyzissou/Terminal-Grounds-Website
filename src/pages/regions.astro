@@ -3,139 +3,528 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-    title="Regions - Bloom | IEZ Territories & Faction Control" 
-    description="Navigate the dangerous territories of Terminal Grounds: The Dead Sky IEZ, Metro System, Machine Grave, Tech Wastes, Sump Gardens, and Security Checkpoints with dynamic faction control."
-    keywords="Bloom regions, IEZ territories, Dead Sky, Metro System, Machine Grave, Tech Wastes, faction control, Terminal Grounds map"
-    ogImage="/assets/images/renders/hero-wastes.png"
+    title="Territories - Bloom | IEZ Control & Faction Boundaries" 
+    description="Navigate the contested territories of the Interdiction Exclusion Zone: Dead Sky IEZ, Sump Gardens Metro, Machine Grave, Crimson Freeport, Sky Bastion, and the Black Vault with dynamic faction control."
+    keywords="Bloom territories, IEZ control, faction boundaries, Terminal Grounds regions, tactical extraction zones, territorial control"
+    ogImage="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png"
     type="website">
     
-    <main class="regions-page">
-        <section class="hero-regions quantum-grid py-24 relative overflow-hidden">
+    <main class="territories-page relative">
+        <!-- Background Atmosphere -->
+        <div class="fixed inset-0 bg-gradient-to-b from-bg-primary via-bg-secondary to-bg-primary opacity-90 pointer-events-none"></div>
+        <div class="fixed inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+        
+        <!-- Hero Section -->
+        <section class="hero-territories py-24 relative overflow-hidden">
             <div class="container relative z-10">
-                <div class="regions-header text-center max-w-4xl mx-auto">
-                    <h1 class="holographic-text text-6xl md:text-8xl font-display font-black mb-6">Regions of the Terminal Grounds</h1>
-                    <p class="regions-subtitle text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">Navigate the contested territories of post-Cascade Bloom</p>
-                    <div class="glass-morphism-advanced inline-block px-8 py-4 rounded-xl">
-                        <span class="text-primary font-display font-bold text-lg">200km Interdiction Zone</span>
+                <!-- Terminal Header -->
+                <div class="terminal-window mb-8 animate-fade-up max-w-4xl mx-auto">
+                    <div class="terminal-header">
+                        <div class="flex gap-2">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                        </div>
+                        <span class="text-text-muted text-xs">territorial_scan_protocol.exe</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="terminal-line flex items-center gap-2 mb-1">
+                            <span class="text-primary">$</span>
+                            <span class="text-text-secondary">scanning IEZ territorial boundaries...</span>
+                        </div>
+                        <div class="terminal-line flex items-center gap-2 mb-1">
+                            <span class="text-green-500">[OK]</span>
+                            <span class="text-text-secondary">6 major regions identified</span>
+                        </div>
+                        <div class="terminal-line flex items-center gap-2 mb-1">
+                            <span class="text-yellow-500">[WARN]</span>
+                            <span class="text-text-secondary">faction boundaries unstable</span>
+                        </div>
+                        <div class="terminal-line flex items-center gap-2">
+                            <span class="text-primary">$</span>
+                            <span class="text-text-secondary">territorial scan complete</span>
+                            <span class="animate-pulse">▊</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="territories-header text-center max-w-4xl mx-auto">
+                    <h1 class="holographic-text text-6xl md:text-8xl font-display font-black mb-6 animate-fade-up">IEZ TERRITORIES</h1>
+                    <p class="territories-subtitle text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8 animate-fade-up" style="animation-delay: 0.2s;">Six contested regions within the 200km Interdiction Exclusion Zone</p>
+                    <div class="glass-morphism-advanced inline-block px-8 py-4 rounded-xl animate-fade-up" style="animation-delay: 0.4s;">
+                        <span class="text-primary font-display font-bold text-lg">200km² Dead Sky Zone</span>
                         <span class="text-text-muted mx-4">•</span>
-                        <span class="text-secondary font-semibold">6 Major Regions</span>
+                        <span class="text-secondary font-semibold">7 Faction Control</span>
                         <span class="text-text-muted mx-4">•</span>
-                        <span class="text-accent-cyan font-semibold">Dynamic Control</span>
+                        <span class="text-accent-cyan font-semibold">Dynamic Boundaries</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="regions-overview py-20">
+        <!-- Territories Overview -->
+        <section class="territories-overview py-20 relative">
             <div class="container">
-                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Key Territories</h2>
+                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Major Territorial Control Zones</h2>
                 
-                <div class="regions-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                    <div class="region-card iez interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow">
-                        <div class="region-header flex justify-between items-start p-6 pb-0">
-                            <h3 class="text-2xl font-display font-bold text-primary">The Dead Sky (IEZ)</h3>
-                            <span class="danger-level high bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold">Extreme Risk</span>
+                <!-- Primary Regions Grid -->
+                <div class="territories-grid grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+                    <!-- REG_IEZ - The Dead Sky -->
+                    <div class="territory-card reg-iez interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow transition-all duration-500" data-region="iez">
+                        <div class="territory-status absolute top-4 right-4 z-10">
+                            <div class="status-indicator bg-red-500/20 border border-red-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                    <span class="text-red-400 text-xs font-mono font-semibold">EXTREME HAZARD</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="region-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
-                            <img src="/assets/images/environments/iez-facility-clean.png" alt="IEZ Facility" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/60 via-transparent to-transparent"></div>
+                        
+                        <div class="territory-header p-6 pb-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-2xl font-display font-bold text-primary">REG_IEZ</h3>
+                                <span class="tech-tier-indicator tech-tier-monolith">MONOLITH</span>
+                            </div>
+                            <h4 class="text-lg font-interface text-text-secondary mb-2">The Dead Sky</h4>
+                            <p class="text-sm text-text-muted font-mono">Interdiction Exclusion Zone • 200km radius</p>
                         </div>
-                        <div class="region-content px-6 pb-6">
-                            <p class="text-text-secondary leading-relaxed mb-4">The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
-                            <div class="region-details flex flex-wrap gap-2">
-                                <span class="detail-tag bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-xs font-semibold">Monolith Phenomena</span>
-                                <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Reality Distortion</span>
-                                <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-3 py-1 rounded-full text-xs font-semibold">Harvester Wrecks</span>
+                        
+                        <div class="territory-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_.png" 
+                                alt="IEZ Dead Sky Zone - Underground metro facility with pristine sci-fi architecture" 
+                                loading="lazy" 
+                                decoding="async"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                onerror="this.src='/assets/images/environments/metro-corridor-premium.png'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-2 right-2">
+                                <div class="faction-control-bar bg-bg-secondary/80 backdrop-blur-sm rounded p-2">
+                                    <div class="text-xs text-text-muted mb-1">Territorial Control:</div>
+                                    <div class="control-segments flex gap-1">
+                                        <div class="faction-dir w-3 h-2 bg-blue-600 rounded-sm" title="Sky Bastion Directorate - Corporate District"></div>
+                                        <div class="faction-rbc w-2 h-2 bg-orange-600 rounded-sm" title="Roadborn Clans - Convoy Junction"></div>
+                                        <div class="faction-tvc w-4 h-2 bg-purple-600 rounded-sm" title="Trivector Combine - Industrial Core"></div>
+                                        <div class="contested flex-1 h-2 bg-red-800/50 rounded-sm" title="Contested Territory"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="territory-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">Epicenter of the Monolith Cascade. Tilted ferrocrete landscapes with rolling EMP microbursts and phase shears. Three hardcore rings with escalating extraction difficulty - from Field-grade outer zones to one-life Monolith core.</p>
+                            
+                            <div class="territory-details space-y-3">
+                                <div class="hazards flex flex-wrap gap-2 mb-3">
+                                    <span class="detail-tag bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-semibold">Phase Pockets</span>
+                                    <span class="detail-tag bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs font-semibold">EMP Microbursts</span>
+                                    <span class="detail-tag bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-xs font-semibold">Monolith Anomalies</span>
+                                </div>
+                                
+                                <div class="extraction-info border-t border-border/30 pt-3">
+                                    <div class="text-xs text-text-muted mb-2">EXTRACTION DIFFICULTY:</div>
+                                    <div class="difficulty-rings flex gap-2">
+                                        <div class="ring h1 bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">H1: Field-Grade</div>
+                                        <div class="ring h2 bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs">H2: Splice-Grade</div>
+                                        <div class="ring h3 bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs">H3: One-Life</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="region-card metro">
-                        <div class="region-header">
-                            <h3>Metro System</h3>
-                            <span class="danger-level variable">Variable Control</span>
+                    <!-- REG_METRO_A - Sump Gardens -->
+                    <div class="territory-card reg-metro interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow transition-all duration-500" data-region="metro">
+                        <div class="territory-status absolute top-4 right-4 z-10">
+                            <div class="status-indicator bg-green-500/20 border border-green-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span class="text-green-400 text-xs font-mono font-semibold">NEUTRAL GROUND</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="region-image">
-                            <img src="/assets/images/environments/metro-corridor-premium.png" alt="Metro Corridor" loading="lazy">
+                        
+                        <div class="territory-header p-6 pb-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-2xl font-display font-bold text-primary">REG_METRO_A</h3>
+                                <span class="tech-tier-indicator tech-tier-field">STRATEGIC</span>
+                            </div>
+                            <h4 class="text-lg font-interface text-text-secondary mb-2">Sump Gardens</h4>
+                            <p class="text-sm text-text-muted font-mono">Subterranean Metro System • -500m depth</p>
                         </div>
-                        <div class="region-content">
-                            <p>Underground transit networks that still function. Faction control shifts daily. The safest routes for extraction—if you know who controls them.</p>
-                            <div class="region-details">
-                                <span class="detail-tag">Transit Network</span>
-                                <span class="detail-tag">Dynamic Control</span>
-                                <span class="detail-tag">Safe Passage</span>
+                        
+                        <div class="territory-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src="/assets/images/environments/metro-corridor-premium.png" 
+                                alt="Sump Gardens Metro - Opulent underground transit hub with premium finishes" 
+                                loading="lazy" 
+                                decoding="async"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                onerror="this.src='/assets/images/environments/research-lab-clean.png'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-2 right-2">
+                                <div class="faction-control-bar bg-bg-secondary/80 backdrop-blur-sm rounded p-2">
+                                    <div class="text-xs text-text-muted mb-1">Territorial Control:</div>
+                                    <div class="control-segments flex gap-1">
+                                        <div class="faction-trw w-6 h-2 bg-green-600 rounded-sm" title="Truce Wardens - Primary Control"></div>
+                                        <div class="faction-dir w-3 h-2 bg-blue-600 rounded-sm" title="Sky Bastion Directorate - Platform Alpha"></div>
+                                        <div class="faction-f77 w-2 h-2 bg-red-600 rounded-sm" title="Free77 - Platform Beta"></div>
+                                        <div class="neutral flex-1 h-2 bg-gray-600 rounded-sm" title="Neutral Transit Zones"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="territory-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">Underground neutral ground with hydro beds under grow-lamps creating humid, garden-like atmosphere. Truce Wardens enforce toll-based passage through multiple transit lines connecting all major regions.</p>
+                            
+                            <div class="territory-details space-y-3">
+                                <div class="features flex flex-wrap gap-2 mb-3">
+                                    <span class="detail-tag bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-semibold">Safe Transit</span>
+                                    <span class="detail-tag bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">Extraction Points</span>
+                                    <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-xs font-semibold">Hydro Gardens</span>
+                                </div>
+                                
+                                <div class="transit-info border-t border-border/30 pt-3">
+                                    <div class="text-xs text-text-muted mb-2">TRANSIT LINES:</div>
+                                    <div class="transit-connections text-xs text-text-secondary">
+                                        <div>• Platform Alpha → Corporate Districts</div>
+                                        <div>• Platform Beta → Resistance Networks</div>
+                                        <div>• Central Hub → All Major Regions</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="region-card machine-grave">
-                        <div class="region-header">
-                            <h3>Machine Grave</h3>
-                            <span class="danger-level contested">Contested</span>
+                    <!-- REG_TECH_WASTES - Machine Grave -->
+                    <div class="territory-card reg-tech-wastes interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow transition-all duration-500" data-region="tech-wastes">
+                        <div class="territory-status absolute top-4 right-4 z-10">
+                            <div class="status-indicator bg-yellow-500/20 border border-yellow-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                                    <span class="text-yellow-400 text-xs font-mono font-semibold">CONTESTED</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="region-image">
-                            <img src="/assets/images/environments/research-lab-clean.png" alt="Machine Grave" loading="lazy">
+                        
+                        <div class="territory-header p-6 pb-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-2xl font-display font-bold text-primary">REG_TECH_WASTES</h3>
+                                <span class="tech-tier-indicator tech-tier-splice">TECHNOLOGY</span>
+                            </div>
+                            <h4 class="text-lg font-interface text-text-secondary mb-2">Machine Grave</h4>
+                            <p class="text-sm text-text-muted font-mono">De-Industrial Belt • Hybrid Tech Development</p>
                         </div>
-                        <div class="region-content">
-                            <p>Semi-autonomous factories that still produce. Controlled jointly by Corporate Hegemony and Archive Keepers, these industrial complexes are vital to post-Cascade survival.</p>
-                            <div class="region-details">
-                                <span class="detail-tag">Industrial</span>
-                                <span class="detail-tag">Factory Control</span>
-                                <span class="detail-tag">Production</span>
+                        
+                        <div class="territory-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src="/assets/images/environments/research-lab-clean.png" 
+                                alt="Machine Grave Tech Wastes - Advanced research facility with clean laboratory environment" 
+                                loading="lazy" 
+                                decoding="async"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                onerror="this.src='/assets/images/environments/tech-wastes-gritty.png'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-2 right-2">
+                                <div class="faction-control-bar bg-bg-secondary/80 backdrop-blur-sm rounded p-2">
+                                    <div class="text-xs text-text-muted mb-1">Territorial Control:</div>
+                                    <div class="control-segments flex gap-1">
+                                        <div class="faction-tvc w-5 h-2 bg-purple-600 rounded-sm" title="Trivector Combine - Industrial Control"></div>
+                                        <div class="faction-oba w-4 h-2 bg-teal-600 rounded-sm" title="Obsidian Archive - Research Facilities"></div>
+                                        <div class="contested flex-1 h-2 bg-orange-600/70 rounded-sm" title="Contested Manufacturing Zones"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="territory-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">Semi-autonomous factories stutter to life with scavenged power. Toxic fog and electronic interference create hazardous conditions while Trivector Combine and Obsidian Archive contest control of hybrid technology development.</p>
+                            
+                            <div class="territory-details space-y-3">
+                                <div class="hazards flex flex-wrap gap-2 mb-3">
+                                    <span class="detail-tag bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs font-semibold">EMP Interference</span>
+                                    <span class="detail-tag bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-semibold">Toxic Fog</span>
+                                    <span class="detail-tag bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs font-semibold">Factory Hazards</span>
+                                </div>
+                                
+                                <div class="production-info border-t border-border/30 pt-3">
+                                    <div class="text-xs text-text-muted mb-2">INDUSTRIAL ASSETS:</div>
+                                    <div class="production-facilities text-xs text-text-secondary">
+                                        <div>• Automated Manufacturing Lines</div>
+                                        <div>• Hybrid Tech Development Labs</div>
+                                        <div>• Salvage Processing Facilities</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="region-card tech-wastes">
-                        <div class="region-header">
-                            <h3>Tech Wastes</h3>
-                            <span class="danger-level scavenger">Scavenger Territory</span>
+                    <!-- REG_CRIMSON_DOCKS - Crimson Freeport -->
+                    <div class="territory-card reg-crimson-docks interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow transition-all duration-500" data-region="crimson-docks">
+                        <div class="territory-status absolute top-4 right-4 z-10">
+                            <div class="status-indicator bg-orange-500/20 border border-orange-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                                    <span class="text-orange-400 text-xs font-mono font-semibold">UNION CONTROL</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="region-image">
-                            <img src="/assets/images/environments/tech-wastes-gritty.png" alt="Tech Wastes" loading="lazy">
+                        
+                        <div class="territory-header p-6 pb-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-2xl font-display font-bold text-primary">REG_CRIMSON_DOCKS</h3>
+                                <span class="tech-tier-indicator tech-tier-field">ECONOMIC</span>
+                            </div>
+                            <h4 class="text-lg font-interface text-text-secondary mb-2">Crimson Freeport</h4>
+                            <p class="text-sm text-text-muted font-mono">Salvage Exchange • Market Hub</p>
                         </div>
-                        <div class="region-content">
-                            <p>Post-industrial wasteland where technology goes to die—and be reborn. Iron Scavengers rule here, salvaging Harvester technology for those who can pay.</p>
-                            <div class="region-details">
-                                <span class="detail-tag">Salvage Zone</span>
-                                <span class="detail-tag">Artifact Trade</span>
-                                <span class="detail-tag">Iron Scavenger Control</span>
+                        
+                        <div class="territory-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src="/assets/images/environments/tech-wastes-gritty.png" 
+                                alt="Crimson Freeport Docks - Industrial port facility with weathered gritty aesthetic" 
+                                loading="lazy" 
+                                decoding="async"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                onerror="this.src='/assets/images/environments/underground-bunker-gritty.png'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-2 right-2">
+                                <div class="faction-control-bar bg-bg-secondary/80 backdrop-blur-sm rounded p-2">
+                                    <div class="text-xs text-text-muted mb-1">Territorial Control:</div>
+                                    <div class="control-segments flex gap-1">
+                                        <div class="faction-irv w-8 h-2 bg-red-800 rounded-sm" title="Iron Vultures Union - Primary Control"></div>
+                                        <div class="neutral w-2 h-2 bg-gray-600 rounded-sm" title="Neutral Trading Zones"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="territory-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">Red-stained quays serve as both market and battleground. Iron Vultures Union controls salvage exchange, arbitration services, and refit yards. Rigged auctions and drone hives operate beneath the slipways.</p>
+                            
+                            <div class="territory-details space-y-3">
+                                <div class="features flex flex-wrap gap-2 mb-3">
+                                    <span class="detail-tag bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-semibold">Salvage Trading</span>
+                                    <span class="detail-tag bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs font-semibold">Arbitration</span>
+                                    <span class="detail-tag bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs font-semibold">Refit Yards</span>
+                                </div>
+                                
+                                <div class="market-info border-t border-border/30 pt-3">
+                                    <div class="text-xs text-text-muted mb-2">MARKET FACILITIES:</div>
+                                    <div class="market-locations text-xs text-text-secondary">
+                                        <div>• Union Market Quays - Primary Exchange</div>
+                                        <div>• Slipway Twelve - Drone Operations</div>
+                                        <div>• Arbitration Centers - Dispute Resolution</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="region-card underground">
-                        <div class="region-header">
-                            <h3>Sump Gardens</h3>
-                            <span class="danger-level safe">Civilian Safe Zone</span>
+                    <!-- REG_SKY_BASTION - North Bastion -->
+                    <div class="territory-card reg-sky-bastion interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow transition-all duration-500" data-region="sky-bastion">
+                        <div class="territory-status absolute top-4 right-4 z-10">
+                            <div class="status-indicator bg-blue-500/20 border border-blue-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                                    <span class="text-blue-400 text-xs font-mono font-semibold">DIRECTORATE</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="region-image">
-                            <img src="/assets/images/environments/underground-bunker-gritty.png" alt="Underground Bunker" loading="lazy">
+                        
+                        <div class="territory-header p-6 pb-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-2xl font-display font-bold text-primary">REG_SKY_BASTION</h3>
+                                <span class="tech-tier-indicator tech-tier-field">STRATEGIC</span>
+                            </div>
+                            <h4 class="text-lg font-interface text-text-secondary mb-2">North Bastion</h4>
+                            <p class="text-sm text-text-muted font-mono">Mountain Stronghold • Air Traffic Control</p>
                         </div>
-                        <div class="region-content">
-                            <p>Underground civilian settlements protected by the Civic Wardens. The closest thing to safety in the Terminal Grounds.</p>
-                            <div class="region-details">
-                                <span class="detail-tag">Civilian Protection</span>
-                                <span class="detail-tag">Civic Warden Control</span>
-                                <span class="detail-tag">Safe Haven</span>
+                        
+                        <div class="territory-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src="/assets/images/environments/security-checkpoint-clean.png" 
+                                alt="Sky Bastion Fortress - Military security checkpoint with clean authoritative design" 
+                                loading="lazy" 
+                                decoding="async"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                onerror="this.src='/assets/images/environments/metro-corridor-premium.png'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-2 right-2">
+                                <div class="faction-control-bar bg-bg-secondary/80 backdrop-blur-sm rounded p-2">
+                                    <div class="text-xs text-text-muted mb-1">Territorial Control:</div>
+                                    <div class="control-segments flex gap-1">
+                                        <div class="faction-dir w-10 h-2 bg-blue-600 rounded-sm" title="Sky Bastion Directorate - Total Control"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="territory-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">High-altitude fortress with reinforced hangars and long-range communications arrays. Sky Bastion Directorate maintains air corridor control, strategic command, and manages plane tunnel access to new regions.</p>
+                            
+                            <div class="territory-details space-y-3">
+                                <div class="features flex flex-wrap gap-2 mb-3">
+                                    <span class="detail-tag bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">Air Control</span>
+                                    <span class="detail-tag bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-semibold">Communications</span>
+                                    <span class="detail-tag bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs font-semibold">Artillery</span>
+                                </div>
+                                
+                                <div class="military-info border-t border-border/30 pt-3">
+                                    <div class="text-xs text-text-muted mb-2">MILITARY ASSETS:</div>
+                                    <div class="military-facilities text-xs text-text-secondary">
+                                        <div>• Aerostat Docks - Aircraft Operations</div>
+                                        <div>• Long-Range Comms - Tactical Coordination</div>
+                                        <div>• Anti-Drone Nets - Perimeter Defense</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="region-card security">
-                        <div class="region-header">
-                            <h3>Security Checkpoints</h3>
-                            <span class="danger-level directorate">Directorate Control</span>
+                    <!-- REG_BLACK_VAULT - Deep Vault -->
+                    <div class="territory-card reg-black-vault interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow transition-all duration-500" data-region="black-vault">
+                        <div class="territory-status absolute top-4 right-4 z-10">
+                            <div class="status-indicator bg-teal-500/20 border border-teal-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></div>
+                                    <span class="text-teal-400 text-xs font-mono font-semibold">CLASSIFIED</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="region-image">
-                            <img src="/assets/images/environments/security-checkpoint-clean.png" alt="Security Checkpoint" loading="lazy">
+                        
+                        <div class="territory-header p-6 pb-4">
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-2xl font-display font-bold text-primary">REG_BLACK_VAULT</h3>
+                                <span class="tech-tier-indicator tech-tier-monolith">RESEARCH</span>
+                            </div>
+                            <h4 class="text-lg font-interface text-text-secondary mb-2">The Deep Vault</h4>
+                            <p class="text-sm text-text-muted font-mono">Subterranean Complex • Pre-Harvester Origin</p>
                         </div>
-                        <div class="region-content">
-                            <p>Military installation checkpoints controlled by the Sky Bastion Directorate. Order through discipline.</p>
-                            <div class="region-details">
-                                <span class="detail-tag">Military Control</span>
-                                <span class="detail-tag">Order</span>
-                                <span class="detail-tag">Directorate Territory</span>
+                        
+                        <div class="territory-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src="/assets/images/environments/underground-bunker-gritty.png" 
+                                alt="Black Vault Deep Complex - Underground bunker with weathered industrial atmosphere" 
+                                loading="lazy" 
+                                decoding="async"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                onerror="this.src='/assets/images/environments/iez-facility-clean.png'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2 left-2 right-2">
+                                <div class="faction-control-bar bg-bg-secondary/80 backdrop-blur-sm rounded p-2">
+                                    <div class="text-xs text-text-muted mb-1">Territorial Control:</div>
+                                    <div class="control-segments flex gap-1">
+                                        <div class="faction-oba w-10 h-2 bg-teal-600 rounded-sm" title="Obsidian Archive - Research Control"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="territory-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">Subterranean complex of unknown origin, rumored to predate the Harvesters. Emits intermittent prime harmonics through sealed iris doors. Light bends wrong in the deeper chambers under Obsidian Archive control.</p>
+                            
+                            <div class="territory-details space-y-3">
+                                <div class="anomalies flex flex-wrap gap-2 mb-3">
+                                    <span class="detail-tag bg-teal-500/20 text-teal-400 px-2 py-1 rounded text-xs font-semibold">Prime Harmonics</span>
+                                    <span class="detail-tag bg-purple-500/20 text-purple-400 px-2 py-1 rounded text-xs font-semibold">Optical Distortion</span>
+                                    <span class="detail-tag bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-semibold">Pre-Harvester Tech</span>
+                                </div>
+                                
+                                <div class="research-info border-t border-border/30 pt-3">
+                                    <div class="text-xs text-text-muted mb-2">RESEARCH FACILITIES:</div>
+                                    <div class="research-capabilities text-xs text-text-secondary">
+                                        <div>• Artifact Containment Systems</div>
+                                        <div>• Harmonic Analysis Labs</div>
+                                        <div>• Ancient Technology Studies</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wasteland Crossroads - Multi-Faction Competition Zone -->
+                <div class="wasteland-crossroads-section mt-16">
+                    <h3 class="holographic-text text-3xl font-display font-bold text-center mb-8">Contested Zones</h3>
+                    <div class="crossroads-card glass-morphism-advanced p-8 relative overflow-hidden">
+                        <div class="absolute top-4 right-4">
+                            <div class="status-indicator bg-red-500/20 border border-red-500/50 px-3 py-1 rounded-full backdrop-blur-md">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                    <span class="text-red-400 text-xs font-mono font-semibold">ALL FACTIONS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="crossroads-header mb-6">
+                            <h4 class="text-2xl font-display font-bold text-primary mb-2">Wasteland Crossroads</h4>
+                            <p class="text-lg text-text-secondary">800m radius multi-faction competition zone</p>
+                        </div>
+                        
+                        <div class="crossroads-content grid md:grid-cols-2 gap-8">
+                            <div class="crossroads-info">
+                                <p class="text-text-secondary leading-relaxed mb-4">Massive wasteland where all seven factions compete for salvage and territorial control. Strategic value: Maximum. Resource type: Salvage. The most dangerous and rewarding extraction zone in the IEZ.</p>
+                                
+                                <div class="faction-presence grid grid-cols-2 gap-2">
+                                    <div class="faction-presence-item bg-blue-600/10 border border-blue-600/30 p-2 rounded text-xs">
+                                        <span class="text-blue-400 font-semibold">Directorate Outpost</span>
+                                        <div class="text-text-muted">Forward Base</div>
+                                    </div>
+                                    <div class="faction-presence-item bg-red-600/10 border border-red-600/30 p-2 rounded text-xs">
+                                        <span class="text-red-400 font-semibold">Free77 Camp</span>
+                                        <div class="text-text-muted">Resistance Hub</div>
+                                    </div>
+                                    <div class="faction-presence-item bg-orange-600/10 border border-orange-600/30 p-2 rounded text-xs">
+                                        <span class="text-orange-400 font-semibold">Roadborn Territory</span>
+                                        <div class="text-text-muted">Mobile Base</div>
+                                    </div>
+                                    <div class="faction-presence-item bg-green-600/10 border border-green-600/30 p-2 rounded text-xs">
+                                        <span class="text-green-400 font-semibold">Truce Refuge</span>
+                                        <div class="text-text-muted">Neutral Zone</div>
+                                    </div>
+                                    <div class="faction-presence-item bg-red-800/10 border border-red-800/30 p-2 rounded text-xs">
+                                        <span class="text-red-300 font-semibold">Vultures Scrapyard</span>
+                                        <div class="text-text-muted">Processing Hub</div>
+                                    </div>
+                                    <div class="faction-presence-item bg-teal-600/10 border border-teal-600/30 p-2 rounded text-xs">
+                                        <span class="text-teal-400 font-semibold">Archive Vault</span>
+                                        <div class="text-text-muted">Underground</div>
+                                    </div>
+                                    <div class="faction-presence-item bg-purple-600/10 border border-purple-600/30 p-2 rounded text-xs col-span-2">
+                                        <span class="text-purple-400 font-semibold">Trivector Complex</span>
+                                        <div class="text-text-muted">Industrial Processing</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="crossroads-hazards">
+                                <h5 class="text-lg font-interface font-semibold text-primary mb-3">Active Hazards</h5>
+                                <div class="hazards-list space-y-2">
+                                    <div class="hazard-item flex items-center gap-3 p-2 bg-red-500/10 rounded">
+                                        <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Constant Faction Warfare</span>
+                                    </div>
+                                    <div class="hazard-item flex items-center gap-3 p-2 bg-yellow-500/10 rounded">
+                                        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Shifting Territorial Boundaries</span>
+                                    </div>
+                                    <div class="hazard-item flex items-center gap-3 p-2 bg-orange-500/10 rounded">
+                                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Maximum Salvage Competition</span>
+                                    </div>
+                                    <div class="hazard-item flex items-center gap-3 p-2 bg-purple-500/10 rounded">
+                                        <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Automated Defense Systems</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,25 +532,194 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </section>
 
-        <section class="region-mechanics">
+        <!-- Territorial Control System -->
+        <section class="territorial-mechanics py-20 relative">
             <div class="container">
-                <h2 class="section-title">Regional Mechanics</h2>
+                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Territorial Control System</h2>
                 
-                <div class="mechanics-grid">
-                    <div class="mechanic-card">
-                        <h3>Dynamic Control</h3>
-                        <p>Faction control of regions shifts based on territorial warfare outcomes. Yesterday's safe passage may be today's battleground.</p>
+                <div class="mechanics-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="mechanic-card glass-morphism-advanced p-6 hover:shadow-glow transition-all duration-300">
+                        <div class="mechanic-icon text-3xl text-primary mb-4">⚔️</div>
+                        <h3 class="text-xl font-display font-bold text-primary mb-3">Dynamic Boundaries</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4">Faction territorial control shifts based on warfare outcomes, resource acquisition, and strategic alliances. Real-time boundary changes affect extraction routes.</p>
+                        <div class="control-levels text-xs text-text-muted">
+                            <div class="mb-1">• <span class="text-green-400">Regions</span>: Strategic scale (5-10 km²)</div>
+                            <div class="mb-1">• <span class="text-yellow-400">Districts</span>: Operational scale (500-1000m)</div>
+                            <div>• <span class="text-red-400">Points</span>: Tactical scale (50-200m)</div>
+                        </div>
                     </div>
-                    <div class="mechanic-card">
-                        <h3>Extraction Routes</h3>
-                        <p>Each region offers different extraction opportunities and challenges. Risk scales with potential rewards.</p>
+                    
+                    <div class="mechanic-card glass-morphism-advanced p-6 hover:shadow-glow transition-all duration-300">
+                        <div class="mechanic-icon text-3xl text-secondary mb-4">🛡️</div>
+                        <h3 class="text-xl font-display font-bold text-secondary mb-3">Extraction Corridors</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4">Each region offers unique extraction opportunities with varying risk-reward ratios. Safe passage requires understanding current faction relations.</p>
+                        <div class="extraction-types text-xs text-text-muted">
+                            <div class="mb-1">• <span class="text-blue-400">Metro Transit</span>: Neutral ground tolls</div>
+                            <div class="mb-1">• <span class="text-orange-400">Convoy Routes</span>: Mobile protection</div>
+                            <div>• <span class="text-purple-400">Stealth Paths</span>: High-risk solo routes</div>
+                        </div>
                     </div>
-                    <div class="mechanic-card">
-                        <h3>Environmental Hazards</h3>
-                        <p>Cascade effects create unique hazards in each region, from reality distortions to automated defenses.</p>
+                    
+                    <div class="mechanic-card glass-morphism-advanced p-6 hover:shadow-glow transition-all duration-300">
+                        <div class="mechanic-icon text-3xl text-accent-purple mb-4">☢️</div>
+                        <h3 class="text-xl font-display font-bold text-accent-purple mb-3">Environmental Systems</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4">Monolith Cascade effects create region-specific hazards and anomalies. Environmental conditions shift extraction strategies and survival requirements.</p>
+                        <div class="environmental-effects text-xs text-text-muted">
+                            <div class="mb-1">• <span class="text-red-400">Phase Distortions</span>: Reality instability</div>
+                            <div class="mb-1">• <span class="text-yellow-400">EMP Bursts</span>: Electronic interference</div>
+                            <div>• <span class="text-teal-400">Harmonic Fields</span>: Alien technology</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mechanic-card glass-morphism-advanced p-6 hover:shadow-glow transition-all duration-300">
+                        <div class="mechanic-icon text-3xl text-accent-cyan mb-4">🏭</div>
+                        <h3 class="text-xl font-display font-bold text-accent-cyan mb-3">Resource Distribution</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4">Strategic resources cluster in faction-controlled zones. Economic, technological, and strategic assets drive territorial competition.</p>
+                        <div class="resource-types text-xs text-text-muted">
+                            <div class="mb-1">• <span class="text-green-400">Economic</span>: IEZ, Crimson Freeport</div>
+                            <div class="mb-1">• <span class="text-purple-400">Technology</span>: Machine Grave, Black Vault</div>
+                            <div>• <span class="text-blue-400">Strategic</span>: Metro Junction, Sky Bastion</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mechanic-card glass-morphism-advanced p-6 hover:shadow-glow transition-all duration-300">
+                        <div class="mechanic-icon text-3xl text-accent-orange mb-4">🤝</div>
+                        <h3 class="text-xl font-display font-bold text-accent-orange mb-3">Faction Interactions</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4">Complex faction relationships affect territorial access. Reputation systems determine safe passage, trading rights, and extraction support.</p>
+                        <div class="faction-mechanics text-xs text-text-muted">
+                            <div class="mb-1">• <span class="text-green-400">Allied</span>: Safe passage guaranteed</div>
+                            <div class="mb-1">• <span class="text-yellow-400">Neutral</span>: Toll-based access</div>
+                            <div>• <span class="text-red-400">Hostile</span>: Shoot-on-sight zones</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mechanic-card glass-morphism-advanced p-6 hover:shadow-glow transition-all duration-300">
+                        <div class="mechanic-icon text-3xl text-bloom-warning mb-4">🎯</div>
+                        <h3 class="text-xl font-display font-bold text-bloom-warning mb-3">Strategic Priority</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4">Regions have varying strategic importance affecting faction investment, defenses, and territorial persistence during conflicts.</p>
+                        <div class="priority-levels text-xs text-text-muted">
+                            <div class="mb-1">• <span class="text-red-400">Critical (90-100)</span>: Maximum defense</div>
+                            <div class="mb-1">• <span class="text-yellow-400">High (75-89)</span>: Heavy fortification</div>
+                            <div>• <span class="text-green-400">Standard (60-74)</span>: Normal patrols</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Territorial Legend -->
+                <div class="territorial-legend mt-16 glass-morphism-advanced p-8">
+                    <h3 class="text-2xl font-display font-bold text-center text-primary mb-8">Faction Territory Legend</h3>
+                    <div class="legend-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                        <div class="legend-item text-center p-3 border border-blue-600/30 rounded bg-blue-600/10">
+                            <div class="legend-color w-6 h-6 bg-blue-600 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-blue-400 font-semibold">Sky Bastion</div>
+                            <div class="text-xs text-text-muted">Directorate</div>
+                        </div>
+                        <div class="legend-item text-center p-3 border border-red-600/30 rounded bg-red-600/10">
+                            <div class="legend-color w-6 h-6 bg-red-600 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-red-400 font-semibold">The Seventy</div>
+                            <div class="text-xs text-text-muted">Seven (F77)</div>
+                        </div>
+                        <div class="legend-item text-center p-3 border border-green-600/30 rounded bg-green-600/10">
+                            <div class="legend-color w-6 h-6 bg-green-600 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-green-400 font-semibold">Truce</div>
+                            <div class="text-xs text-text-muted">Wardens</div>
+                        </div>
+                        <div class="legend-item text-center p-3 border border-orange-600/30 rounded bg-orange-600/10">
+                            <div class="legend-color w-6 h-6 bg-orange-600 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-orange-400 font-semibold">Roadborn</div>
+                            <div class="text-xs text-text-muted">Clans</div>
+                        </div>
+                        <div class="legend-item text-center p-3 border border-red-800/30 rounded bg-red-800/10">
+                            <div class="legend-color w-6 h-6 bg-red-800 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-red-300 font-semibold">Iron</div>
+                            <div class="text-xs text-text-muted">Vultures</div>
+                        </div>
+                        <div class="legend-item text-center p-3 border border-purple-600/30 rounded bg-purple-600/10">
+                            <div class="legend-color w-6 h-6 bg-purple-600 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-purple-400 font-semibold">Trivector</div>
+                            <div class="text-xs text-text-muted">Combine</div>
+                        </div>
+                        <div class="legend-item text-center p-3 border border-teal-600/30 rounded bg-teal-600/10">
+                            <div class="legend-color w-6 h-6 bg-teal-600 rounded mx-auto mb-2"></div>
+                            <div class="text-xs text-teal-400 font-semibold">Obsidian</div>
+                            <div class="text-xs text-text-muted">Archive</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 </BaseLayout>
+
+<style>
+    /* Custom animations for territories page */
+    @keyframes fade-up {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-fade-up {
+        opacity: 0;
+        animation: fade-up 0.8s ease-out forwards;
+    }
+    
+    /* Territory card hover effects */
+    .territory-card:hover {
+        transform: translateY(-8px);
+    }
+    
+    .territory-card:hover .territory-image img {
+        transform: scale(1.05);
+    }
+    
+    /* Faction control bar animations */
+    .control-segments > div {
+        animation: expand-segment 1s ease-out forwards;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    
+    @keyframes expand-segment {
+        to {
+            transform: scaleX(1);
+        }
+    }
+    
+    /* Status indicator pulse */
+    .status-indicator .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .territories-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .territory-header h3 {
+            font-size: 1.25rem;
+        }
+        
+        .crossroads-content {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .territory-card {
+            border: 2px solid currentColor;
+        }
+        
+        .status-indicator {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid currentColor;
+        }
+    }
+</style>

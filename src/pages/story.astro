@@ -3,268 +3,1175 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-    title="Story & Lore - Bloom | The IEZ Cascade and Seven Factions" 
-    description="Discover the rich lore of Bloom: the IEZ Cascade that fractured reality, Harvester alien technology, and seven factions fighting for survival in the quarantined city of 2161."
-    keywords="Bloom story, IEZ Cascade, Harvester aliens, faction lore, quarantined city, Terminal Grounds lore, science fiction story, extraction FPS lore"
-    ogImage="/assets/images/renders/hero-iez.png"
-    type="article">
-    
-    <main class="story-page">
-        <section class="hero-story quantum-grid py-24 relative overflow-hidden">
-            <div class="container relative z-10">
-                <div class="story-header text-center max-w-4xl mx-auto">
-                    <h1 class="holographic-text text-6xl md:text-8xl font-display font-black mb-6">The World of Bloom</h1>
-                    <p class="story-subtitle text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">Six months after the IEZ Cascade, survival depends on more than just skill</p>
-                    <div class="timeline-marker glass-morphism-advanced inline-flex items-center gap-4 px-8 py-4 rounded-xl">
-                        <span class="year text-4xl font-display font-black text-primary">2161</span>
-                        <div class="w-px h-8 bg-border"></div>
-                        <span class="event text-text-muted uppercase tracking-wider">Post-Cascade Era</span>
-                    </div>
-                </div>
+  title="The Cascade Chronicles - Terminal Grounds Lore | Bloom"
+  description="Explore the complete timeline of the IEZ Cascade event, Season 1 story arcs, and the seven factions competing for survival in the post-Cascade world of Terminal Grounds."
+  canonical="/story"
+>
+  <!-- ==================== STORY HERO SECTION ==================== -->
+  <section class="story-hero section-cascade">
+    <div class="container">
+      <div class="hero-content text-center">
+        <!-- Classification Header -->
+        <div class="classification-header mb-8">
+          <div class="status-badge mb-4">
+            <div class="status-indicator"></div>
+            <span class="font-mono text-sm">CLASSIFIED: TERMINAL GROUNDS ARCHIVE</span>
+          </div>
+          <div class="coherence-status flex justify-center items-center gap-4 text-sm">
+            <span class="font-mono text-muted">Memory Coherence:</span>
+            <div class="coherence-band coherence-c3">C3 - PERFECT</div>
+            <span class="font-mono text-muted">Access Level: CLEARED</span>
+          </div>
+        </div>
+        
+        <h1 class="display-heading mb-6">
+          The Cascade Chronicles
+          <span class="block text-2xl font-normal">Six Months After Reality Fractured</span>
+        </h1>
+        
+        <p class="body-text text-xl max-w-3xl mx-auto mb-12">
+          Deep archive access to the complete Terminal Grounds historical record, from First Contact through 
+          the Cascade Event to the current Memory Wars. Navigate 14 years of faction conflicts, alien 
+          encounters, and the birth of the Interdiction Exclusion Zone.
+        </p>
+        
+        <!-- Navigation Overview -->
+        <div class="archive-sections grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div class="archive-section card text-center cursor-pointer" data-tab="timeline">
+            <div class="section-icon mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="mx-auto text-accent">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
             </div>
-        </section>
-
-        <section class="story-overview py-20">
-            <div class="container">
-                <div class="story-grid grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="story-content glass-morphism-advanced p-8">
-                        <h2 class="text-4xl font-display font-bold text-primary mb-6">The Cascade Event</h2>
-                        <p class="text-lg text-text-secondary leading-relaxed mb-6">In 2161, the world changed forever. The <strong class="text-accent-cyan">IEZ Cascade</strong> created a 200-kilometer radius interdiction zone—a quarantined city-zone now known as <strong class="text-primary">Bloom</strong>. What was once civilization became a contested wasteland, reshaped by alien technology and the remnants of the mysterious <strong class="text-secondary">Harvesters</strong>.</p>
-                        
-                        <p class="text-lg text-text-secondary leading-relaxed">The Harvesters, absent alien extractors, left behind wreckage that defies understanding: <strong class="text-accent-cyan">Skimmer-class</strong> survey arrays, weaponized <strong class="text-secondary">Harrower-class</strong> systems, and reality-bending <strong class="text-accent-purple">Monolith-class</strong> field manipulators. These artifacts don't just power technology—they reshape the very nature of reality within Bloom.</p>
-                    </div>
-                    <div class="story-visual">
-                        <div class="cascade-diagram relative w-80 h-80 mx-auto">
-                            <div class="cascade-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-bg-primary font-bold text-sm animate-pulse">IEZ Core</div>
-                            <div class="cascade-ring ring-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-secondary rounded-full flex items-center justify-center text-secondary text-xs font-semibold">Inner Quarantine</div>
-                            <div class="cascade-ring ring-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-accent-cyan/50 rounded-full flex items-center justify-center text-accent-cyan text-xs font-semibold">Contested Zone</div>
-                            <div class="cascade-ring ring-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-border/30 rounded-full flex items-center justify-center text-text-muted text-xs">200km Perimeter</div>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="interface-heading text-sm font-semibold mb-2">Historical Timeline</h3>
+            <p class="font-mono text-xs text-muted">2147-2161</p>
+          </div>
+          <div class="archive-section card text-center cursor-pointer" data-tab="season1">
+            <div class="section-icon mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="mx-auto text-warning">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
             </div>
-        </section>
-
-        <section class="regions-section py-20 bg-bg-secondary/30">
-            <div class="container">
-                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Key Regions</h2>
-                <div class="regions-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
-                        <div class="region-header flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-display font-bold text-primary">The Dead Sky (IEZ)</h3>
-                            <span class="danger-level high bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold">High Risk</span>
-                        </div>
-                        <p class="text-text-secondary leading-relaxed mb-4">The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
-                        <div class="region-details flex flex-wrap gap-2">
-                            <span class="detail-tag bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-xs font-semibold">Monolith Phenomena</span>
-                            <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Reality Distortion</span>
-                        </div>
-                    </div>
-
-                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
-                        <div class="region-header flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-display font-bold text-primary">Machine Grave</h3>
-                            <span class="danger-level medium bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-semibold">Contested</span>
-                        </div>
-                        <p class="text-text-secondary leading-relaxed mb-4">Semi-autonomous factories that still produce. Controlled jointly by Corporate Hegemony and Archive Keepers, these industrial complexes are vital to post-Cascade survival.</p>
-                        <div class="region-details flex flex-wrap gap-2">
-                            <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-3 py-1 rounded-full text-xs font-semibold">Industrial</span>
-                            <span class="detail-tag bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-semibold">Factory Control</span>
-                        </div>
-                    </div>
-
-                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
-                        <div class="region-header flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-display font-bold text-primary">Metro System</h3>
-                            <span class="danger-level low bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">Variable</span>
-                        </div>
-                        <p class="text-text-secondary leading-relaxed mb-4">Underground transit networks that still function. Faction control shifts daily. The safest routes for extraction—if you know who controls them.</p>
-                        <div class="region-details flex flex-wrap gap-2">
-                            <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Transit Network</span>
-                            <span class="detail-tag bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-xs font-semibold">Dynamic Control</span>
-                        </div>
-                    </div>
-
-                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
-                        <div class="region-header flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-display font-bold text-primary">Tech Wastes</h3>
-                            <span class="danger-level medium bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-semibold">Scavenger Territory</span>
-                        </div>
-                        <p class="text-text-secondary leading-relaxed mb-4">Post-industrial wasteland where technology goes to die—and be reborn. Iron Scavengers rule here, salvaging Harvester technology for those who can pay.</p>
-                        <div class="region-details flex flex-wrap gap-2">
-                            <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Salvage Zone</span>
-                            <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-3 py-1 rounded-full text-xs font-semibold">Artifact Trade</span>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="interface-heading text-sm font-semibold mb-2">Season 1: Memory Wars</h3>
+            <p class="font-mono text-xs text-muted">Current Ops</p>
+          </div>
+          <div class="archive-section card text-center cursor-pointer" data-tab="characters">
+            <div class="section-icon mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="mx-auto text-success">
+                <path d="M16 7c0-2.21-1.79-4-4-4S8 4.79 8 7s1.79 4 4 4 4-1.79 4-4zM12 14c-3.31 0-6 2.69-6 6h12c0-3.31-2.69-6-6-6z"/>
+              </svg>
             </div>
-        </section>
-
-        <section class="artifacts-section py-20">
-            <div class="container">
-                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-6">Harvester Artifacts</h2>
-                <p class="section-intro text-xl text-text-secondary text-center max-w-3xl mx-auto mb-16 leading-relaxed">The absent Harvesters left behind technology that defies human understanding. Each class represents different levels of power—and danger.</p>
-                
-                <div class="artifacts-hierarchy grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="artifact-tier field interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
-                        <h3 class="text-2xl font-display font-bold text-primary mb-4">Field-Class</h3>
-                        <div class="artifact-icon text-6xl text-primary mb-6">◇</div>
-                        <p class="text-text-secondary leading-relaxed mb-6">Basic Harvester technology. Powers weapons, shields, and basic equipment. Relatively stable, widely traded.</p>
-                        <div class="artifact-examples flex flex-wrap gap-2 justify-center">
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Energy Cells</span>
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Shield Modules</span>
-                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Power Cores</span>
-                        </div>
-                    </div>
-                    
-                    <div class="artifact-tier splice interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
-                        <h3 class="text-2xl font-display font-bold text-secondary mb-4">Splice-Class</h3>
-                        <div class="artifact-icon text-6xl text-secondary mb-6">◈</div>
-                        <p class="text-text-secondary leading-relaxed mb-6">Intermediate technology that interfaces with human systems. Unpredictable side effects. High reward, high risk.</p>
-                        <div class="artifact-examples flex flex-wrap gap-2 justify-center">
-                            <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-semibold">Neural Interfaces</span>
-                            <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-semibold">Reality Anchors</span>
-                            <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-semibold">Temporal Buffers</span>
-                        </div>
-                    </div>
-                    
-                    <div class="artifact-tier monolith interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
-                        <h3 class="text-2xl font-display font-bold text-accent-purple mb-4">Monolith-Class</h3>
-                        <div class="artifact-icon text-6xl text-accent-purple mb-6 animate-pulse">◆</div>
-                        <p class="text-text-secondary leading-relaxed mb-6">Reality-altering technology. Changes the fundamental rules of an area. Priceless, extremely dangerous.</p>
-                        <div class="artifact-examples flex flex-wrap gap-2 justify-center">
-                            <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm font-semibold">Cascade Cores</span>
-                            <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm font-semibold">Reality Engines</span>
-                            <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm font-semibold">Field Manipulators</span>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="interface-heading text-sm font-semibold mb-2">Key Personnel</h3>
+            <p class="font-mono text-xs text-muted">7 Factions</p>
+          </div>
+          <div class="archive-section card text-center cursor-pointer" data-tab="glossary">
+            <div class="section-icon mb-3">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="mx-auto text-primary">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+              </svg>
             </div>
-        </section>
+            <h3 class="interface-heading text-sm font-semibold mb-2">Terminology</h3>
+            <p class="font-mono text-xs text-muted">Classified Terms</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section class="factions-overview">
-            <div class="container">
-                <h2 class="section-title">The Seven Factions</h2>
-                <p class="section-intro">In the power vacuum left by the Cascade, seven major factions emerged. Each represents different philosophies of survival, control, and humanity's future.</p>
-                
-                <div class="faction-philosophy-grid">
-                    <div class="philosophy-card order">
-                        <h3>ORDER</h3>
-                        <div class="philosophy-factions">
-                            <div class="mini-faction">
-                                <h4>Sky Bastion Directorate</h4>
-                                <p>Military discipline preserves civilization</p>
-                            </div>
-                            <div class="mini-faction">
-                                <h4>Civic Wardens</h4>
-                                <p>Community defense protects the innocent</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="philosophy-card survival">
-                        <h3>SURVIVAL</h3>
-                        <div class="philosophy-factions">
-                            <div class="mini-faction">
-                                <h4>Iron Scavengers</h4>
-                                <p>Adaptation through salvage and modification</p>
-                            </div>
-                            <div class="mini-faction">
-                                <h4>Nomad Clans</h4>
-                                <p>Freedom through perpetual movement</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="philosophy-card knowledge">
-                        <h3>KNOWLEDGE</h3>
-                        <div class="philosophy-factions">
-                            <div class="mini-faction">
-                                <h4>Archive Keepers</h4>
-                                <p>Preservation of history and alien secrets</p>
-                            </div>
-                            <div class="mini-faction">
-                                <h4>Corporate Hegemony</h4>
-                                <p>Technological supremacy ensures progress</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="philosophy-card pragmatism">
-                        <h3>PRAGMATISM</h3>
-                        <div class="philosophy-factions">
-                            <div class="mini-faction">
-                                <h4>The Seventy-Seven</h4>
-                                <p>Professional neutrality, competence as currency</p>
-                            </div>
-                        </div>
-                    </div>
+  <!-- ==================== HISTORICAL TIMELINE SECTION ==================== -->
+  <section class="timeline-section bg-shadow py-16" id="timeline-content">
+    <div class="container">
+      <div class="section-header text-center mb-12">
+        <h2 class="display-heading text-3xl mb-4">Historical Timeline</h2>
+        <p class="body-text">From First Contact to the Cascade - 14 years that changed everything</p>
+      </div>
+      
+      <!-- Interactive Timeline -->
+      <div class="timeline-container">
+        <div class="timeline-spine"></div>
+        
+        <!-- Timeline Events -->
+        <div class="timeline-events">
+          
+          <!-- First Contact -->
+          <article class="timeline-event" data-year="2147">
+            <div class="event-marker"></div>
+            <div class="event-content card">
+              <div class="event-header">
+                <div class="event-date font-mono text-accent">2147-2149</div>
+                <h3 class="event-title heading">EVT_FIRST_CONTACT</h3>
+                <div class="event-classification quietus-indicator">NON-RESPONSIVE</div>
+              </div>
+              <div class="event-description body-text">
+                <p>Non-responsive alien craft designated "Harvesters" enter solar system. Large-scale seeding operations detected across multiple worlds. First alien artifacts recovered showing evidence of autonomous systems.</p>
+                <div class="event-details">
+                  <span class="detail-tag">Craft Type: Harvester-class</span>
+                  <span class="detail-tag">Status: Autonomous</span>
+                  <span class="detail-tag">Response: None</span>
                 </div>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <section class="timeline-section">
-            <div class="container">
-                <h2 class="section-title">Timeline of Events</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2161 - Day Zero</div>
-                        <div class="timeline-content">
-                            <h4>The IEZ Cascade</h4>
-                            <p>Reality fractures across a 200km zone. Harvesters vanish. Physics breaks. The quarantine begins.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2161 - Week One</div>
-                        <div class="timeline-content">
-                            <h4>First Extractions</h4>
-                            <p>Survivors discover Harvester artifacts. Field-class technology becomes the new currency of survival.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2161 - Month One</div>
-                        <div class="timeline-content">
-                            <h4>Faction Emergence</h4>
-                            <p>Seven primary factions crystallize from the chaos. Territories are claimed. The first wars begin.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2161 - Month Three</div>
-                        <div class="timeline-content">
-                            <h4>The Arbitration Accords</h4>
-                            <p>Factions establish rules for extraction and conflict. The reputation economy emerges.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item current">
-                        <div class="timeline-date">2161 - Month Six (NOW)</div>
-                        <div class="timeline-content">
-                            <h4>The New Normal</h4>
-                            <p>Bloom has become a functioning ecosystem of conflict and cooperation. You are part of this world.</p>
-                        </div>
-                    </div>
+          <!-- Reconstruction Accord -->
+          <article class="timeline-event" data-year="2139">
+            <div class="event-marker"></div>
+            <div class="event-content card">
+              <div class="event-header">
+                <div class="event-date font-mono text-accent">2139-2159</div>
+                <h3 class="event-title heading">EVT_RECONSTRUCTION_ACCORD</h3>
+                <div class="event-classification coherence-band coherence-c2">STABLE</div>
+              </div>
+              <div class="event-description body-text">
+                <p>Global unification under the Reconstruction Accord. Brittle but effective governance framework established for managing alien technology and territorial disputes. Foundation for modern faction system.</p>
+                <div class="event-details">
+                  <span class="detail-tag">Duration: 20 Years</span>
+                  <span class="detail-tag">Status: Stable</span>
+                  <span class="detail-tag">Outcome: Unified Response</span>
                 </div>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <section class="cta-section py-20 bg-bg-secondary/30">
-            <div class="container">
-                <div class="cta-grid grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="cta-card interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
-                        <h3 class="text-2xl font-display font-bold text-primary mb-4">Learn About Factions</h3>
-                        <p class="text-text-secondary leading-relaxed mb-6">Dive deeper into the seven major factions, their philosophies, and territories.</p>
-                        <a href="/factions" class="cyber-button inline-block px-8 py-3">Explore Factions</a>
-                    </div>
-                    <div class="cta-card interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
-                        <h3 class="text-2xl font-display font-bold text-secondary mb-4">Discover Regions</h3>
-                        <p class="text-text-secondary leading-relaxed mb-6">Explore the dangerous territories of Bloom and their unique challenges.</p>
-                        <a href="/regions" class="px-8 py-3 bg-transparent border-2 border-secondary/30 text-secondary font-display font-bold transition-all duration-300 hover:border-secondary hover:shadow-glow hover:bg-secondary/10 inline-block rounded">View Regions</a>
-                    </div>
+          <!-- Wreck Discovery -->
+          <article class="timeline-event" data-year="2156">
+            <div class="event-marker cascade-marker"></div>
+            <div class="event-content card">
+              <div class="event-header">
+                <div class="event-date font-mono text-accent">2156</div>
+                <h3 class="event-title heading">EVT_WRECK_DISCOVERY</h3>
+                <div class="event-classification coherence-band coherence-c1">DEGRADED</div>
+              </div>
+              <div class="event-description body-text">
+                <p>First intact alien Skimmer-class wreck recovered intact. EMP field generation discovered. Beginning of hybrid human-alien technology development and corporate salvage operations.</p>
+                <div class="event-details">
+                  <span class="detail-tag tech-tier-splice">Splice Tech Origin</span>
+                  <span class="detail-tag">Class: Skimmer</span>
+                  <span class="detail-tag">EMP: Confirmed</span>
                 </div>
+              </div>
             </div>
-        </section>
-    </main>
+          </article>
+
+          <!-- Salvage Acts -->
+          <article class="timeline-event" data-year="2158">
+            <div class="event-marker"></div>
+            <div class="event-content card">
+              <div class="event-header">
+                <div class="event-date font-mono text-accent">2158</div>
+                <h3 class="event-title heading">EVT_SALVAGE_ACTS</h3>
+                <div class="event-classification coherence-band coherence-c1">DEGRADED</div>
+              </div>
+              <div class="event-description body-text">
+                <p>Corporate charters create exclusive salvage zones. Black market emergence for alien technology. Early faction boundaries established around salvage territories. Economic warfare begins.</p>
+                <div class="event-details">
+                  <span class="detail-tag">Corporate Charters</span>
+                  <span class="detail-tag">Black Markets</span>
+                  <span class="detail-tag">Territory Rights</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Shattered Accord -->
+          <article class="timeline-event" data-year="2159">
+            <div class="event-marker warning-marker"></div>
+            <div class="event-content card">
+              <div class="event-header">
+                <div class="event-date bloom-mono text-bloom-warning">2159-2161</div>
+                <h3 class="event-title heading">EVT_SHATTERED_ACCORD</h3>
+                <div class="event-classification coherence-band coherence-c0">CRITICAL</div>
+              </div>
+              <div class="event-description body-text">
+                <p>Salvage disputes escalate into open warfare. Reconstruction Accord fractures under economic pressure. Seven major factions emerge from corporate and military remnants. Pre-war chaos intensifies.</p>
+                <div class="event-details">
+                  <span class="detail-tag">Accord Status: FRACTURED</span>
+                  <span class="detail-tag">Factions: 7 Active</span>
+                  <span class="detail-tag">Warfare: ESCALATING</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- The Cascade -->
+          <article class="timeline-event cascade-event" data-year="2161">
+            <div class="event-marker cascade-marker"></div>
+            <div class="event-content card cascade-glow">
+              <div class="event-header">
+                <div class="event-date font-mono text-accent">2161-06</div>
+                <h3 class="event-title heading text-cascade">EVT_IEZ_CASCADE</h3>
+                <div class="event-classification quietus-indicator">CRITICAL EVENT</div>
+              </div>
+              <div class="event-description body-text">
+                <p><strong>The Cascade:</strong> Monolith-class excavation triggers six-week EMP cascade over 200-kilometer radius. Reality fracture creates the Interdiction Exclusion Zone. Dead sky conditions persist. Beginning of current timeline.</p>
+                <div class="event-details">
+                  <span class="detail-tag tech-tier-monolith">Monolith Grade</span>
+                  <span class="detail-tag">Radius: 200km</span>
+                  <span class="detail-tag">Duration: 6 weeks</span>
+                  <span class="detail-tag">Status: IEZ ACTIVE</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Current Timeline -->
+          <article class="timeline-event current-event" data-year="2161-12">
+            <div class="event-marker current-marker"></div>
+            <div class="event-content card current-glow">
+              <div class="event-header">
+                <div class="event-date bloom-mono text-bloom-success">2161-12</div>
+                <h3 class="event-title heading text-bloom-success">CURRENT OPERATIONS</h3>
+                <div class="event-classification coherence-band coherence-c3">ACTIVE</div>
+              </div>
+              <div class="event-description body-text">
+                <p><strong>Month Six Post-Cascade:</strong> Seven factions compete for territorial control within the IEZ. Memory economy established. Truce Gate governance active. Phase Pocket events increasing. Season 1 operations underway.</p>
+                <div class="event-details">
+                  <span class="detail-tag">Factions: 7 Active</span>
+                  <span class="detail-tag">Territory: CONTESTED</span>
+                  <span class="detail-tag">Phase Pockets: INCREASING</span>
+                  <span class="detail-tag">Operations: SEASON 1</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SEASON 1 CONTENT SECTION ==================== -->
+  <section class="season1-section bg-void py-16" id="season1-content" style="display: none;">
+    <div class="container">
+      <div class="season-header text-center mb-12">
+        <div class="status-badge mb-4">
+          <span class="font-mono text-sm">SEASON 1: ACTIVE OPERATIONS</span>
+        </div>
+        <h2 class="display-heading text-3xl mb-4">The Memory Wars</h2>
+        <p class="body-text">Four major story arcs define the current conflict within the IEZ</p>
+      </div>
+
+      <!-- Season 1 Story Arcs -->
+      <div class="story-arcs grid md:grid-cols-2 gap-8">
+        
+        <!-- Amnesia Cartel Arc -->
+        <article class="arc-card card">
+          <div class="arc-header mb-4">
+            <div class="arc-classification coherence-band coherence-c1 mb-2">MEMORY WARFARE</div>
+            <h3 class="heading text-xl">The Amnesia Cartel</h3>
+          </div>
+          <div class="arc-content">
+            <p class="body-text mb-4">
+              Memory-based racketeering syndicate exploiting Mnemonic Debt systems. Coherence Band manipulation through controlled memory extraction and sale. Underground economy of preserved knowledge.
+            </p>
+            <div class="arc-mechanics mb-4">
+              <h4 class="interface-heading text-sm mb-2">Key Mechanics:</h4>
+              <div class="mechanic-tags flex flex-wrap gap-2">
+                <span class="coherence-band coherence-c0">Mnemonic Debt</span>
+                <span class="coherence-band coherence-c1">Memory Banking</span>
+                <span class="coherence-band coherence-c2">Coherence Trading</span>
+              </div>
+            </div>
+            <div class="arc-factions">
+              <span class="font-mono text-xs text-muted">Primary: Obsidian Archive • Secondary: Iron Vultures</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dead Sky Choir Arc -->
+        <article class="arc-card card">
+          <div class="arc-header mb-4">
+            <div class="arc-classification tech-tier-monolith mb-2">HARMONIC EVENTS</div>
+            <h3 class="heading text-xl">Dead Sky Choir</h3>
+          </div>
+          <div class="arc-content">
+            <p class="body-text mb-4">
+              Harmonic negotiation with the city consciousness itself. Monolith Bloom events create direct communication channels. Vault Clarion and Dead-Sky Surge phenomena reshape territorial boundaries.
+            </p>
+            <div class="arc-mechanics mb-4">
+              <h4 class="interface-heading text-sm mb-2">Key Events:</h4>
+              <div class="mechanic-tags flex flex-wrap gap-2">
+                <span class="tech-tier-monolith">Monolith Bloom</span>
+                <span class="tech-tier-monolith">Vault Clarion</span>
+                <span class="tech-tier-monolith">Dead-Sky Surge</span>
+              </div>
+            </div>
+            <div class="arc-factions">
+              <span class="font-mono text-xs text-muted">Primary: All Factions • Focus: Harmonic Resonance</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Black Auction Arc -->
+        <article class="arc-card card">
+          <div class="arc-header mb-4">
+            <div class="arc-classification coherence-band coherence-c2 mb-2">ECONOMIC WARFARE</div>
+            <h3 class="heading text-xl">Black Auction System</h3>
+          </div>
+          <div class="arc-content">
+            <p class="body-text mb-4">
+              Timed economic warfare events with territorial stakes. Ghost Bid counterplay tactics and Provenance Forgery operations. Real-time auction mechanics with faction-wide consequences.
+            </p>
+            <div class="arc-mechanics mb-4">
+              <h4 class="interface-heading text-sm mb-2">Key Mechanics:</h4>
+              <div class="mechanic-tags flex flex-wrap gap-2">
+                <span class="coherence-band coherence-c2">Ghost Bid</span>
+                <span class="coherence-band coherence-c1">Provenance Forgery</span>
+                <span class="coherence-band coherence-c3">Territory Auction</span>
+              </div>
+            </div>
+            <div class="arc-factions">
+              <span class="font-mono text-xs text-muted">Primary: Trivector Combine • Secondary: All Economic Factions</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Truce Gate Governance Arc -->
+        <article class="arc-card card">
+          <div class="arc-header mb-4">
+            <div class="arc-classification quietus-indicator mb-2">LEGAL FRAMEWORK</div>
+            <h3 class="heading text-xl">Truce Gate Governance</h3>
+          </div>
+          <div class="arc-content">
+            <p class="body-text mb-4">
+              Legal system with Quietus Mark enforcement (Q0-Q4 penalty tiers). Truce Wardens maintain neutral zones and enforce collective agreements. Democratic dispute resolution through controlled conflict.
+            </p>
+            <div class="arc-mechanics mb-4">
+              <h4 class="interface-heading text-sm mb-2">Penalty System:</h4>
+              <div class="mechanic-tags flex flex-wrap gap-2">
+                <span class="quietus-indicator">Q0 - Warning</span>
+                <span class="quietus-indicator">Q1 - Restricted</span>
+                <span class="quietus-indicator">Q2 - Quarantine</span>
+                <span class="quietus-indicator">Q3 - Exile</span>
+                <span class="quietus-indicator">Q4 - Permanent Ban</span>
+              </div>
+            </div>
+            <div class="arc-factions">
+              <span class="font-mono text-xs text-muted">Primary: Truce Wardens • All Factions Subject to Jurisdiction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CHARACTERS SECTION ==================== -->
+  <section class="characters-section bg-shadow py-16" id="characters-content" style="display: none;">
+    <div class="container">
+      <div class="section-header text-center mb-12">
+        <h2 class="display-heading text-3xl mb-4">Key Personnel</h2>
+        <p class="body-text">Faction leaders and specialists operating within the IEZ</p>
+      </div>
+
+      <!-- Character Grid -->
+      <div class="character-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Marshal Adele Vargas -->
+        <article class="character-card card faction-dir">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">Sky Bastion Directorate</div>
+            <h3 class="character-name heading text-lg">Marshal Adele Vargas</h3>
+            <p class="character-title interface-heading text-sm">Northern Districts Commander</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Military strategist overseeing Directorate territorial expansion. Expert in systematic grid-pattern control and aerial supremacy doctrine.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Specialization:</span>
+                <span class="font-mono text-xs">Tactical Command</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Territory:</span>
+                <span class="font-mono text-xs">North Bastion</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Jax Korder -->
+        <article class="character-card card faction-f77">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">The Seventy-Seven</div>
+            <h3 class="character-name heading text-lg">Jax Korder</h3>
+            <p class="character-title interface-heading text-sm">Contract Captain</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Professional neutral negotiator specializing in inter-faction contract mediation. Maintains strict professional detachment in all operations.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Specialization:</span>
+                <span class="font-mono text-xs">Contract Mediation</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Status:</span>
+                <span class="font-mono text-xs">Active Neutral</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lupe Santos -->
+        <article class="character-card card faction-trw">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">Truce Wardens</div>
+            <h3 class="character-name heading text-lg">Lupe Santos</h3>
+            <p class="character-title interface-heading text-sm">Metro Tunnel Captain</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Quietus Mark enforcement officer maintaining neutral zones. Specialist in civilian protection and demilitarized zone establishment.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Authority:</span>
+                <span class="quietus-indicator text-xs">Q0-Q4 Enforcement</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Territory:</span>
+                <span class="font-mono text-xs">Sump Gardens</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sable Khan -->
+        <article class="character-card card faction-rbc">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">Roadborn Clans</div>
+            <h3 class="character-name heading text-lg">Sable Khan</h3>
+            <p class="character-title interface-heading text-sm">Ashway Route Mother</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Convoy leader and pathfinder maintaining mobile territorial control. Expert in highway-based sovereignty and rapid deployment tactics.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Specialization:</span>
+                <span class="font-mono text-xs">Convoy Leadership</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Territory:</span>
+                <span class="font-mono text-xs">Ashway Routes</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Rin Okafor -->
+        <article class="character-card card faction-irv">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">Iron Vultures</div>
+            <h3 class="character-name heading text-lg">Rin Okafor</h3>
+            <p class="character-title interface-heading text-sm">Crimson Freeport Broker</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Master salvage engineer and technology broker. Specializes in ethical scavenging operations and Black Auction participation.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Specialization:</span>
+                <span class="font-mono text-xs">Salvage Engineering</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Location:</span>
+                <span class="font-mono text-xs">Crimson Freeport</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dr. Eli Zhou -->
+        <article class="character-card card faction-tvc">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">Trivector Combine</div>
+            <h3 class="character-name heading text-lg">Dr. Eli Zhou</h3>
+            <p class="character-title interface-heading text-sm">Program Director</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Phase Pocket researcher focusing on corporate efficiency through technological superiority. Leads prototype development programs.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Research:</span>
+                <span class="tech-tier-monolith text-xs">Phase Pockets</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Clearance:</span>
+                <span class="font-mono text-xs">R&D Director</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Doctor Ivey -->
+        <article class="character-card card faction-oba">
+          <div class="character-header mb-4">
+            <div class="character-faction-badge font-mono text-xs mb-2">Obsidian Archive</div>
+            <h3 class="character-name heading text-lg">Doctor Ivey</h3>
+            <p class="character-title interface-heading text-sm">Vault Lexicographer</p>
+          </div>
+          <div class="character-content">
+            <p class="body-text text-sm mb-3">
+              Memory preservation specialist and information warfare expert. Maintains the Deep Vault archives and coordinates intelligence operations.
+            </p>
+            <div class="character-stats">
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Specialization:</span>
+                <span class="coherence-band coherence-c3 text-xs">Memory Preservation</span>
+              </div>
+              <div class="stat-line">
+                <span class="font-mono text-xs text-muted">Location:</span>
+                <span class="font-mono text-xs">Black Vault</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GLOSSARY SECTION ==================== -->
+  <section class="glossary-section bg-void py-16" id="glossary-content" style="display: none;">
+    <div class="container">
+      <div class="section-header text-center mb-12">
+        <h2 class="display-heading text-3xl mb-4">Terminology Archive</h2>
+        <p class="body-text">Season 1 classified terminology and operational definitions</p>
+      </div>
+
+      <!-- Glossary Categories -->
+      <div class="glossary-categories grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Memory Systems -->
+        <div class="glossary-category">
+          <h3 class="interface-heading text-lg mb-4 flex items-center gap-2">
+            <div class="coherence-band coherence-c2 text-xs">C2</div>
+            Memory Systems
+          </h3>
+          <div class="term-list space-y-3">
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Mnemonic Debt</h4>
+              <p class="body-text text-xs">Penalty accrued when memory fails to persist (C1 or lower); affects handlers and economy.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Coherence Band</h4>
+              <p class="body-text text-xs">Indicator (C0-C3) of memory stability; gates certain codex and map unlocks.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Memory Banking</h4>
+              <p class="body-text text-xs">Storage and preservation of knowledge in stable coherence states for later extraction.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Governance -->
+        <div class="glossary-category">
+          <h3 class="interface-heading text-lg mb-4 flex items-center gap-2">
+            <div class="quietus-indicator text-xs">Q-System</div>
+            Governance
+          </h3>
+          <div class="term-list space-y-3">
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Quietus Mark</h4>
+              <p class="body-text text-xs">Persistent penalty tier for Truce Gate violations; Q0-Q4; public verdicts at Gates.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Truce Gate</h4>
+              <p class="body-text text-xs">Neutral zone enforcement points maintained by Truce Wardens with legal authority.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Collective Action</h4>
+              <p class="body-text text-xs">Democratic dispute resolution through controlled inter-faction conflict.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economic Warfare -->
+        <div class="glossary-category">
+          <h3 class="interface-heading text-lg mb-4 flex items-center gap-2">
+            <div class="coherence-band coherence-c1 text-xs">ECON</div>
+            Economic Warfare
+          </h3>
+          <div class="term-list space-y-3">
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Ghost Bid</h4>
+              <p class="body-text text-xs">Auction counterplay tactic to mask provenance or snipe payments.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Black Auction</h4>
+              <p class="body-text text-xs">Timed artifact auction events with territorial and economic warfare implications.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Provenance Forgery</h4>
+              <p class="body-text text-xs">Fabricated artifact lineage used to manipulate Black Auctions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Terms -->
+        <div class="glossary-category">
+          <h3 class="interface-heading text-lg mb-4 flex items-center gap-2">
+            <div class="tech-tier-monolith text-xs">TECH</div>
+            Technical Systems
+          </h3>
+          <div class="term-list space-y-3">
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Phase Pockets</h4>
+              <p class="body-text text-xs">High-intensity temporary zones during harmonic events.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Harmonic Resonance</h4>
+              <p class="body-text text-xs">Communication patterns with city consciousness during Dead Sky Choir events.</p>
+            </div>
+            <div class="term-entry">
+              <h4 class="font-mono text-sm">Dead-Sky Surge</h4>
+              <p class="body-text text-xs">EMP storm events that reshape territorial boundaries and technology function.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ARCHIVE ACCESS CTA ==================== -->
+  <section class="archive-cta section-cascade py-16">
+    <div class="container max-w-4xl text-center">
+      <h2 class="display-heading text-3xl mb-6">Access Restricted Archives</h2>
+      <p class="body-text text-xl mb-8">
+        Full operational details available to authorized personnel only. 
+        Enter the IEZ to unlock classified faction intelligence and territorial data.
+      </p>
+      
+      <div class="cta-actions flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="/" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Enter the IEZ
+        </a>
+        <a href="/factions" class="btn-secondary">
+          Faction Intelligence
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Archive Status -->
+      <div class="archive-status mt-8 p-4 bg-interface/10 border border-interface/30 rounded">
+        <div class="status-grid grid md:grid-cols-4 gap-4 text-center">
+          <div class="status-item">
+            <div class="font-mono text-sm">Archives</div>
+            <div class="font-mono text-xs text-muted">14 Years</div>
+          </div>
+          <div class="status-item">
+            <div class="font-mono text-sm">Events</div>
+            <div class="font-mono text-xs text-muted">6 Major</div>
+          </div>
+          <div class="status-item">
+            <div class="font-mono text-sm">Personnel</div>
+            <div class="font-mono text-xs text-muted">7 Key</div>
+          </div>
+          <div class="status-item">
+            <div class="font-mono text-sm">Classification</div>
+            <div class="font-mono text-xs text-muted">C3-CLEARED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+/* ==================== STORY PAGE SPECIFIC STYLES ==================== */
+
+/* Classification and Status Elements */
+.classification-badge {
+  backdrop-filter: blur(10px);
+}
+
+.classification-header {
+  margin-bottom: var(--space-xl);
+}
+
+/* Archive Section Navigation */
+.archive-sections {
+  margin-bottom: var(--space-2xl);
+}
+
+.archive-section {
+  padding: var(--space-lg);
+  transition: all var(--anim-normal) var(--anim-tactical);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.archive-section:hover,
+.archive-section.active {
+  border-color: var(--bloom-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-cascade);
+}
+
+.archive-section.active .section-icon svg {
+  color: var(--bloom-accent) !important;
+}
+
+/* Timeline Styles */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--bloom-accent), var(--bloom-interface));
+  transform: translateX(-50%);
+}
+
+.timeline-events {
+  position: relative;
+}
+
+.timeline-event {
+  position: relative;
+  margin-bottom: var(--space-3xl);
+  display: flex;
+  align-items: center;
+}
+
+.timeline-event:nth-child(odd) {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.timeline-event:nth-child(even) {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.timeline-event:nth-child(odd) .event-content {
+  margin-right: calc(50% + var(--space-xl));
+}
+
+.timeline-event:nth-child(even) .event-content {
+  margin-left: calc(50% + var(--space-xl));
+}
+
+.event-marker {
+  position: absolute;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--bloom-accent);
+  border: 3px solid var(--bloom-shadow);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.cascade-marker {
+  width: 24px;
+  height: 24px;
+  background: var(--bloom-accent);
+  box-shadow: var(--glow-cascade);
+}
+
+.warning-marker {
+  background: var(--bloom-warning);
+}
+
+.current-marker {
+  background: var(--bloom-success);
+  animation: current-pulse 2s ease-in-out infinite;
+}
+
+@keyframes current-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.event-content {
+  max-width: 400px;
+  transition: all var(--anim-normal) var(--anim-cascade);
+}
+
+.event-content:hover {
+  transform: scale(1.02);
+}
+
+.cascade-glow {
+  border-color: var(--bloom-accent);
+  box-shadow: var(--glow-cascade);
+}
+
+.current-glow {
+  border-color: var(--bloom-success);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.event-header {
+  margin-bottom: var(--space-md);
+}
+
+.event-date {
+  font-size: 0.875rem;
+  margin-bottom: var(--space-xs);
+}
+
+.event-title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.event-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.detail-tag {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bloom-interface);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--bloom-text-secondary);
+}
+
+/* Story Arcs Styles */
+.arc-card {
+  padding: var(--space-xl);
+  transition: all var(--anim-normal) var(--anim-tactical);
+}
+
+.arc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-depth);
+}
+
+.arc-classification {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+}
+
+.mechanic-tags {
+  gap: var(--space-sm);
+}
+
+.mechanic-tags span {
+  font-size: 0.75rem;
+}
+
+/* Character Cards */
+.character-card {
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.character-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--faction-primary, var(--bloom-accent));
+}
+
+.character-faction-badge {
+  text-transform: uppercase;
+}
+
+.character-stats {
+  margin-top: var(--space-md);
+}
+
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+}
+
+/* Glossary Styles */
+.glossary-category {
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, var(--bloom-shadow), var(--bloom-steel));
+  border-radius: 4px;
+  border: 1px solid var(--bloom-interface);
+}
+
+.term-entry {
+  padding: var(--space-sm);
+  background: rgba(22, 26, 29, 0.5);
+  border-radius: 2px;
+  border-left: 2px solid var(--bloom-accent);
+}
+
+.term-entry h4 {
+  margin-bottom: var(--space-xs);
+}
+
+/* Archive Status */
+.archive-status {
+  backdrop-filter: blur(10px);
+}
+
+.status-item {
+  padding: var(--space-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-spine {
+    left: var(--space-lg);
+  }
+  
+  .timeline-event {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+  
+  .timeline-event .event-content {
+    margin-left: calc(var(--space-lg) * 2) !important;
+    margin-right: 0 !important;
+  }
+  
+  .event-marker {
+    left: var(--space-lg);
+  }
+  
+  .archive-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .glossary-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .story-arcs {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<script>
+// ==================== STORY PAGE INTERACTIVITY ====================
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Tab Navigation System
+  const tabButtons = document.querySelectorAll('[data-tab]');
+  const contentSections = {
+    'timeline': document.getElementById('timeline-content'),
+    'season1': document.getElementById('season1-content'),
+    'characters': document.getElementById('characters-content'),
+    'glossary': document.getElementById('glossary-content')
+  };
+
+  // Set initial active tab
+  let activeTab = 'timeline';
+  
+  function showSection(tabName) {
+    // Hide all sections
+    Object.values(contentSections).forEach(section => {
+      if (section) section.style.display = 'none';
+    });
+    
+    // Show selected section
+    if (contentSections[tabName]) {
+      contentSections[tabName].style.display = 'block';
+    }
+    
+    // Update button states
+    tabButtons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.dataset.tab === tabName) {
+        btn.classList.add('active');
+      }
+    });
+    
+    activeTab = tabName;
+  }
+
+  // Tab click handlers
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tabName = button.dataset.tab;
+      showSection(tabName);
+      
+      // Smooth scroll to content
+      const targetSection = contentSections[tabName];
+      if (targetSection) {
+        targetSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+    
+    // Keyboard accessibility
+    button.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        button.click();
+      }
+    });
+  });
+
+  // Initialize with timeline section
+  showSection('timeline');
+
+  // Timeline Event Interactions
+  const timelineEvents = document.querySelectorAll('.timeline-event');
+  
+  timelineEvents.forEach((event, index) => {
+    // Add entrance animation delay
+    event.style.animationDelay = `${index * 0.1}s`;
+    
+    // Event hover interactions
+    event.addEventListener('mouseenter', () => {
+      event.style.transform = 'scale(1.02)';
+      event.style.zIndex = '10';
+    });
+    
+    event.addEventListener('mouseleave', () => {
+      event.style.transform = 'scale(1)';
+      event.style.zIndex = '1';
+    });
+  });
+
+  // Character Card Interactions
+  const characterCards = document.querySelectorAll('.character-card');
+  
+  characterCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const factionClass = Array.from(card.classList).find(cls => cls.startsWith('faction-'));
+      if (factionClass) {
+        card.style.borderColor = getComputedStyle(card).getPropertyValue('--faction-primary');
+      }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'transparent';
+    });
+  });
+
+  // Glossary Term Expansion
+  const termEntries = document.querySelectorAll('.term-entry');
+  
+  termEntries.forEach(entry => {
+    entry.addEventListener('click', () => {
+      entry.classList.toggle('expanded');
+      
+      // Add visual feedback
+      if (entry.classList.contains('expanded')) {
+        entry.style.backgroundColor = 'rgba(0, 217, 255, 0.1)';
+        entry.style.borderLeftColor = 'var(--bloom-accent)';
+      } else {
+        entry.style.backgroundColor = 'rgba(22, 26, 29, 0.5)';
+        entry.style.borderLeftColor = 'var(--bloom-accent)';
+      }
+    });
+  });
+
+  // Archive Status Real-time Updates
+  const statusItems = document.querySelectorAll('.status-item');
+  
+  // Simulate live data updates (in a real implementation, this would connect to actual data)
+  function updateArchiveStatus() {
+    statusItems.forEach((item, index) => {
+      const value = item.querySelector('.bloom-mono:last-child');
+      if (value) {
+        // Add subtle animation to indicate live data
+        value.style.opacity = '0.7';
+        setTimeout(() => {
+          value.style.opacity = '1';
+        }, 200);
+      }
+    });
+  }
+
+  // Update every 30 seconds to simulate live archive
+  setInterval(updateArchiveStatus, 30000);
+
+  // Intersection Observer for Content Animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe timeline events and arc cards
+  document.querySelectorAll('.timeline-event, .arc-card, .character-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(el);
+  });
+
+  // Analytics tracking for story engagement
+  function trackStoryInteraction(action, section) {
+    console.log(`Story interaction: ${action} in ${section}`);
+    // In a real implementation, this would send data to analytics
+  }
+
+  // Track tab usage
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      trackStoryInteraction('tab_click', button.dataset.tab);
+    });
+  });
+
+  // Track timeline event engagement
+  timelineEvents.forEach((event, index) => {
+    event.addEventListener('click', () => {
+      trackStoryInteraction('timeline_event_click', event.dataset.year || `event_${index}`);
+    });
+  });
+});
+
+// Keyboard Navigation Enhancement
+document.addEventListener('keydown', (e) => {
+  // Arrow key navigation between tabs
+  const currentTab = document.querySelector('.archive-section.active');
+  const allTabs = Array.from(document.querySelectorAll('.archive-section'));
+  const currentIndex = allTabs.indexOf(currentTab);
+  
+  if (e.key === 'ArrowRight' && currentIndex < allTabs.length - 1) {
+    allTabs[currentIndex + 1].click();
+  } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+    allTabs[currentIndex - 1].click();
+  }
+});
+</script>
