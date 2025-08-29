@@ -1,0 +1,551 @@
+---
+// Interactive Faction Showcase Component
+export interface Props {
+    title?: string;
+}
+
+const { title = "Major Factions" } = Astro.props;
+
+const factions = [
+    {
+        id: 'directorate',
+        name: 'Sky Bastion Directorate',
+        motto: 'Order Through Discipline',
+        color: '#0077FF',
+        emblem: '/assets/images/factions/directorate-emblem-ultimate.png',
+        description: 'Military order through discipline, legitimacy by command continuity.',
+        strength: 'Tactical Precision',
+        territory: 'Sky Bastion Complex',
+        relations: { iron: -2, free77: 0, corporate: 1, nomad: -1, archive: 0, civic: -1 }
+    },
+    {
+        id: 'iron',
+        name: 'Iron Scavengers',
+        color: '#FF4444',
+        emblem: '/assets/images/factions/iron-scavengers-emblem.png',
+        description: 'Elite salvage specialists operating from Crimson Freeport.',
+        strength: 'Tech Salvage',
+        territory: 'Machine Grave',
+        relations: { directorate: -2, free77: 1, corporate: -1, nomad: 1, archive: 0, civic: 0 }
+    },
+    {
+        id: 'free77',
+        name: 'The Seventy-Seven',
+        motto: 'Competence Is Currency',
+        color: '#00FF88',
+        emblem: '/assets/images/factions/free77-emblem.png',
+        description: 'Professional mercenaries where competence is currency.',
+        strength: 'Adaptability',
+        territory: 'Neutral Zones',
+        relations: { directorate: 0, iron: 1, corporate: 1, nomad: 0, archive: 0, civic: 0 }
+    },
+    {
+        id: 'corporate',
+        name: 'Corporate Hegemony',
+        motto: 'Progress Through Technology',
+        color: '#AA55FF',
+        description: 'Industrial giants controlling the Machine Grave factories.',
+        strength: 'Resources',
+        territory: 'Industrial Sectors',
+        relations: { directorate: 1, iron: -1, free77: 1, nomad: -2, archive: 1, civic: -1 }
+    },
+    {
+        id: 'nomad',
+        name: 'Nomad Clans',
+        motto: 'Freedom Through Mobility',
+        color: '#FF9900',
+        emblem: '/assets/images/factions/nomad-clans-emblem.png',
+        description: 'Convoy-based civilization masters of the wasteland routes.',
+        strength: 'Mobility',
+        territory: 'Wasteland Routes',
+        relations: { directorate: -1, iron: 1, free77: 0, corporate: -2, archive: 0, civic: 1 }
+    },
+    {
+        id: 'archive',
+        name: 'Archive Keepers',
+        motto: 'Knowledge Preserves',
+        color: '#FFDD00',
+        description: 'Guardians of pre-Cascade history and alien secrets.',
+        strength: 'Intelligence',
+        territory: 'Deep Vault',
+        relations: { directorate: 0, iron: 0, free77: 0, corporate: 1, nomad: 0, civic: 1 }
+    },
+    {
+        id: 'civic',
+        name: 'Civic Wardens',
+        motto: 'Community Protects',
+        color: '#00DDFF',
+        description: 'Community protectors of the underground Sump Gardens.',
+        strength: 'Unity',
+        territory: 'Sump Gardens',
+        relations: { directorate: -1, iron: 0, free77: 0, corporate: -1, nomad: 1, archive: 1 }
+    }
+];
+---
+
+<section class="faction-showcase relative overflow-hidden py-24 bg-gradient-to-b from-bg-primary to-bg-secondary">
+    <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-display font-black text-center mb-4 text-primary">
+            {title}
+        </h2>
+        <p class="text-center text-text-secondary mb-12 max-w-2xl mx-auto">
+            Seven primary factions vie for control of the Terminal Grounds. Navigate complex relationships through aid, arbitration, or ambush.
+        </p>
+        
+        <!-- Faction Grid -->
+        <div class="faction-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            {factions.map((faction) => (
+                <div 
+                    class="faction-card glass-morphism p-6 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-glow"
+                    data-faction-id={faction.id}
+                    style={`--faction-color: ${faction.color}`}
+                >
+                    <div class="faction-header mb-4">
+                        {faction.emblem ? (
+                            <img 
+                                src={faction.emblem} 
+                                alt={`${faction.name} Emblem`}
+                                class="w-20 h-20 mx-auto mb-3 object-contain"
+                                loading="lazy"
+                            />
+                        ) : (
+                            <div 
+                                class="w-20 h-20 mx-auto mb-3 rounded-full"
+                                style={`background: linear-gradient(135deg, ${faction.color}44, ${faction.color}88)`}
+                            />
+                        )}
+                        <h3 class="text-xl font-display font-bold text-primary text-center">
+                            {faction.name}
+                        </h3>
+                        {faction.motto && (
+                            <p class="text-xs text-text-muted text-center italic mt-1">
+                                "{faction.motto}"
+                            </p>
+                        )}
+                    </div>
+                    <div class="faction-details space-y-2 text-sm">
+                        <p class="text-text-secondary">{faction.description}</p>
+                        <div class="flex justify-between items-center pt-2 border-t border-border/30">
+                            <span class="text-text-muted">Strength:</span>
+                            <span class="text-accent-cyan font-semibold">{faction.strength}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-muted">Territory:</span>
+                            <span class="text-secondary font-semibold">{faction.territory}</span>
+                        </div>
+                    </div>
+                    <div class="faction-hover-indicator mt-4 h-1 bg-gradient-to-r opacity-0 transition-opacity duration-300"
+                         style={`background: linear-gradient(90deg, transparent, ${faction.color}, transparent)`}
+                    />
+                </div>
+            ))}
+        </div>
+        
+        <!-- Relationship Matrix -->
+        <div class="relationship-matrix glass-morphism p-8 max-w-6xl mx-auto">
+            <h3 class="text-2xl font-display font-bold text-primary mb-6 text-center">
+                Faction Relations Matrix
+            </h3>
+            <p class="text-text-secondary text-center mb-6">
+                Hover over a faction to see their diplomatic relationships
+            </p>
+            <div id="relationshipCanvas" class="relative h-96 rounded-lg overflow-hidden">
+                <!-- Canvas for relationship visualization will be inserted here -->
+            </div>
+            <div class="legend flex justify-center gap-8 mt-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 bg-green-500 rounded"></div>
+                    <span class="text-text-muted text-sm">Allied</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 bg-gray-500 rounded"></div>
+                    <span class="text-text-muted text-sm">Neutral</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 bg-red-500 rounded"></div>
+                    <span class="text-text-muted text-sm">Hostile</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Faction Comparison Tool -->
+        <div class="comparison-tool mt-12">
+            <h3 class="text-2xl font-display font-bold text-primary mb-6 text-center">
+                Compare Factions
+            </h3>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <select id="faction1Select" class="glass-morphism px-4 py-2 rounded-lg bg-bg-secondary text-primary border border-border/30">
+                    <option value="">Select First Faction</option>
+                    {factions.map(f => (
+                        <option value={f.id}>{f.name}</option>
+                    ))}
+                </select>
+                <span class="text-text-muted self-center">VS</span>
+                <select id="faction2Select" class="glass-morphism px-4 py-2 rounded-lg bg-bg-secondary text-primary border border-border/30">
+                    <option value="">Select Second Faction</option>
+                    {factions.map(f => (
+                        <option value={f.id}>{f.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div id="comparisonResult" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div id="faction1Info" class="glass-morphism p-6 border-2 border-transparent transition-all duration-300"></div>
+                    <div id="faction2Info" class="glass-morphism p-6 border-2 border-transparent transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script define:vars={{ factions }}>
+    // Interactive faction showcase functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        // Faction card hover effects
+        const factionCards = document.querySelectorAll('.faction-card');
+        
+        factionCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const indicator = this.querySelector('.faction-hover-indicator');
+                if (indicator) {
+                    indicator.style.opacity = '1';
+                }
+                
+                // Highlight relationships in matrix
+                const factionId = this.dataset.factionId;
+                highlightRelationships(factionId);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const indicator = this.querySelector('.faction-hover-indicator');
+                if (indicator) {
+                    indicator.style.opacity = '0';
+                }
+                clearRelationshipHighlights();
+            });
+        });
+        
+        // Faction comparison tool
+        const faction1Select = document.getElementById('faction1Select');
+        const faction2Select = document.getElementById('faction2Select');
+        const comparisonResult = document.getElementById('comparisonResult');
+        
+        function updateComparison() {
+            const f1Id = faction1Select.value;
+            const f2Id = faction2Select.value;
+            
+            if (!f1Id || !f2Id) {
+                comparisonResult.classList.add('hidden');
+                return;
+            }
+            
+            const f1 = factions.find(f => f.id === f1Id);
+            const f2 = factions.find(f => f.id === f2Id);
+            
+            if (!f1 || !f2) return;
+            
+            comparisonResult.classList.remove('hidden');
+            
+            const faction1Info = document.getElementById('faction1Info');
+            const faction2Info = document.getElementById('faction2Info');
+            
+            faction1Info.style.borderColor = f1.color + '88';
+            faction2Info.style.borderColor = f2.color + '88';
+            
+            faction1Info.innerHTML = `
+                <h4 class="text-xl font-display font-bold mb-4" style="color: ${f1.color}">${f1.name}</h4>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-text-muted">Strength:</span>
+                        <span class="text-primary font-semibold">${f1.strength}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-text-muted">Territory:</span>
+                        <span class="text-secondary">${f1.territory}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-text-muted">Relation to ${f2.name}:</span>
+                        <span class="${getRelationClass(f1.relations[f2.id])}">${getRelationText(f1.relations[f2.id])}</span>
+                    </div>
+                </div>
+            `;
+            
+            faction2Info.innerHTML = `
+                <h4 class="text-xl font-display font-bold mb-4" style="color: ${f2.color}">${f2.name}</h4>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-text-muted">Strength:</span>
+                        <span class="text-primary font-semibold">${f2.strength}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-text-muted">Territory:</span>
+                        <span class="text-secondary">${f2.territory}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-text-muted">Relation to ${f1.name}:</span>
+                        <span class="${getRelationClass(f2.relations[f1.id])}">${getRelationText(f2.relations[f1.id])}</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        faction1Select.addEventListener('change', updateComparison);
+        faction2Select.addEventListener('change', updateComparison);
+        
+        function getRelationClass(value) {
+            if (value > 0) return 'text-green-400 font-bold';
+            if (value < 0) return 'text-red-400 font-bold';
+            return 'text-gray-400';
+        }
+        
+        function getRelationText(value) {
+            if (value >= 2) return 'Strong Allies';
+            if (value === 1) return 'Allied';
+            if (value === 0) return 'Neutral';
+            if (value === -1) return 'Hostile';
+            if (value <= -2) return 'Enemies';
+            return 'Unknown';
+        }
+        
+        // Enhanced relationship visualization system
+        let relationshipCanvas = null;
+        let canvasContext = null;
+        let animationFrame = null;
+
+        function initializeRelationshipCanvas() {
+            const canvas = document.getElementById('relationshipCanvas');
+            if (!canvas) return;
+
+            relationshipCanvas = canvas;
+            canvasContext = canvas.getContext('2d');
+
+            // Set canvas size
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            canvasContext.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+            // Initial render
+            renderRelationshipMatrix();
+        }
+
+        function renderRelationshipMatrix(highlightedFaction = null) {
+            if (!canvasContext || !relationshipCanvas) return;
+
+            const canvas = relationshipCanvas;
+            const ctx = canvasContext;
+            const width = canvas.width / window.devicePixelRatio;
+            const height = canvas.height / window.devicePixelRatio;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw background grid
+            ctx.strokeStyle = 'rgba(0, 255, 136, 0.1)';
+            ctx.lineWidth = 1;
+
+            const gridSize = 40;
+            for (let x = 0; x < width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Calculate faction positions (circular layout)
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(width, height) * 0.35;
+            const factionPositions = {};
+
+            factions.forEach((faction, index) => {
+                const angle = (index / factions.length) * 2 * Math.PI - Math.PI / 2;
+                factionPositions[faction.id] = {
+                    x: centerX + Math.cos(angle) * radius,
+                    y: centerY + Math.sin(angle) * radius,
+                    faction: faction
+                };
+            });
+
+            // Draw relationship lines
+            factions.forEach(faction => {
+                const fromPos = factionPositions[faction.id];
+
+                Object.entries(faction.relations).forEach(([targetId, relationValue]) => {
+                    const toPos = factionPositions[targetId];
+                    if (!toPos || targetId === faction.id) return;
+
+                    // Only draw each relationship once (avoid duplicates)
+                    if (faction.id < targetId) {
+                        const isHighlighted = highlightedFaction &&
+                            (faction.id === highlightedFaction || targetId === highlightedFaction);
+
+                        drawRelationshipLine(ctx, fromPos, toPos, relationValue, isHighlighted);
+                    }
+                });
+            });
+
+            // Draw faction nodes
+            Object.values(factionPositions).forEach(pos => {
+                const isHighlighted = highlightedFaction === pos.faction.id;
+                drawFactionNode(ctx, pos, isHighlighted);
+            });
+        }
+
+        function drawRelationshipLine(ctx, fromPos, toPos, relationValue, isHighlighted) {
+            const dx = toPos.x - fromPos.x;
+            const dy = toPos.y - fromPos.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // Calculate line properties based on relationship
+            let lineColor, lineWidth, lineOpacity;
+
+            if (relationValue > 0) {
+                lineColor = '#00ff88'; // Green for allies
+                lineWidth = isHighlighted ? 4 : 2;
+                lineOpacity = isHighlighted ? 0.9 : 0.6;
+            } else if (relationValue < 0) {
+                lineColor = '#ff4444'; // Red for enemies
+                lineWidth = isHighlighted ? 4 : 2;
+                lineOpacity = isHighlighted ? 0.9 : 0.6;
+            } else {
+                lineColor = '#888888'; // Gray for neutral
+                lineWidth = isHighlighted ? 2 : 1;
+                lineOpacity = isHighlighted ? 0.5 : 0.3;
+            }
+
+            // Draw curved line
+            ctx.strokeStyle = lineColor;
+            ctx.lineWidth = lineWidth;
+            ctx.globalAlpha = lineOpacity;
+
+            ctx.beginPath();
+            ctx.moveTo(fromPos.x, fromPos.y);
+
+            // Create curved connection
+            const midX = (fromPos.x + toPos.x) / 2;
+            const midY = (fromPos.y + toPos.y) / 2;
+            const curveOffset = distance * 0.2;
+
+            // Calculate perpendicular offset for curve
+            const perpX = -dy / distance * curveOffset;
+            const perpY = dx / distance * curveOffset;
+
+            ctx.quadraticCurveTo(
+                midX + perpX,
+                midY + perpY,
+                toPos.x,
+                toPos.y
+            );
+
+            ctx.stroke();
+
+            // Draw relationship strength indicator
+            if (Math.abs(relationValue) >= 2) {
+                const strengthPos = {
+                    x: (fromPos.x + toPos.x) / 2,
+                    y: (fromPos.y + toPos.y) / 2
+                };
+
+                ctx.fillStyle = lineColor;
+                ctx.globalAlpha = isHighlighted ? 0.8 : 0.5;
+                ctx.beginPath();
+                ctx.arc(strengthPos.x, strengthPos.y, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            ctx.globalAlpha = 1;
+        }
+
+        function drawFactionNode(ctx, pos, isHighlighted) {
+            const { x, y, faction } = pos;
+            const size = isHighlighted ? 16 : 12;
+
+            // Draw faction emblem background
+            ctx.fillStyle = faction.color + (isHighlighted ? 'CC' : '88');
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Draw border
+            ctx.strokeStyle = faction.color;
+            ctx.lineWidth = isHighlighted ? 3 : 2;
+            ctx.stroke();
+
+            // Draw faction initial
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${isHighlighted ? 10 : 8}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(faction.name.charAt(0), x, y);
+        }
+
+        function highlightRelationships(factionId) {
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
+
+            function animate() {
+                renderRelationshipMatrix(factionId);
+                animationFrame = requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        function clearRelationshipHighlights() {
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+            renderRelationshipMatrix();
+        }
+
+        // Initialize canvas when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeRelationshipCanvas);
+        } else {
+            initializeRelationshipCanvas();
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (relationshipCanvas && canvasContext) {
+                const rect = relationshipCanvas.getBoundingClientRect();
+                relationshipCanvas.width = rect.width * window.devicePixelRatio;
+                relationshipCanvas.height = rect.height * window.devicePixelRatio;
+                canvasContext.scale(window.devicePixelRatio, window.devicePixelRatio);
+                renderRelationshipMatrix();
+            }
+        });
+    });
+</script>
+
+<style>
+    .faction-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+    }
+    
+    .faction-card:hover .faction-hover-indicator {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+    
+    .glass-morphism {
+        background: rgba(15, 15, 25, 0.8);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+</style>

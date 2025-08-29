@@ -1,0 +1,522 @@
+---
+// Immersive Gallery Component with Advanced Visual Effects
+export interface Props {
+    title?: string;
+    category?: string;
+    // allow flexible string values coming from generated manifest/snippets
+    items: Array<{
+        id: string;
+        src: string;
+        alt: string;
+        title: string;
+        description?: string;
+        category: string;
+        style: string;
+        quality?: string;
+        metadata?: {
+            resolution?: string;
+            technique?: string;
+            parameters?: string;
+        };
+    }>;
+}
+
+const { 
+    title = "Visual Showcase", 
+    category = "all",
+    items = []
+} = Astro.props;
+
+const categories = [...new Set(items.map(item => item.category))];
+const styles = [...new Set(items.map(item => item.style))];
+---
+
+<section class="immersive-gallery quantum-grid py-24 relative overflow-hidden">
+    <!-- Quantum Background Effect -->
+    <div class="absolute inset-0 quantum-grid opacity-30"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Gallery Header -->
+        <div class="gallery-header text-center mb-16">
+            <h2 class="holographic-text text-6xl font-display font-black mb-4">
+                {title}
+            </h2>
+            <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+                Experience the Terminal Grounds through our advanced AI asset generation pipeline. 
+                Each image represents countless iterations of the PERFECT_PARAMS methodology.
+            </p>
+            
+            <!-- Performance Stats -->
+            <div class="stats-bar glass-morphism-advanced p-6 max-w-4xl mx-auto mb-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="stat-item text-center">
+                        <div class="text-3xl font-display font-black text-primary mb-1">
+                            {items.length}+
+                        </div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Assets</div>
+                    </div>
+                    <div class="stat-item text-center">
+                        <div class="text-3xl font-display font-black text-accent-cyan mb-1">92%</div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Quality Rate</div>
+                    </div>
+                    <div class="stat-item text-center">
+                        <div class="text-3xl font-display font-black text-secondary mb-1">
+                            {categories.length}
+                        </div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Categories</div>
+                    </div>
+                    <div class="stat-item text-center">
+                        <div class="text-3xl font-display font-black text-accent-purple mb-1">
+                            {styles.length}
+                        </div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Styles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Filter System -->
+        <div class="filter-system mb-12">
+            <div class="filter-tabs glass-morphism-advanced p-2 rounded-xl max-w-4xl mx-auto">
+                <div class="tab-list flex flex-wrap justify-center gap-2">
+                    <button 
+                        class="filter-tab active cyber-terminal px-6 py-3 rounded-lg font-display font-bold transition-all duration-300"
+                        data-filter="all"
+                    >
+                        All Assets
+                    </button>
+                    {categories.map(cat => (
+                        <button 
+                            class="filter-tab cyber-terminal px-6 py-3 rounded-lg font-display font-bold transition-all duration-300"
+                            data-filter={cat}
+                        >
+                            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                        </button>
+                    ))}
+                </div>
+            </div>
+            
+            <!-- Style Filter -->
+            <div class="style-filter mt-6 flex justify-center gap-4">
+                <select id="styleSelect" class="glass-morphism-advanced px-4 py-2 rounded-lg bg-bg-secondary text-primary border-0">
+                    <option value="all">All Styles</option>
+                    <option value="clean">Clean Sci-Fi</option>
+                    <option value="gritty">Gritty Realism</option>
+                    <option value="hero">Hero Renders</option>
+                    <option value="concept">Concept Art</option>
+                </select>
+                <select id="qualitySelect" class="glass-morphism-advanced px-4 py-2 rounded-lg bg-bg-secondary text-primary border-0">
+                    <option value="all">All Quality</option>
+                    <option value="standard">Standard</option>
+                    <option value="enhanced">Enhanced</option>
+                    <option value="ultimate">Ultimate</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid masonry-grid gap-6" id="galleryGrid">
+            {items.map((item, index) => (
+                <div 
+                    class="gallery-item interactive-card glass-morphism-advanced break-inside-avoid mb-6 overflow-hidden rounded-xl cursor-pointer gpu-optimized content-loading"
+                    data-category={item.category}
+                    data-style={item.style}
+                    data-quality={item.quality || 'standard'}
+                    data-index={index}
+                    style={`animation-delay: ${index * 0.1}s`}
+                >
+                    <!-- Image Container -->
+                    <div class="image-container relative overflow-hidden bloom-container">
+                        <img 
+                            src={item.src}
+                            alt={item.alt}
+                            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        
+                        <!-- Quality Badge -->
+                        {item.quality && item.quality !== 'standard' && (
+                            <div class={`quality-badge absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-display font-bold ${
+                                item.quality === 'ultimate' ? 'bg-gradient-to-r from-primary to-accent-cyan' : 
+                                item.quality === 'enhanced' ? 'bg-gradient-to-r from-secondary to-accent-purple' : 
+                                'bg-bg-tertiary'
+                            } text-bg-primary`}>
+                                {item.quality.toUpperCase()}
+                            </div>
+                        )}
+                        
+                        <!-- Hover Overlay -->
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-bg-primary/90 via-transparent to-transparent opacity-0 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex justify-between items-end">
+                                    <div class="view-btn cyber-button text-sm px-4 py-2">
+                                        View Full Size
+                                    </div>
+                                    <div class="metadata-toggle text-xs text-text-muted hover:text-primary cursor-pointer">
+                                        Details
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Info -->
+                    <div class="item-info p-6">
+                        <h3 class="font-display font-bold text-lg text-primary mb-2">
+                            {item.title}
+                        </h3>
+                        {item.description && (
+                            <p class="text-text-secondary text-sm mb-4 leading-relaxed">
+                                {item.description}
+                            </p>
+                        )}
+                        
+                        <!-- Style & Category Tags -->
+                        <div class="tags flex flex-wrap gap-2 mb-4">
+                            <span class={`tag px-3 py-1 rounded-full text-xs font-semibold ${
+                                item.style === 'clean' ? 'bg-accent-cyan/20 text-accent-cyan' :
+                                item.style === 'gritty' ? 'bg-secondary/20 text-secondary' :
+                                item.style === 'hero' ? 'bg-primary/20 text-primary' :
+                                'bg-accent-purple/20 text-accent-purple'
+                            }`}>
+                                {item.style.toUpperCase()}
+                            </span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-semibold bg-bg-tertiary text-text-muted">
+                                {item.category.toUpperCase()}
+                            </span>
+                        </div>
+
+                        <!-- Metadata (Hidden by Default) -->
+                        {item.metadata && (
+                            <div class="metadata hidden mt-4 pt-4 border-t border-border/30">
+                                <div class="grid grid-cols-1 gap-2 text-xs">
+                                    {item.metadata.resolution && (
+                                        <div class="flex justify-between">
+                                            <span class="text-text-muted">Resolution:</span>
+                                            <span class="text-primary font-mono">{item.metadata.resolution}</span>
+                                        </div>
+                                    )}
+                                    {item.metadata.technique && (
+                                        <div class="flex justify-between">
+                                            <span class="text-text-muted">Technique:</span>
+                                            <span class="text-accent-cyan">{item.metadata.technique}</span>
+                                        </div>
+                                    )}
+                                    {item.metadata.parameters && (
+                                        <div class="flex justify-between">
+                                            <span class="text-text-muted">Parameters:</span>
+                                            <span class="text-text-secondary font-mono text-xs">{item.metadata.parameters}</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                        <!-- Data Stream Animation -->
+                        <div class="data-stream mt-4"></div>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container text-center mt-16">
+            <button class="load-more-btn cyber-button text-lg px-8 py-4 gpu-optimized">
+                Load More Assets
+                <span class="ml-2 text-accent-cyan">→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div id="fullscreenModal" class="fullscreen-modal fixed inset-0 z-[100] bg-bg-primary/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+        <div class="modal-content h-full flex items-center justify-center p-4">
+            <div class="modal-image-container glass-morphism-advanced rounded-xl overflow-hidden max-w-7xl max-h-full">
+                <div class="modal-header flex justify-between items-center p-4 border-b border-border/30">
+                    <div class="modal-title">
+                        <h3 class="font-display font-bold text-xl text-primary" id="modalTitle"></h3>
+                        <p class="text-text-muted text-sm" id="modalCategory"></p>
+                    </div>
+                    <button class="close-modal text-text-muted hover:text-primary text-2xl">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="" class="w-full h-auto max-h-[80vh] object-contain">
+                </div>
+                <div class="modal-footer p-4 border-t border-border/30">
+                    <div class="flex justify-between items-center">
+                        <div id="modalMetadata" class="text-sm text-text-secondary"></div>
+                        <div class="modal-controls flex gap-4">
+                            <button class="prev-btn cyber-button text-sm px-4 py-2">← Previous</button>
+                            <button class="next-btn cyber-button text-sm px-4 py-2">Next →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script define:vars={{ items }}>
+    // Immersive Gallery Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryGrid = document.getElementById('galleryGrid');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const styleSelect = document.getElementById('styleSelect');
+        const qualitySelect = document.getElementById('qualitySelect');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.getElementById('fullscreenModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalMetadata = document.getElementById('modalMetadata');
+        const closeModal = document.querySelector('.close-modal');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        let currentImageIndex = 0;
+        let filteredItems = [...items];
+
+        // Initialize gallery
+        initializeGallery();
+
+        function initializeGallery() {
+            // Animate items in
+            setTimeout(() => {
+                galleryItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('content-loaded');
+                    }, index * 50);
+                });
+            }, 100);
+
+            // Add event listeners
+            addEventListeners();
+        }
+
+        function addEventListeners() {
+            // Filter tabs
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    setActiveTab(tab);
+                    filterGallery();
+                });
+            });
+
+            // Dropdowns
+            styleSelect.addEventListener('change', filterGallery);
+            qualitySelect.addEventListener('change', filterGallery);
+
+            // Gallery items
+            galleryItems.forEach((item, index) => {
+                const img = item.querySelector('img');
+                const hoverOverlay = item.querySelector('.hover-overlay');
+                const metadataToggle = item.querySelector('.metadata-toggle');
+                const metadata = item.querySelector('.metadata');
+
+                // Hover effects
+                item.addEventListener('mouseenter', () => {
+                    hoverOverlay.style.opacity = '1';
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    hoverOverlay.style.opacity = '0';
+                });
+
+                // Click to open modal
+                img.addEventListener('click', () => {
+                    openModal(index);
+                });
+
+                // Metadata toggle
+                if (metadataToggle && metadata) {
+                    metadataToggle.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        metadata.classList.toggle('hidden');
+                        metadataToggle.textContent = metadata.classList.contains('hidden') ? 'Details' : 'Hide';
+                    });
+                }
+            });
+
+            // Modal controls
+            closeModal.addEventListener('click', closeModalHandler);
+            prevBtn.addEventListener('click', () => navigateModal(-1));
+            nextBtn.addEventListener('click', () => navigateModal(1));
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal.style.pointerEvents !== 'none') {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeModalHandler();
+                            break;
+                        case 'ArrowLeft':
+                            navigateModal(-1);
+                            break;
+                        case 'ArrowRight':
+                            navigateModal(1);
+                            break;
+                    }
+                }
+            });
+
+            // Click outside modal to close
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModalHandler();
+                }
+            });
+        }
+
+        function setActiveTab(activeTab) {
+            filterTabs.forEach(tab => tab.classList.remove('active'));
+            activeTab.classList.add('active');
+        }
+
+        function filterGallery() {
+            const activeCategory = document.querySelector('.filter-tab.active').dataset.filter;
+            const selectedStyle = styleSelect.value;
+            const selectedQuality = qualitySelect.value;
+
+            filteredItems = items.filter(item => {
+                const categoryMatch = activeCategory === 'all' || item.category === activeCategory;
+                const styleMatch = selectedStyle === 'all' || item.style === selectedStyle;
+                const qualityMatch = selectedQuality === 'all' || (item.quality || 'standard') === selectedQuality;
+                return categoryMatch && styleMatch && qualityMatch;
+            });
+
+            galleryItems.forEach((item, index) => {
+                const itemData = items[index];
+                const shouldShow = filteredItems.includes(itemData);
+                
+                if (shouldShow) {
+                    item.style.display = 'block';
+                    item.classList.remove('content-loading');
+                    setTimeout(() => {
+                        item.classList.add('content-loaded');
+                    }, 50);
+                } else {
+                    item.classList.remove('content-loaded');
+                    item.classList.add('content-loading');
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        function openModal(index) {
+            currentImageIndex = index;
+            const item = items[index];
+            
+            modalImage.src = item.src;
+            modalImage.alt = item.alt;
+            modalTitle.textContent = item.title;
+            modalCategory.textContent = `${item.category.toUpperCase()} • ${item.style.toUpperCase()}`;
+            
+            if (item.metadata) {
+                modalMetadata.innerHTML = `
+                    ${item.metadata.resolution ? `Resolution: ${item.metadata.resolution}` : ''}
+                    ${item.metadata.technique ? ` • Technique: ${item.metadata.technique}` : ''}
+                `;
+            } else {
+                modalMetadata.textContent = '';
+            }
+
+            modal.style.pointerEvents = 'auto';
+            modal.style.opacity = '1';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModalHandler() {
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function navigateModal(direction) {
+            currentImageIndex = (currentImageIndex + direction + items.length) % items.length;
+            openModal(currentImageIndex);
+        }
+
+        // Performance optimization: Intersection Observer for lazy loading
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('content-loaded');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        galleryItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
+</script>
+
+<style>
+    .filter-tab.active {
+        background: linear-gradient(45deg, var(--tw-gradient-from), var(--tw-gradient-to));
+        --tw-gradient-from: #00ff88;
+        --tw-gradient-to: #0077ff;
+        color: #0a0a0a;
+    }
+
+    .gallery-item:hover .hover-overlay {
+        opacity: 1;
+    }
+
+    .fullscreen-modal {
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+    }
+
+    .modal-content {
+        animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    /* Masonry layout optimization */
+    .masonry-grid {
+        column-fill: balance;
+    }
+
+    @media (max-width: 768px) {
+        .masonry-grid {
+            columns: 1;
+        }
+        
+        .modal-controls {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .masonry-grid {
+            columns: 2;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .masonry-grid {
+            columns: 3;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .masonry-grid {
+            columns: 4;
+        }
+    }
+</style>

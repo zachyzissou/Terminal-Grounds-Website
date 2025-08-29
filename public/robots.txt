@@ -1,5 +1,25 @@
-# robots.txt for Bloom Website
+# robots.txt for Bloom - Terminal Grounds Website
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+# Important pages for crawling
+Allow: /story
+Allow: /factions
+Allow: /regions
+Allow: /progress
+Allow: /concept-art
+Allow: /milestones
+
+# Assets
+Allow: /assets/
+
+# Disallow development and temp files
+Disallow: /.astro/
+Disallow: /node_modules/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://bloom.slurpgg.net/sitemap.xml
+
+# Be respectful to servers
+Crawl-delay: 1

@@ -1,8 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FactionShowcase from '../components/FactionShowcase.astro';
 ---
 
-<BaseLayout title="Bloom - Tactical Extraction FPS">
+<BaseLayout 
+    title="Bloom - Tactical Extraction FPS | Terminal Grounds" 
+    description="Bloom is a tactical extraction FPS set in a quarantined city reshaped by alien phenomena. Navigate faction warfare, extract artifacts, and survive the Cascade. Coming Q1 2027."
+    keywords="tactical extraction FPS, Terminal Grounds, Bloom game, faction warfare, alien artifacts, quarantined city, FPS extraction game, indie game development"
+    ogImage="/assets/images/renders/hero-main.png"
+    type="website">
+    <HeroSection />
     <section class="lore-primer">
         <div class="container">
             <h2 class="section-title">Lore Primer: What Is Bloom?</h2>
@@ -88,9 +96,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
                 <div class="world-gallery">
                     <div class="gallery-showcase">
-                        <img src="/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_Wide_Ambient_00003_.png" alt="Premium Metro Corridor" class="showcase-image primary" loading="lazy">
-                        <img src="/assets/images/environments/TG_PERFECT_Corporate_Lobby_Interior_Clean_SciFi_Wide_Ambient_00001_.png" alt="HQ Metro Maintenance" class="showcase-image secondary" loading="lazy">
-                        <img src="/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00001_.png" alt="Atmospheric Depth" class="showcase-image tertiary" loading="lazy">
+                        <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png" alt="Premium Metro Corridor" class="showcase-image primary" loading="lazy">
+                        <img src="/assets/images/environments/HQ_IEZ_Facility_Interior_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png" alt="HQ Metro Maintenance" class="showcase-image secondary" loading="lazy">
+                        <img src="/assets/images/environments/REFINE_SHARP_00003_1920w.png" alt="Atmospheric Depth" class="showcase-image tertiary" loading="lazy">
                     </div>
                     <div class="quality-comparison">
                         <div class="comparison-item">
@@ -220,7 +228,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </section>
 
-    <section class="factions-preview">
+    <!-- Enhanced Interactive Faction Showcase -->
+    <FactionShowcase />
+    
+    <!-- Legacy Faction Preview for Reference -->
+    <section class="factions-preview hidden">
         <div class="container">
             <h2 class="section-title">Major Factions</h2>
             <div class="factions-grid">
@@ -383,7 +395,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="asset-grid" id="assetGrid">
                 <!-- Hero Renders -->
                 <div class="asset-item featured" data-category="renders" data-style="hero">
-                    <img src="/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_Wide_Ambient_00003_.png" alt="Terminal Grounds - Main Hero Render" class="asset-image" loading="lazy">
+                    <img src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png" alt="Terminal Grounds - Main Hero Render" class="asset-image" loading="lazy">
                     <div class="asset-overlay">
                         <h4>Main Hero Render</h4>
                         <p>Primary visual identity</p>
@@ -401,7 +413,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
 
                 <div class="asset-item featured" data-category="renders" data-style="hero">
-                    <img src="/assets/images/renders/TG_PERFECT_Tech_Wastes_Exterior_Clean_SciFi_Perspective_Atmospheric_00001_.png" alt="Tech Wastes Hero Render" class="asset-image" loading="lazy">
+                    <img src="/assets/images/environments/REFINE_SHARP_00003_1920w.png" alt="Tech Wastes Hero Render" class="asset-image" loading="lazy">
                     <div class="asset-overlay">
                         <h4>Tech Wastes</h4>
                         <p>Post-cascade wasteland</p>

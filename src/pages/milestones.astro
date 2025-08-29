@@ -3,52 +3,97 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-    title="Milestones - Bloom" 
-    description="Development milestones and roadmap for Bloom - tracking our progress from concept to finished game."
-    ogImage="/assets/images/renders/hero-main.png">
+    title="Milestones - Bloom | Development Roadmap Q3 2025 - Q1 2027" 
+    description="Track Bloom's development milestones from Foundation Systems (Q3 2025 Complete) through Core Gameplay Loop (Q4 2025) to Early Access Launch (Q1 2027). See our progress roadmap."
+    keywords="Bloom milestones, development roadmap, game development timeline, Phase 1 complete, Q1 2027 launch, indie game milestones, Terminal Grounds roadmap"
+    ogImage="/assets/images/renders/hero-main.png"
+    type="article">
     
     <main class="milestones-page">
-        <section class="hero-milestones">
-            <div class="container">
-                <div class="milestones-header">
-                    <h1>Development Milestones</h1>
-                    <p class="milestones-subtitle">Tracking our journey from vision to reality</p>
+        <section class="hero-milestones quantum-grid py-24 relative overflow-hidden">
+            <div class="container relative z-10">
+                <div class="milestones-header text-center max-w-4xl mx-auto">
+                    <h1 class="holographic-text text-6xl md:text-8xl font-display font-black mb-6">Development Milestones</h1>
+                    <p class="milestones-subtitle text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">Tracking our journey from vision to reality</p>
+                    <div class="glass-morphism-advanced inline-block px-8 py-4 rounded-xl">
+                        <span class="text-primary font-display font-bold text-lg">Phase 1 Complete</span>
+                        <span class="text-text-muted mx-4">•</span>
+                        <span class="text-secondary font-semibold">Q4 2025 Active</span>
+                        <span class="text-text-muted mx-4">•</span>
+                        <span class="text-accent-cyan font-semibold">2027 Launch Target</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="milestones-timeline">
+        <section class="milestones-timeline py-20">
             <div class="container">
-                <h2 class="section-title">Major Milestones</h2>
+                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Major Milestones</h2>
                 
-                <div class="timeline">
-                    <div class="milestone completed">
-                        <div class="milestone-date">Q3 2025</div>
-                        <div class="milestone-content">
-                            <h3>Foundation Systems</h3>
-                            <div class="milestone-status complete">Complete</div>
-                            <p>Core infrastructure and asset pipeline establishment</p>
-                            <ul>
-                                <li>Asset generation pipeline with 92% success rate</li>
-                                <li>Territorial control system with real-time WebSocket infrastructure</li>
-                                <li>Database performance optimization (0.04ms queries)</li>
-                                <li>Chief Art Director framework with 5 core pillars</li>
-                            </ul>
+                <div class="timeline relative max-w-6xl mx-auto">
+                    <!-- Timeline line -->
+                    <div class="timeline-line absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-accent-purple transform md:-translate-x-1/2"></div>
+                    <div class="milestone completed flex flex-col md:flex-row items-center mb-16">
+                        <div class="milestone-marker w-8 h-8 bg-primary rounded-full border-4 border-bg-primary z-10 mb-4 md:mb-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 flex items-center justify-center">
+                            <div class="w-3 h-3 bg-bg-primary rounded-full"></div>
+                        </div>
+                        <div class="milestone-card md:w-5/12 md:mr-auto glass-morphism-advanced p-8 interactive-card hover:shadow-glow">
+                            <div class="milestone-date text-primary font-display font-bold text-lg mb-2">Q3 2025</div>
+                            <div class="milestone-content">
+                                <h3 class="text-2xl font-display font-bold text-primary mb-3">Foundation Systems</h3>
+                                <div class="milestone-status complete bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">Complete</div>
+                                <p class="text-text-secondary leading-relaxed mb-4">Core infrastructure and asset pipeline establishment</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Asset generation pipeline with 92% success rate</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Territorial control system with real-time WebSocket infrastructure</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Database performance optimization (0.04ms queries)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Chief Art Director framework with 5 core pillars</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="milestone in-progress">
-                        <div class="milestone-date">Q4 2025</div>
-                        <div class="milestone-content">
-                            <h3>Core Gameplay Loop</h3>
-                            <div class="milestone-status progress">In Progress</div>
-                            <p>Essential gameplay systems and mechanics</p>
-                            <ul>
-                                <li>Extraction timer and contested zone mechanics</li>
-                                <li>Faction reputation system with diplomatic consequences</li>
-                                <li>Field/Splice/Monolith artifact hierarchy</li>
-                                <li>Basic inventory and equipment systems</li>
-                            </ul>
+                    <div class="milestone in-progress flex flex-col md:flex-row items-center mb-16">
+                        <div class="milestone-marker w-8 h-8 bg-secondary rounded-full border-4 border-bg-primary z-10 mb-4 md:mb-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2 flex items-center justify-center animate-pulse">
+                            <div class="w-3 h-3 bg-bg-primary rounded-full"></div>
+                        </div>
+                        <div class="milestone-card md:w-5/12 md:ml-auto glass-morphism-advanced p-8 interactive-card hover:shadow-glow">
+                            <div class="milestone-date text-secondary font-display font-bold text-lg mb-2">Q4 2025</div>
+                            <div class="milestone-content">
+                                <h3 class="text-2xl font-display font-bold text-secondary mb-3">Core Gameplay Loop</h3>
+                                <div class="milestone-status progress bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">In Progress</div>
+                                <p class="text-text-secondary leading-relaxed mb-4">Essential gameplay systems and mechanics</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Extraction timer and contested zone mechanics</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Faction reputation system with diplomatic consequences</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Field/Splice/Monolith artifact hierarchy</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                                        <span class="text-text-secondary text-sm">Basic inventory and equipment systems</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

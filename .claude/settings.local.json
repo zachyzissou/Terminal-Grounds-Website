@@ -31,7 +31,16 @@
       "Read(/C:\\c\\Users\\Zachg/**)",
       "Bash(git fetch:*)",
       "Bash(grep:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(test:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "WebSearch",
+      "WebFetch(domain:localhost)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright install:*)"
     ],
     "deny": [],
     "ask": [],

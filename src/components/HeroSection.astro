@@ -1,0 +1,183 @@
+---
+// Enhanced Hero Section with WebGL Effects
+---
+
+<section class="hero min-h-screen relative overflow-hidden bg-bg-primary">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+        <img 
+            src="/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png"
+            alt="Terminal Grounds Metro Corridor"
+            class="w-full h-full object-cover"
+            loading="eager"
+        />
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 container mx-auto px-6 h-screen flex items-center">
+        <div class="max-w-4xl">
+            <!-- Terminal Window -->
+            <div class="terminal-window mb-8 animate-fade-up">
+                <div class="terminal-header">
+                    <div class="flex gap-2">
+                        <div class="terminal-dot bg-red-500"></div>
+                        <div class="terminal-dot bg-yellow-500"></div>
+                        <div class="terminal-dot bg-green-500"></div>
+                    </div>
+                    <span class="text-text-muted text-xs">tactical_extraction_protocol.exe</span>
+                </div>
+                <div class="p-4">
+                    <div class="terminal-line flex items-center gap-2 mb-1">
+                        <span class="text-primary">$</span>
+                        <span class="text-text-secondary">initializing cascade zone scan...</span>
+                    </div>
+                    <div class="terminal-line flex items-center gap-2 mb-1">
+                        <span class="text-green-500">[OK]</span>
+                        <span class="text-text-secondary">7 factions detected</span>
+                    </div>
+                    <div class="terminal-line flex items-center gap-2 mb-1">
+                        <span class="text-yellow-500">[WARN]</span>
+                        <span class="text-text-secondary">extraction windows contested</span>
+                    </div>
+                    <div class="terminal-line flex items-center gap-2">
+                        <span class="text-primary">$</span>
+                        <span class="text-text-secondary">ready for deployment</span>
+                        <span class="animate-pulse">▊</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Hero Content -->
+            <div class="space-y-8">
+                <!-- Title -->
+                <h1 class="text-6xl md:text-8xl font-display font-black leading-tight">
+                    <span class="holographic-text block animate-fade-up">BLOOM</span>
+                    <span class="text-2xl md:text-3xl text-text-secondary font-body font-normal block mt-2 animate-fade-up" style="animation-delay: 0.2s;">
+                        Tactical Extraction FPS
+                    </span>
+                </h1>
+                
+                <!-- Tagline -->
+                <p class="text-xl md:text-2xl text-text-secondary max-w-2xl leading-relaxed animate-fade-up" style="animation-delay: 0.4s;">
+                    A quarantined city-zone reshaped by alien phenomena. Navigate contested territories, harvest alien artifacts, and extract before the next bloom.
+                </p>
+                
+                <!-- Key Features -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 animate-fade-up" style="animation-delay: 0.6s;">
+                    <div class="glass-morphism-advanced interactive-card p-4 transition-all duration-300 hover:shadow-glow">
+                        <div class="text-accent-cyan text-2xl mb-2">⏰</div>
+                        <h3 class="text-primary font-display font-bold mb-1">Timed Extractions</h3>
+                        <p class="text-text-muted text-sm">Limited evac windows create high-stakes gameplay</p>
+                    </div>
+                    <div class="glass-morphism-advanced interactive-card p-4 transition-all duration-300 hover:shadow-glow">
+                        <div class="text-accent-purple text-2xl mb-2">🔮</div>
+                        <h3 class="text-primary font-display font-bold mb-1">Alien Artifacts</h3>
+                        <p class="text-text-muted text-sm">Field, Splice, and Monolith-class alien technology</p>
+                    </div>
+                    <div class="glass-morphism-advanced interactive-card p-4 transition-all duration-300 hover:shadow-glow">
+                        <div class="text-secondary text-2xl mb-2">🏛️</div>
+                        <h3 class="text-primary font-display font-bold mb-1">Seven Factions</h3>
+                        <p class="text-text-muted text-sm">Complex diplomacy shapes every encounter</p>
+                    </div>
+                </div>
+                
+                <!-- Call to Action -->
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-up" style="animation-delay: 0.8s;">
+                    <button class="cyber-button group">
+                        <span class="relative z-10">Explore the Zones</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent-blue to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                    <button class="px-6 py-3 bg-transparent border-2 border-primary/30 text-primary font-display font-bold transition-all duration-300 hover:border-primary hover:shadow-glow hover:bg-primary/10">
+                        View Gallery
+                    </button>
+                </div>
+                
+                <!-- Statistics -->
+                <div class="flex flex-wrap gap-8 pt-8 border-t border-border/30 animate-fade-up" style="animation-delay: 1.0s;">
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-black text-primary">112+</div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Assets</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-black text-secondary">7</div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Factions</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-black text-accent-purple">92%</div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Quality</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-display font-black text-accent-cyan">∞</div>
+                        <div class="text-text-muted text-sm uppercase tracking-wider">Replayability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+        <div class="w-6 h-10 border-2 border-primary/50 rounded-full p-1">
+            <div class="w-1 h-3 bg-primary rounded-full animate-pulse"></div>
+        </div>
+        <div class="text-center mt-2 text-text-muted text-xs uppercase tracking-wider">Scroll</div>
+    </div>
+</section>
+
+<!-- Load WebGL Hero Effects -->
+<script is:inline src="/assets/js/webgl-hero.js"></script>
+
+<style>
+    /* Custom animations for hero elements */
+    @keyframes fade-up {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-fade-up {
+        opacity: 0;
+        animation: fade-up 0.8s ease-out forwards;
+    }
+    
+    /* Terminal cursor animation */
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+    
+    .terminal-line:last-child span:last-child {
+        animation: blink 1s infinite;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 3rem;
+        }
+        
+        .terminal-window {
+            font-size: 0.75rem;
+        }
+    }
+    
+    /* High-contrast mode support */
+    @media (prefers-contrast: high) {
+        .glass-morphism {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid currentColor;
+        }
+        
+        .neon-text {
+            text-shadow: none;
+            color: #00ff00;
+        }
+    }
+</style>

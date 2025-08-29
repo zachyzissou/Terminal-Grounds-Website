@@ -3,39 +3,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-    title="Regions - Bloom" 
-    description="Explore the dangerous territories of the Terminal Grounds and their unique challenges."
-    ogImage="/assets/images/renders/hero-wastes.png">
+    title="Regions - Bloom | IEZ Territories & Faction Control" 
+    description="Navigate the dangerous territories of Terminal Grounds: The Dead Sky IEZ, Metro System, Machine Grave, Tech Wastes, Sump Gardens, and Security Checkpoints with dynamic faction control."
+    keywords="Bloom regions, IEZ territories, Dead Sky, Metro System, Machine Grave, Tech Wastes, faction control, Terminal Grounds map"
+    ogImage="/assets/images/renders/hero-wastes.png"
+    type="website">
     
     <main class="regions-page">
-        <section class="hero-regions">
-            <div class="container">
-                <div class="regions-header">
-                    <h1>Regions of the Terminal Grounds</h1>
-                    <p class="regions-subtitle">Navigate the contested territories of post-Cascade Bloom</p>
+        <section class="hero-regions quantum-grid py-24 relative overflow-hidden">
+            <div class="container relative z-10">
+                <div class="regions-header text-center max-w-4xl mx-auto">
+                    <h1 class="holographic-text text-6xl md:text-8xl font-display font-black mb-6">Regions of the Terminal Grounds</h1>
+                    <p class="regions-subtitle text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">Navigate the contested territories of post-Cascade Bloom</p>
+                    <div class="glass-morphism-advanced inline-block px-8 py-4 rounded-xl">
+                        <span class="text-primary font-display font-bold text-lg">200km Interdiction Zone</span>
+                        <span class="text-text-muted mx-4">•</span>
+                        <span class="text-secondary font-semibold">6 Major Regions</span>
+                        <span class="text-text-muted mx-4">•</span>
+                        <span class="text-accent-cyan font-semibold">Dynamic Control</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="regions-overview">
+        <section class="regions-overview py-20">
             <div class="container">
-                <h2 class="section-title">Key Territories</h2>
+                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Key Territories</h2>
                 
-                <div class="regions-grid">
-                    <div class="region-card iez">
-                        <div class="region-header">
-                            <h3>The Dead Sky (IEZ)</h3>
-                            <span class="danger-level high">Extreme Risk</span>
+                <div class="regions-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    <div class="region-card iez interactive-card glass-morphism-advanced overflow-hidden hover:shadow-glow">
+                        <div class="region-header flex justify-between items-start p-6 pb-0">
+                            <h3 class="text-2xl font-display font-bold text-primary">The Dead Sky (IEZ)</h3>
+                            <span class="danger-level high bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold">Extreme Risk</span>
                         </div>
-                        <div class="region-image">
-                            <img src="/assets/images/environments/iez-facility-clean.png" alt="IEZ Facility" loading="lazy">
+                        <div class="region-image relative h-48 mx-6 mb-4 overflow-hidden rounded-lg">
+                            <img src="/assets/images/environments/iez-facility-clean.png" alt="IEZ Facility" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/60 via-transparent to-transparent"></div>
                         </div>
-                        <div class="region-content">
-                            <p>The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
-                            <div class="region-details">
-                                <span class="detail-tag">Monolith Phenomena</span>
-                                <span class="detail-tag">Reality Distortion</span>
-                                <span class="detail-tag">Harvester Wrecks</span>
+                        <div class="region-content px-6 pb-6">
+                            <p class="text-text-secondary leading-relaxed mb-4">The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
+                            <div class="region-details flex flex-wrap gap-2">
+                                <span class="detail-tag bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-xs font-semibold">Monolith Phenomena</span>
+                                <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Reality Distortion</span>
+                                <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-3 py-1 rounded-full text-xs font-semibold">Harvester Wrecks</span>
                             </div>
                         </div>
                     </div>

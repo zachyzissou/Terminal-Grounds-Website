@@ -3,136 +3,139 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-    title="Story & Lore - Bloom" 
-    description="Discover the rich lore and world-building of Bloom - from the IEZ Cascade to the seven factions fighting for survival in 2161."
-    ogImage="/assets/images/renders/hero-iez.png">
+    title="Story & Lore - Bloom | The IEZ Cascade and Seven Factions" 
+    description="Discover the rich lore of Bloom: the IEZ Cascade that fractured reality, Harvester alien technology, and seven factions fighting for survival in the quarantined city of 2161."
+    keywords="Bloom story, IEZ Cascade, Harvester aliens, faction lore, quarantined city, Terminal Grounds lore, science fiction story, extraction FPS lore"
+    ogImage="/assets/images/renders/hero-iez.png"
+    type="article">
     
     <main class="story-page">
-        <section class="hero-story">
-            <div class="container">
-                <div class="story-header">
-                    <h1>The World of Bloom</h1>
-                    <p class="story-subtitle">Six months after the IEZ Cascade, survival depends on more than just skill</p>
-                    <div class="timeline-marker">
-                        <span class="year">2161</span>
-                        <span class="event">Post-Cascade Era</span>
+        <section class="hero-story quantum-grid py-24 relative overflow-hidden">
+            <div class="container relative z-10">
+                <div class="story-header text-center max-w-4xl mx-auto">
+                    <h1 class="holographic-text text-6xl md:text-8xl font-display font-black mb-6">The World of Bloom</h1>
+                    <p class="story-subtitle text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">Six months after the IEZ Cascade, survival depends on more than just skill</p>
+                    <div class="timeline-marker glass-morphism-advanced inline-flex items-center gap-4 px-8 py-4 rounded-xl">
+                        <span class="year text-4xl font-display font-black text-primary">2161</span>
+                        <div class="w-px h-8 bg-border"></div>
+                        <span class="event text-text-muted uppercase tracking-wider">Post-Cascade Era</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="story-overview">
+        <section class="story-overview py-20">
             <div class="container">
-                <div class="story-grid">
-                    <div class="story-content">
-                        <h2>The Cascade Event</h2>
-                        <p>In 2161, the world changed forever. The <strong>IEZ Cascade</strong> created a 200-kilometer radius interdiction zone—a quarantined city-zone now known as <strong>Bloom</strong>. What was once civilization became a contested wasteland, reshaped by alien technology and the remnants of the mysterious <strong>Harvesters</strong>.</p>
+                <div class="story-grid grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="story-content glass-morphism-advanced p-8">
+                        <h2 class="text-4xl font-display font-bold text-primary mb-6">The Cascade Event</h2>
+                        <p class="text-lg text-text-secondary leading-relaxed mb-6">In 2161, the world changed forever. The <strong class="text-accent-cyan">IEZ Cascade</strong> created a 200-kilometer radius interdiction zone—a quarantined city-zone now known as <strong class="text-primary">Bloom</strong>. What was once civilization became a contested wasteland, reshaped by alien technology and the remnants of the mysterious <strong class="text-secondary">Harvesters</strong>.</p>
                         
-                        <p>The Harvesters, absent alien extractors, left behind wreckage that defies understanding: <strong>Skimmer-class</strong> survey arrays, weaponized <strong>Harrower-class</strong> systems, and reality-bending <strong>Monolith-class</strong> field manipulators. These artifacts don't just power technology—they reshape the very nature of reality within Bloom.</p>
+                        <p class="text-lg text-text-secondary leading-relaxed">The Harvesters, absent alien extractors, left behind wreckage that defies understanding: <strong class="text-accent-cyan">Skimmer-class</strong> survey arrays, weaponized <strong class="text-secondary">Harrower-class</strong> systems, and reality-bending <strong class="text-accent-purple">Monolith-class</strong> field manipulators. These artifacts don't just power technology—they reshape the very nature of reality within Bloom.</p>
                     </div>
                     <div class="story-visual">
-                        <div class="cascade-diagram">
-                            <div class="cascade-center">IEZ Core</div>
-                            <div class="cascade-ring ring-1">Inner Quarantine</div>
-                            <div class="cascade-ring ring-2">Contested Zone</div>
-                            <div class="cascade-ring ring-3">200km Perimeter</div>
+                        <div class="cascade-diagram relative w-80 h-80 mx-auto">
+                            <div class="cascade-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-bg-primary font-bold text-sm animate-pulse">IEZ Core</div>
+                            <div class="cascade-ring ring-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-secondary rounded-full flex items-center justify-center text-secondary text-xs font-semibold">Inner Quarantine</div>
+                            <div class="cascade-ring ring-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-accent-cyan/50 rounded-full flex items-center justify-center text-accent-cyan text-xs font-semibold">Contested Zone</div>
+                            <div class="cascade-ring ring-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-border/30 rounded-full flex items-center justify-center text-text-muted text-xs">200km Perimeter</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="regions-section">
+        <section class="regions-section py-20 bg-bg-secondary/30">
             <div class="container">
-                <h2 class="section-title">Key Regions</h2>
-                <div class="regions-grid">
-                    <div class="region-card">
-                        <div class="region-header">
-                            <h3>The Dead Sky (IEZ)</h3>
-                            <span class="danger-level high">High Risk</span>
+                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-16">Key Regions</h2>
+                <div class="regions-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
+                        <div class="region-header flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-display font-bold text-primary">The Dead Sky (IEZ)</h3>
+                            <span class="danger-level high bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold">High Risk</span>
                         </div>
-                        <p>The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
-                        <div class="region-details">
-                            <span class="detail-tag">Monolith Phenomena</span>
-                            <span class="detail-tag">Reality Distortion</span>
-                        </div>
-                    </div>
-
-                    <div class="region-card">
-                        <div class="region-header">
-                            <h3>Machine Grave</h3>
-                            <span class="danger-level medium">Contested</span>
-                        </div>
-                        <p>Semi-autonomous factories that still produce. Controlled jointly by Corporate Hegemony and Archive Keepers, these industrial complexes are vital to post-Cascade survival.</p>
-                        <div class="region-details">
-                            <span class="detail-tag">Industrial</span>
-                            <span class="detail-tag">Factory Control</span>
+                        <p class="text-text-secondary leading-relaxed mb-4">The epicenter of the Cascade. A 200km radius where reality itself became unstable. Few who enter return unchanged, but the artifacts found here are beyond measure.</p>
+                        <div class="region-details flex flex-wrap gap-2">
+                            <span class="detail-tag bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-xs font-semibold">Monolith Phenomena</span>
+                            <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Reality Distortion</span>
                         </div>
                     </div>
 
-                    <div class="region-card">
-                        <div class="region-header">
-                            <h3>Metro System</h3>
-                            <span class="danger-level low">Variable</span>
+                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
+                        <div class="region-header flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-display font-bold text-primary">Machine Grave</h3>
+                            <span class="danger-level medium bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-semibold">Contested</span>
                         </div>
-                        <p>Underground transit networks that still function. Faction control shifts daily. The safest routes for extraction—if you know who controls them.</p>
-                        <div class="region-details">
-                            <span class="detail-tag">Transit Network</span>
-                            <span class="detail-tag">Dynamic Control</span>
+                        <p class="text-text-secondary leading-relaxed mb-4">Semi-autonomous factories that still produce. Controlled jointly by Corporate Hegemony and Archive Keepers, these industrial complexes are vital to post-Cascade survival.</p>
+                        <div class="region-details flex flex-wrap gap-2">
+                            <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-3 py-1 rounded-full text-xs font-semibold">Industrial</span>
+                            <span class="detail-tag bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-semibold">Factory Control</span>
                         </div>
                     </div>
 
-                    <div class="region-card">
-                        <div class="region-header">
-                            <h3>Tech Wastes</h3>
-                            <span class="danger-level medium">Scavenger Territory</span>
+                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
+                        <div class="region-header flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-display font-bold text-primary">Metro System</h3>
+                            <span class="danger-level low bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">Variable</span>
                         </div>
-                        <p>Post-industrial wasteland where technology goes to die—and be reborn. Iron Scavengers rule here, salvaging Harvester technology for those who can pay.</p>
-                        <div class="region-details">
-                            <span class="detail-tag">Salvage Zone</span>
-                            <span class="detail-tag">Artifact Trade</span>
+                        <p class="text-text-secondary leading-relaxed mb-4">Underground transit networks that still function. Faction control shifts daily. The safest routes for extraction—if you know who controls them.</p>
+                        <div class="region-details flex flex-wrap gap-2">
+                            <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Transit Network</span>
+                            <span class="detail-tag bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-xs font-semibold">Dynamic Control</span>
+                        </div>
+                    </div>
+
+                    <div class="region-card interactive-card glass-morphism-advanced p-6 hover:shadow-glow">
+                        <div class="region-header flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-display font-bold text-primary">Tech Wastes</h3>
+                            <span class="danger-level medium bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-semibold">Scavenger Territory</span>
+                        </div>
+                        <p class="text-text-secondary leading-relaxed mb-4">Post-industrial wasteland where technology goes to die—and be reborn. Iron Scavengers rule here, salvaging Harvester technology for those who can pay.</p>
+                        <div class="region-details flex flex-wrap gap-2">
+                            <span class="detail-tag bg-secondary/20 text-secondary px-3 py-1 rounded-full text-xs font-semibold">Salvage Zone</span>
+                            <span class="detail-tag bg-accent-cyan/20 text-accent-cyan px-3 py-1 rounded-full text-xs font-semibold">Artifact Trade</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="artifacts-section">
+        <section class="artifacts-section py-20">
             <div class="container">
-                <h2 class="section-title">Harvester Artifacts</h2>
-                <p class="section-intro">The absent Harvesters left behind technology that defies human understanding. Each class represents different levels of power—and danger.</p>
+                <h2 class="holographic-text text-4xl font-display font-bold text-center mb-6">Harvester Artifacts</h2>
+                <p class="section-intro text-xl text-text-secondary text-center max-w-3xl mx-auto mb-16 leading-relaxed">The absent Harvesters left behind technology that defies human understanding. Each class represents different levels of power—and danger.</p>
                 
-                <div class="artifacts-hierarchy">
-                    <div class="artifact-tier field">
-                        <h3>Field-Class</h3>
-                        <div class="artifact-icon">◇</div>
-                        <p>Basic Harvester technology. Powers weapons, shields, and basic equipment. Relatively stable, widely traded.</p>
-                        <div class="artifact-examples">
-                            <span>Energy Cells</span>
-                            <span>Shield Modules</span>
-                            <span>Power Cores</span>
+                <div class="artifacts-hierarchy grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="artifact-tier field interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
+                        <h3 class="text-2xl font-display font-bold text-primary mb-4">Field-Class</h3>
+                        <div class="artifact-icon text-6xl text-primary mb-6">◇</div>
+                        <p class="text-text-secondary leading-relaxed mb-6">Basic Harvester technology. Powers weapons, shields, and basic equipment. Relatively stable, widely traded.</p>
+                        <div class="artifact-examples flex flex-wrap gap-2 justify-center">
+                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Energy Cells</span>
+                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Shield Modules</span>
+                            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">Power Cores</span>
                         </div>
                     </div>
                     
-                    <div class="artifact-tier splice">
-                        <h3>Splice-Class</h3>
-                        <div class="artifact-icon">◈</div>
-                        <p>Intermediate technology that interfaces with human systems. Unpredictable side effects. High reward, high risk.</p>
-                        <div class="artifact-examples">
-                            <span>Neural Interfaces</span>
-                            <span>Reality Anchors</span>
-                            <span>Temporal Buffers</span>
+                    <div class="artifact-tier splice interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
+                        <h3 class="text-2xl font-display font-bold text-secondary mb-4">Splice-Class</h3>
+                        <div class="artifact-icon text-6xl text-secondary mb-6">◈</div>
+                        <p class="text-text-secondary leading-relaxed mb-6">Intermediate technology that interfaces with human systems. Unpredictable side effects. High reward, high risk.</p>
+                        <div class="artifact-examples flex flex-wrap gap-2 justify-center">
+                            <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-semibold">Neural Interfaces</span>
+                            <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-semibold">Reality Anchors</span>
+                            <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-semibold">Temporal Buffers</span>
                         </div>
                     </div>
                     
-                    <div class="artifact-tier monolith">
-                        <h3>Monolith-Class</h3>
-                        <div class="artifact-icon">◆</div>
-                        <p>Reality-altering technology. Changes the fundamental rules of an area. Priceless, extremely dangerous.</p>
-                        <div class="artifact-examples">
-                            <span>Cascade Cores</span>
-                            <span>Reality Engines</span>
-                            <span>Field Manipulators</span>
+                    <div class="artifact-tier monolith interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
+                        <h3 class="text-2xl font-display font-bold text-accent-purple mb-4">Monolith-Class</h3>
+                        <div class="artifact-icon text-6xl text-accent-purple mb-6 animate-pulse">◆</div>
+                        <p class="text-text-secondary leading-relaxed mb-6">Reality-altering technology. Changes the fundamental rules of an area. Priceless, extremely dangerous.</p>
+                        <div class="artifact-examples flex flex-wrap gap-2 justify-center">
+                            <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm font-semibold">Cascade Cores</span>
+                            <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm font-semibold">Reality Engines</span>
+                            <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm font-semibold">Field Manipulators</span>
                         </div>
                     </div>
                 </div>
@@ -247,18 +250,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </section>
 
-        <section class="cta-section">
+        <section class="cta-section py-20 bg-bg-secondary/30">
             <div class="container">
-                <div class="cta-grid">
-                    <div class="cta-card">
-                        <h3>Learn About Factions</h3>
-                        <p>Dive deeper into the seven major factions, their philosophies, and territories.</p>
-                        <a href="/factions" class="btn btn-primary">Explore Factions</a>
+                <div class="cta-grid grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="cta-card interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
+                        <h3 class="text-2xl font-display font-bold text-primary mb-4">Learn About Factions</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Dive deeper into the seven major factions, their philosophies, and territories.</p>
+                        <a href="/factions" class="cyber-button inline-block px-8 py-3">Explore Factions</a>
                     </div>
-                    <div class="cta-card">
-                        <h3>Discover Regions</h3>
-                        <p>Explore the dangerous territories of Bloom and their unique challenges.</p>
-                        <a href="/regions" class="btn btn-secondary">View Regions</a>
+                    <div class="cta-card interactive-card glass-morphism-advanced p-8 text-center hover:shadow-glow">
+                        <h3 class="text-2xl font-display font-bold text-secondary mb-4">Discover Regions</h3>
+                        <p class="text-text-secondary leading-relaxed mb-6">Explore the dangerous territories of Bloom and their unique challenges.</p>
+                        <a href="/regions" class="px-8 py-3 bg-transparent border-2 border-secondary/30 text-secondary font-display font-bold transition-all duration-300 hover:border-secondary hover:shadow-glow hover:bg-secondary/10 inline-block rounded">View Regions</a>
                     </div>
                 </div>
             </div>

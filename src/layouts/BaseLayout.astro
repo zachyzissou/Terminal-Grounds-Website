@@ -3,51 +3,159 @@ export interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  keywords?: string;
+  canonical?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article' | 'game';
 }
 
-const { title, description = "Bloom is a tactical extraction FPS set in a quarantined city-zone reshaped by alien 'Monolith' phenomena. Scavenge. Extract. Breathe before the next bloom.", ogImage = "/assets/images/renders/TG_PERFECT_Metro_Maintenance_Corridor_Clean_SciFi_Wide_Ambient_00003_.png" } = Astro.props;
+const { 
+  title, 
+  description = "Bloom is a tactical extraction FPS set in a quarantined city-zone reshaped by alien 'Monolith' phenomena. Scavenge. Extract. Breathe before the next bloom.", 
+  ogImage = "/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png",
+  keywords = "tactical extraction FPS, quarantined city, alien phenomena, Monolith, scavenging game, Terminal Grounds, faction warfare, reality distortion",
+  canonical,
+  noindex = false,
+  type = 'website'
+} = Astro.props;
+
 const currentPath = Astro.url.pathname;
+const siteUrl = "https://bloom.slurpgg.net";
+const fullUrl = siteUrl + currentPath;
+const fullOgImageUrl = ogImage.startsWith('http') ? ogImage : siteUrl + ogImage;
+
+// Import global styles with Tailwind
+import '../styles/global.css';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Essential Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} - Bloom</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Title and SEO -->
+    <title>{title}</title>
     <meta name="description" content={description}>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <meta name="keywords" content={keywords}>
+    <meta name="author" content="Terminal Grounds Development Team">
+    <meta name="generator" content="Astro">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical || fullUrl}>
+    
+    <!-- Robots and Indexing -->
+    {noindex && <meta name="robots" content="noindex, nofollow">}
+    {!noindex && <meta name="robots" content="index, follow">}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type}>
+    <meta property="og:url" content={fullUrl}>
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
-    <meta property="og:image" content={ogImage}>
-    <meta property="og:type" content="website">
+    <meta property="og:image" content={fullOgImageUrl}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Bloom - Terminal Grounds">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content={fullUrl}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={fullOgImageUrl}>
+    <meta name="twitter:creator" content="@terminalgrounds">
+    <meta name="twitter:site" content="@terminalgrounds">
+    
+    <!-- Game-specific Meta Tags -->
+    <meta name="application-name" content="Bloom">
+    <meta name="msapplication-TileColor" content="#000814">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="theme-color" content="#00FF88">
+    
+    <!-- Additional SEO -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Bloom",
+      "description": "A tactical extraction FPS set in a quarantined city-zone reshaped by alien 'Monolith' phenomena. Navigate faction warfare, scavenge artifacts, and extract before reality itself turns against you.",
+      "genre": ["Action", "First-Person Shooter", "Extraction", "Tactical"],
+      "gamePlatform": ["PC", "Steam"],
+      "operatingSystem": "Windows",
+      "applicationCategory": "Game",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/ComingSoon",
+        "priceCurrency": "USD"
+      },
+      "developer": {
+        "@type": "Organization",
+        "name": "Terminal Grounds Development Team"
+      },
+      "publisher": {
+        "@type": "Organization", 
+        "name": "Terminal Grounds"
+      },
+      "inLanguage": "en-US",
+      "url": "https://bloom.slurpgg.net",
+      "image": "https://bloom.slurpgg.net/assets/images/environments/HQ_Metro_Maintenance_Corridor_Clean_SciFi_2560x1440_s30_cfg4.0_00001_1920w.png",
+      "releaseDate": "2027-Q1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to main content</a>
-    <nav class="navbar">
-        <div class="nav-container">
+<body class="bg-bg-primary text-text-primary font-body scrollbar-custom">
+    <a class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-primary text-bg-primary rounded" href="#main">Skip to main content</a>
+    <nav class="navbar fixed top-0 w-full bg-bg-primary/95 backdrop-blur-xl border-b border-border z-50" role="navigation" aria-label="Main navigation">
+        <div class="nav-container max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="nav-brand">
-                <h1>Bloom</h1>
-                <span class="tagline">A quarantined city reborn</span>
+                <h1 class="font-display font-black text-xl text-primary">Bloom</h1>
+                <span class="tagline text-xs text-text-muted uppercase tracking-wider" aria-label="Game tagline">A quarantined city reborn</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a></li>
-                <li><a href="/story" class={`nav-link ${currentPath === '/story' || currentPath === '/story/' ? 'active' : ''}`}>Story</a></li>
-                <li><a href="/factions" class={`nav-link ${currentPath === '/factions' || currentPath === '/factions/' ? 'active' : ''}`}>Factions</a></li>
-                <li><a href="/regions" class={`nav-link ${currentPath === '/regions' || currentPath === '/regions/' ? 'active' : ''}`}>Regions</a></li>
-                <li><a href="/progress" class={`nav-link ${currentPath === '/progress' || currentPath === '/progress/' ? 'active' : ''}`}>Progress</a></li>
-                <li><a href="/concept-art" class={`nav-link ${currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'active' : ''}`}>Concept Art</a></li>
-                <li><a href="/milestones" class={`nav-link ${currentPath === '/milestones' || currentPath === '/milestones/' ? 'active' : ''}`}>Milestones</a></li>
+            <ul class="nav-menu hidden md:flex gap-8" role="menubar">
+                <li role="none"><a href="/" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/' ? 'page' : undefined}>Home</a></li>
+                <li role="none"><a href="/story" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/story' || currentPath === '/story/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/story' || currentPath === '/story/' ? 'page' : undefined}>Story</a></li>
+                <li role="none"><a href="/factions" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/factions' || currentPath === '/factions/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/factions' || currentPath === '/factions/' ? 'page' : undefined}>Factions</a></li>
+                <li role="none"><a href="/regions" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/regions' || currentPath === '/regions/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/regions' || currentPath === '/regions/' ? 'page' : undefined}>Regions</a></li>
+                <li role="none"><a href="/progress" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/progress' || currentPath === '/progress/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/progress' || currentPath === '/progress/' ? 'page' : undefined}>Progress</a></li>
+                <li role="none"><a href="/concept-art" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/concept-art' || currentPath === '/concept-art/' ? 'page' : undefined}>Concept Art</a></li>
+                <li role="none"><a href="/milestones" class={`nav-link text-text-secondary hover:text-primary transition-colors duration-300 ${currentPath === '/milestones' || currentPath === '/milestones/' ? 'text-primary font-semibold' : ''}`} role="menuitem" aria-current={currentPath === '/milestones' || currentPath === '/milestones/' ? 'page' : undefined}>Milestones</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger md:hidden flex flex-col gap-1 p-2" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="w-6 h-0.5 bg-text-primary transition-all duration-300" aria-hidden="true"></span>
+                <span class="w-6 h-0.5 bg-text-primary transition-all duration-300" aria-hidden="true"></span>
+                <span class="w-6 h-0.5 bg-text-primary transition-all duration-300" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 

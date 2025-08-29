@@ -1,0 +1,391 @@
+/* Terminal Grounds Advanced Visual Effects */
+
+/* Cyberpunk Glass Morphism with Enhanced Depth */
+.glass-morphism-advanced {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 25, 0.95) 0%,
+    rgba(25, 25, 40, 0.85) 50%,
+    rgba(15, 15, 25, 0.95) 100%
+  );
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid;
+  border-image: linear-gradient(
+    135deg,
+    rgba(0, 255, 136, 0.3) 0%,
+    rgba(0, 119, 255, 0.2) 50%,
+    rgba(170, 85, 255, 0.3) 100%
+  ) 1;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-morphism-advanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.8s;
+}
+
+.glass-morphism-advanced:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Holographic Text Effect */
+.holographic-text {
+  background: linear-gradient(
+    45deg,
+    #00ff88 0%,
+    #0077ff 25%,
+    #aa55ff 50%,
+    #ff6b35 75%,
+    #00ff88 100%
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holographic-shift 3s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes holographic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) saturate(1.2);
+  }
+  33% {
+    background-position: 100% 50%;
+    filter: hue-rotate(60deg) saturate(1.5);
+  }
+  66% {
+    background-position: 50% 100%;
+    filter: hue-rotate(-60deg) saturate(1.8);
+  }
+}
+
+/* Quantum Particle Grid Background */
+.quantum-grid {
+  position: relative;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 119, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(0deg, transparent 24%, rgba(0, 255, 136, 0.05) 25%, rgba(0, 255, 136, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 119, 255, 0.05) 75%, rgba(0, 119, 255, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 255, 136, 0.05) 25%, rgba(0, 255, 136, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 119, 255, 0.05) 75%, rgba(0, 119, 255, 0.05) 76%, transparent 77%, transparent);
+  background-size: 100px 100px, 150px 150px, 75px 75px, 75px 75px;
+  animation: quantum-drift 20s linear infinite;
+}
+
+@keyframes quantum-drift {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+  100% { background-position: 100px 100px, -150px -150px, -75px 75px, 75px -75px; }
+}
+
+/* Advanced Bloom Effect */
+.bloom-container {
+  position: relative;
+  filter: contrast(1.1) brightness(1.1);
+}
+
+.bloom-container::before,
+.bloom-container::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(8px) brightness(1.15);
+  opacity: 0.12; /* reduced from 0.3 */
+  z-index: -1;
+}
+
+.bloom-container::after {
+  filter: blur(14px) brightness(1.25);
+  opacity: 0.06; /* reduced from 0.1 */
+}
+
+/* Cyber Terminal Effect */
+.cyber-terminal {
+  background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #00ff88, #0077ff, #00ff88) 1;
+  position: relative;
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cyber-terminal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 136, 0.03) 2px,
+    rgba(0, 255, 136, 0.03) 4px
+  );
+  pointer-events: none;
+  animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* Enhanced Interactive Cards */
+.interactive-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.interactive-card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+}
+
+.interactive-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ff88, #0077ff, #aa55ff, #ff6b35);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.interactive-card:hover::before {
+  opacity: 0.5;
+  animation: border-glow 2s linear infinite;
+}
+
+@keyframes border-glow {
+  0%, 100% { filter: hue-rotate(0deg); }
+  33% { filter: hue-rotate(120deg); }
+  66% { filter: hue-rotate(240deg); }
+}
+
+/* Loading Animations */
+.data-stream {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-stream::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff88, transparent);
+  animation: data-flow 2s linear infinite;
+}
+
+@keyframes data-flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Faction-Specific Enhancement Classes */
+.faction-directorate {
+  --faction-glow: rgba(0, 153, 204, 0.4);
+  --faction-border: #0099cc;
+}
+
+.faction-iron-scavengers {
+  --faction-glow: rgba(255, 170, 0, 0.4);
+  --faction-border: #ffaa00;
+}
+
+.faction-free77 {
+  --faction-glow: rgba(255, 68, 68, 0.4);
+  --faction-border: #ff4444;
+}
+
+.faction-enhanced {
+  border: 1px solid var(--faction-border, #00ff88);
+  box-shadow: 0 0 20px var(--faction-glow, rgba(0, 255, 136, 0.3));
+  position: relative;
+}
+
+.faction-enhanced::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, var(--faction-border, #00ff88), transparent, var(--faction-border, #00ff88));
+  border-radius: inherit;
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: faction-border-flow 3s linear infinite;
+}
+
+@keyframes faction-border-flow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Performance-Optimized Parallax */
+.parallax-layer {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Critical CSS for Above-the-Fold Content */
+.critical-hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #1a1a2e 50%,
+    #16213e 100%
+  );
+}
+
+.critical-text {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  background: linear-gradient(45deg, #00ff88, #0077ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Optimized GPU-Accelerated Animations */
+.gpu-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Content Loading States */
+.content-loading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Advanced Grid Layouts */
+.masonry-grid {
+  columns: 3;
+  column-gap: 1.5rem;
+  break-inside: avoid;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .interactive-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .masonry-grid {
+    columns: 1;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .holographic-text,
+  .quantum-grid,
+  .bloom-container::before,
+  .bloom-container::after,
+  .cyber-terminal::before,
+  .interactive-card,
+  .data-stream::after,
+  .faction-enhanced::before {
+    animation: none;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-contrast: high) {
+  .glass-morphism-advanced {
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid #ffffff;
+  }
+
+  .holographic-text {
+    background: #00ff00;
+    -webkit-text-fill-color: #00ff00;
+  }
+
+  .quantum-grid {
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.1) 10px,
+      rgba(255, 255, 255, 0.1) 20px
+    );
+  }
+}
+
+/* Dark Mode Optimizations */
+@media (prefers-color-scheme: light) {
+  .glass-morphism-advanced {
+    background: linear-gradient(
+      135deg,
+      rgba(240, 240, 245, 0.95) 0%,
+      rgba(230, 230, 235, 0.85) 50%,
+      rgba(240, 240, 245, 0.95) 100%
+    );
+    border-image: linear-gradient(
+      135deg,
+      rgba(0, 100, 50, 0.3) 0%,
+      rgba(0, 50, 100, 0.2) 50%,
+      rgba(100, 50, 150, 0.3) 100%
+    ) 1;
+  }
+}
