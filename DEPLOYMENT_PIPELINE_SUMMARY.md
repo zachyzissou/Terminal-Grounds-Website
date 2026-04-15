@@ -139,7 +139,7 @@ Created:
 - **DEPLOYMENT.md** - Step-by-step deployment instructions
 - **QUICKSTART.md** - 30-minute deployment guide
 - **plausible-setup.md** - Analytics setup instructions
-- **LICENSE** - MIT License
+- **LICENSE** - Source-visible license
 
 ### GitHub Templates
 
