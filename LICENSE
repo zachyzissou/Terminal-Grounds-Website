@@ -1,6 +1,6 @@
-# SlurpNet Source-Visible License v1.0
+# Source-Visible License v1.0
 
-Copyright (c) 2026 Zach Gonser and contributors authorized by Zach Gonser.
+Copyright (c) 2026 Zach Gonser.
 All rights reserved.
 
 ## Grant of access
@@ -18,6 +18,7 @@ Without prior written permission from Zach Gonser, you may not:
 
 ## Contributions
 Unless explicitly agreed otherwise in writing, any contribution, patch, pull request, or suggestion submitted for this repository may be rejected and does not grant you any rights to this codebase.
+By submitting a contribution, patch, pull request, or suggestion to this repository, you represent that you have the right to submit it and grant Zach Gonser a perpetual, worldwide, non-exclusive, irrevocable, royalty-free license to use, reproduce, modify, adapt, create derivative works from, display, perform, distribute, sublicense as necessary, and otherwise incorporate that submission into this codebase and related materials under this license or any successor license used for this codebase.
 
 ## Trademark and branding
 No trademark, service mark, trade name, logo, or brand feature license is granted.

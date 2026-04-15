@@ -1,5 +1,5 @@
 > **License Notice**
-> This repository is source-visible only. No copying, modification, redistribution, deployment, or commercial use is permitted without prior written permission from Zach Gonser. See `LICENSE` for details.
+> This repository is source-visible only. You may clone, download, and make local copies solely for personal review of the source. No modification, redistribution, public sharing, deployment, or commercial use is permitted without prior written permission from Zach Gonser. See `LICENSE` for details.
 
 # Bloom Marketing Website - Performance Optimization
 

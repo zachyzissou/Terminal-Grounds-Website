@@ -54,7 +54,7 @@ Complete directory structure of the deployment pipeline setup.
 ├── .prettierignore                             # Prettier ignore rules
 ├── .prettierrc.json                            # Prettier configuration
 ├── astro.config.mjs                            # Astro framework configuration
-├── LICENSE                                     # MIT License
+├── LICENSE                                     # Source-visible license
 ├── netlify.toml                                # Netlify deployment configuration
 ├── package.json                                # Dependencies and scripts
 ├── performance-budget.json                     # Performance budget limits
@@ -123,7 +123,7 @@ Complete directory structure of the deployment pipeline setup.
 - `.github/PULL_REQUEST_TEMPLATE.md` - Pull request template
 
 ### Legal (1)
-- `LICENSE` - MIT License
+- `LICENSE` - Source-visible license
 
 ---
 
