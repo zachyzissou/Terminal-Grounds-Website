@@ -36,10 +36,10 @@
       <div class="footer-column">
         <h3 class="footer-heading">Community</h3>
         <ul class="footer-links">
-          <li><a href="#" rel="noopener noreferrer" target="_blank" aria-label="Join our Discord community (coming soon)" aria-disabled="true">Discord</a></li>
-          <li><a href="#" rel="noopener noreferrer" target="_blank" aria-label="Follow us on Twitter (coming soon)" aria-disabled="true">Twitter</a></li>
-          <li><a href="#" rel="noopener noreferrer" target="_blank" aria-label="Join our Reddit community (coming soon)" aria-disabled="true">Reddit</a></li>
-          <li><a href="#" rel="noopener noreferrer" target="_blank" aria-label="Subscribe to our YouTube channel (coming soon)" aria-disabled="true">YouTube</a></li>
+          <li><span class="footer-link-disabled">Discord</span></li>
+          <li><span class="footer-link-disabled">Twitter</span></li>
+          <li><span class="footer-link-disabled">Reddit</span></li>
+          <li><span class="footer-link-disabled">YouTube</span></li>
         </ul>
       </div>
 
@@ -47,7 +47,7 @@
       <div class="footer-column">
         <h3 class="footer-heading">Resources</h3>
         <ul class="footer-links">
-          <li><a href="#" aria-label="Press Kit (coming soon)" aria-disabled="true">Press Kit</a></li>
+          <li><span class="footer-link-disabled">Press Kit</span></li>
           <li><a href="/media">Media</a></li>
           <li><a href="/faq">FAQ</a></li>
         </ul>
@@ -149,17 +149,26 @@
     gap: 0.75rem;
   }
 
-  .footer-links a {
-    color: var(--color-gray);
+  .footer-links a,
+  .footer-link-disabled {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    color: #c7c7c7;
     font-size: 0.875rem;
     transition: color 0.2s ease, transform 0.2s ease;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
   }
 
   .footer-links a:hover {
     color: var(--color-primary);
     transform: translateX(2px);
     text-decoration: underline;
+  }
+
+  .footer-link-disabled {
+    color: #9f9f9f;
+    cursor: default;
   }
 
   /* Copyright Section */
