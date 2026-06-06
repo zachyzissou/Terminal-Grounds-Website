@@ -248,9 +248,13 @@
       // Check if consent has been given before
       const consent = localStorage.getItem(this.consentKey)
       
-      if (consent === null) {
-        // First visit - show modal after a short delay
-        // Delay allows page to fully load and avoids overwhelming the user immediately
+      const deferPromptForCompactTouch = window.matchMedia(
+        '(pointer: coarse) and (max-width: 768px)'
+      ).matches
+
+      if (consent === null && !deferPromptForCompactTouch) {
+        // First desktop visit - show modal after a short delay.
+        // Compact touch devices start quiet and can opt in through the music control.
         setTimeout(() => this.showModal(), 1000)
       }
 

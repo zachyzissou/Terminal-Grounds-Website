@@ -89,7 +89,15 @@
       this.playingIcon = document.getElementById('music-icon-playing');
       this.mutedIcon = document.getElementById('music-icon-muted');
 
-      // Get saved preference from localStorage
+      // Get saved preference from localStorage. Compact touch devices start quiet
+      // so the first mobile viewport is game content, not an audio consent modal.
+      const compactTouchNoConsent =
+        window.matchMedia('(pointer: coarse) and (max-width: 768px)').matches &&
+        localStorage.getItem(this.consentKey) === null
+      if (compactTouchNoConsent) {
+        localStorage.setItem('audioConsentGiven', 'false')
+        localStorage.setItem('bgMusicMuted', 'true')
+      }
       this.isMuted = localStorage.getItem('bgMusicMuted') === 'true';
 
       // Last known playback position in seconds (for full page reloads / non-transition nav)
